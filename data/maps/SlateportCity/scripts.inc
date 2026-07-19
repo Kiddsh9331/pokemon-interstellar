@@ -47,8 +47,74 @@ SlateportCity_EventScript_MoveScottLeft::
 	return
 
 SlateportCity_OnFrame:
+	map_script_2 VAR_INTERSTELLAR_STATE, 8, Interstellar_Slateport_EventScript_Arrival
 	map_script_2 VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_ScottScene
 	.2byte 0
+
+Interstellar_Slateport_EventScript_Arrival::
+	lockall
+	fadescreenspeed FADE_FROM_BLACK, 2
+	delay 30
+	setflag FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA
+	setflag FLAG_HIDE_SLATEPORT_CITY_SCOTT
+	msgbox Interstellar_Slateport_Text_Arrival, MSGBOX_DEFAULT
+	closemessage
+	msgbox Interstellar_Slateport_Text_BirchReunion, MSGBOX_DEFAULT
+	closemessage
+	setrespawn HEAL_LOCATION_SLATEPORT_CITY
+	setvar VAR_INTERSTELLAR_STATE, 9
+	releaseall
+	end
+
+Interstellar_EventScript_BirchSlateport::
+	lock
+	faceplayer
+	msgbox Interstellar_Slateport_Text_BirchTalk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_BirchSlateportHint
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	fadescreen FADE_FROM_BLACK
+	msgbox Interstellar_Slateport_Text_BirchHealed, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_BirchSlateportHint::
+	msgbox Interstellar_Slateport_Text_BirchHint, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Slateport_Text_Arrival:
+	.string "The gate drops you onto warm stone.\p"
+	.string "Salt. Sun. The cries of WINGULL.\p"
+	.string "For one breath, the world feels\n"
+	.string "like home again.$"
+
+Interstellar_Slateport_Text_BirchReunion:
+	.string "BIRCH: {PLAYER}?\p"
+	.string "...{PLAYER}!\p"
+	.string "I knew the readings were yours.\n"
+	.string "I just didn't know if I was brave\l"
+	.string "enough to trust them.\p"
+	.string "You're alive.\n"
+	.string "That's the whole experiment, then.$"
+
+Interstellar_Slateport_Text_BirchTalk:
+	.string "BIRCH: You've crossed a region\n"
+	.string "of broken time. Rest a moment?$"
+
+Interstellar_Slateport_Text_BirchHealed:
+	.string "BIRCH: There. No field notes say\n"
+	.string "how to fix a day like this, but\l"
+	.string "a good rest is still a good start.$"
+
+Interstellar_Slateport_Text_BirchHint:
+	.string "BIRCH: The RIFT GAUGE points north,\n"
+	.string "toward MAUVILLE.\p"
+	.string "The road is not safe yet. I'm\n"
+	.string "charting the stable path through\l"
+	.string "the changed coast. Stay close.$"
 
 SlateportCity_EventScript_ScottScene::
 	lockall

@@ -17,11 +17,13 @@
       "name": "SlateportCity_Layout",
       "width": 40,
       "height": 60,
+      "border_width": 2,
+      "border_height": 2,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/SlateportCity/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg"
     },
     {
       "id": "LAYOUT_MAUVILLE_CITY",

@@ -583,7 +583,17 @@ Interstellar_Cerulean_EventScript_StevenWait::
 	end
 
 Interstellar_Cerulean_EventScript_StevenOutro::
-	msgbox Interstellar_Cerulean_Text_StevenOutro, MSGBOX_DEFAULT
+	msgbox Interstellar_Cerulean_Text_StevenGateReady, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_Cerulean_EventScript_StevenStay
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_SLATEPORT_CITY, 20, 42
+	waitstate
+	release
+	end
+
+Interstellar_Cerulean_EventScript_StevenStay::
+	msgbox Interstellar_Cerulean_Text_StevenStay, MSGBOX_DEFAULT
 	release
 	end
 
@@ -638,6 +648,20 @@ Interstellar_Cerulean_Text_StevenSkarmory:
 Interstellar_Cerulean_Text_StevenIllBeHere:
 	.string "STEVEN: I'll be here.\n"
 	.string "Stones don't hurry.$"
+
+Interstellar_Cerulean_Text_StevenGateReady:
+	.string "STEVEN: Look at the water.\n"
+	.string "Still as glass. You did that.\p"
+	.string "The gate in the cave reads warm\n"
+	.string "and green-- HOENN, or I'm no\l"
+	.string "geologist.\p"
+	.string "The far side is open.\n"
+	.string "Step through?$"
+
+Interstellar_Cerulean_Text_StevenStay:
+	.string "STEVEN: Take your time. The gate\n"
+	.string "is stable. For once, time can\l"
+	.string "wait for you.$"
 
 Interstellar_Cerulean_Text_StevenOutro:
 	.string "STEVEN: Look at the water.\n"
