@@ -87,6 +87,27 @@ Interstellar_EventScript_KantoRiftGateWait::
 	release
 	end
 
+Interstellar_EventScript_ForestRiftScar::
+	lock
+	faceplayer
+	msgbox Interstellar_Text_ForestRiftScar, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_MtMoonRiftScar::
+	lock
+	faceplayer
+	msgbox Interstellar_Text_MtMoonRiftScar, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_CeruleanRiftScar::
+	lock
+	faceplayer
+	msgbox Interstellar_Text_CeruleanRiftScar, MSGBOX_DEFAULT
+	release
+	end
+
 Interstellar_RiftChamber_EventScript_ExitTrigger::
 	lockall
 	msgbox Interstellar_Text_LeaveRift, MSGBOX_YESNO
@@ -166,6 +187,29 @@ Interstellar_Text_KantoRiftGate:
 Interstellar_Text_KantoRiftGateWait:
 	.string "The gate hums softly.\n"
 	.string "It will wait.$"
+
+Interstellar_Text_ForestRiftScar:
+	.string "The fog bends toward a black\n"
+	.string "scar between the trees.\p"
+	.string "It is no gate--only the husk\n"
+	.string "of a wound that never quite\l"
+	.string "closed.\p"
+	.string "The forest is growing around it.$"
+
+Interstellar_Text_MtMoonRiftScar:
+	.string "A dark fold trembles in the\n"
+	.string "cave air.\p"
+	.string "Moonstone dust orbits it in\n"
+	.string "tiny, impossible circles.\p"
+	.string "Something ancient is stirring\n"
+	.string "beneath MT. MOON.$"
+
+Interstellar_Text_CeruleanRiftScar:
+	.string "Rain vanishes into the black\n"
+	.string "spiral before it can touch it.\p"
+	.string "CERULEAN's water has been pulled\n"
+	.string "out of its old paths by rift\l"
+	.string "pressure.$"
 
 Interstellar_Text_LeaveRift:
 	.string "The way back to CERULEAN shimmers\n"
