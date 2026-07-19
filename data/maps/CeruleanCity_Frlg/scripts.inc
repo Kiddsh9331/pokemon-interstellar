@@ -587,7 +587,7 @@ Interstellar_Cerulean_EventScript_StevenOutro::
 	goto_if_eq VAR_RESULT, NO, Interstellar_Cerulean_EventScript_StevenStay
 	closemessage
 	fadescreen FADE_TO_BLACK
-	warp MAP_SLATEPORT_CITY, 20, 42
+	warp MAP_INTERSTELLAR_RIFT_CHAMBER, 18, 20
 	waitstate
 	release
 	end

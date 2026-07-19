@@ -75,6 +75,7 @@ Interstellar_EventScript_InitKantoState::
 	setflag FLAG_HIDE_NUGGET_BRIDGE_ROCKET
 	setflag FLAG_HIDE_ROUTE_22_RIVAL
 	setflag FLAG_HIDE_CERULEAN_CAVE_GUARD
+	setflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
 	return
 
 Interstellar_Town_EventScript_LockedHouse::

@@ -2518,6 +2518,10 @@ static const struct SpriteFrameImage sPicTable_BirthIslandStoneFrlg[] = {
     overworld_frame(gObjectEventPic_BirthIslandStoneFrlg, 4, 4, 0),
 };
 
+static const struct SpriteFrameImage sPicTable_InterstellarRiftGate[] = {
+    overworld_frame(gObjectEventPic_InterstellarRiftGate, 4, 4, 0),
+};
+
 static const struct SpriteFrameImage sPicTable_LaprasDoll[] = {
     overworld_frame(gObjectEventPic_LaprasDoll, 4, 4, 0),
 };

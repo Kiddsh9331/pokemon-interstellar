@@ -2704,3 +2704,4 @@
 #define FLAG_INTERSTELLAR_AUTORUN                        0x472
 #define FLAG_INTERSTELLAR_EXPSHARE                       0x479
 #define FLAG_INTERSTELLAR_DEOXYS_CAUGHT                  0x493
+#define FLAG_INTERSTELLAR_KANTO_GATE_LOCKED               0x494

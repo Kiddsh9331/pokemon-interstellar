@@ -56,11 +56,35 @@ Interstellar_EventScript_RiftStabilizes::
 	waitstate
 	msgbox Interstellar_Text_RiftCrystallizes, MSGBOX_DEFAULT
 	closemessage
+	clearflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
 	setvar VAR_INTERSTELLAR_STATE, 7
 	fadescreenspeed FADE_TO_WHITE, 2
 	warp MAP_CERULEAN_CITY, 9, 14
 	waitstate
 	releaseall
+	end
+
+Interstellar_EventScript_KantoRiftGate::
+	lock
+	msgbox Interstellar_Text_KantoRiftGate, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_KantoRiftGateWait
+	closemessage
+	playse SE_THUNDER
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 3
+	special ShakeCamera
+	waitstate
+	fadescreenspeed FADE_TO_WHITE, 2
+	warp MAP_SLATEPORT_CITY, 20, 42
+	waitstate
+	release
+	end
+
+Interstellar_EventScript_KantoRiftGateWait::
+	msgbox Interstellar_Text_KantoRiftGateWait, MSGBOX_DEFAULT
+	release
 	end
 
 Interstellar_RiftChamber_EventScript_ExitTrigger::
@@ -131,6 +155,17 @@ Interstellar_Text_RiftCrystallizes:
 	.string "the far side.\p"
 	.string "It smells of salt and summer.\n"
 	.string "It smells of home.$"
+
+Interstellar_Text_KantoRiftGate:
+	.string "The RIFTGATE stands where the\n"
+	.string "wound once was. Violet crystal\l"
+	.string "holds a sky-blue window open.\p"
+	.string "Warm sunlight moves beyond it.\n"
+	.string "Cross to HOENN?$"
+
+Interstellar_Text_KantoRiftGateWait:
+	.string "The gate hums softly.\n"
+	.string "It will wait.$"
 
 Interstellar_Text_LeaveRift:
 	.string "The way back to CERULEAN shimmers\n"
