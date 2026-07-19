@@ -16,11 +16,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE24",
-      "offset": 12,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE5",
       "offset": 0,
       "direction": "down"
@@ -205,6 +200,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeruleanCity_EventScript_CeruleanCaveGuard",
       "flag": "FLAG_HIDE_CERULEAN_CAVE_GUARD"
+    },
+    {
+      "local_id": "LOCALID_INTERSTELLAR_STEVEN",
+      "graphics_id": "OBJ_EVENT_GFX_STEVEN",
+      "x": 8,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_EventScript_StevenCerulean",
+      "flag": "0"
     }
   ],
   "warp_events": [

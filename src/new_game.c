@@ -136,9 +136,9 @@ static void ClearFrontierRecord(void)
 static void WarpToTruck(void)
 {
     if (IS_FRLG)
-        SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
-    else
-        SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+        SetWarpDestination(MAP_GROUP(MAP_INTERSTELLAR_BEDROOM), MAP_NUM(MAP_INTERSTELLAR_BEDROOM), WARP_ID_NONE, 6, 6); // Interstellar: wake up in bed
+    else // Pokémon Interstellar: new game begins in Birch's lab (prologue), not the truck.
+        SetWarpDestination(MAP_GROUP(MAP_INTERSTELLAR_BEDROOM), MAP_NUM(MAP_INTERSTELLAR_BEDROOM), WARP_ID_NONE, 6, 6);
     WarpIntoMap();
 }
 

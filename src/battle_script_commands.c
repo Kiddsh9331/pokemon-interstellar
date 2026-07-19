@@ -3939,7 +3939,7 @@ static void Cmd_getexp(void)
                     if (*exp == 0)
                         *exp = 1;
 
-                    gBattleStruct->expShareExpValue = calculatedExp / 2 / viaExpShare;
+                    gBattleStruct->expShareExpValue = calculatedExp / (FlagGet(FLAG_INTERSTELLAR_DEOXYS_CAUGHT) ? 1 : 2) / viaExpShare; // Interstellar: 100% share after Deoxys is caught
                     if (gBattleStruct->expShareExpValue == 0)
                         gBattleStruct->expShareExpValue = 1;
                 }

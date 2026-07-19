@@ -1113,8 +1113,9 @@ static void IntroCB_Init(struct IntroSequenceData * this)
         this->state++;
         break;
     case 1:
+        // Pokémon Interstellar: no GAME FREAK card — straight to the title cinematic.
         if (!IsDma3ManagerBusyWithBgCopy())
-            SetIntroCB(this, IntroCB_GF_OpenWindow);
+            SetIntroCB(this, IntroCB_ExitToTitleScreen);
         break;
     }
 }
@@ -1271,7 +1272,8 @@ static void IntroCB_GF_RevealLogo(struct IntroSequenceData * this)
         if (++this->timer > 20)
         {
             SetGpuReg(REG_OFFSET_BLDCNT, 0);
-            SetIntroCB(this, IntroCB_Scene1);
+            // Pokémon Interstellar: skip the Gengar/Nidorino scenes — GAME FREAK card, then straight to the title screen.
+            SetIntroCB(this, IntroCB_ExitToTitleScreen);
         }
         break;
     }

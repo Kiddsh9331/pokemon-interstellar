@@ -1,4 +1,5 @@
 #include "global.h"
+#include "util.h"
 #include "berry_fix_program.h"
 #include "bg.h"
 #include "clear_save_data_menu.h"
@@ -38,7 +39,7 @@ enum TitleScreenScene
 };
 
 #if   defined(FIRERED)
-#define TITLE_SPECIES SPECIES_CHARIZARD
+#define TITLE_SPECIES SPECIES_DEOXYS
 #elif defined(LEAFGREEN)
 #define TITLE_SPECIES SPECIES_VENUSAUR
 #endif
@@ -106,8 +107,8 @@ static const u32 sStreak_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/leafgree
 
 #ifdef FIRERED
 const u16 gGraphics_TitleScreen_GameTitleLogoPals[] = INCGFX_U16("graphics/title_screen_frlg/firered/game_title_logo.pal", ".gbapal");
-const u8 gGraphics_TitleScreen_GameTitleLogoTiles[] = INCGFX_U8("graphics/title_screen_frlg/firered/game_title_logo.png", ".8bpp.smol");
-const u8 gGraphics_TitleScreen_GameTitleLogoMap[] = INCBIN_U8("graphics/title_screen_frlg/firered/game_title_logo.bin.smolTM");
+const u16 gGraphics_TitleScreen_GameTitleLogoTiles[] = INCGFX_U16("graphics/title_screen_frlg/firered/game_title_logo.png", ".8bpp"); // Interstellar: raw, too large for smol temp buffer
+const u16 gGraphics_TitleScreen_GameTitleLogoMap[] = INCBIN_U16("graphics/title_screen_frlg/firered/game_title_logo.bin");
 const u16 gGraphics_TitleScreen_BoxArtMonPals[] = INCGFX_U16("graphics/title_screen_frlg/firered/box_art_mon.pal", ".gbapal");
 const u8 gGraphics_TitleScreen_BoxArtMonTiles[] = INCGFX_U8("graphics/title_screen_frlg/firered/box_art_mon.png", ".4bpp.smol");
 const u8 gGraphics_TitleScreen_BoxArtMonMap[] = INCBIN_U8("graphics/title_screen_frlg/firered/box_art_mon.bin.smolTM");
@@ -291,7 +292,7 @@ static const struct BgTemplate sBgTemplates[] = {
         .baseTile = 0
     }, {
         .bg = 1,
-        .charBaseIndex = 1,
+        .charBaseIndex = 3, // Interstellar: BG0 fullscreen art needs charblocks 0-2
         .mapBaseIndex = 30,
         .screenSize = 0,
         .paletteMode = 0, // 4bpp
@@ -299,7 +300,7 @@ static const struct BgTemplate sBgTemplates[] = {
         .baseTile = 0
     }, {
         .bg = 2,
-        .charBaseIndex = 2,
+        .charBaseIndex = 3,
         .mapBaseIndex = 29,
         .screenSize = 0,
         .paletteMode = 0, // 4bpp
@@ -404,8 +405,14 @@ void CB2_InitTitleScreenFrlg(void)
         break;
     case 1:
         LoadPalette(gGraphics_TitleScreen_GameTitleLogoPals, BG_PLTT_ID(0), 13 * PLTT_SIZE_4BPP);
+#if defined(FIRERED)
+        // Interstellar: full-screen 8bpp title art, copied raw (38KB exceeds the smol pipeline)
+        DmaCopy16(3, gGraphics_TitleScreen_GameTitleLogoTiles, (void *)BG_CHAR_ADDR(0), sizeof(gGraphics_TitleScreen_GameTitleLogoTiles));
+        DmaCopy16(3, gGraphics_TitleScreen_GameTitleLogoMap, (void *)BG_SCREEN_ADDR(31), sizeof(gGraphics_TitleScreen_GameTitleLogoMap));
+#else
         DecompressAndCopyTileDataToVram(0, gGraphics_TitleScreen_GameTitleLogoTiles, 0, 0, 0);
         DecompressAndCopyTileDataToVram(0, gGraphics_TitleScreen_GameTitleLogoMap, 0, 0, 1);
+#endif
         LoadPalette(gGraphics_TitleScreen_BoxArtMonPals, BG_PLTT_ID(13), PLTT_SIZE_4BPP);
         DecompressAndCopyTileDataToVram(1, gGraphics_TitleScreen_BoxArtMonTiles, 0, 0, 0);
         DecompressAndCopyTileDataToVram(1, gGraphics_TitleScreen_BoxArtMonMap, 0, 0, 1);
@@ -508,6 +515,125 @@ static void SetTitleScreenScene(s16 *data, u8 sceneNum)
     tSceneNum = sceneNum;
 }
 
+#if defined(FIRERED)
+// ============================================================================
+// Pokémon Interstellar title cinematic
+// starfield -> four rifts -> Deoxys silhouette + core flash -> logo -> press start
+// Palette groups in game_title_logo.pal:
+//   pals 0-2  background/starfield/mountains
+//   pal  3-6  rifts (amber, cyan, ghost-blue, magenta)
+//   pals 7-9  Deoxys
+//   pals 10-11 logo
+//   pal  12   PRESS START
+// Any button skips via Task_TitleScreenMain -> LoadMainTitleScreenPalsAndResetBgs.
+// ============================================================================
+
+static const u8 sInterstellarRiftPals[4] = {3, 4, 5, 6};
+
+static void SetTitleScreenScene_Init(s16 *data)
+{
+    struct ScanlineEffectParams params;
+
+    ShowBg(0);
+    HideBg(1);
+    HideBg(2);
+    HideBg(3);
+
+    params.dmaDest = (volatile void *)REG_ADDR_BLDY;
+    params.dmaControl = SCANLINE_EFFECT_DMACNT_16BIT;
+    params.initState = 1;
+    params.unused9 = 0;
+    CpuFill16(0, gScanlineEffectRegBuffers[0], 0x140);
+    CpuFill16(0, gScanlineEffectRegBuffers[1], 0x140);
+    ScanlineEffect_SetParams(params);
+
+    BlendPalette(0, 13 * 16, 16, RGB_BLACK); // everything dark
+    SetTitleScreenScene(data, TITLESCREENSCENE_FLASHSPRITE);
+}
+
+static void SetTitleScreenScene_FlashSprite(s16 *data)
+{
+    // Unused in the Interstellar cinematic — straight into the reveal.
+    data[2] = 0;
+    data[3] = 0;
+    SetTitleScreenScene(data, TITLESCREENSCENE_FADEIN);
+}
+
+static void SetTitleScreenScene_FadeIn(s16 *data)
+{
+    u32 c;
+    switch (tState)
+    {
+    case 0: // starfield fades in
+        c = ++data[2];
+        BlendPalette(0, 48, c >= 48 ? 0 : 16 - (c / 3), RGB_BLACK);
+        if (c >= 56)
+        {
+            data[2] = 0;
+            data[3] = 0; // rift counter
+            PlaySE(SE_WARP_IN);
+            tState++;
+        }
+        break;
+    case 1: // four rifts tear open, one by one
+        c = ++data[2];
+        BlendPalette(sInterstellarRiftPals[data[3]] * 16, 16, c >= 32 ? 0 : 16 - (c / 2), RGB_BLACK);
+        if (c >= 40)
+        {
+            data[2] = 0;
+            if (++data[3] >= 4)
+                tState++;
+            else
+                PlaySE(SE_WARP_IN);
+        }
+        break;
+    case 2: // Deoxys silhouette forms
+        c = ++data[2];
+        BlendPalette(112, 48, 12, RGB(3, 3, 10));
+        if (c >= 40)
+        {
+            data[2] = 0;
+            PlayCry_Normal(SPECIES_DEOXYS, 0);
+            tState++;
+        }
+        break;
+    case 3: // core flash to white...
+        c = ++data[2];
+        BlendPalette(112, 48, c * 2 >= 16 ? 16 : c * 2, RGB_WHITE);
+        if (c >= 8)
+        {
+            data[2] = 16;
+            tState++;
+        }
+        break;
+    case 4: // ...and reveal Deoxys in full colour
+        if (data[2] > 0)
+            BlendPalette(112, 48, --data[2], RGB_WHITE);
+        else
+        {
+            data[2] = 0;
+            tState++;
+        }
+        break;
+    case 5: // logo blazes in from white
+        c = ++data[2];
+        BlendPalette(160, 32, c >= 32 ? 0 : 16 - (c / 2), RGB_WHITE);
+        if (c >= 40)
+        {
+            data[2] = 0;
+            tState++;
+        }
+        break;
+    case 6: // press start
+        c = ++data[2];
+        BlendPalette(192, 16, c >= 24 ? 0 : 16 - (c * 2 / 3), RGB_BLACK);
+        if (c >= 30)
+            SetTitleScreenScene(data, TITLESCREENSCENE_RUN);
+        break;
+    }
+}
+
+#else // vanilla scenes (LEAFGREEN)
 static void SetTitleScreenScene_Init(s16 *data)
 {
     struct ScanlineEffectParams params;
@@ -645,6 +771,10 @@ static void SetTitleScreenScene_FadeIn(s16 *data)
         break;
     }
 }
+
+
+
+#endif
 
 #define KEYSTROKE_DELSAVE (B_BUTTON | SELECT_BUTTON | DPAD_UP)
 #define KEYSTROKE_RESET_RTC (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)

@@ -2697,3 +2697,10 @@
 
 
 #endif // GUARD_CONSTANTS_FLAGS_H
+
+// --- Pokémon Interstellar (addresses unused by both vanilla flag sets) ---
+#define FLAG_INTERSTELLAR_MEWTWO_CAUGHT                  0x468
+#define FLAG_INTERSTELLAR_RIVAL4_DONE                    0x470
+#define FLAG_INTERSTELLAR_AUTORUN                        0x472
+#define FLAG_INTERSTELLAR_EXPSHARE                       0x479
+#define FLAG_INTERSTELLAR_DEOXYS_CAUGHT                  0x493

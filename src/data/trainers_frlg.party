@@ -4474,67 +4474,55 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Growl
 
 === TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE ===
-Name: TERRY
-Class: Rival Early Frlg
-Pic: Rival Early Frlg
-Gender: Male
-Music: Male
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Pidgey
-Level: 9
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Tackle
-- Sand Attack
+Poochyena
+Level: 13
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Squirtle
-Level: 9
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Tackle
-- Tail Whip
+Grovyle
+Level: 16
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 === TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR ===
-Name: TERRY
-Class: Rival Early Frlg
-Pic: Rival Early Frlg
-Gender: Male
-Music: Male
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Pidgey
-Level: 9
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Tackle
-- Sand Attack
+Poochyena
+Level: 13
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Bulbasaur
-Level: 9
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Tackle
-- Growl
+Combusken
+Level: 16
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 === TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER ===
-Name: TERRY
-Class: Rival Early Frlg
-Pic: Rival Early Frlg
-Gender: Male
-Music: Male
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Pidgey
-Level: 9
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Tackle
-- Sand Attack
+Poochyena
+Level: 13
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Charmander
-Level: 9
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Scratch
-- Growl
+Marshtomp
+Level: 16
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 === TRAINER_RIVAL_CERULEAN_SQUIRTLE ===
 Name: TERRY
@@ -7603,175 +7591,55 @@ Level: 40
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE ===
-Name: TERRY
-Class: Rival Late Frlg
-Pic: Rival Late Frlg
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Pidgeot
-Level: 47
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Feather Dance
-- Wing Attack
-- Gust
-- Quick Attack
+Poochyena
+Level: 13
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Rhyhorn
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Take Down
-- Horn Drill
-- Rock Blast
-- Fury Attack
-
-Growlithe
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Flame Wheel
-- Take Down
-- Leer
-- Agility
-
-Exeggcute
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Solar Beam
-- Sleep Powder
-- Poison Powder
-- Stun Spore
-
-Alakazam
-Level: 47
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Psychic
-- Calm Mind
-- Future Sight
-- Disable
-
-Blastoise
-Level: 53
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Water Gun
-- Rain Dance
-- Bite
-- Rapid Spin
+Grovyle
+Level: 16
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 === TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR ===
-Name: TERRY
-Class: Rival Late Frlg
-Pic: Rival Late Frlg
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Pidgeot
-Level: 47
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Feather Dance
-- Wing Attack
-- Gust
-- Quick Attack
+Poochyena
+Level: 13
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Rhyhorn
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Take Down
-- Horn Drill
-- Rock Blast
-- Fury Attack
-
-Gyarados
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Hydro Pump
-- Twister
-- Leer
-- Rain Dance
-
-Growlithe
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Flame Wheel
-- Take Down
-- Leer
-- Agility
-
-Alakazam
-Level: 47
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Psychic
-- Calm Mind
-- Future Sight
-- Disable
-
-Venusaur
-Level: 53
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Razor Leaf
-- Sweet Scent
-- Growth
-- Synthesis
+Combusken
+Level: 16
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 === TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER ===
-Name: TERRY
-Class: Rival Late Frlg
-Pic: Rival Late Frlg
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Pidgeot
-Level: 47
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Feather Dance
-- Wing Attack
-- Gust
-- Quick Attack
+Poochyena
+Level: 13
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Rhyhorn
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Take Down
-- Horn Drill
-- Rock Blast
-- Fury Attack
-
-Exeggcute
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Solar Beam
-- Sleep Powder
-- Poison Powder
-- Stun Spore
-
-Gyarados
-Level: 45
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Hydro Pump
-- Twister
-- Leer
-- Rain Dance
-
-Alakazam
-Level: 47
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Psychic
-- Calm Mind
-- Future Sight
-- Disable
-
-Charizard
-Level: 53
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Flamethrower
-- Wing Attack
-- Slash
-- Scary Face
+Marshtomp
+Level: 16
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 
 === TRAINER_CHAMPION_FIRST_SQUIRTLE ===
 Name: TERRY

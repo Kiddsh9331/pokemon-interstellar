@@ -168,6 +168,18 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     gSelectedObjectEvent = 0;
 
     gMsgIsSignPost = FALSE;
+
+    // Pokémon Interstellar: L toggles auto-run (remembered in the save).
+    if (JOY_NEW(L_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
+     && gSaveBlock2Ptr->optionsButtonMode != OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    {
+        if (FlagGet(FLAG_INTERSTELLAR_AUTORUN))
+            FlagClear(FLAG_INTERSTELLAR_AUTORUN);
+        else
+            FlagSet(FLAG_INTERSTELLAR_AUTORUN);
+        PlaySE(SE_SELECT);
+    }
+
     playerDirection = GetPlayerFacingDirection();
     GetPlayerPosition(&position);
     metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);

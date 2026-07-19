@@ -36,6 +36,7 @@ PalletTown_EventScript_MoveSignLadyToRouteEntrance::
 
 PalletTown_OnFrame::
 	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_OAK, 2, PalletTown_EventScript_OakRatingScene
+	map_script_2 VAR_INTERSTELLAR_STATE, 4, Interstellar_Pallet_EventScript_Found
 	.2byte 0
 
 @ Oak approaches player after exiting their house post Elite Four to check if they should receieve the National Dex
@@ -546,3 +547,45 @@ PalletTown_Text_PressStartToOpenMenuCopy::
 	.string "Press START to open the MENU!$"
 
 
+
+Interstellar_Pallet_EventScript_Found::
+	lockall
+	delay 40
+	msgbox Interstellar_Pallet_Text_ColdStone, MSGBOX_DEFAULT
+	closemessage
+	setobjectxy LOCALID_PALLET_PROF_OAK, 14, 14
+	applymovement LOCALID_PALLET_PROF_OAK, Interstellar_Pallet_Movement_OakApproach
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Interstellar_Pallet_Movement_PlayerFaceOak
+	waitmovement 0
+	msgbox Interstellar_Pallet_Text_OakFindsYou, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
+	setvar VAR_INTERSTELLAR_STATE, 5
+	warp MAP_INTERSTELLAR_OAKS_LAB, 6, 10
+	waitstate
+	releaseall
+	end
+
+Interstellar_Pallet_Movement_OakApproach:
+	walk_right
+	step_end
+
+Interstellar_Pallet_Movement_PlayerFaceOak:
+	face_left
+	step_end
+
+Interstellar_Pallet_Text_ColdStone:
+	.string "Cold stone. Gulls.\p"
+	.string "Someone is shaking your shoulder.$"
+
+Interstellar_Pallet_Text_OakFindsYou:
+	.string "???: Easy! Easy, now.\p"
+	.string "OAK: You fell out of a hole in\n"
+	.string "the SKY, child. Straight out of\l"
+	.string "a tear in the morning-- and\l"
+	.string "landed at my doorstep.\p"
+	.string "...You're shaking.\p"
+	.string "Inside. Now.\n"
+	.string "Tea first. Questions after.$"

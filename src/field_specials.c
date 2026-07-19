@@ -5779,3 +5779,35 @@ bool8 CheckAddCoins(void)
     else
         return TRUE;
 }
+
+// --- Pokémon Interstellar ---
+// Removes the most recently caught boss (species in gSpecialVar_0x8004) from the
+// player's party or PC: cleansed anchors are entrusted to the Rift Vault and
+// returned, awakened, in the postgame.
+void Interstellar_SealCaughtBoss(void)
+{
+    u16 species = gSpecialVar_0x8004;
+    s32 i, box, slot;
+
+    for (i = PARTY_SIZE - 1; i >= 0; i--)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == species)
+        {
+            ZeroMonData(&gPlayerParty[i]);
+            CompactPartySlots();
+            CalculatePlayerPartyCount();
+            return;
+        }
+    }
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (slot = 0; slot < IN_BOX_COUNT; slot++)
+        {
+            if (GetBoxMonDataAt(box, slot, MON_DATA_SPECIES) == species)
+            {
+                ZeroBoxMonAt(box, slot);
+                return;
+            }
+        }
+    }
+}

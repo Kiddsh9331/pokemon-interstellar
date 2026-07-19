@@ -1,5 +1,6 @@
 CeruleanCity_Frlg_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CeruleanCity_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Interstellar_Cerulean_OnFrame
 	.byte 0
 
 CeruleanCity_OnTransition::
@@ -534,3 +535,122 @@ CeruleanCity_Text_GymSign::
 	.string "LEADER: MISTY\l"
 	.string "The Tomboyish Mermaid!$"
 
+
+Interstellar_Cerulean_OnFrame:
+	map_script_2 VAR_INTERSTELLAR_STATE, 7, Interstellar_Cerulean_EventScript_Epilogue
+	.2byte 0
+
+Interstellar_Cerulean_EventScript_Epilogue::
+	lockall
+	fadescreenspeed FADE_FROM_WHITE, 2
+	delay 30
+	msgbox Interstellar_Cerulean_Text_CityStills, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_INTERSTELLAR_STEVEN, Interstellar_Cerulean_Movement_StevenFacePlayer
+	waitmovement 0
+	msgbox Interstellar_Cerulean_Text_StevenItWorked, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_INTERSTELLAR_STATE, 8
+	releaseall
+	end
+
+Interstellar_EventScript_StevenCerulean::
+	lock
+	faceplayer
+	goto_if_eq VAR_INTERSTELLAR_STATE, 8, Interstellar_Cerulean_EventScript_StevenOutro
+	goto_if_eq VAR_INTERSTELLAR_STATE, 7, Interstellar_Cerulean_EventScript_StevenOutro
+	goto_if_set FLAG_BADGE02_GET, Interstellar_Cerulean_EventScript_StevenFerry
+	msgbox Interstellar_Cerulean_Text_StevenIntro, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Cerulean_EventScript_StevenFerry::
+	msgbox Interstellar_Cerulean_Text_StevenAnchor, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_Cerulean_EventScript_StevenWait
+	msgbox Interstellar_Cerulean_Text_StevenSkarmory, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	playse SE_M_WING_ATTACK
+	waitse
+	warp MAP_INTERSTELLAR_RIFT_CHAMBER, 18, 20
+	waitstate
+	release
+	end
+
+Interstellar_Cerulean_EventScript_StevenWait::
+	msgbox Interstellar_Cerulean_Text_StevenIllBeHere, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Cerulean_EventScript_StevenOutro::
+	msgbox Interstellar_Cerulean_Text_StevenOutro, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Cerulean_Movement_StevenFacePlayer:
+	face_right
+	step_end
+
+Interstellar_Cerulean_Text_CityStills:
+	.string "The rift-light over CERULEAN\n"
+	.string "gutters... and dies.\p"
+	.string "For the first time since the sky\n"
+	.string "broke, the water lies still.$"
+
+Interstellar_Cerulean_Text_StevenItWorked:
+	.string "STEVEN: ...Ha.\n"
+	.string "Ha ha! It WORKED!\p"
+	.string "The anchor let go, and the rift\n"
+	.string "froze into a stable gate!\p"
+	.string "Talk to me when you've caught\n"
+	.string "your breath, {PLAYER}.$"
+
+Interstellar_Cerulean_Text_StevenIntro:
+	.string "STEVEN: ...You're the rift-walker\n"
+	.string "OAK wired me about. STEVEN STONE.\p"
+	.string "I collect rare stones. Lately,\n"
+	.string "the rifts grow them for me.\p"
+	.string "The cave across this water holds\n"
+	.string "the anchor that keeps every rift\l"
+	.string "in KANTO torn open.\p"
+	.string "Earn BROCK's badge, then MISTY's.\n"
+	.string "Then we'll talk about the cave.$"
+
+Interstellar_Cerulean_Text_StevenAnchor:
+	.string "STEVEN: Both badges. Good.\p"
+	.string "Listen. The thing in that cave is\n"
+	.string "not a monster. It's an ANCHOR--\l"
+	.string "a living creature the rift has\l"
+	.string "wrapped around itself like a\l"
+	.string "fist around a wound.\p"
+	.string "Defeat it, and the rift lets go.\n"
+	.string "Catch it... and I believe the\l"
+	.string "POKé BALL itself will purge the\l"
+	.string "corruption as it seals.\p"
+	.string "Either way, it suffers less.\p"
+	.string "My SKARMORY will ferry you over.\n"
+	.string "Ready?$"
+
+Interstellar_Cerulean_Text_StevenSkarmory:
+	.string "STEVEN: SKARMORY!\n"
+	.string "Ferry duty!$"
+
+Interstellar_Cerulean_Text_StevenIllBeHere:
+	.string "STEVEN: I'll be here.\n"
+	.string "Stones don't hurry.$"
+
+Interstellar_Cerulean_Text_StevenOutro:
+	.string "STEVEN: Look at the water.\n"
+	.string "Still as glass.\p"
+	.string "The whole city is breathing\n"
+	.string "again. You did that.\p"
+	.string "The gate in the cave reads warm\n"
+	.string "and green-- HOENN, or I'm no\l"
+	.string "geologist. That's where your\l"
+	.string "story goes next.\p"
+	.string "...And that is the end of this\n"
+	.string "DEMO, by the way.\p"
+	.string "Your save file carries forward\n"
+	.string "into ACT 2.\p"
+	.string "Thank you for playing\n"
+	.string "POKéMON INTERSTELLAR!$"

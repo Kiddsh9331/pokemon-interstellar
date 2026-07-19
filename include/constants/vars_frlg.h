@@ -306,3 +306,6 @@
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
 
 #endif // GUARD_CONSTANTS_VARS_FRLG_H
+
+// --- Pokémon Interstellar ---
+#define VAR_INTERSTELLAR_STATE 0x404E

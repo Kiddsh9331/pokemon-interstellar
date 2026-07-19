@@ -1,4 +1,5 @@
 Route4_Frlg_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Interstellar_Route4_OnTransition
 	.byte 0
 
 Route4_EventScript_Unused::
@@ -95,3 +96,161 @@ Route4_Text_PeopleLikeAndRespectBrock::
 	.string "People like and respect him.\p"
 	.string "I want to become a GYM LEADER\n"
 	.string "like him.$"
+
+Interstellar_Route4_OnTransition::
+	goto_if_set FLAG_INTERSTELLAR_RIVAL4_DONE, Interstellar_Route4_OT_HideBoth
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Interstellar_Route4_OT_HideBrendan
+	setflag FLAG_TEMP_11
+	end
+
+Interstellar_Route4_OT_HideBrendan::
+	setflag FLAG_TEMP_12
+	end
+
+Interstellar_Route4_OT_HideBoth::
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	end
+
+Interstellar_Route4_EventScript_RivalTrigger::
+	lockall
+	goto_if_set FLAG_INTERSTELLAR_RIVAL4_DONE, Interstellar_Route4_EventScript_TrigDone
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Interstellar_Route4_EventScript_RivalMay
+	applymovement LOCALID_INTERSTELLAR_RIVAL_BRENDAN, Interstellar_Route4_Movement_RivalNotice
+	waitmovement 0
+	applymovement LOCALID_INTERSTELLAR_RIVAL_BRENDAN, Interstellar_Route4_Movement_RivalApproach
+	waitmovement 0
+	msgbox Interstellar_Route4_Text_RivalAlive, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, Interstellar_Route4_EventScript_BrendanTreecko
+	case 1, Interstellar_Route4_EventScript_BrendanTorchic
+	case 2, Interstellar_Route4_EventScript_BrendanMudkip
+	end
+
+Interstellar_Route4_EventScript_BrendanTreecko::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR, Interstellar_Route4_Text_RivalDefeat
+	goto Interstellar_Route4_EventScript_AfterBattleBrendan
+	end
+
+Interstellar_Route4_EventScript_BrendanTorchic::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER, Interstellar_Route4_Text_RivalDefeat
+	goto Interstellar_Route4_EventScript_AfterBattleBrendan
+	end
+
+Interstellar_Route4_EventScript_BrendanMudkip::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE, Interstellar_Route4_Text_RivalDefeat
+	goto Interstellar_Route4_EventScript_AfterBattleBrendan
+	end
+
+Interstellar_Route4_EventScript_RivalMay::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_RivalNotice
+	waitmovement 0
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_RivalApproach
+	waitmovement 0
+	msgbox Interstellar_Route4_Text_RivalAlive, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, Interstellar_Route4_EventScript_MayTreecko
+	case 1, Interstellar_Route4_EventScript_MayTorchic
+	case 2, Interstellar_Route4_EventScript_MayMudkip
+	end
+
+Interstellar_Route4_EventScript_MayTreecko::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR, Interstellar_Route4_Text_RivalDefeat
+	goto Interstellar_Route4_EventScript_AfterBattleMay
+	end
+
+Interstellar_Route4_EventScript_MayTorchic::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER, Interstellar_Route4_Text_RivalDefeat
+	goto Interstellar_Route4_EventScript_AfterBattleMay
+	end
+
+Interstellar_Route4_EventScript_MayMudkip::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, Interstellar_Route4_Text_RivalDefeat
+	goto Interstellar_Route4_EventScript_AfterBattleMay
+	end
+
+Interstellar_Route4_EventScript_AfterBattleBrendan::
+	msgbox Interstellar_Route4_Text_RivalHealsYou, MSGBOX_DEFAULT
+	closemessage
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	msgbox Interstellar_Route4_Text_RivalParting, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_INTERSTELLAR_RIVAL_BRENDAN, Interstellar_Route4_Movement_RivalExit
+	waitmovement 0
+	removeobject LOCALID_INTERSTELLAR_RIVAL_BRENDAN
+	setflag FLAG_INTERSTELLAR_RIVAL4_DONE
+	releaseall
+	end
+
+Interstellar_Route4_EventScript_AfterBattleMay::
+	msgbox Interstellar_Route4_Text_RivalHealsYou, MSGBOX_DEFAULT
+	closemessage
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	msgbox Interstellar_Route4_Text_RivalParting, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_RivalExit
+	waitmovement 0
+	removeobject LOCALID_INTERSTELLAR_RIVAL_MAY
+	setflag FLAG_INTERSTELLAR_RIVAL4_DONE
+	releaseall
+	end
+
+Interstellar_Route4_EventScript_TrigDone::
+	releaseall
+	end
+
+Interstellar_Route4_Movement_RivalNotice:
+	emote_exclamation_mark
+	delay_16
+	step_end
+
+Interstellar_Route4_Movement_RivalApproach:
+	walk_down
+	face_left
+	step_end
+
+Interstellar_Route4_Movement_RivalExit:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Interstellar_Route4_Text_RivalAlive:
+	.string "...{PLAYER}?!\p"
+	.string "{PLAYER}!! You're ALIVE!\p"
+	.string "I came through the rift over the\n"
+	.string "sea-- I've been chasing dad's\l"
+	.string "scanner across half of KANTO\l"
+	.string "looking for you!\p"
+	.string "Okay. Okay!\n"
+	.string "You know what this calls for.\p"
+	.string "Right here, right now--\n"
+	.string "show me you've still got it!$"
+
+Interstellar_Route4_Text_RivalDefeat:
+	.string "Ha...!\n"
+	.string "You've still got it.$"
+
+Interstellar_Route4_Text_RivalHealsYou:
+	.string "I got my team patched up back at\n"
+	.string "the POKéMON CENTER. Here--$"
+
+Interstellar_Route4_Text_RivalParting:
+	.string "Listen. The scanner says the BIG\n"
+	.string "anchor is north of CERULEAN.\p"
+	.string "Whatever it is... it doesn't read\n"
+	.string "like a POKéMON anymore.\p"
+	.string "Be careful, {PLAYER}.\n"
+	.string "I'll scout east.\p"
+	.string "Race you to the next era!$"
