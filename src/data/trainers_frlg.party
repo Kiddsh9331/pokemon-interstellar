@@ -285,6 +285,20 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Growl
 - Bide
 
+Burmy
+Level: 8
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Tackle
+- Protect
+- Bug Bite
+
+Combee
+Level: 9
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Sweet Scent
+- Gust
+- Bug Bite
+
 === TRAINER_LASS_PENNY_FOREST ===
 Name: PENNY
 Class: Lass Frlg
@@ -301,6 +315,20 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Quick Attack
 - Sweet Scent
 
+Wurmple
+Level: 8
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Tackle
+- String Shot
+- Poison Sting
+
+Nincada
+Level: 9
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Scratch
+- Harden
+- Leech Life
+
 === TRAINER_YOUNGSTER_COLE_FOREST ===
 Name: COLE
 Class: Youngster Frlg
@@ -315,6 +343,20 @@ Level: 9
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Poison Sting
 - Rollout
+
+Sewaddle
+Level: 8
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Tackle
+- String Shot
+- Bug Bite
+
+Purrloin
+Level: 9
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Scratch
+- Growl
+- Assist
 
 === TRAINER_BUG_CATCHER_TESS ===
 Name: TESS
@@ -331,6 +373,20 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - String Shot
 - Bug Bite
+
+Cutiefly
+Level: 8
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Absorb
+- Fairy Wind
+- Stun Spore
+
+Dewpider
+Level: 9
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Bubble
+- Infestation
+- Bite
 
 === TRAINER_BUG_CATCHER_COLTON ===
 Name: COLTON
