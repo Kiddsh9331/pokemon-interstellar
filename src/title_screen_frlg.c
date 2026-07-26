@@ -97,7 +97,8 @@ static const u32 sSlash_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/slash.png
 
 #if defined(FIRERED)
 static const u16 sFlames_Pal[] = INCGFX_U16("graphics/title_screen_frlg/firered/flames.png", ".gbapal");
-static const u32 sFlames_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/firered/flames.png", ".4bpp.smol");
+// Interstellar: loaded raw (not smol) — see LoadSpriteGfxAndPals.
+static const u32 sFlames_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/firered/flames.png", ".4bpp");
 static const u32 sBlankFlames_Gfx[] = INCGFX_U32("graphics/title_screen_frlg/firered/blank_flames.png", ".4bpp.smol");
 #elif defined(LEAFGREEN)
 static const u16 sLeaves_Pal[] = INCGFX_U16("graphics/title_screen_frlg/leafgreen/leaves.png", ".gbapal");
@@ -138,7 +139,7 @@ static const struct OamData sOamData_FlameOrLeaf = {
     .shape = ST_OAM_SQUARE,
     .size = ST_OAM_SIZE_1,
     .tileNum = 0,
-    .priority = 3,
+    .priority = 0,
     .paletteNum = 0
 };
 
@@ -196,12 +197,14 @@ enum {
     TILE_TAG_BLANK_OR_STREAK,
     TILE_TAG_BLANK,
     TILE_TAG_SLASH,
+    TILE_TAG_STARS = 0x4500,
 };
 
 enum {
     PAL_TAG_DEFAULT,
     PAL_TAG_UNUSED,
     PAL_TAG_SLASH,
+    PAL_TAG_STARS = 0x4501,
 };
 
 static const struct SpriteTemplate sSpriteTemplate_FlameOrLeaf = {
@@ -328,10 +331,30 @@ static void (*const sSceneFuncs[])(s16 *data) = {
 
 #if defined(FIRERED)
 static const struct CompressedSpriteSheet sSpriteSheets[] = {
-    {sFlames_Gfx,                    0x500, TILE_TAG_FLAME_OR_LEAF},
     {sBlankFlames_Gfx,               0x500, TILE_TAG_BLANK_OR_STREAK},
     {gTitleScreen_BlankSprite_Tiles, 0x400, TILE_TAG_BLANK},
     {sSlash_Gfx,                     0x800, TILE_TAG_SLASH}
+};
+
+// The twinkling stars: same art as the legacy "flames" sheet, but loaded raw
+// under fresh tags and driven by a simple spawner of our own, because the
+// legacy flame pipeline stopped producing visible sprites.
+static const struct SpriteSheet sFlamesSheetRaw = {
+    (const u8 *)sFlames_Gfx, 0x500, TILE_TAG_STARS
+};
+
+static const struct SpritePalette sStarsPalRaw = {
+    sFlames_Pal, PAL_TAG_STARS
+};
+
+static const struct SpriteTemplate sSpriteTemplate_Star = {
+    .tileTag = TILE_TAG_STARS,
+    .paletteTag = PAL_TAG_STARS,
+    .oam = &sOamData_FlameOrLeaf,
+    .anims = sSpriteAnim_FlameOrLeaf,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
 };
 
 static const struct SpritePalette sSpritePals[] = {
@@ -1118,89 +1141,51 @@ static void LoadSpriteGfxAndPals(void)
 
     for (i = 0; i < NELEMS(sSpriteSheets); i++)
         LoadCompressedSpriteSheet(&sSpriteSheets[i]);
+#if defined(FIRERED)
+    LoadSpriteSheet(&sFlamesSheetRaw);
+    LoadSpritePalette(&sStarsPalRaw);
+#endif
     LoadSpritePalettes(sSpritePals);
 }
 
 #if defined(FIRERED)
 
-#define sPosX      data[0]
-#define sSpeedX    data[1]
-#define sPosY      data[2]
-#define sSpeedY    data[3]
-
+// Interstellar starfield: gentle twinkles scattered across the whole sky,
+// each playing the glint animation once and vanishing.
 static void SpriteCallback_TitleScreenFlame(struct Sprite *sprite)
 {
-    s16 *data = sprite->data;
-    sPosX -= sSpeedX;
-    sprite->x = sPosX >> 4;
-    if (sprite->x < -8)
-    {
-        DestroySprite(sprite);
-        return;
-    }
-    sPosY += sSpeedY;
-    sprite->y = sPosY >> 4;
-    if (sprite->y < 16 || sprite->y > 200)
-    {
-        DestroySprite(sprite);
-        return;
-    }
     if (sprite->animEnded)
-    {
         DestroySprite(sprite);
-        return;
-    }
-    if (data[7] != 0 && --data[7] == 0)
-    {
-        StartSpriteAnim(sprite, 0);
-        sprite->invisible = FALSE;
-    }
 }
 
-static bool32 CreateFlameSprite(s32 x, s32 y, s32 xspeed, s32 yspeed, bool32 createFlame)
+static bool32 CreateFlameSprite(s32 x, s32 y)
 {
-    u8 spriteId;
-    if (createFlame)
-        spriteId = CreateSpriteUnchecked(&sSpriteTemplate_FlameOrLeaf, x, y, 0);
-    else
-        spriteId = CreateSpriteUnchecked(&sSpriteTemplate_BlankFlame, x, y, 0);
+    u8 spriteId = CreateSpriteUnchecked(&sSpriteTemplate_Star, x, y, 0);
 
     if (spriteId != MAX_SPRITES)
     {
-        gSprites[spriteId].sPosX = x * 16;
-        gSprites[spriteId].sSpeedX = xspeed;
-        gSprites[spriteId].sPosY = y * 16;
-        gSprites[spriteId].sSpeedY = yspeed;
-        gSprites[spriteId].data[4] = 0;
-        gSprites[spriteId].data[5] = (xspeed * yspeed) % 16;
-        gSprites[spriteId].data[6] = createFlame;
+        StartSpriteAnim(&gSprites[spriteId], 0);
         gSprites[spriteId].callback = SpriteCallback_TitleScreenFlame;
         return TRUE;
     }
     return FALSE;
 }
 
-#undef sPosX
-#undef sSpeedX
-#undef sPosY
-#undef sSpeedY
-
 #define tState       data[0]
 #define tTimer       data[1]
 #define tDelay       data[2]
 #define tOff_Seed       3   // data[3] and data[4]
-#define tOffsetX     data[5]
 
 static void Task_FlameSpawner(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    s32 x, y, xspeed, yspeed;
-    s32 i;
+    s32 x, y;
 
     switch (tState)
     {
     case 0:
         TitleScreen_srand(taskId, 3, 30840);
+        tDelay = 4;
         tState++;
         break;
     case 1:
@@ -1208,35 +1193,12 @@ static void Task_FlameSpawner(u8 taskId)
         if (tTimer >= tDelay)
         {
             tTimer = 0;
-            TitleScreen_rand(taskId, 3);
-            tDelay = 18;
-            xspeed = (TitleScreen_rand(taskId, 3) % 4) - 2;
-            yspeed = (TitleScreen_rand(taskId, 3) % 8) - 16;
-            y = (TitleScreen_rand(taskId, 3) % 3) + 116;
-            x = TitleScreen_rand(taskId, 3) % DISPLAY_WIDTH;
-            CreateFlameSprite(
-                x,
-                y,
-                xspeed,
-                yspeed,
-                (TitleScreen_rand(taskId, 3) % 16) < 8 ? FALSE : TRUE
-            );
-            for (i = 0; i < 15; i++)
-            {
-                CreateFlameSprite(
-                    tOffsetX + sFlameXPositions[i],
-                    y,
-                    xspeed,
-                    yspeed,
-                    TRUE
-                );
-                xspeed = (TitleScreen_rand(taskId, 3) % 4) - 2;
-                yspeed = (TitleScreen_rand(taskId, 3) % 8) - 16;
-            }
-            tOffsetX++;
-            if (tOffsetX > 3)
-                tOffsetX = 0;
+            tDelay = 3 + (TitleScreen_rand(taskId, 3) % 5);
+            x = TitleScreen_rand(taskId, 3) % (DISPLAY_WIDTH - 16);
+            y = 18 + (TitleScreen_rand(taskId, 3) % 130);
+            CreateFlameSprite(x + 4, y);
         }
+        break;
     }
 }
 
@@ -1244,7 +1206,6 @@ static void Task_FlameSpawner(u8 taskId)
 #undef tTimer
 #undef tDelay
 #undef tOff_Seed
-#undef tOffsetX
 
 #elif defined(LEAFGREEN)
 
