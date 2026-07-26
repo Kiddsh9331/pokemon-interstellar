@@ -1844,17 +1844,36 @@ u8 UpdateSpritePaletteWithTime(u8 paletteNum)
 // All rift objects (gate, scars, blights) share one sprite palette. Breathe
 // its brightness so every rift pulses with light. Palette-only: the swirl
 // model itself is never touched, so it cannot glitch like frame animation.
+
+// Palette slots 10-13 of the rift art are starlight scattered through the tear.
+// Each one rides this ramp on its own phase, so the scar glitters: a star fades
+// up to white, then sinks back until it is lost in the bruise around it.
+static const u16 sRiftStarRamp[9] = {
+    RGB(3, 1, 6),   RGB(6, 5, 12),  RGB(9, 11, 18),
+    RGB(13, 17, 23), RGB(17, 22, 27), RGB(21, 26, 30),
+    RGB(25, 29, 31), RGB(28, 31, 31), RGB(31, 31, 31),
+};
+
 static void UpdateInterstellarRiftPulse(void)
 {
     static u8 sRiftPulse = 0;
     u8 palNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE);
-    u32 t, tri;
+    u32 t, tri, i, base;
 
     if (palNum == 0xFF || gPaletteFade.active)
         return;
     t = (sRiftPulse += 2) & 0xFF;
     tri = t < 128 ? t : 256 - t;
     BlendPalette(OBJ_PLTT_ID(palNum), 16, 1 + (tri * 3) / 128, RGB(24, 22, 31));
+
+    // ...then stamp the four stars over the blended result, 90 degrees apart.
+    base = OBJ_PLTT_ID(palNum);
+    for (i = 0; i < 4; i++)
+    {
+        u32 ph = (t + i * 64) & 0xFF;
+        u32 lvl = ph < 128 ? ph : 256 - ph;
+        gPlttBufferFaded[base + 10 + i] = sRiftStarRamp[lvl >> 4];
+    }
 }
 
 static void OverworldBasic(void)

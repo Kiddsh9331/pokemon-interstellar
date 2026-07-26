@@ -19,9 +19,9 @@
     {
       "local_id": "LOCALID_INTERSTELLAR_MT_MOON_RIFT",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT",
-      "x": 9,
-      "y": 6,
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR_MED",
+      "x": 38,
+      "y": 37,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -34,9 +34,9 @@
     {
       "local_id": "LOCALID_INTERSTELLAR_MT_MOON_BLIGHT",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR",
-      "x": 6,
-      "y": 6,
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR_MED",
+      "x": 44,
+      "y": 21,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -218,8 +218,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR",
-      "x": 13,
-      "y": 6,
+      "x": 10,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 1,
@@ -228,6 +228,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR_MED",
+      "x": 9,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_EventScript_RiftBlight",
+      "flag": "0"
     }
   ],
   "warp_events": [

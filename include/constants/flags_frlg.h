@@ -1190,7 +1190,7 @@
 // Interstellar Act 1 progression flags
 #define FLAG_INTERSTELLAR_MAY_VIRIDIAN_DONE    0x497
 #define FLAG_INTERSTELLAR_MAY_MT_MOON_DONE     0x498
-#define FLAG_INTERSTELLAR_MAY_PEWTER_DONE      0x499
+#define FLAG_INTERSTELLAR_MAY_ROUTE3_DONE      0x499
 #define FLAG_INTERSTELLAR_GARY_MT_MOON_DONE    0x49A
 
 // Unused hidden item flags

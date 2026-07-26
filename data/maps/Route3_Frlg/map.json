@@ -208,10 +208,53 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Interstellar_EventScript_RiftBlight",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_INTERSTELLAR_MAY_ROUTE3",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MAY_NORMAL",
+      "x": 7,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_Route3_EventScript_MayGuide",
+      "flag": "FLAG_TEMP_11"
     }
   ],
   "warp_events": [],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Interstellar_Route3_EventScript_MayTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Interstellar_Route3_EventScript_MayTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Interstellar_Route3_EventScript_MayTrigger"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

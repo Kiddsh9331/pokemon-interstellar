@@ -70,13 +70,22 @@ CeruleanCity_Gym_EventScript_GymStatuePostVictory::
 	end
 
 CeruleanCity_Gym_Text_MistyIntro::
-	.string "Hi, you're a new face!\p"
-	.string "Only those TRAINERS who have a\n"
-	.string "policy about POKéMON can turn pro.\p"
-	.string "What is your approach when you\n"
-	.string "catch and train POKéMON?\p"
-	.string "My policy is an all-out offensive\n"
-	.string "with WATER-type POKéMON!{PLAY_BGM}{MUS_RG_ENCOUNTER_GYM_LEADER}$"
+	.string "Yes? I'm MISTY.\p"
+	.string "You hear it too, right? The rain\n"
+	.string "on the roof. It hasn't stopped\l"
+	.string "since the night the sky broke.\p"
+	.string "Every drop of it is being pulled\n"
+	.string "toward the cave north of here.\l"
+	.string "Toward the thing in the dark\l"
+	.string "that wears MEWTWO's shape.\p"
+	.string "Half this gym is a rescue post\n"
+	.string "now. My swimmers pull families\l"
+	.string "off flooded porches between\l"
+	.string "badge matches.\p"
+	.string "I train swimmers. I read water.\n"
+	.string "And the water is TERRIFIED.\p"
+	.string "If you're going in there, prove\n"
+	.string "the current bends around you!{PLAY_BGM}{MUS_RG_ENCOUNTER_GYM_LEADER}$"
 
 CeruleanCity_Gym_Text_ExplainTM03::
 	.string "TM03 teaches WATER PULSE.\p"
@@ -101,51 +110,73 @@ CeruleanCity_Gym_Text_BetterMakeRoomForThis::
 	.string "You better make room for this!$"
 
 CeruleanCity_Gym_Text_MistyDefeat::
-	.string "Wow!\n"
-	.string "You're too much!\p"
-	.string "All right!\p"
-	.string "You can have the CASCADEBADGE to\n"
-	.string "show you beat me.$"
+	.string "…The water went quiet around\n"
+	.string "you. It trusts you.\p"
+	.string "The official POKéMON LEAGUE\n"
+	.string "CASCADEBADGE is yours.\p"
+	.string "{FONT_NORMAL}{PLAYER} received the CASCADEBADGE\n"
+	.string "from MISTY!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}\p"
+	.string "{FONT_FEMALE}STEVEN is waiting on the west\n"
+	.string "bank. He's been diving the cave\l"
+	.string "readings for weeks.\p"
+	.string "Go end this rain, {PLAYER}.$"
 
 CeruleanCity_Gym_Text_DianaIntro::
-	.string "What? You?\n"
-	.string "I'm more than good enough for you!\p"
-	.string "MISTY won't have to be bothered.$"
+	.string "What? You? In the middle of a\n"
+	.string "flood watch?\p"
+	.string "I'm more than good enough for\n"
+	.string "you-- MISTY has rescue rounds\l"
+	.string "to run.$"
 
 CeruleanCity_Gym_Text_DianaDefeat::
-	.string "You overwhelmed me!$"
+	.string "Overwhelmed…\n"
+	.string "like the north bank levee!$"
 
 CeruleanCity_Gym_Text_DianaPostBattle::
-	.string "You have to face other TRAINERS\n"
-	.string "to see how good you really are.$"
+	.string "The rain never misses a beat, and\n"
+	.string "the current always bends north--\l"
+	.string "toward the cave.\p"
+	.string "Nobody swims that way anymore.\p"
+	.string "Beat MISTY, and maybe that\n"
+	.string "finally changes.$"
 
 CeruleanCity_Gym_Text_LuisIntro::
 	.string "Splash!\p"
-	.string "I'm first up!\n"
-	.string "Let's do it!$"
+	.string "I'm first up! But careful--\n"
+	.string "the pool's been pulling toward\l"
+	.string "the north wall all week.$"
 
 CeruleanCity_Gym_Text_LuisDefeat::
 	.string "That can't be!$"
 
 CeruleanCity_Gym_Text_LuisPostBattle::
-	.string "MISTY is a TRAINER who's going to\n"
-	.string "keep improving.\p"
-	.string "She won't lose to someone like you!$"
+	.string "MISTY pulled six families off\n"
+	.string "their rooftops last week and\l"
+	.string "STILL made time to train.\p"
+	.string "She won't lose to someone like\n"
+	.string "you!\p"
+	.string "…Probably.$"
 
 CeruleanCity_Gym_Text_GymGuyAdvice::
 	.string "Yo!\n"
 	.string "Champ in the making!\p"
-	.string "Let me give you some advice!\p"
-	.string "The LEADER, MISTY, is a pro who\n"
-	.string "uses WATER-type POKéMON.\p"
-	.string "You can drain all their water with\n"
-	.string "GRASS-type POKéMON.\p"
-	.string "Or, you might use ELECTRIC-type\n"
-	.string "POKéMON and zap them!$"
+	.string "Sandbags at the door, rescue\n"
+	.string "boards floating in the pool…\l"
+	.string "some GYM, huh?\p"
+	.string "The advice still stands: MISTY\n"
+	.string "is a WATER pro.\p"
+	.string "GRASS-types drink her attacks.\n"
+	.string "ELECTRIC-types zap the pool.\p"
+	.string "One more thing. If the water\n"
+	.string "flinches mid-battle…\p"
+	.string "…that's not MISTY doing it.$"
 
 CeruleanCity_Gym_Text_WeMakePrettyGoodTeam::
 	.string "You beat MISTY!\n"
 	.string "See, what'd I tell ya?\p"
+	.string "And listen… the rain on the\n"
+	.string "roof. It's softer. I'd SWEAR\l"
+	.string "it's softer.\p"
 	.string "You and me, kid, we make a pretty\n"
 	.string "darn-good team!$"
 

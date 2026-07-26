@@ -34,6 +34,9 @@ struct RiftSpotList
     u8 mapGroup;
     u8 mapNum;
     u8 count;
+    // The first anchorCount spots sit beside an NPC the rift dropped here, so
+    // they stay put every boot -- only the tiles after them get shuffled.
+    u8 anchorCount;
     const struct RiftSpot *spots;
 };
 
@@ -128,7 +131,7 @@ void Interstellar_RandomiseRifts(void)
 {
     const struct RiftSpotList *list = NULL;
     u8 order[MAX_RIFT_SPOTS];
-    u32 i, count, stream, next;
+    u32 i, count, anchors, stream, next;
 
     if (gMapHeader.events == NULL)
         return;
@@ -159,13 +162,17 @@ void Interstellar_RandomiseRifts(void)
     count = list->count;
     if (count > MAX_RIFT_SPOTS)
         count = MAX_RIFT_SPOTS;
+    anchors = list->anchorCount;
+    if (anchors > count)
+        anchors = count;
 
     for (i = 0; i < count; i++)
         order[i] = i;
 
-    for (i = count - 1; i > 0; i--)
+    // Shuffle only the free tail; the anchors keep their order and their spot.
+    for (i = count - 1; i > anchors; i--)
     {
-        u32 j = RiftRand(&stream) % (i + 1);
+        u32 j = anchors + RiftRand(&stream) % (i + 1 - anchors);
         u8 tmp = order[i];
         order[i] = order[j];
         order[j] = tmp;
@@ -183,6 +190,15 @@ void Interstellar_RandomiseRifts(void)
 
         t->x = list->spots[order[next]].x;
         t->y = list->spots[order[next]].y;
+
+        // An anchor was only cleared for a mid-size tear -- it sits close to an
+        // NPC, where a 64px scar would be sliced by the scenery around them.
+        if (next < anchors)
+        {
+            t->graphicsId = OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR_MED;
+            next++;
+            continue;
+        }
         next++;
 
         // ...and vary how badly the world is torn at that spot.

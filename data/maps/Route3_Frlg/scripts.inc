@@ -1,5 +1,117 @@
 Route3_Frlg_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Interstellar_Route3_OnTransition
 	.byte 0
+
+@ ---------------------------------------------------------------------------
+@ May waits just inside ROUTE 3 to brief the player on MT. MOON. Her hide flag
+@ is a TEMP flag, recomputed on every map load: a persistent flag would latch
+@ "hidden" from the pre-BROCK visit and she would never appear again.
+@ ---------------------------------------------------------------------------
+Interstellar_Route3_OnTransition::
+	setflag FLAG_TEMP_11
+	goto_if_set FLAG_INTERSTELLAR_MAY_ROUTE3_DONE, Interstellar_Route3_OT_End
+	goto_if_unset FLAG_DEFEATED_BROCK, Interstellar_Route3_OT_End
+	clearflag FLAG_TEMP_11
+
+Interstellar_Route3_OT_End::
+	end
+
+Interstellar_Route3_EventScript_MayTrigger::
+	lockall
+	goto_if_set FLAG_INTERSTELLAR_MAY_ROUTE3_DONE, Interstellar_Route3_EventScript_TrigDone
+	goto_if_unset FLAG_DEFEATED_BROCK, Interstellar_Route3_EventScript_TrigDone
+	setvar VAR_TEMP_1, 1
+	@ She idles at (7,10); the player trips this at (3, 9-11). Walk her into the
+	@ player's own row so she ends up directly in front of them, facing west.
+	getplayerxy VAR_0x8004, VAR_0x8005
+	call_if_eq VAR_0x8005, 9, Interstellar_Route3_EventScript_MayRow9
+	call_if_eq VAR_0x8005, 10, Interstellar_Route3_EventScript_MayRow10
+	call_if_eq VAR_0x8005, 11, Interstellar_Route3_EventScript_MayRow11
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	msgbox Interstellar_Route3_Text_MayGuide, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_INTERSTELLAR_MAY_ROUTE3_DONE
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayExit
+	waitmovement 0
+	removeobject LOCALID_INTERSTELLAR_MAY_ROUTE3
+	setflag FLAG_TEMP_11
+	releaseall
+	end
+
+Interstellar_Route3_EventScript_TrigDone::
+	releaseall
+	end
+
+@ Spoken to directly instead of walked into.
+Interstellar_Route3_EventScript_MayGuide::
+	lock
+	faceplayer
+	msgbox Interstellar_Route3_Text_MayGuide, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_INTERSTELLAR_MAY_ROUTE3_DONE
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayExit
+	waitmovement 0
+	removeobject LOCALID_INTERSTELLAR_MAY_ROUTE3
+	setflag FLAG_TEMP_11
+	release
+	end
+
+Interstellar_Route3_EventScript_MayRow9::
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayToRow9
+	waitmovement 0
+	return
+
+Interstellar_Route3_EventScript_MayRow10::
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayToRow10
+	waitmovement 0
+	return
+
+Interstellar_Route3_EventScript_MayRow11::
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayToRow11
+	waitmovement 0
+	return
+
+@ (7,10) -> (4,9), ending face-left: one tile east of a player stood at (3,9).
+Interstellar_Route3_Movement_MayToRow9:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+@ (7,10) -> (4,10)
+Interstellar_Route3_Movement_MayToRow10:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+@ (7,10) -> (4,11)
+Interstellar_Route3_Movement_MayToRow11:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+@ Four tiles east is walkable on all three rows.
+Interstellar_Route3_Movement_MayExit:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Interstellar_Route3_Text_MayGuide::
+	.string "MAY: BROCK told me you held your\n"
+	.string "ground. Good--we need that.\p"
+	.string "ROUTE 3 is the only open way east,\n"
+	.string "and it leads straight to MT. MOON.\p"
+	.string "My dad's scanner caught the same\n"
+	.string "signal in there that brought us here.\p"
+	.string "I'll scout ahead. If the cave starts\n"
+	.string "to change, follow the blue light.$"
 
 Route3_EventScript_Youngster::
 	msgbox Route3_Text_TunnelFromCeruleanTiring, MSGBOX_NPC

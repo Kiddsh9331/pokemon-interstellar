@@ -1228,7 +1228,7 @@
 #define FLAG_INTERSTELLAR_TEST_KIT_ISSUED                           0x496 // Unused Flag
 #define FLAG_INTERSTELLAR_MAY_VIRIDIAN_DONE                         0x497 // Unused Flag
 #define FLAG_INTERSTELLAR_MAY_MT_MOON_DONE                          0x498 // Unused Flag
-#define FLAG_INTERSTELLAR_MAY_PEWTER_DONE                           0x499 // Unused Flag
+#define FLAG_INTERSTELLAR_MAY_ROUTE3_DONE                           0x499 // Unused Flag
 #define FLAG_INTERSTELLAR_GARY_MT_MOON_DONE                         0x49A // Unused Flag
 #define FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED                        0x49B // Unused Flag
 #define FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN                0x49C // Unused Flag
