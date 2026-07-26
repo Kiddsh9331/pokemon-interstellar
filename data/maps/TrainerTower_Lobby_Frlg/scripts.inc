@@ -126,8 +126,6 @@ TrainerTower_Lobby_EventScript_MartClerk::
 
 	.align 2
 TrainerTower_Lobby_Mart_Items::
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_FULL_RESTORE
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_HYPER_POTION

@@ -194,12 +194,12 @@ const struct ItemInfo gItemsInfo[] =
 
     [ITEM_POKE_BALL] =
     {
-        .name = ITEM_NAME("Poké Ball"),
+        .name = ITEM_NAME("Aeon Ball"),
         .price = 200,
         .description = COMPOUND_STRING(
-            "A tool used for\n"
-            "catching wild\n"
-            "Pokémon."),
+            "Cleanses the rift\n"
+            "from a POKéMON as\n"
+            "it is caught."),
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
         .battleUsage = EFFECT_ITEM_THROW_BALL,
