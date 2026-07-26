@@ -21,6 +21,7 @@
 #include "palette.h"
 #include "sound.h"
 #include "constants/songs.h"
+#include "gpu_regs.h"
 
 struct RiftSpot
 {
@@ -49,6 +50,9 @@ static u32 sRiftSeed; // zero at boot, rolled on first overworld load
 static u16 sLightningTimer;
 static u8 sLightningPhase;
 
+// The flash uses the GPU brightness blend, NOT the palette buffers: writing
+// palettes here overwrote the weather shading and day/night tint every frame
+// and washed the whole map out.
 void Interstellar_UpdateStormLightning(void)
 {
     if (gMapHeader.weather != WEATHER_SHADE || gPaletteFade.active)
@@ -56,14 +60,40 @@ void Interstellar_UpdateStormLightning(void)
 
     if (sLightningPhase != 0)
     {
+        u32 bldy;
+
         sLightningPhase--;
-        // double strike: bright, dim, bright, then back to normal
-        if (sLightningPhase == 10 || sLightningPhase == 6)
-            BlendPalettes(PALETTES_BG | PALETTES_OBJECTS, 13, RGB_WHITE);
-        else if (sLightningPhase == 9 || sLightningPhase == 5)
-            BlendPalettes(PALETTES_BG | PALETTES_OBJECTS, 6, RGB_WHITE);
+        // double strike, then back to normal
+        switch (sLightningPhase)
+        {
+        case 10:
+        case 6:
+            bldy = 10;
+            break;
+        case 9:
+        case 5:
+            bldy = 5;
+            break;
+        case 8:
+        case 4:
+            bldy = 2;
+            break;
+        default:
+            bldy = 0;
+            break;
+        }
+
+        if (bldy != 0)
+        {
+            SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN);
+            SetGpuReg(REG_OFFSET_BLDY, bldy);
+        }
         else
-            BlendPalettes(PALETTES_BG | PALETTES_OBJECTS, 0, RGB_WHITE);
+        {
+            SetGpuReg(REG_OFFSET_BLDY, 0);
+            if (sLightningPhase == 0) // hand the registers back
+                SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        }
         return;
     }
 
