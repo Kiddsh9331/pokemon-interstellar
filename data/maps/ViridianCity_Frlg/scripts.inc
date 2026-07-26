@@ -394,7 +394,16 @@ Interstellar_Viridian_EventScript_MayScoutTrigger::
 
 Interstellar_Viridian_EventScript_MayScoutCommon::
 	lockall
-	faceplayer
+	@ May waits two tiles north of the trigger row. Walk her down into the
+	@ player's own column so she actually arrives before she speaks.
+	getplayerxy VAR_0x8004, VAR_0x8005
+	call_if_eq VAR_0x8004, 19, Interstellar_Viridian_EventScript_MayWalk19
+	call_if_eq VAR_0x8004, 20, Interstellar_Viridian_EventScript_MayWalk20
+	call_if_eq VAR_0x8004, 21, Interstellar_Viridian_EventScript_MayWalk21
+	call_if_eq VAR_0x8004, 22, Interstellar_Viridian_EventScript_MayWalk22
+	call_if_eq VAR_0x8004, 23, Interstellar_Viridian_EventScript_MayWalk23
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
 	msgbox Interstellar_Viridian_Text_MayScout, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_INTERSTELLAR_MAY_VIRIDIAN_SCENE, 1
@@ -404,6 +413,63 @@ Interstellar_Viridian_EventScript_MayScoutCommon::
 	removeobject LOCALID_INTERSTELLAR_MAY_VIRIDIAN
 	releaseall
 	end
+
+Interstellar_Viridian_EventScript_MayWalk19::
+	applymovement LOCALID_INTERSTELLAR_MAY_VIRIDIAN, Interstellar_Viridian_Movement_MayTo19
+	waitmovement 0
+	return
+
+Interstellar_Viridian_EventScript_MayWalk20::
+	applymovement LOCALID_INTERSTELLAR_MAY_VIRIDIAN, Interstellar_Viridian_Movement_MayTo20
+	waitmovement 0
+	return
+
+Interstellar_Viridian_EventScript_MayWalk21::
+	applymovement LOCALID_INTERSTELLAR_MAY_VIRIDIAN, Interstellar_Viridian_Movement_MayTo21
+	waitmovement 0
+	return
+
+Interstellar_Viridian_EventScript_MayWalk22::
+	applymovement LOCALID_INTERSTELLAR_MAY_VIRIDIAN, Interstellar_Viridian_Movement_MayTo22
+	waitmovement 0
+	return
+
+Interstellar_Viridian_EventScript_MayWalk23::
+	applymovement LOCALID_INTERSTELLAR_MAY_VIRIDIAN, Interstellar_Viridian_Movement_MayTo23
+	waitmovement 0
+	return
+
+Interstellar_Viridian_Movement_MayTo19:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+Interstellar_Viridian_Movement_MayTo20:
+	walk_down
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+Interstellar_Viridian_Movement_MayTo21:
+	walk_down
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+Interstellar_Viridian_Movement_MayTo22:
+	walk_down
+	walk_in_place_faster_down
+	step_end
+
+Interstellar_Viridian_Movement_MayTo23:
+	walk_down
+	walk_right
+	walk_in_place_faster_down
+	step_end
 
 Interstellar_Viridian_Movement_MayLeavesForRoute2:
 	walk_up

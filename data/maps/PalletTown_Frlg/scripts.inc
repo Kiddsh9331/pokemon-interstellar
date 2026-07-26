@@ -651,3 +651,13 @@ Interstellar_Pallet_Text_OakFindsYou:
 	.string "Come on. My lab is right here.\n"
 	.string "Stay behind me.\p"
 	.string "Tea first. Questions after.$"
+
+Interstellar_Pallet_EventScript_RoadRubble::
+	msgbox Interstellar_Pallet_Text_RoadRubble, MSGBOX_SIGN
+	end
+
+Interstellar_Pallet_Text_RoadRubble:
+	.string "The road north is buried under\n"
+	.string "slabs of rock that were not here\l"
+	.string "yesterday.\p"
+	.string "They are still warm.$"

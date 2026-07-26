@@ -47,6 +47,7 @@ Interstellar_OaksLab_EventScript_Wake::
 	msgbox Interstellar_OaksLab_Text_OakExpShare, MSGBOX_DEFAULT
 	closemessage
 	setrespawn HEAL_LOCATION_PALLET_TOWN
+	setflag FLAG_INTERSTELLAR_PALLET_ROAD_CLEARED
 	setvar VAR_INTERSTELLAR_STATE, 6
 	releaseall
 	end

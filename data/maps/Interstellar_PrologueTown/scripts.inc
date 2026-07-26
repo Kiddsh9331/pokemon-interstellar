@@ -85,6 +85,7 @@ Interstellar_EventScript_InitKantoState::
 	@ blocks all wild encounters while its flag is set. It starts toggled ON;
 	@ use the item from the bag to switch it off/on. Remove for release.
 	additem ITEM_MYSTIC_TICKET
+	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	setflag FLAG_INTERSTELLAR_INFINITE_REPEL
 	return
 

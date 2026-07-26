@@ -1867,6 +1867,7 @@ static void OverworldBasic(void)
     BuildOamBuffer();
     UpdatePaletteFade();
     UpdateInterstellarRiftPulse();
+    Interstellar_UpdateStormLightning();
     UpdateTilesetAnimations();
     DoScheduledBgTilemapCopiesToVram();
     // Every minute if no palette fade is active, update TOD blending as needed

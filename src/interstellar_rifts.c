@@ -16,6 +16,11 @@
 #include "main.h"
 #include "constants/event_objects.h"
 #include "constants/maps.h"
+#include "constants/weather.h"
+#include "constants/rgb.h"
+#include "palette.h"
+#include "sound.h"
+#include "constants/songs.h"
 
 struct RiftSpot
 {
@@ -36,6 +41,40 @@ struct RiftSpotList
 #define MAX_RIFT_SPOTS 16
 
 static u32 sRiftSeed; // zero at boot, rolled on first overworld load
+
+// ---------------------------------------------------------------------------
+// Dry lightning: the Act 1 storm never breaks into rain, it just keeps
+// flashing. Runs on any overcast (WEATHER_SHADE) map.
+// ---------------------------------------------------------------------------
+static u16 sLightningTimer;
+static u8 sLightningPhase;
+
+void Interstellar_UpdateStormLightning(void)
+{
+    if (gMapHeader.weather != WEATHER_SHADE || gPaletteFade.active)
+        return;
+
+    if (sLightningPhase != 0)
+    {
+        sLightningPhase--;
+        // double strike: bright, dim, bright, then back to normal
+        if (sLightningPhase == 10 || sLightningPhase == 6)
+            BlendPalettes(PALETTES_BG | PALETTES_OBJECTS, 13, RGB_WHITE);
+        else if (sLightningPhase == 9 || sLightningPhase == 5)
+            BlendPalettes(PALETTES_BG | PALETTES_OBJECTS, 6, RGB_WHITE);
+        else
+            BlendPalettes(PALETTES_BG | PALETTES_OBJECTS, 0, RGB_WHITE);
+        return;
+    }
+
+    // roughly every 6-14 seconds
+    if (++sLightningTimer >= 360 + (Random() % 480))
+    {
+        sLightningTimer = 0;
+        sLightningPhase = 12;
+        PlaySE(SE_THUNDER);
+    }
+}
 
 static u32 RiftRand(u32 *state)
 {
