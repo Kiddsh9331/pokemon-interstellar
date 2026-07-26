@@ -51,11 +51,12 @@ Interstellar_PrologueTown_EventScript_Storm::
 	delay 30
 	msgbox Interstellar_PrologueTown_Text_WorldTears, MSGBOX_DEFAULT
 	closemessage
-	fadescreen FADE_TO_BLACK
+	@ Keep the screen white across the rift transfer. Pallet reveals only
+	@ once Oak has reached the player.
 	call Interstellar_EventScript_InitKantoState
 	special HealPlayerParty
 	setvar VAR_INTERSTELLAR_STATE, 4
-	warp MAP_PALLET_TOWN, 16, 14
+	warp MAP_PALLET_TOWN, 9, 14
 	waitstate
 	releaseall
 	end
@@ -65,7 +66,9 @@ Interstellar_EventScript_InitKantoState::
 	setflag FLAG_SYS_POKEMON_GET
 	setvar VAR_MAP_SCENE_PALLET_TOWN_OAK, 1
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2
+	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 1
 	setvar VAR_MAP_SCENE_PEWTER_CITY, 2
+	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	setvar VAR_MAP_SCENE_CERULEAN_CITY_RIVAL, 1
 	setflag FLAG_HIDE_CERULEAN_RIVAL
 	setvar VAR_MAP_SCENE_CERULEAN_CITY_ROCKET, 1
@@ -76,6 +79,13 @@ Interstellar_EventScript_InitKantoState::
 	setflag FLAG_HIDE_ROUTE_22_RIVAL
 	setflag FLAG_HIDE_CERULEAN_CAVE_GUARD
 	setflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
+	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	setflag FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN
+	@ Testing convenience: the RIFT REPEL key item (repurposed Mystic Ticket)
+	@ blocks all wild encounters while its flag is set. It starts toggled ON;
+	@ use the item from the bag to switch it off/on. Remove for release.
+	additem ITEM_MYSTIC_TICKET
+	setflag FLAG_INTERSTELLAR_INFINITE_REPEL
 	return
 
 Interstellar_Town_EventScript_LockedHouse::
@@ -88,12 +98,16 @@ Interstellar_PrologueTown_Movement_FaceBirch:
 
 Interstellar_PrologueTown_Text_BirchNotAStorm:
 	.string "PROF. BIRCH: That's not thunder.\p"
-	.string "Barometer didn't move. The light\n"
-	.string "is wrong. {PLAYER}, stay close--$"
+	.string "The barometer is still. Every clock\n"
+	.string "in town just lost the same minute.\p"
+	.string "The light is wrong. {PLAYER},\n"
+	.string "stay close--$"
 
 Interstellar_PrologueTown_Text_BirchTheSky:
 	.string "PROF. BIRCH: The sky--\n"
-	.string "the SKY is--$"
+	.string "it's folding inward!\p"
+	.string "OAK warned me this pattern could\n"
+	.string "cross regions, but not like this--$"
 
 Interstellar_PrologueTown_Text_BirchGetDown:
 	.string "PROF. BIRCH: {PLAYER}!\n"

@@ -6,7 +6,7 @@
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_VIRIDIAN_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY",
+  "weather": "WEATHER_FOG_HORIZONTAL",
   "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -161,6 +161,77 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianCity_EventScript_ItemPotion",
       "flag": "FLAG_HIDE_VIRIDIAN_CITY_POTION"
+    },
+    {
+      "local_id": "LOCALID_INTERSTELLAR_MAY_VIRIDIAN",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MAY_NORMAL",
+      "x": 22,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_Viridian_EventScript_MayScout",
+      "flag": "FLAG_INTERSTELLAR_MAY_VIRIDIAN_DONE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR",
+      "x": 30,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_EventScript_RiftBlight",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT",
+      "x": 30,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_EventScript_RiftBlight",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR",
+      "x": 35,
+      "y": 26,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_EventScript_ViridianLooseMon",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LASS_FRLG",
+      "x": 14,
+      "y": 22,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_EventScript_ViridianUneasyWoman",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -201,6 +272,51 @@
     }
   ],
   "coord_events": [
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MAY_VIRIDIAN_SCENE",
+      "var_value": "0",
+      "script": "Interstellar_Viridian_EventScript_MayScoutTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MAY_VIRIDIAN_SCENE",
+      "var_value": "0",
+      "script": "Interstellar_Viridian_EventScript_MayScoutTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MAY_VIRIDIAN_SCENE",
+      "var_value": "0",
+      "script": "Interstellar_Viridian_EventScript_MayScoutTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MAY_VIRIDIAN_SCENE",
+      "var_value": "0",
+      "script": "Interstellar_Viridian_EventScript_MayScoutTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 16,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MAY_VIRIDIAN_SCENE",
+      "var_value": "0",
+      "script": "Interstellar_Viridian_EventScript_MayScoutTrigger"
+    },
     {
       "type": "trigger",
       "x": 22,

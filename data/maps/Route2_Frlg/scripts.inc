@@ -11,8 +11,8 @@ Route2_EventScript_DiglettsCaveSign::
 
 Route2_Text_RouteSign::
 	.string "ROUTE 2\n"
-	.string "VIRIDIAN CITY - PEWTER CITY$"
+	.string "VIRIDIAN CITY - PEWTER SHELTER$"
 
 Route2_Text_DiglettsCave::
-	.string "DIGLETT'S CAVE$"
-
+	.string "DIGLETT'S CAVE\n"
+	.string "CLOSED: SUBTERRANEAN RIFT ACTIVITY$"

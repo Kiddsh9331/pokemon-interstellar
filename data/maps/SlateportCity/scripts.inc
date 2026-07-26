@@ -8,6 +8,11 @@ SlateportCity_OnTransition:
 	call SlateportCity_EventScript_EnterSlateport
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_MovePeopleForSternInterview
 	call_if_eq VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_SetReadyForScottScene
+	goto_if_eq VAR_INTERSTELLAR_STATE, 8, SlateportCity_OnTransition_KeepArrivalRift
+	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	clearflag FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN
+
+SlateportCity_OnTransition_KeepArrivalRift:
 	end
 
 SlateportCity_EventScript_EnterSlateport::
@@ -53,8 +58,17 @@ SlateportCity_OnFrame:
 
 Interstellar_Slateport_EventScript_Arrival::
 	lockall
-	fadescreenspeed FADE_FROM_BLACK, 2
+	fadescreenspeed FADE_FROM_WHITE, 2
 	delay 30
+	applymovement LOCALID_PLAYER, Interstellar_Slateport_Movement_ExitRift
+	waitmovement 0
+	playse SE_THUNDER
+	delay 20
+	removeobject LOCALID_INTERSTELLAR_SLATEPORT_RIFT_PORTAL
+	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	clearflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
+	clearflag FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN
+	addobject LOCALID_INTERSTELLAR_SLATEPORT_RIFT_SCAR
 	setflag FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA
 	setflag FLAG_HIDE_SLATEPORT_CITY_SCOTT
 	msgbox Interstellar_Slateport_Text_Arrival, MSGBOX_DEFAULT
@@ -65,6 +79,10 @@ Interstellar_Slateport_EventScript_Arrival::
 	setvar VAR_INTERSTELLAR_STATE, 9
 	releaseall
 	end
+
+Interstellar_Slateport_Movement_ExitRift:
+	walk_down
+	step_end
 
 Interstellar_EventScript_BirchSlateport::
 	lock
@@ -86,7 +104,8 @@ Interstellar_EventScript_BirchSlateportHint::
 	end
 
 Interstellar_Slateport_Text_Arrival:
-	.string "The gate drops you onto warm stone.\p"
+	.string "The rift releases you onto warm\n"
+	.string "stone-- then snaps shut behind you.\p"
 	.string "Salt. Sun. The cries of WINGULL.\p"
 	.string "For one breath, the world feels\n"
 	.string "like home again.$"

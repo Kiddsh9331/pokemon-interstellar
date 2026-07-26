@@ -15,7 +15,6 @@ PewterCity_Gym_EventScript_DefeatedBrock::
 	setflag FLAG_BADGE01_GET
 	setvar VAR_MAP_SCENE_PEWTER_CITY, 1
 	setflag FLAG_HIDE_PEWTER_CITY_GYM_GUIDE
-	clearflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	set_gym_trainers_frlg 1
 	goto PewterCity_Gym_EventScript_GiveTM39
 	end
@@ -82,35 +81,30 @@ PewterCity_Gym_EventScript_GymStatuePostVictory::
 	end
 
 PewterCity_Gym_Text_BrockIntro::
-	.string "So, you're here. I'm BROCK.\n"
-	.string "I'm PEWTER's GYM LEADER.\p"
-	.string "My rock-hard willpower is evident\n"
-	.string "even in my POKéMON.\p"
-	.string "My POKéMON are all rock hard, and\n"
-	.string "have true-grit determination.\p"
-	.string "That's right - my POKéMON are all\n"
-	.string "the ROCK type!\p"
-	.string "Fuhaha! You're going to challenge\n"
-	.string "me knowing that you'll lose?\p"
-	.string "That's the TRAINER's honor that\n"
-	.string "compels you to challenge me.\p"
-	.string "Fine, then!\n"
-	.string "Show me your best!{PLAY_BGM}{MUS_RG_ENCOUNTER_GYM_LEADER}$"
+	.string "BROCK: So you're the trainer OAK\n"
+	.string "sent through the broken routes.\p"
+	.string "PEWTER has been taking in people\n"
+	.string "who woke up under the wrong sky.\p"
+	.string "Stone does not panic. It holds\n"
+	.string "when everything else shifts.\p"
+	.string "My ROCK-type team guards this city.\n"
+	.string "Show me you can guard someone, too!\p"
+	.string "Let's see whether your footing holds\n"
+	.string "when the world starts to move!{PLAY_BGM}{MUS_RG_ENCOUNTER_GYM_LEADER}$"
 
 PewterCity_Gym_Text_BrockDefeat::
-	.string "I took you for granted, and so\n"
-	.string "I lost.\p"
+	.string "You didn't run when the floor sang.\n"
+	.string "I misjudged you.\p"
 	.string "As proof of your victory, I confer\n"
 	.string "on you this…the official POKéMON\l"
 	.string "LEAGUE BOULDERBADGE.\p"
 	.string "{FONT_NORMAL}{PLAYER} received the BOULDERBADGE\n"
 	.string "from BROCK!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}\p"
-	.string "{FONT_MALE}Just having the BOULDERBADGE makes\n"
-	.string "your POKéMON more powerful.\p"
-	.string "It also enables the use of the\n"
-	.string "move FLASH outside of battle.\p"
-	.string "Of course, a POKéMON must know the\n"
-	.string "move FLASH to use it.$"
+	.string "{FONT_MALE}Keep it close. A badge is not just\n"
+	.string "permission-- it's a promise.\p"
+	.string "MISTY in CERULEAN is holding the\n"
+	.string "river routes. She needs trainers\l"
+	.string "who keep their promises.$"
 
 PewterCity_Gym_Text_TakeThisWithYou::
 	.string "Wait!\n"
@@ -134,13 +128,12 @@ PewterCity_Gym_Text_ExplainTM39::
 	.string "lowers its SPEED.$"
 
 PewterCity_Gym_Text_BrockPostBattle::
-	.string "There are all kinds of TRAINERS in\n"
-	.string "this huge world of ours.\p"
-	.string "You appear to be very gifted as a\n"
-	.string "POKéMON TRAINER.\p"
-	.string "So let me make a suggestion.\p"
-	.string "Go to the GYM in CERULEAN and test\n"
-	.string "your abilities.$"
+	.string "The rifts leave black seams in the\n"
+	.string "roads and worse things in caves.\p"
+	.string "Take ROUTE 3 carefully. If the air\n"
+	.string "goes silent, get to solid ground.\p"
+	.string "Find MISTY in CERULEAN. Tell her\n"
+	.string "PEWTER is still standing.$"
 
 PewterCity_Gym_Text_DontHaveRoomForThis::
 	.string "You don't have room for this.$"
@@ -199,4 +192,3 @@ PewterCity_Gym_Text_GymStatuePlayerWon::
 	.string "LEADER: BROCK\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
-

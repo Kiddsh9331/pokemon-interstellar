@@ -77,6 +77,36 @@ ViridianCity_EventScript_Boy::
 	msgbox ViridianCity_Text_CanCarryMonsAnywhere, MSGBOX_NPC
 	end
 
+@ --- Interstellar: on-the-loose Pokémon and uneasy NPC (rift chaos flavor, no battle) ---
+
+Interstellar_EventScript_ViridianLooseMon::
+	lock
+	faceplayer
+	msgbox Interstellar_Text_ViridianLooseMon, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_ViridianUneasyWoman::
+	msgbox Interstellar_Text_ViridianUneasyWoman, MSGBOX_NPC
+	end
+
+Interstellar_Text_ViridianLooseMon::
+	.string "A stray SHINX prowls between the\n"
+	.string "buildings, sparking faintly with\l"
+	.string "static.\p"
+	.string "SHINX aren't native to KANTO.\n"
+	.string "It doesn't seem to care.\p"
+	.string "It flicks its tail at you, then\n"
+	.string "slips off down an alley.$"
+
+Interstellar_Text_ViridianUneasyWoman::
+	.string "I keep seeing POKéMON that aren't\n"
+	.string "supposed to exist yet, wandering\l"
+	.string "right through town.\p"
+	.string "Nobody's saying it out loud, but\n"
+	.string "everyone's noticed. Something\l"
+	.string "about the sky broke.$"
+
 @ Other old man, not the tutorial old man
 ViridianCity_EventScript_OldMan::
 	lock
@@ -335,14 +365,14 @@ ViridianCity_Text_TooBusyForTeachyTV::
 
 ViridianCity_Text_CitySign::
 	.string "VIRIDIAN CITY \n"
-	.string "The Eternally Green Paradise$"
+	.string "The green city under a broken sky$"
 
 ViridianCity_Text_CatchMonsForEasierBattles::
-	.string "TRAINER TIPS\p"
-	.string "Catch POKéMON and expand your\n"
-	.string "collection.\p"
-	.string "The more you have, the easier it\n"
-	.string "is to battle.$"
+	.string "EMERGENCY NOTICE\p"
+	.string "Rift-touched POKéMON may look or\n"
+	.string "sound unfamiliar.\p"
+	.string "Keep a varied team. No one knows\n"
+	.string "which traits will hold after a tear.$"
 
 ViridianCity_Text_MovesLimitedByPP::
 	.string "TRAINER TIPS\p"
@@ -354,6 +384,46 @@ ViridianCity_Text_MovesLimitedByPP::
 ViridianCity_Text_GymSign::
 	.string "VIRIDIAN CITY POKéMON GYM$"
 
+Interstellar_Viridian_EventScript_MayScout::
+	goto Interstellar_Viridian_EventScript_MayScoutCommon
+	end
+
+Interstellar_Viridian_EventScript_MayScoutTrigger::
+	goto Interstellar_Viridian_EventScript_MayScoutCommon
+	end
+
+Interstellar_Viridian_EventScript_MayScoutCommon::
+	lockall
+	faceplayer
+	msgbox Interstellar_Viridian_Text_MayScout, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_INTERSTELLAR_MAY_VIRIDIAN_SCENE, 1
+	applymovement LOCALID_INTERSTELLAR_MAY_VIRIDIAN, Interstellar_Viridian_Movement_MayLeavesForRoute2
+	waitmovement 0
+	setflag FLAG_INTERSTELLAR_MAY_VIRIDIAN_DONE
+	removeobject LOCALID_INTERSTELLAR_MAY_VIRIDIAN
+	releaseall
+	end
+
+Interstellar_Viridian_Movement_MayLeavesForRoute2:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Interstellar_Viridian_Text_MayScout:
+	.string "MAY: There you are! I woke up on\n"
+	.string "the west coast after the same flash.\p"
+	.string "My dad's scanner keeps finding tears\n"
+	.string "where the wild POKéMON go silent.\p"
+	.string "BROCK is keeping PEWTER together.\n"
+	.string "I'm heading through ROUTE 2 and\l"
+	.string "VIRIDIAN FOREST to reach him.\p"
+	.string "Then I'll check MT. MOON for another\l"
+	.string "signal. Don't disappear again!$"
+
 ViridianCity_Text_GymDoorsAreLocked::
 	.string "VIRIDIAN GYM's doors are locked…$"
-

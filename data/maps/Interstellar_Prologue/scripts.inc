@@ -61,17 +61,19 @@ Interstellar_Prologue_Movement_BirchApproach:
 
 Interstellar_Prologue_Text_BirchBigDay:
 	.string "PROF. BIRCH: {PLAYER}! There you are!\p"
-	.string "Ha! Look at you-- couldn't sleep\n"
-	.string "either, I'll bet.\p"
-	.string "Today's the day.$"
+	.string "I know I said today was for a quiet\n"
+	.string "field study. But the sky has been\l"
+	.string "wrong since dawn.\p"
+	.string "Still... every journey needs a first\n"
+	.string "step. Today's the day.$"
 
 Interstellar_Prologue_Text_BirchPerfect:
 	.string "PROF. BIRCH: {STR_VAR_1}, is it?\n"
-	.string "A fine choice!\p"
-	.string "Take good care of each other,\n"
-	.string "you two.\p"
-	.string "...Hm?\n"
-	.string "Do you hear that?$"
+	.string "A fine choice.\p"
+	.string "Take good care of each other. The\n"
+	.string "world feels unsteady today.\p"
+	.string "...Hm? That sound is not wind.\n"
+	.string "Do you hear it?$"
 
 Interstellar_Prologue_Text_BirchWhatInThe:
 	.string "PROF. BIRCH: What in the--\p"

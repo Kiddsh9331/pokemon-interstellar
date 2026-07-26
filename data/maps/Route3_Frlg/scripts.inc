@@ -10,27 +10,27 @@ Route3_EventScript_RouteSign::
 	end
 
 Route3_Text_TunnelFromCeruleanTiring::
-	.string "Whew… I better take a rest…\n"
-	.string "Groan…\p"
-	.string "That tunnel from CERULEAN takes a\n"
-	.string "lot out of you!$"
+	.string "I came from CERULEAN, but the road\n"
+	.string "changed behind me twice.\p"
+	.string "MT. MOON is worse. Every echo in\n"
+	.string "there sounds like a different year.$"
 
 Route3_Text_ColtonIntro::
-	.string "Hey!\n"
-	.string "I saw you in VIRIDIAN FOREST!$"
+	.string "Hey! You're the trainer everyone\n"
+	.string "says looks like somebody else!$"
 
 Route3_Text_ColtonDefeat::
 	.string "You beat me again!$"
 
 Route3_Text_ColtonPostBattle::
-	.string "There are other kinds of POKéMON\n"
-	.string "than the ones you find in forests.$"
+	.string "The rift keeps dropping POKéMON from\n"
+	.string "places my guidebook never listed.$"
 
 Route3_Text_BenIntro::
-	.string "Hi!\n"
-	.string "I like shorts!\p"
-	.string "They're delightfully comfy and\n"
-	.string "easy to wear!$"
+	.string "Hi! I was hiding from the sky when\n"
+	.string "I saw the tear over MT. MOON.\p"
+	.string "Battling helps me stop listening to\n"
+	.string "it. Let's go!$"
 
 Route3_Text_BenDefeat::
 	.string "I don't believe it!$"
@@ -111,5 +111,4 @@ Route3_Text_RobinPostBattle::
 
 Route3_Text_RouteSign::
 	.string "ROUTE 3\n"
-	.string "MT. MOON AHEAD$"
-
+	.string "MT. MOON AHEAD -- RIFT WARNING$"

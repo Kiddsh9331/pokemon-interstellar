@@ -1,5 +1,11 @@
 Interstellar_RiftChamber_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Interstellar_RiftChamber_OnTransition
 	.byte 0
+
+Interstellar_RiftChamber_OnTransition::
+	@ A full portal only exists during a crossing scene.
+	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	end
 
 Interstellar_EventScript_CorruptedMewtwo::
 	lock
@@ -64,11 +70,15 @@ Interstellar_EventScript_RiftStabilizes::
 	releaseall
 	end
 
-Interstellar_EventScript_KantoRiftGate::
+Interstellar_EventScript_KantoRiftScar::
 	lock
-	msgbox Interstellar_Text_KantoRiftGate, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_KantoRiftGateWait
+	msgbox Interstellar_Text_KantoRiftScar, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_KantoRiftScarWait
 	closemessage
+	setflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
+	clearflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	removeobject LOCALID_INTERSTELLAR_KANTO_RIFT_SCAR
+	addobject LOCALID_INTERSTELLAR_KANTO_RIFT_PORTAL
 	playse SE_THUNDER
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
@@ -76,14 +86,23 @@ Interstellar_EventScript_KantoRiftGate::
 	setvar VAR_0x8007, 3
 	special ShakeCamera
 	waitstate
+	delay 30
 	fadescreenspeed FADE_TO_WHITE, 2
+	setvar VAR_INTERSTELLAR_STATE, 8
 	warp MAP_SLATEPORT_CITY, 20, 42
 	waitstate
 	release
 	end
 
-Interstellar_EventScript_KantoRiftGateWait::
-	msgbox Interstellar_Text_KantoRiftGateWait, MSGBOX_DEFAULT
+Interstellar_EventScript_KantoRiftScarWait::
+	msgbox Interstellar_Text_KantoRiftScarWait, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_RiftBlight::
+	lock
+	faceplayer
+	msgbox Interstellar_Text_RiftBlight, MSGBOX_DEFAULT
 	release
 	end
 
@@ -91,6 +110,20 @@ Interstellar_EventScript_ForestRiftScar::
 	lock
 	faceplayer
 	msgbox Interstellar_Text_ForestRiftScar, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_PalletRiftScar::
+	lock
+	faceplayer
+	msgbox Interstellar_Text_PalletRiftScar, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_Route1RiftScar::
+	lock
+	faceplayer
+	msgbox Interstellar_Text_Route1RiftScar, MSGBOX_DEFAULT
 	release
 	end
 
@@ -128,6 +161,12 @@ Interstellar_RiftChamber_EventScript_StepBack::
 Interstellar_RiftChamber_Movement_StepUp:
 	walk_up
 	step_end
+
+Interstellar_Text_RiftBlight:
+	.string "The ground has split into black\n"
+	.string "glass and cold, unfamiliar stone.\p"
+	.string "The air around it hums one note\n"
+	.string "below anything you can hear.$"
 
 Interstellar_Text_MewtwoStirs:
 	.string "Something in the dark uncoils.\p"
@@ -169,24 +208,21 @@ Interstellar_Text_RiftStillPulses:
 
 Interstellar_Text_RiftCrystallizes:
 	.string "The rift convulses--\p"
-	.string "and CRYSTALLIZES, freezing into\n"
-	.string "a standing gate of glass-blue\l"
-	.string "light. Calm. Stable.\p"
-	.string "A warm wind drifts through from\n"
-	.string "the far side.\p"
-	.string "It smells of salt and summer.\n"
-	.string "It smells of home.$"
+	.string "then folds in on itself, leaving\n"
+	.string "only a small, star-shaped scar\l"
+	.string "in the stone.\p"
+	.string "It is quiet now. Not closed--\n"
+	.string "only waiting.$"
 
-Interstellar_Text_KantoRiftGate:
-	.string "The RIFTGATE stands where the\n"
-	.string "wound once was. Violet crystal\l"
-	.string "holds a sky-blue window open.\p"
-	.string "Warm sunlight moves beyond it.\n"
-	.string "Cross to HOENN?$"
+Interstellar_Text_KantoRiftScar:
+	.string "The scar trembles. For a moment,\n"
+	.string "warm sunlight leaks through its\l"
+	.string "black center.\p"
+	.string "Pull it open and cross to HOENN?$"
 
-Interstellar_Text_KantoRiftGateWait:
-	.string "The gate hums softly.\n"
-	.string "It will wait.$"
+Interstellar_Text_KantoRiftScarWait:
+	.string "The scar rests in the stone.\n"
+	.string "It will not open by itself.$"
 
 Interstellar_Text_ForestRiftScar:
 	.string "The fog bends toward a black\n"
@@ -195,6 +231,18 @@ Interstellar_Text_ForestRiftScar:
 	.string "of a wound that never quite\l"
 	.string "closed.\p"
 	.string "The forest is growing around it.$"
+
+Interstellar_Text_PalletRiftScar:
+	.string "The wound you fell through has\n"
+	.string "left a second shadow by the sea.\p"
+	.string "It gives off no heat. Only a low,\n"
+	.string "unbroken pressure behind the eyes.$"
+
+Interstellar_Text_Route1RiftScar:
+	.string "Grass leans away from the dark\n"
+	.string "oval as if a storm is coming.\p"
+	.string "For a moment, something moves on\n"
+	.string "the other side of the black glass.$"
 
 Interstellar_Text_MtMoonRiftScar:
 	.string "A dark fold trembles in the\n"

@@ -63,6 +63,26 @@ ViridianForest_EventScript_Charlie::
 	msgbox ViridianForest_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+ViridianForest_EventScript_Derek::
+	trainerbattle_single TRAINER_BUG_CATCHER_DEREK, ViridianForest_Text_DerekIntro, ViridianForest_Text_DerekDefeat
+	msgbox ViridianForest_Text_DerekPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ViridianForest_EventScript_Penny::
+	trainerbattle_single TRAINER_LASS_PENNY_FOREST, ViridianForest_Text_PennyIntro, ViridianForest_Text_PennyDefeat
+	msgbox ViridianForest_Text_PennyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ViridianForest_EventScript_Cole::
+	trainerbattle_single TRAINER_YOUNGSTER_COLE_FOREST, ViridianForest_Text_ColeIntro, ViridianForest_Text_ColeDefeat
+	msgbox ViridianForest_Text_ColePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+ViridianForest_EventScript_Tess::
+	trainerbattle_single TRAINER_BUG_CATCHER_TESS, ViridianForest_Text_TessIntro, ViridianForest_Text_TessDefeat
+	msgbox ViridianForest_Text_TessPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 ViridianForest_Text_FriendsItchingToBattle::
 	.string "I came here with some friends to\n"
 	.string "catch us some BUG POKéMON!\p"
@@ -167,4 +187,61 @@ ViridianForest_Text_WeakenMonsBeforeCapture::
 ViridianForest_Text_LeavingViridianForest::
 	.string "LEAVING VIRIDIAN FOREST\n"
 	.string "PEWTER CITY AHEAD$"
+
+ViridianForest_Text_DerekIntro::
+	.string "Whoa, look at this bug! It came\n"
+	.string "crawling right out of that black\l"
+	.string "crack in the air!\p"
+	.string "It's mine now. Let's see what it\n"
+	.string "can do!$"
+
+ViridianForest_Text_DerekDefeat::
+	.string "It doesn't fight like anything I've\n"
+	.string "ever seen…$"
+
+ViridianForest_Text_DerekPostBattle::
+	.string "That KRICKETOT wasn't from around\n"
+	.string "here. Neither was that crack it\l"
+	.string "fell out of.$"
+
+ViridianForest_Text_PennyIntro::
+	.string "This little pond bug skated right\n"
+	.string "out of the rift scar over there!\p"
+	.string "I don't know what it is, but it's\n"
+	.string "battle-ready!$"
+
+ViridianForest_Text_PennyDefeat::
+	.string "Aw! It slipped right past my\n"
+	.string "SURSKIT'S guard!$"
+
+ViridianForest_Text_PennyPostBattle::
+	.string "The whole forest smells different\n"
+	.string "since these scars opened up.$"
+
+ViridianForest_Text_ColeIntro::
+	.string "Check it out! This thing rolled out\n"
+	.string "of a rift scar like it owned the\l"
+	.string "place!$"
+
+ViridianForest_Text_ColeDefeat::
+	.string "Whoa!\n"
+	.string "That VENIPEDE means business!$"
+
+ViridianForest_Text_ColePostBattle::
+	.string "It's not even scared of the scar\n"
+	.string "it came from. Weird little guy.$"
+
+ViridianForest_Text_TessIntro::
+	.string "Found this one clinging to the\n"
+	.string "edge of a scar, chewing on the\l"
+	.string "bark like it belonged here.\p"
+	.string "Let's battle!$"
+
+ViridianForest_Text_TessDefeat::
+	.string "That GRUBBIN bit clean through my\n"
+	.string "strategy!$"
+
+ViridianForest_Text_TessPostBattle::
+	.string "More of these scars keep opening.\n"
+	.string "More bugs keep coming through.$"
 

@@ -963,6 +963,26 @@ enum Collision CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16
 {
     enum Collision collision = GetCollisionAtCoords(objectEvent, x, y, direction);
 
+    // Rift scars and glass blight are visual contamination, not solid props.
+    // Their object events allow them to animate above the map, but walking
+    // through them must remain possible on every route.
+    if (collision == COLLISION_OBJECT_EVENT)
+    {
+        u8 otherObjectEventId = GetObjectEventIdByPosition(x, y, objectEvent->currentElevation);
+        if (otherObjectEventId != OBJECT_EVENTS_COUNT)
+        {
+            u8 graphicsId = gObjectEvents[otherObjectEventId].graphicsId;
+            if (graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR
+             || graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT)
+                collision = COLLISION_NONE;
+        }
+    }
+
+    // Interstellar demo test tool: phase through map walls, while keeping map
+    // bounds and NPC/object collisions intact so the player cannot soft-lock.
+    if (FlagGet(FLAG_INTERSTELLAR_PHASE_WALK) && collision == COLLISION_IMPASSABLE)
+        collision = COLLISION_NONE;
+
     if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSurfing(x, y, direction))
         return COLLISION_STOP_SURFING;
 

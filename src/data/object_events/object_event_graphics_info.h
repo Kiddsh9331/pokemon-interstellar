@@ -6430,6 +6430,47 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftGa
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 2048,
+    .width = 64,
+    .height = 64,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_NONE,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_NONE,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = sOamTables_64x64,
+    .anims = sAnimTable_InterstellarRiftGate,
+    .images = sPicTable_InterstellarRiftGate,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftScar = {
+    .tileTag = TAG_NONE,
+    // All Act 1 rift effects deliberately share one palette.  Loading separate
+    // custom palettes alongside local NPCs can exceed the overworld palette pool
+    // and make the scar fall back to white.
+    .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_NONE,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_NONE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_InterstellarRiftGate,
+    .images = sPicTable_InterstellarRiftScar,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftBlight = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
     .height = 32,
@@ -6441,7 +6482,47 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftGa
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_Inanimate,
-    .images = sPicTable_InterstellarRiftGate,
+    .images = sPicTable_InterstellarRiftBlight,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// Team Galactic grunts (Retro Platinum rip): single static down-facing frame,
+// both variants share one palette to stay inside the overworld palette pool.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticGruntM = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_GALACTIC,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Inanimate,
+    .images = sPicTable_GalacticGruntM,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticGruntF = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_GALACTIC,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Inanimate,
+    .images = sPicTable_GalacticGruntF,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 

@@ -8,11 +8,15 @@ Interstellar_OaksLab_OnFrame:
 
 Interstellar_OaksLab_EventScript_Wake::
 	lockall
+	@ Oak has already led the player inside. Bring him into frame before the
+	@ lab narration resumes, and turn the player toward him.
+	applymovement LOCALID_INTERSTELLAR_OAK, Interstellar_OaksLab_Movement_OakApproach
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	fadescreenspeed FADE_FROM_BLACK, 2
 	delay 40
 	msgbox Interstellar_OaksLab_Text_Wake, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_INTERSTELLAR_OAK, Interstellar_OaksLab_Movement_OakApproach
-	waitmovement 0
 	msgbox Interstellar_OaksLab_Text_OakEasyNow, MSGBOX_DEFAULT
 	closemessage
 	delay 20
@@ -27,9 +31,16 @@ Interstellar_OaksLab_EventScript_Wake::
 	giveitem ITEM_POKE_BALL, 5
 	giveitem ITEM_POTION, 3
 	giveitem ITEM_ANTIDOTE, 2
+	giveitem ITEM_RARE_CANDY, 999
+	giveitem ITEM_MASTER_BALL, 999
+	giveitem ITEM_OLD_SEA_MAP
+	giveitem ITEM_AURORA_TICKET
+	giveitem ITEM_MYSTIC_TICKET
+	setflag FLAG_INTERSTELLAR_TEST_KIT_ISSUED
 	setflag FLAG_SYS_POKEDEX_GET
 	special EnableNationalPokedex
 	setflag FLAG_SYS_B_DASH
+	setflag FLAG_RECEIVED_RUNNING_SHOES
 	msgbox Interstellar_OaksLab_Text_OakRunningShoes, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_EXP_SHARE
@@ -43,12 +54,28 @@ Interstellar_OaksLab_EventScript_Wake::
 Interstellar_EventScript_Oak::
 	lock
 	faceplayer
+	goto_if_unset FLAG_INTERSTELLAR_TEST_KIT_ISSUED, Interstellar_EventScript_OakIssueTestKit
 	goto_if_eq VAR_INTERSTELLAR_STATE, 7, Interstellar_EventScript_OakGateOpen
 	goto_if_eq VAR_INTERSTELLAR_STATE, 8, Interstellar_EventScript_OakGateOpen
 	msgbox Interstellar_OaksLab_Text_OakRestAMoment, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_OakHint
 	call Interstellar_EventScript_OakHeal
 	goto Interstellar_EventScript_OakHint
+	end
+
+Interstellar_EventScript_OakIssueTestKit::
+	msgbox Interstellar_OaksLab_Text_OakTestKit, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_RARE_CANDY, 999
+	giveitem ITEM_MASTER_BALL, 999
+	giveitem ITEM_OLD_SEA_MAP
+	giveitem ITEM_AURORA_TICKET
+	giveitem ITEM_MYSTIC_TICKET
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_INTERSTELLAR_TEST_KIT_ISSUED
+	msgbox Interstellar_OaksLab_Text_OakTestKitControls, MSGBOX_DEFAULT
+	release
 	end
 
 Interstellar_EventScript_OakHeal::
@@ -134,6 +161,9 @@ Interstellar_OaksLab_Text_OakRunningShoes:
 	.string "OAK: The RUNNING SHOES were my\n"
 	.string "grandson's. He'd want a rival out\l"
 	.string "there somewhere.\p"
+	.string "Press L to toggle running on or\n"
+	.string "off. Hold B to reverse the choice\l"
+	.string "for a moment.\p"
 	.string "Go west, then north. PEWTER CITY\n"
 	.string "first-- BROCK is holding that\l"
 	.string "frontier together.\p"
@@ -183,3 +213,18 @@ Interstellar_OaksLab_Text_OakExpShare:
 	.string "to switch it on or off. While it\l"
 	.string "runs, your whole party learns\l"
 	.string "from every battle.$"
+
+Interstellar_OaksLab_Text_OakTestKit:
+	.string "OAK: Before you go-- a few tools\n"
+	.string "for testing the rift routes.\p"
+	.string "I kept them in a drawer labelled\n"
+	.string "'ABSOLUTELY NOT FOR STUDENTS.'\p"
+	.string "Which makes them perfect for you.$"
+
+Interstellar_OaksLab_Text_OakTestKitControls:
+	.string "OAK: Your RIFT TEST KIT refills\n"
+	.string "RARE CANDIES and MASTER BALLS to\l"
+	.string "999 whenever you use it.\p"
+	.string "The PHASE MODULE toggles walking\n"
+	.string "through walls. Switch it off before\l"
+	.string "you leave the test area.$"

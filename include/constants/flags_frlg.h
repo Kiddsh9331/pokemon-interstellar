@@ -1187,6 +1187,12 @@
 #define FLAG_HIDDEN_ITEM_VIRIDIAN_CITY_GYM_MACHO_BRACE                     (FLAG_HIDDEN_ITEMS_START + 189)
 #define FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE                       (FLAG_HIDDEN_ITEMS_START + 190)
 
+// Interstellar Act 1 progression flags
+#define FLAG_INTERSTELLAR_MAY_VIRIDIAN_DONE    0x497
+#define FLAG_INTERSTELLAR_MAY_MT_MOON_DONE     0x498
+#define FLAG_INTERSTELLAR_MAY_PEWTER_DONE      0x499
+#define FLAG_INTERSTELLAR_GARY_MT_MOON_DONE    0x49A
+
 // Unused hidden item flags
 #define FLAG_UNUSED_0x4A7               0x4A7 // Unused Flag
 #define FLAG_UNUSED_0x4A8               0x4A8 // Unused Flag
@@ -2705,3 +2711,8 @@
 #define FLAG_INTERSTELLAR_EXPSHARE                       0x479
 #define FLAG_INTERSTELLAR_DEOXYS_CAUGHT                  0x493
 #define FLAG_INTERSTELLAR_KANTO_GATE_LOCKED               0x494
+#define FLAG_INTERSTELLAR_PHASE_WALK                       0x495
+#define FLAG_INTERSTELLAR_TEST_KIT_ISSUED                  0x496
+#define FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED               0x49B
+#define FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN       0x49C
+#define FLAG_INTERSTELLAR_INFINITE_REPEL                   0x49D

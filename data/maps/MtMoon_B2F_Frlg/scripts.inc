@@ -3,7 +3,7 @@ MtMoon_B2F_Frlg_MapScripts::
 	.byte 0
 
 MtMoon_B2F_OnTransition::
-	call_if_unset FLAG_GOT_FOSSIL_FROM_MT_MOON, MtMoon_B2F_EventScript_ShowFossils
+	setworldmapflag FLAG_WORLD_MAP_MT_MOON_1F
 	end
 
 MtMoon_B2F_EventScript_ShowFossils::
@@ -11,13 +11,72 @@ MtMoon_B2F_EventScript_ShowFossils::
 	clearflag FLAG_HIDE_HELIX_FOSSIL
 	return
 
-MtMoon_B2F_EventScript_MiguelTrigger::
+MtMoon_B2F_EventScript_GaryRiftTrigger::
 	lockall
-	applymovement LOCALID_MIGUEL, Common_Movement_WalkInPlaceFasterRight
+	goto_if_set FLAG_INTERSTELLAR_GARY_MT_MOON_DONE, MtMoon_B2F_EventScript_GaryRiftDone
+	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, MtMoon_B2F_Movement_GaryFallFromRift
 	waitmovement 0
-	call MtMoon_B2F_EventScript_BattleMiguel
+	msgbox MtMoon_B2F_Text_GaryFallFromRift, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, MtMoon_B2F_EventScript_GaryBattleCharmander
+	case 1, MtMoon_B2F_EventScript_GaryBattleSquirtle
+	case 2, MtMoon_B2F_EventScript_GaryBattleBulbasaur
+	end
+
+MtMoon_B2F_EventScript_GaryBattleCharmander::
+	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_CHARMANDER, MtMoon_B2F_Text_GaryDefeat
+	goto MtMoon_B2F_EventScript_GaryAfterBattle
+
+MtMoon_B2F_EventScript_GaryBattleSquirtle::
+	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_SQUIRTLE, MtMoon_B2F_Text_GaryDefeat
+	goto MtMoon_B2F_EventScript_GaryAfterBattle
+
+MtMoon_B2F_EventScript_GaryBattleBulbasaur::
+	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_BULBASAUR, MtMoon_B2F_Text_GaryDefeat
+	goto MtMoon_B2F_EventScript_GaryAfterBattle
+
+MtMoon_B2F_EventScript_GaryAfterBattle::
+	msgbox MtMoon_B2F_Text_GaryAfterBattle, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_INTERSTELLAR_GARY_MT_MOON_DONE
+	setvar VAR_INTERSTELLAR_MT_MOON_GARY_SCENE, 1
+	setvar VAR_MAP_SCENE_MT_MOON_B2F, 1
+	removeobject LOCALID_INTERSTELLAR_GARY_MT_MOON
 	releaseall
 	end
+
+MtMoon_B2F_EventScript_GaryRiftDone::
+	setvar VAR_INTERSTELLAR_MT_MOON_GARY_SCENE, 1
+	releaseall
+	end
+
+MtMoon_B2F_Movement_GaryFallFromRift:
+	walk_down
+	walk_down
+	walk_down
+	face_right
+	step_end
+
+MtMoon_B2F_Text_GaryFallFromRift:
+	.string "GARY: What was that?! One second I\n"
+	.string "was outside OAK's LAB, and now I'm\l"
+	.string "falling through a cave ceiling!\p"
+	.string "...Hold on. Why do you look so\n"
+	.string "familiar? This timeline is wrong.\p"
+	.string "I'm not letting a lookalike get the\n"
+	.string "better of me! Let's battle!$"
+
+MtMoon_B2F_Text_GaryDefeat:
+	.string "GARY: What?! You really do know how\n"
+	.string "to battle...$"
+
+MtMoon_B2F_Text_GaryAfterBattle:
+	.string "GARY: This is not my KANTO, and you\n"
+	.string "are not anyone I remember.\p"
+	.string "I'm finding PROFESSOR OAK. If he\n"
+	.string "knows why the sky broke, he'll know\l"
+	.string "how to send me home.$"
 
 MtMoon_B2F_EventScript_Miguel::
 	lock
@@ -34,7 +93,7 @@ MtMoon_B2F_EventScript_BattleMiguel::
 	waitmessage
 	playbgm MUS_RG_ENCOUNTER_GYM_LEADER, 0
 	waitbuttonpress
-	setvar VAR_LAST_TALKED, LOCALID_MIGUEL
+	setvar VAR_LAST_TALKED, LOCALID_INTERSTELLAR_GARY_MT_MOON
 	trainerbattle_no_intro TRAINER_SUPER_NERD_MIGUEL, MtMoon_B2F_Text_MiguelDefeat
 	setvar VAR_MAP_SCENE_MT_MOON_B2F, 1
 	msgbox MtMoon_B2F_Text_WellEachTakeAFossil
@@ -55,19 +114,19 @@ MtMoon_B2F_EventScript_DomeFossil::
 	faceplayer
 	msgbox MtMoon_B2F_Text_YouWantDomeFossil, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MtMoon_B2F_EventScript_DontTakeFossil
-	removeobject LOCALID_DOME_FOSSIL
+	removeobject LOCALID_INTERSTELLAR_MT_MOON_RIFT
 	giveitem_msg MtMoon_B2F_Text_ObtainedDomeFossil, ITEM_DOME_FOSSIL, 1, MUS_RG_OBTAIN_KEY_ITEM
 	closemessage
 	delay 10
-	applymovement LOCALID_MIGUEL, MtMoon_B2F_Movement_MiguelToHelixFossil
+	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, MtMoon_B2F_Movement_MiguelToHelixFossil
 	waitmovement 0
-	copyobjectxytoperm LOCALID_MIGUEL
+	copyobjectxytoperm LOCALID_INTERSTELLAR_GARY_MT_MOON
 	textcolor NPC_TEXT_COLOR_MALE
 	playfanfare MUS_RG_OBTAIN_KEY_ITEM
 	message MtMoon_B2F_Text_ThenThisFossilIsMine
 	waitmessage
 	waitfanfare
-	removeobject LOCALID_HELIX_FOSSIL
+	removeobject LOCALID_INTERSTELLAR_MT_MOON_BLIGHT
 	setflag FLAG_GOT_DOME_FOSSIL
 	setflag FLAG_GOT_FOSSIL_FROM_MT_MOON
 	release
@@ -85,19 +144,19 @@ MtMoon_B2F_EventScript_HelixFossil::
 	faceplayer
 	msgbox MtMoon_B2F_Text_YouWantHelixFossil, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MtMoon_B2F_EventScript_DontTakeFossil
-	removeobject LOCALID_HELIX_FOSSIL
+	removeobject LOCALID_INTERSTELLAR_MT_MOON_BLIGHT
 	giveitem_msg MtMoon_B2F_Text_ObtainedHelixFossil, ITEM_HELIX_FOSSIL, 1, MUS_RG_OBTAIN_KEY_ITEM
 	closemessage
 	delay 10
-	applymovement LOCALID_MIGUEL, MtMoon_B2F_Movement_MiguelToDomeFossil
+	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, MtMoon_B2F_Movement_MiguelToDomeFossil
 	waitmovement 0
-	copyobjectxytoperm LOCALID_MIGUEL
+	copyobjectxytoperm LOCALID_INTERSTELLAR_GARY_MT_MOON
 	textcolor NPC_TEXT_COLOR_MALE
 	playfanfare MUS_RG_OBTAIN_KEY_ITEM
 	message MtMoon_B2F_Text_ThenThisFossilIsMine
 	waitmessage
 	waitfanfare
-	removeobject LOCALID_DOME_FOSSIL
+	removeobject LOCALID_INTERSTELLAR_MT_MOON_RIFT
 	setflag FLAG_GOT_HELIX_FOSSIL
 	setflag FLAG_GOT_FOSSIL_FROM_MT_MOON
 	release
@@ -217,3 +276,39 @@ MtMoon_B2F_Text_ObtainedHelixFossil::
 MtMoon_B2F_Text_ObtainedDomeFossil::
 	.string "Obtained the DOME FOSSIL!$"
 
+MtMoon_B2F_EventScript_RiftGalactic1::
+	trainerbattle_single TRAINER_INTERSTELLAR_GALACTIC_MTMOON_3, MtMoon_B2F_Text_RiftGalactic1Intro, MtMoon_B2F_Text_RiftGalactic1Defeat
+	msgbox MtMoon_B2F_Text_RiftGalactic1PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MtMoon_B2F_EventScript_RiftGalactic2::
+	trainerbattle_single TRAINER_INTERSTELLAR_GALACTIC_MTMOON_4, MtMoon_B2F_Text_RiftGalactic2Intro, MtMoon_B2F_Text_RiftGalactic2Defeat
+	msgbox MtMoon_B2F_Text_RiftGalactic2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MtMoon_B2F_Text_RiftGalactic1Intro::
+	.string "My BRONZOR's compass just spins\n"
+	.string "in circles here. Fine.\l"
+	.string "Battle first, questions later!$"
+
+MtMoon_B2F_Text_RiftGalactic1Defeat::
+	.string "Even BRONZOR is lost.\n"
+	.string "That never happens.$"
+
+MtMoon_B2F_Text_RiftGalactic1PostBattle::
+	.string "The boss says time and space can\n"
+	.string "be rebuilt. Whatever tore this\l"
+	.string "cave open beat him to it.$"
+
+MtMoon_B2F_Text_RiftGalactic2Intro::
+	.string "MOON STONES? So this is a moon\n"
+	.string "mountain… but the wrong one.\l"
+	.string "The wrong world. Battle!$"
+
+MtMoon_B2F_Text_RiftGalactic2Defeat::
+	.string "Fine! It's not even our moon.$"
+
+MtMoon_B2F_Text_RiftGalactic2PostBattle::
+	.string "If that scar leads back to SINNOH,\n"
+	.string "TEAM GALACTIC will be the ones\l"
+	.string "to open it.$"

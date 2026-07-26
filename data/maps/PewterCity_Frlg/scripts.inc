@@ -5,7 +5,40 @@ PewterCity_Frlg_MapScripts::
 PewterCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
 	setvar VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 0
+	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
+	goto_if_unset FLAG_DEFEATED_BROCK, PewterCity_OnTransition_HideMay
+	goto_if_set FLAG_INTERSTELLAR_MAY_PEWTER_DONE, PewterCity_OnTransition_End
+	goto PewterCity_OnTransition_ShowMay
+
+PewterCity_OnTransition_HideMay::
+	setflag FLAG_INTERSTELLAR_MAY_PEWTER_DONE
+	goto PewterCity_OnTransition_End
+
+PewterCity_OnTransition_ShowMay::
+	clearflag FLAG_INTERSTELLAR_MAY_PEWTER_DONE
+
+PewterCity_OnTransition_End::
 	end
+
+PewterCity_EventScript_MayMoonGuide::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_MayMoonGuide, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_INTERSTELLAR_MAY_PEWTER_DONE
+	removeobject LOCALID_INTERSTELLAR_MAY_PEWTER
+	release
+	end
+
+PewterCity_Text_MayMoonGuide::
+	.string "MAY: BROCK told me you held your\n"
+	.string "ground. Good--we need that.\p"
+	.string "ROUTE 3 is the only open way east,\n"
+	.string "and it leads straight to MT. MOON.\p"
+	.string "My dad's scanner caught the same\n"
+	.string "signal there that brought us here.\p"
+	.string "I'll scout ahead. If the cave starts\n"
+	.string "to change, follow the blue light.$"
 
 @ Impossible to speak to this NPC from a facing dir != DIR_EAST normally, so they arent checked
 @ Additionally, no movement script exists for facing DIR_SOUTH, which would necessitate walking out of bounds
@@ -973,4 +1006,3 @@ PewterCity_Text_RunningShoesLetterFromMom::
 	.string "Remember, I'll always cheer for\n"
 	.string "you! Don't ever give up!\p"
 	.string "From Mom$"
-

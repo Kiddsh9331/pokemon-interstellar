@@ -649,6 +649,9 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
 
     if (sWildEncountersDisabled == TRUE)
         return FALSE;
+    // RIFT REPEL key item: while toggled on, no wild encounters at all.
+    if (FlagGet(FLAG_INTERSTELLAR_INFINITE_REPEL))
+        return FALSE;
 
     headerId = GetCurrentMapWildMonHeaderId();
     if (headerId == HEADER_NONE)
@@ -1019,7 +1022,6 @@ bool8 UpdateRepelCounter(void)
         return FALSE;
     if (InUnionRoom() == TRUE)
         return FALSE;
-
     if (steps != 0)
     {
         steps--;

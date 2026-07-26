@@ -628,11 +628,29 @@
 #define TRAINER_CHAMPION_REMATCH_CHARMANDER        622
 #define TRAINER_CUE_BALL_PAXTON                    623
 
+// --- Pokémon Interstellar additions ---
+#define TRAINER_BUG_CATCHER_DEREK                  624
+#define TRAINER_LASS_PENNY_FOREST                  625
+#define TRAINER_YOUNGSTER_COLE_FOREST              626
+#define TRAINER_BUG_CATCHER_TESS                   627
+#define TRAINER_INTERSTELLAR_AQUA_MTMOON_1          628
+#define TRAINER_INTERSTELLAR_AQUA_MTMOON_2          629
+#define TRAINER_INTERSTELLAR_AQUA_MTMOON_3          630
+#define TRAINER_INTERSTELLAR_AQUA_MTMOON_4          631
+#define TRAINER_INTERSTELLAR_MAGMA_MTMOON_1         632
+#define TRAINER_INTERSTELLAR_MAGMA_MTMOON_2         633
+#define TRAINER_INTERSTELLAR_MAGMA_MTMOON_3         634
+#define TRAINER_INTERSTELLAR_MAGMA_MTMOON_4         635
+#define TRAINER_INTERSTELLAR_GALACTIC_MTMOON_1      636
+#define TRAINER_INTERSTELLAR_GALACTIC_MTMOON_2      637
+#define TRAINER_INTERSTELLAR_GALACTIC_MTMOON_3      638
+#define TRAINER_INTERSTELLAR_GALACTIC_MTMOON_4      639
+
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT_FRLG can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_FRLG                      624
+#define TRAINERS_COUNT_FRLG                      640
 #define MAX_TRAINERS_COUNT_FRLG                  768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_FRLG_H

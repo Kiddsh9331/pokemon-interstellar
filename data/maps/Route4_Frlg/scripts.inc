@@ -99,12 +99,8 @@ Route4_Text_PeopleLikeAndRespectBrock::
 
 Interstellar_Route4_OnTransition::
 	goto_if_set FLAG_INTERSTELLAR_RIVAL4_DONE, Interstellar_Route4_OT_HideBoth
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, Interstellar_Route4_OT_HideBrendan
-	setflag FLAG_TEMP_11
-	end
-
-Interstellar_Route4_OT_HideBrendan::
+	@ May is the fixed Interstellar rival, independent of player gender.
+	clearflag FLAG_TEMP_11
 	setflag FLAG_TEMP_12
 	end
 
@@ -116,19 +112,7 @@ Interstellar_Route4_OT_HideBoth::
 Interstellar_Route4_EventScript_RivalTrigger::
 	lockall
 	goto_if_set FLAG_INTERSTELLAR_RIVAL4_DONE, Interstellar_Route4_EventScript_TrigDone
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, Interstellar_Route4_EventScript_RivalMay
-	applymovement LOCALID_INTERSTELLAR_RIVAL_BRENDAN, Interstellar_Route4_Movement_RivalNotice
-	waitmovement 0
-	applymovement LOCALID_INTERSTELLAR_RIVAL_BRENDAN, Interstellar_Route4_Movement_RivalApproach
-	waitmovement 0
-	msgbox Interstellar_Route4_Text_RivalAlive, MSGBOX_DEFAULT
-	closemessage
-	switch VAR_STARTER_MON
-	case 0, Interstellar_Route4_EventScript_BrendanTreecko
-	case 1, Interstellar_Route4_EventScript_BrendanTorchic
-	case 2, Interstellar_Route4_EventScript_BrendanMudkip
-	end
+	goto Interstellar_Route4_EventScript_RivalMay
 
 Interstellar_Route4_EventScript_BrendanTreecko::
 	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR, Interstellar_Route4_Text_RivalDefeat
@@ -214,6 +198,7 @@ Interstellar_Route4_Movement_RivalNotice:
 
 Interstellar_Route4_Movement_RivalApproach:
 	walk_down
+	walk_down
 	face_left
 	step_end
 
@@ -227,16 +212,13 @@ Interstellar_Route4_Movement_RivalExit:
 	step_end
 
 Interstellar_Route4_Text_RivalAlive:
-	.string "...{PLAYER}?!\p"
-	.string "{PLAYER}!! You're ALIVE!\p"
-	.string "I came through the rift over the\n"
-	.string "sea-- I've been chasing dad's\l"
-	.string "scanner across half of KANTO\l"
-	.string "looking for you!\p"
-	.string "Okay. Okay!\n"
-	.string "You know what this calls for.\p"
-	.string "Right here, right now--\n"
-	.string "show me you've still got it!$"
+	.string "MAY: You made it through MT. MOON!\p"
+	.string "That cave keeps changing behind me.\n"
+	.string "I marked the safe turns in my notes.\p"
+	.string "Dad's scanner says the tear north\n"
+	.string "of CERULEAN is getting louder.\p"
+	.string "Before we chase it, show me what\n"
+	.string "you and your partner can do!$"
 
 Interstellar_Route4_Text_RivalDefeat:
 	.string "Ha...!\n"
@@ -247,10 +229,9 @@ Interstellar_Route4_Text_RivalHealsYou:
 	.string "the POKéMON CENTER. Here--$"
 
 Interstellar_Route4_Text_RivalParting:
-	.string "Listen. The scanner says the BIG\n"
-	.string "anchor is north of CERULEAN.\p"
-	.string "Whatever it is... it doesn't read\n"
-	.string "like a POKéMON anymore.\p"
-	.string "Be careful, {PLAYER}.\n"
-	.string "I'll scout east.\p"
-	.string "Race you to the next era!$"
+	.string "The scanner says the BIG anchor is\n"
+	.string "north of CERULEAN.\p"
+	.string "Whatever is there doesn't read like\n"
+	.string "a POKéMON anymore.\p"
+	.string "Be careful, {PLAYER}. I'll scout\n"
+	.string "east and meet you at the next tear.$"

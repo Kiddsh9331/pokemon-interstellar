@@ -22,6 +22,7 @@
 #include "decompress.h"
 #include "data.h"
 #include "palette.h"
+#include "event_data.h"
 #include "contest.h"
 #include "trainer.h"
 #include "trainer_pokemon_sprites.h"
@@ -30,6 +31,7 @@
 #include "constants/battle_palace.h"
 #include "constants/battle_move_effects.h"
 #include "constants/event_objects.h" // only for SHADOW_SIZE constants
+#include "constants/vars.h"
 
 // this file's functions
 static u8 GetBattlePalaceMoveGroup(enum BattlerId battler, enum Move move);
@@ -615,6 +617,154 @@ bool8 IsBattleSEPlaying(enum BattlerId battler)
     return TRUE;
 }
 
+static bool8 IsInterstellarRiftWildBattler(enum BattlerId battler)
+{
+    // State 6 spans the damaged Kanto portion of Act 1. Player-owned mons
+    // (including the starter) deliberately retain their normal appearance.
+    return !(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_LINK))
+        && !IsOnPlayerSide(battler)
+        && VarGet(VAR_INTERSTELLAR_STATE) == 6;
+}
+
+static void ApplyInterstellarRiftCorruption(u32 paletteOffset, enum Species species, u32 personality)
+{
+    u8 i;
+    u32 corruptionSeed = personality ^ (species * 0x9E3779B9);
+    u8 variant;
+
+    // Wild personalities are not evenly distributed in their low bits. Mix
+    // the whole value before selecting a visual state, so consecutive wild
+    // encounters do not repeatedly receive the same rift treatment.
+    corruptionSeed ^= corruptionSeed >> 16;
+    corruptionSeed *= 0x7FEB352D;
+    corruptionSeed ^= corruptionSeed >> 15;
+    // Eight distinct treatments make consecutive encounters feel genuinely
+    // unstable instead of repeatedly rolling one of four broad tints.
+    variant = corruptionSeed >> 29;
+
+    // The corruption is based on the individual Pokémon's personality, not
+    // the global RNG. That makes it stable while a battle is rendered, but
+    // lets two wild Pokémon of the same species look differently rift-touched.
+    for (i = 1; i < 16; i++)
+    {
+        struct PlttData color = *(struct PlttData *)&gPlttBufferUnfaded[paletteOffset + i];
+
+        switch (variant)
+        {
+        case 0: // Void-faded: a cold, near-black silhouette.
+            color.r = color.r / 2 + 1;
+            color.g = color.g / 3 + 2;
+            color.b = color.b / 2 + 6;
+            break;
+        case 1: // Chromatic split: broken cyan and violet colour bands.
+            color.r = color.r / 5 + ((i & 1) ? 3 : 0);
+            color.g = color.g / 5;
+            color.b = color.b / 3 + 8;
+            if (i == 4 || i == 9 || i == 13)
+            {
+                color.r = 19;
+                color.g = 0;
+                color.b = 31;
+            }
+            else if (i == 6 || i == 11)
+            {
+                color.r = 0;
+                color.g = 21;
+                color.b = 31;
+            }
+            break;
+        case 2: // Phase-bleached: icy, overexposed fragments.
+            color.r = (color.r + 2) / 5;
+            color.g = (color.g + color.b + 10) / 3;
+            color.b = (color.b + 31) / 2;
+            if (i == 5 || i == 10 || i == 14)
+            {
+                color.r = 22;
+                color.g = 27;
+                color.b = 31;
+            }
+            break;
+        case 3: // Eclipse: almost empty black with isolated rift sparks.
+            color.r = color.r / 4 + 2;
+            color.g = color.g / 4 + 2;
+            color.b = color.b / 3 + 6;
+            if (i == 7 || i == 12)
+            {
+                color.r = 25;
+                color.g = 1;
+                color.b = 31;
+            }
+            break;
+        case 4: // Deep-space echo: blue shadow with cold electric seams.
+            color.r = color.r / 4 + 3;
+            color.g = color.g / 3 + 3;
+            color.b = color.b / 2 + 7;
+            if (i == 3 || i == 8 || i == 13)
+            {
+                color.r = 2;
+                color.g = 17;
+                color.b = 31;
+            }
+            break;
+        case 5: // Violet ash: desaturated colour broken by purple faults.
+            color.r = color.r / 3 + 5;
+            color.g = color.g / 5 + 1;
+            color.b = color.b / 3 + 11;
+            if (i == 4 || i == 10 || i == 14)
+            {
+                color.r = 21;
+                color.g = 2;
+                color.b = 29;
+            }
+            break;
+        case 6: // Time-burn: pale blue, as if the sprite has overexposed.
+            color.r = (color.r + color.b) / 5 + 4;
+            color.g = (color.g + color.b) / 4 + 5;
+            color.b = (color.b + 31) / 2;
+            if (i == 2 || i == 7 || i == 12)
+            {
+                color.r = 24;
+                color.g = 29;
+                color.b = 31;
+            }
+            break;
+        default: // Rift-static: readable navy silhouette with star sparks.
+            color.r = color.r / 3 + 6;
+            color.g = color.g / 3 + 5;
+            color.b = color.b / 3 + 10;
+            if (i == 5 || i == 9 || i == 15)
+            {
+                color.r = 7;
+                color.g = 23;
+                color.b = 31;
+            }
+            else if (i == 11)
+            {
+                color.r = 24;
+                color.g = 5;
+                color.b = 31;
+            }
+            break;
+        }
+
+        gPlttBufferUnfaded[paletteOffset + i] = *(u16 *)&color;
+        gPlttBufferFaded[paletteOffset + i] = *(u16 *)&color;
+    }
+
+    // The anchor is the source of the damage, so its palette has visibly
+    // harsher fractures and two electric rift highlights.
+    if (species == SPECIES_MEWTWO)
+    {
+        gPlttBufferUnfaded[paletteOffset + 10] = RGB(3, 0, 9);
+        gPlttBufferUnfaded[paletteOffset + 11] = RGB(8, 0, 17);
+        gPlttBufferUnfaded[paletteOffset + 12] = RGB(15, 0, 25);
+        gPlttBufferUnfaded[paletteOffset + 13] = RGB(25, 1, 31);
+        gPlttBufferUnfaded[paletteOffset + 14] = RGB(8, 21, 31);
+        gPlttBufferUnfaded[paletteOffset + 15] = RGB(18, 2, 31);
+        CpuCopy32(&gPlttBufferUnfaded[paletteOffset], &gPlttBufferFaded[paletteOffset], PLTT_SIZE_4BPP);
+    }
+}
+
 void BattleLoadMonSpriteGfx(struct Pokemon *mon, enum BattlerId battler)
 {
     u32 personalityValue, isShiny, species, paletteOffset;
@@ -659,6 +809,9 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, enum BattlerId battler)
 
     LoadPalette(paletteData, paletteOffset, PLTT_SIZE_4BPP);
     LoadPalette(paletteData, BG_PLTT_ID(8) + BG_PLTT_ID(battler), PLTT_SIZE_4BPP);
+
+    if (IsInterstellarRiftWildBattler(battler))
+        ApplyInterstellarRiftCorruption(paletteOffset, species, personalityValue);
 
     // transform's pink color
     if (gBattleMons[battler].volatiles.transformed)

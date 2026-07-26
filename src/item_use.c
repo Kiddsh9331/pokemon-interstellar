@@ -88,6 +88,9 @@ static const u8 sText_ItemFinderOnTop[] = _("Oh!\nThe ITEMFINDER's shaking wildl
 static const u8 sText_ItemFinderNothing[] = _("… … … …Nope!\nThere's no response.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_CoinCase[] = _("Your COINS:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PowderQty[] = _("POWDER QTY: {STR_VAR_1}{PAUSE_UNTIL_PRESS}");
+static const u8 sText_RiftTestKitRefilled[] = _("The RIFT TEST KIT restored\nRARE CANDIES and MASTER BALLS\nto 999!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PhaseModuleEnabled[] = _("PHASE MODULE online.\nYou can now walk through walls.\nUse it again to switch it off.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PhaseModuleDisabled[] = _("PHASE MODULE offline.\nNormal collision restored.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_BootedUpTM[] = _("Booted up a TM.");
 static const u8 sText_BootedUpHM[] = _("Booted up an HM.");
 static const u8 sText_TMHMContainedVar1[] = _("It contained\n{STR_VAR_1}.\pTeach {STR_VAR_1}\nto a POKéMON?");
@@ -770,6 +773,83 @@ void ItemUseOutOfBattle_CoinCase(u8 taskId)
     {
         DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
     }
+}
+
+static void RefillDemoBagItem(enum Item itemId)
+{
+    enum Pocket pocket = GetItemPocket(itemId);
+    u32 i;
+
+    for (i = 0; i < gBagPockets[pocket].capacity; i++)
+    {
+        if (GetBagItemId(pocket, i) == itemId)
+        {
+            u16 quantity = GetBagItemQuantity(pocket, i);
+            if (quantity < MAX_BAG_ITEM_CAPACITY)
+                AddBagItem(itemId, MAX_BAG_ITEM_CAPACITY - quantity);
+            return;
+        }
+    }
+
+    AddBagItem(itemId, MAX_BAG_ITEM_CAPACITY);
+}
+
+void ItemUseOutOfBattle_RiftTestKit(u8 taskId)
+{
+    RefillDemoBagItem(ITEM_RARE_CANDY);
+    RefillDemoBagItem(ITEM_MASTER_BALL);
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        DisplayItemMessage(taskId, FONT_NORMAL, sText_RiftTestKitRefilled, CloseItemMessage);
+    else
+        DisplayItemMessageOnField(taskId, sText_RiftTestKitRefilled, Task_CloseCantUseKeyItemMessage);
+}
+
+void ItemUseOutOfBattle_PhaseModule(u8 taskId)
+{
+    const u8 *text;
+
+    if (FlagGet(FLAG_INTERSTELLAR_PHASE_WALK))
+    {
+        FlagClear(FLAG_INTERSTELLAR_PHASE_WALK);
+        text = sText_PhaseModuleDisabled;
+    }
+    else
+    {
+        FlagSet(FLAG_INTERSTELLAR_PHASE_WALK);
+        text = sText_PhaseModuleEnabled;
+    }
+    PlaySE(SE_SELECT);
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        DisplayItemMessage(taskId, FONT_NORMAL, text, CloseItemMessage);
+    else
+        DisplayItemMessageOnField(taskId, text, Task_CloseCantUseKeyItemMessage);
+}
+
+static const u8 sText_RiftRepelEnabled[] = _("RIFT REPEL online.\nWild POKéMON will keep their distance.\nUse it again to switch it off.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_RiftRepelDisabled[] = _("RIFT REPEL offline.\nWild POKéMON can appear again.{PAUSE_UNTIL_PRESS}");
+
+void ItemUseOutOfBattle_RiftRepel(u8 taskId)
+{
+    const u8 *text;
+
+    if (FlagGet(FLAG_INTERSTELLAR_INFINITE_REPEL))
+    {
+        FlagClear(FLAG_INTERSTELLAR_INFINITE_REPEL);
+        text = sText_RiftRepelDisabled;
+    }
+    else
+    {
+        FlagSet(FLAG_INTERSTELLAR_INFINITE_REPEL);
+        text = sText_RiftRepelEnabled;
+    }
+    PlaySE(SE_SELECT);
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        DisplayItemMessage(taskId, FONT_NORMAL, text, CloseItemMessage);
+    else
+        DisplayItemMessageOnField(taskId, text, Task_CloseCantUseKeyItemMessage);
 }
 
 void ItemUseOutOfBattle_PowderJar(u8 taskId)

@@ -16,11 +16,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 11
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Ekans
-Level: 11
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_YOUNGSTER_CALVIN ===
@@ -33,7 +33,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Spearow
-Level: 14
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_YOUNGSTER_JOSH ===
@@ -46,15 +46,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 10
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Rattata
-Level: 10
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 10
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_YOUNGSTER_TIMMY ===
@@ -229,11 +229,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Weedle
-Level: 6
+Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 6
+Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_DOUG ===
@@ -267,8 +267,70 @@ Double Battle: No
 AI: Check Bad Move
 
 Weedle
-Level: 9
+Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BUG_CATCHER_DEREK ===
+Name: DEREK
+Class: Bug Catcher Frlg
+Pic: Bug Catcher Frlg
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+
+Kricketot
+Level: 9
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Growl
+- Bide
+
+=== TRAINER_LASS_PENNY_FOREST ===
+Name: PENNY
+Class: Lass Frlg
+Pic: Lass Frlg
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+
+Surskit
+Level: 10
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bubble
+- Quick Attack
+- Sweet Scent
+
+=== TRAINER_YOUNGSTER_COLE_FOREST ===
+Name: COLE
+Class: Youngster Frlg
+Pic: Youngster Frlg
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+
+Venipede
+Level: 9
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Poison Sting
+- Rollout
+
+=== TRAINER_BUG_CATCHER_TESS ===
+Name: TESS
+Class: Bug Catcher Frlg
+Pic: Bug Catcher Frlg
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+
+Grubbin
+Level: 10
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- String Shot
+- Bug Bite
 
 === TRAINER_BUG_CATCHER_COLTON ===
 Name: COLTON
@@ -280,15 +342,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 10
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Weedle
-Level: 10
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 10
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_GREG ===
@@ -301,19 +363,19 @@ Double Battle: No
 AI: Check Bad Move
 
 Weedle
-Level: 9
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Kakuna
-Level: 9
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 9
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Metapod
-Level: 9
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_JAMES ===
@@ -326,11 +388,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Metapod
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_KENT ===
@@ -343,11 +405,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Weedle
-Level: 11
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Kakuna
-Level: 11
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_ROBBY ===
@@ -360,15 +422,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 10
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Metapod
-Level: 10
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 10
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_CALE ===
@@ -478,11 +540,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Pidgey
-Level: 9
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Pidgey
-Level: 9
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_SALLY ===
@@ -495,11 +557,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 10
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Nidoran F
-Level: 10
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_ROBIN ===
@@ -512,7 +574,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Jigglypuff
-Level: 14
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_CRISSY ===
@@ -525,15 +587,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Paras
-Level: 31
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Paras
-Level: 31
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Parasect
-Level: 31
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_MIRIAM ===
@@ -546,11 +608,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Oddish
-Level: 11
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Bellsprout
-Level: 11
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_IRIS ===
@@ -563,7 +625,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Clefairy
-Level: 14
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_RELI ===
@@ -923,13 +985,13 @@ Double Battle: No
 AI: Check Bad Move
 
 Geodude
-Level: 10
+Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Defense Curl
 
 Sandshrew
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Scratch
 - Defense Curl
@@ -1047,7 +1109,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Goldeen
-Level: 19
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_PICNICKER_NANCY ===
@@ -1394,11 +1456,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Magnemite
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Voltorb
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SUPER_NERD_MIGUEL ===
@@ -1411,15 +1473,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Grimer
-Level: 12
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Voltorb
-Level: 12
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Koffing
-Level: 12
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SUPER_NERD_AIDAN ===
@@ -1587,15 +1649,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Geodude
-Level: 10
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Geodude
-Level: 10
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Onix
-Level: 10
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_HIKER_FRANKLIN ===
@@ -2687,11 +2749,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Horsea
-Level: 16
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Shellder
-Level: 16
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SWIMMER_MALE_RICHARD ===
@@ -4483,12 +4545,20 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Poochyena
-Level: 13
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 21
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Tackle
+- Sand Attack
+- Howl
+- Bite
 
 Grovyle
-Level: 16
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Level: 22
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Quick Attack
+- Screech
+- Fury Cutter
+- Leaf Blade
 
 === TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR ===
 Name: MAY
@@ -4500,12 +4570,20 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Poochyena
-Level: 13
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 21
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Tackle
+- Sand Attack
+- Howl
+- Bite
 
 Combusken
-Level: 16
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Level: 22
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Ember
+- Quick Attack
+- Bulk Up
+- Double Kick
 
 === TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER ===
 Name: MAY
@@ -4517,15 +4595,23 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Poochyena
-Level: 13
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 21
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Tackle
+- Sand Attack
+- Howl
+- Bite
 
 Marshtomp
-Level: 16
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Level: 22
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Water Gun
+- Bite
+- Mud Shot
+- Take Down
 
 === TRAINER_RIVAL_CERULEAN_SQUIRTLE ===
-Name: TERRY
+Name: GARY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
@@ -4562,7 +4648,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Water Gun
 
 === TRAINER_RIVAL_CERULEAN_BULBASAUR ===
-Name: TERRY
+Name: GARY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
@@ -4599,7 +4685,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Leech Seed
 
 === TRAINER_RIVAL_CERULEAN_CHARMANDER ===
-Name: TERRY
+Name: GARY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
@@ -5070,11 +5156,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 13
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 13
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_2 ===
@@ -5087,15 +5173,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Sandshrew
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Rattata
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_3 ===
@@ -5108,11 +5194,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Ekans
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_4 ===
@@ -5125,11 +5211,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 13
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Sandshrew
-Level: 13
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_5 ===
@@ -7037,11 +7123,23 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Defense Curl
 
-Onix
+Larvitar
+Level: 13
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Bite
+- Rock Throw
+
+Aron
 Level: 14
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Headbutt
+- Rock Tomb
+
+Cranidos
+Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
-- Bind
+- Headbutt
 - Rock Tomb
 
 === TRAINER_LEADER_MISTY ===
@@ -7055,19 +7153,31 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Staryu
-Level: 18
+Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Harden
 - Recover
 - Water Pulse
 
-Starmie
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Swift
-- Recover
-- Rapid Spin
+Wooper
+Level: 22
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Water Gun
+- Mud Shot
+
+Carvanha
+Level: 23
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Bite
+- Water Pulse
+
+Piplup
+Level: 25
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Peck
+- Growl
+- Bubble
 - Water Pulse
 
 === TRAINER_LEADER_LT_SURGE ===
@@ -9118,11 +9228,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 7
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 8
+Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_CHARLIE ===
@@ -9135,15 +9245,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Metapod
-Level: 7
+Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 7
+Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Metapod
-Level: 7
+Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TWINS_ELI_ANNE_2 ===
@@ -13655,3 +13765,264 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Muk
 Level: 39
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_INTERSTELLAR_AQUA_MTMOON_1 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Poochyena
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- Howl
+- Bite
+
+Carvanha
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bite
+- Leer
+- Water Gun
+
+=== TRAINER_INTERSTELLAR_AQUA_MTMOON_2 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Zubat
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Leech Life
+- Supersonic
+- Bite
+
+Poochyena
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- Sand Attack
+- Bite
+
+=== TRAINER_INTERSTELLAR_AQUA_MTMOON_3 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Carvanha
+Level: 20
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bite
+- Leer
+- Water Gun
+- Screech
+
+=== TRAINER_INTERSTELLAR_AQUA_MTMOON_4 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Wailmer
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Water Gun
+- Rollout
+- Growl
+
+=== TRAINER_INTERSTELLAR_MAGMA_MTMOON_1 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Numel
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- Growl
+- Ember
+
+Poochyena
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- Howl
+- Bite
+
+=== TRAINER_INTERSTELLAR_MAGMA_MTMOON_2 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Baltoy
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Rock Tomb
+- Confusion
+- Harden
+
+=== TRAINER_INTERSTELLAR_MAGMA_MTMOON_3 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Poochyena
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- Sand Attack
+- Bite
+
+Numel
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- Growl
+- Ember
+- Magnitude
+
+=== TRAINER_INTERSTELLAR_MAGMA_MTMOON_4 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Baltoy
+Level: 20
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Rock Tomb
+- Confusion
+- Harden
+
+Poochyena
+Level: 20
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Tackle
+- Sand Attack
+- Bite
+- Howl
+
+=== TRAINER_INTERSTELLAR_GALACTIC_MTMOON_1 ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Stunky
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Scratch
+- Poison Gas
+- Fury Swipes
+- Smokescreen
+
+Zubat
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Wing Attack
+- Supersonic
+- Bite
+
+=== TRAINER_INTERSTELLAR_GALACTIC_MTMOON_2 ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Glameow
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Fake Out
+- Scratch
+- Hypnosis
+- Feint Attack
+
+Croagunk
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Poison Sting
+- Pursuit
+- Taunt
+
+=== TRAINER_INTERSTELLAR_GALACTIC_MTMOON_3 ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Bronzor
+Level: 19
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Confusion
+- Hypnosis
+- Imprison
+
+Croagunk
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Poison Sting
+- Mud-Slap
+- Pursuit
+
+=== TRAINER_INTERSTELLAR_GALACTIC_MTMOON_4 ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Zubat
+Level: 18
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Wing Attack
+- Supersonic
+- Astonish
+
+Stunky
+Level: 20
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Scratch
+- Poison Gas
+- Fury Swipes
+- Screech

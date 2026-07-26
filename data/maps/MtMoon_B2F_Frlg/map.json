@@ -17,49 +17,49 @@
   "connections": null,
   "object_events": [
     {
-      "local_id": "LOCALID_DOME_FOSSIL",
+      "local_id": "LOCALID_INTERSTELLAR_MT_MOON_RIFT",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL_FRLG",
-      "x": 13,
-      "y": 7,
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR",
+      "x": 12,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtMoon_B2F_EventScript_DomeFossil",
-      "flag": "FLAG_HIDE_DOME_FOSSIL"
+      "script": "Interstellar_EventScript_RiftBlight",
+      "flag": "0"
     },
     {
-      "local_id": "LOCALID_HELIX_FOSSIL",
+      "local_id": "LOCALID_INTERSTELLAR_MT_MOON_BLIGHT",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL_FRLG",
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT",
       "x": 14,
-      "y": 7,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtMoon_B2F_EventScript_HelixFossil",
-      "flag": "FLAG_HIDE_HELIX_FOSSIL"
+      "script": "Interstellar_EventScript_RiftBlight",
+      "flag": "0"
     },
     {
-      "local_id": "LOCALID_MIGUEL",
+      "local_id": "LOCALID_INTERSTELLAR_GARY_MT_MOON",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
+      "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 13,
-      "y": 11,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtMoon_B2F_EventScript_Miguel",
-      "flag": "0"
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger",
+      "flag": "FLAG_INTERSTELLAR_GARY_MT_MOON_DONE"
     },
     {
       "type": "object",
@@ -172,6 +172,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtMoon_B2F_EventScript_ItemAntidote",
       "flag": "FLAG_HIDE_MT_MOON_B2F_ANTIDOTE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GALACTIC_GRUNT_M",
+      "x": 14,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "MtMoon_B2F_EventScript_RiftGalactic1",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GALACTIC_GRUNT_F",
+      "x": 36,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "MtMoon_B2F_EventScript_RiftGalactic2",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -208,11 +236,11 @@
     {
       "type": "trigger",
       "x": 14,
-      "y": 11,
+      "y": 10,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_MT_MOON_B2F",
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
       "var_value": "0",
-      "script": "MtMoon_B2F_EventScript_MiguelTrigger"
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
     }
   ],
   "bg_events": [

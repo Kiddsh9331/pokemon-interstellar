@@ -1197,6 +1197,21 @@ static const union AnimCmd *const sAnimTable_Inanimate[] = {
     [ANIM_STAY_STILL] = sAnim_StayStill,
 };
 
+// The rift is never fully still. Most of the cycle is almost imperceptible,
+// then its event horizon snaps open for a few frames before collapsing again.
+static const union AnimCmd sAnim_InterstellarRiftGatePulse[] =
+{
+    ANIMCMD_FRAME(0, 28),
+    ANIMCMD_FRAME(1, 6),
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_InterstellarRiftGate[] = {
+    [ANIM_STAY_STILL] = sAnim_InterstellarRiftGatePulse,
+};
+
 static const union AnimCmd *const sAnimTable_QuintyPlump[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_QuintyPlumpFaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_QuintyPlumpFaceNorth,

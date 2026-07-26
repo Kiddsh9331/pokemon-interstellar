@@ -10,6 +10,12 @@ const u16 gTrainerPalette_Hiker[] = INCGFX_U16("graphics/trainers/front_pics/hik
 const u32 gTrainerFrontPic_AquaGruntM[] = INCGFX_U32("graphics/trainers/front_pics/aqua_grunt_m.png", ".4bpp.smol");
 const u16 gTrainerPalette_AquaGruntM[] = INCGFX_U16("graphics/trainers/front_pics/aqua_grunt_m.png", ".gbapal");
 
+const u32 gTrainerFrontPic_GalacticGruntM[] = INCGFX_U32("graphics/trainers/front_pics/galactic_grunt_m.png", ".4bpp.smol");
+const u16 gTrainerPalette_GalacticGruntM[] = INCGFX_U16("graphics/trainers/front_pics/galactic_grunt_m.png", ".gbapal");
+
+const u32 gTrainerFrontPic_GalacticGruntF[] = INCGFX_U32("graphics/trainers/front_pics/galactic_grunt_f.png", ".4bpp.smol");
+const u16 gTrainerPalette_GalacticGruntF[] = INCGFX_U16("graphics/trainers/front_pics/galactic_grunt_f.png", ".gbapal");
+
 const u32 gTrainerFrontPic_PokemonBreederF[] = INCGFX_U32("graphics/trainers/front_pics/pokemon_breeder_f.png", ".4bpp.smol");
 const u16 gTrainerPalette_PokemonBreederF[] = INCGFX_U16("graphics/trainers/front_pics/pokemon_breeder_f.png", ".gbapal");
 
@@ -645,6 +651,14 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_AQUA_GRUNT_M] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_AquaGruntM, gTrainerPalette_AquaGruntM),
+    },
+    [TRAINER_PIC_GALACTIC_GRUNT_M] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_GalacticGruntM, gTrainerPalette_GalacticGruntM),
+    },
+    [TRAINER_PIC_GALACTIC_GRUNT_F] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_GalacticGruntF, gTrainerPalette_GalacticGruntF),
     },
     [TRAINER_PIC_POKEMON_BREEDER_F] =
     {

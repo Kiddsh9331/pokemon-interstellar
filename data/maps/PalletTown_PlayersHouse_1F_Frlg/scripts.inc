@@ -54,27 +54,29 @@ PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale::
 	return
 
 PalletTown_PlayersHouse_1F_Text_AllBoysLeaveOakLookingForYou::
-	.string "MOM: …Right.\n"
-	.string "All boys leave home someday.\l"
-	.string "It said so on TV.\p"
-	.string "Oh, yes. PROF. OAK, next door, was\n"
-	.string "looking for you.$"
+	.string "MOM: I still cannot explain it.\n"
+	.string "You look exactly like the child I\l"
+	.string "remember raising--but you aren't.\p"
+	.string "PROF. OAK says the rift brought you\n"
+	.string "here. Please let him help you.$"
 
 PalletTown_PlayersHouse_1F_Text_AllGirlsLeaveOakLookingForYou::
-	.string "MOM: …Right.\n"
-	.string "All girls dream of traveling.\l"
-	.string "It said so on TV.\p"
-	.string "Oh, yes. PROF. OAK, next door, was\n"
-	.string "looking for you.$"
+	.string "MOM: I still cannot explain it.\n"
+	.string "You look exactly like the child I\l"
+	.string "remember raising--but you aren't.\p"
+	.string "PROF. OAK says the rift brought you\n"
+	.string "here. Please let him help you.$"
 
 PalletTown_PlayersHouse_1F_Text_YouShouldTakeQuickRest::
-	.string "MOM: {PLAYER}!\n"
-	.string "You should take a quick rest.$"
+	.string "MOM: {PLAYER}... Every time you walk\n"
+	.string "through that door, I expect another\l"
+	.string "life to come back with you. Rest.$"
 
 PalletTown_PlayersHouse_1F_Text_LookingGreatTakeCare::
-	.string "MOM: Oh, good! You and your\n"
-	.string "POKéMON are looking great.\l"
-	.string "Take care now!$"
+	.string "MOM: You and your POKéMON are safe.\n"
+	.string "That is enough for now.\p"
+	.string "If you see someone who looks like\n"
+	.string "you, don't follow them alone.$"
 
 PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad::
 	.string "There's a movie on TV.\n"

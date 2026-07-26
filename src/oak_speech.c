@@ -1550,12 +1550,11 @@ static void Task_OakSpeech_FadeOutRivalPic(u8 taskId)
 
 static void Task_OakSpeech_FadeInRivalPic(u8 taskId)
 {
-    ChangeBgX(2, 0, BG_COORD_SET);
-    gTasks[taskId].tTrainerPicPosX = 0;
-    gSpriteCoordOffsetX = 0;
-    LoadTrainerPic(RIVAL_PIC, 0);
-    CreateFadeOutTask(taskId, 2);
-    gTasks[taskId].func = Task_OakSpeech_AskRivalsName;
+    // Interstellar has a fixed Hoenn rival: May. The original FireRed
+    // naming/Blue portrait scene otherwise creates a second, unrelated rival.
+    StringCopy(gSaveBlock1Ptr->rivalName, gText_ExpandedPlaceholder_May);
+    gTasks[taskId].tTimer = 0;
+    gTasks[taskId].func = Task_OakSpeech_ReshowPlayersPic;
 }
 
 static void Task_OakSpeech_AskRivalsName(u8 taskId)

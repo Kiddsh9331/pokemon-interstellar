@@ -462,14 +462,16 @@ PalletTown_Text_OakGrassUnsafeNeedMon::
 	.string "Here, come with me!$"
 
 PalletTown_Text_RaisingMonsToo::
-	.string "I'm raising POKéMON, too.\p"
-	.string "When they get strong, they can\n"
-	.string "protect me.$"
+	.string "I keep asking whether you are the\n"
+	.string "same trainer OAK remembers.\p"
+	.string "The rift did not only move people.\n"
+	.string "It moved their histories, too.$"
 
 PalletTown_Text_CanStoreItemsAndMonsInPC::
-	.string "Technology is incredible!\p"
-	.string "You can now store and recall items\n"
-	.string "and POKéMON as data via PC.$"
+	.string "The PC logs say PALLET has two sets\n"
+	.string "of memories for some people.\p"
+	.string "OAK told us to record everything\n"
+	.string "before another rift overwrites it.$"
 
 PalletTown_Text_OakPokemonResearchLab::
 	.string "OAK POKéMON RESEARCH LAB$"
@@ -482,7 +484,7 @@ PalletTown_Text_RivalsHouse::
 
 PalletTown_Text_TownSign::
 	.string "PALLET TOWN\n"
-	.string "Shades of your journey await!$"
+	.string "A town remembering two futures$"
 
 PalletTown_Text_OakLetMeSeePokedex::
 	.string "OAK: Ah, {PLAYER}!\n"
@@ -550,16 +552,29 @@ PalletTown_Text_PressStartToOpenMenuCopy::
 
 Interstellar_Pallet_EventScript_Found::
 	lockall
-	delay 40
-	msgbox Interstellar_Pallet_Text_ColdStone, MSGBOX_DEFAULT
-	closemessage
+	@ Hold the white-out while Oak reaches the player. The first line of the
+	@ arrival scene is then grounded in a visible character, not an offscreen voice.
+	clearflag FLAG_HIDE_OAK_IN_PALLET_TOWN
+	addobject LOCALID_PALLET_PROF_OAK
 	setobjectxy LOCALID_PALLET_PROF_OAK, 14, 14
 	applymovement LOCALID_PALLET_PROF_OAK, Interstellar_Pallet_Movement_OakApproach
+	@ Oak stops immediately to the player's right, so turn toward him before
+	@ the white-out lifts and the first line of dialogue begins.
+	applymovement LOCALID_PLAYER, Common_Movement_FaceRight
 	waitmovement 0
-	applymovement LOCALID_PLAYER, Interstellar_Pallet_Movement_PlayerFaceOak
-	waitmovement 0
+	fadescreenspeed FADE_FROM_WHITE, 2
+	delay 30
+	msgbox Interstellar_Pallet_Text_ColdStone, MSGBOX_DEFAULT
+	closemessage
 	msgbox Interstellar_Pallet_Text_OakFindsYou, MSGBOX_DEFAULT
 	closemessage
+	opendoor 16, 13
+	waitdooranim
+	applymovement LOCALID_PALLET_PROF_OAK, Interstellar_Pallet_Movement_OakLeadToLab
+	applymovement LOCALID_PLAYER, Interstellar_Pallet_Movement_PlayerFollowOakToLab
+	waitmovement 0
+	closedoor 16, 13
+	waitdooranim
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
 	setvar VAR_INTERSTELLAR_STATE, 5
@@ -569,23 +584,48 @@ Interstellar_Pallet_EventScript_Found::
 	end
 
 Interstellar_Pallet_Movement_OakApproach:
-	walk_right
-	step_end
-
-Interstellar_Pallet_Movement_PlayerFaceOak:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	face_left
 	step_end
 
+Interstellar_Pallet_Movement_OakLeadToLab:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	set_invisible
+	step_end
+
+Interstellar_Pallet_Movement_PlayerFollowOakToLab:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	set_invisible
+	step_end
+
 Interstellar_Pallet_Text_ColdStone:
-	.string "Cold stone. Gulls.\p"
+	.string "Cold stone. Salt wind.\p"
+	.string "You are lying in the middle of\n"
+	.string "a town you have never seen.\p"
 	.string "Someone is shaking your shoulder.$"
 
 Interstellar_Pallet_Text_OakFindsYou:
 	.string "???: Easy! Easy, now.\p"
-	.string "OAK: You fell out of a hole in\n"
-	.string "the SKY, child. Straight out of\l"
-	.string "a tear in the morning-- and\l"
-	.string "landed at my doorstep.\p"
+	.string "OAK: I saw you fall out of a\n"
+	.string "hole in the SKY, child. You hit\l"
+	.string "the square hard.\p"
 	.string "...You're shaking.\p"
-	.string "Inside. Now.\n"
+	.string "Come on. My lab is right here.\n"
+	.string "Stay behind me.\p"
 	.string "Tea first. Questions after.$"
