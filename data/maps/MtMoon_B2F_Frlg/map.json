@@ -269,6 +269,267 @@
       "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
       "var_value": "0",
       "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_INTERSTELLAR_MT_MOON_GARY_SCENE",
+      "var_value": "0",
+      "script": "MtMoon_B2F_EventScript_GaryRiftTrigger"
     }
   ],
   "bg_events": [
