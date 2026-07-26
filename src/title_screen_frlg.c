@@ -587,70 +587,31 @@ static void SetTitleScreenScene_FadeIn(s16 *data)
     u32 c;
     switch (tState)
     {
-    case 0: // starfield fades in
+    case 0: // the whole painting emerges from the void as one image
         c = ++data[2];
-        BlendPalette(0, 48, c >= 48 ? 0 : 16 - (c / 3), RGB_BLACK);
-        if (c >= 56)
-        {
-            data[2] = 0;
-            data[3] = 0; // rift counter
+        BlendPalette(0, 13 * 16, c >= 80 ? 0 : 16 - (c / 5), RGB_BLACK);
+        if (c == 1)
             PlaySE(SE_WARP_IN);
-            tState++;
-        }
-        break;
-    case 1: // four rifts tear open, one by one
-        c = ++data[2];
-        BlendPalette(sInterstellarRiftPals[data[3]] * 16, 16, c >= 32 ? 0 : 16 - (c / 2), RGB_BLACK);
-        if (c >= 40)
-        {
-            data[2] = 0;
-            if (++data[3] >= 4)
-                tState++;
-            else
-                PlaySE(SE_WARP_IN);
-        }
-        break;
-    case 2: // Deoxys silhouette forms
-        c = ++data[2];
-        BlendPalette(112, 48, 12, RGB(3, 3, 10));
-        if (c >= 40)
+        if (c >= 96)
         {
             data[2] = 0;
             PlayCry_Normal(SPECIES_DEOXYS, 0);
             tState++;
         }
         break;
-    case 3: // core flash to white...
+    case 1: // Deoxys cries out: a full-screen pulse of rift light...
         c = ++data[2];
-        BlendPalette(112, 48, c * 2 >= 16 ? 16 : c * 2, RGB_WHITE);
-        if (c >= 8)
+        BlendPalette(0, 13 * 16, c * 2 >= 10 ? 10 : c * 2, RGB(24, 26, 31));
+        if (c >= 6)
         {
-            data[2] = 16;
+            data[2] = 10;
             tState++;
         }
         break;
-    case 4: // ...and reveal Deoxys in full colour
+    case 2: // ...that settles back into the night sky
         if (data[2] > 0)
-            BlendPalette(112, 48, --data[2], RGB_WHITE);
+            BlendPalette(0, 13 * 16, --data[2], RGB(24, 26, 31));
         else
-        {
-            data[2] = 0;
-            tState++;
-        }
-        break;
-    case 5: // logo blazes in from white
-        c = ++data[2];
-        BlendPalette(160, 32, c >= 32 ? 0 : 16 - (c / 2), RGB_WHITE);
-        if (c >= 40)
-        {
-            data[2] = 0;
-            tState++;
-        }
-        break;
-    case 6: // press start
-        c = ++data[2];
-        BlendPalette(192, 16, c >= 24 ? 0 : 16 - (c * 2 / 3), RGB_BLACK);
-        if (c >= 30)
             SetTitleScreenScene(data, TITLESCREENSCENE_RUN);
         break;
     }
