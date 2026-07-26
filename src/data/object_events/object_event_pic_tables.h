@@ -2519,17 +2519,8 @@ static const struct SpriteFrameImage sPicTable_BirthIslandStoneFrlg[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_InterstellarRiftGate[] = {
-    overworld_frame(gObjectEventPic_InterstellarRiftGate, 8, 8, 0),
-    overworld_frame(gObjectEventPic_InterstellarRiftGate, 8, 8, 1),
-};
-
-static const struct SpriteFrameImage sPicTable_InterstellarRiftScar[] = {
-    overworld_frame(gObjectEventPic_InterstellarRiftScar, 4, 4, 0),
-    overworld_frame(gObjectEventPic_InterstellarRiftScar, 4, 4, 1),
-};
-
-static const struct SpriteFrameImage sPicTable_InterstellarRiftBlight[] = {
-    overworld_frame(gObjectEventPic_InterstellarRiftBlight, 4, 4, 0),
+    overworld_frame(gObjectEventPic_InterstellarRiftGate, 4, 4, 0),
+    overworld_frame(gObjectEventPic_InterstellarRiftGate, 4, 4, 1),
 };
 
 static const struct SpriteFrameImage sPicTable_GalacticGruntM[] = {

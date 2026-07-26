@@ -6430,16 +6430,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftGa
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 2048,
-    .width = 64,
-    .height = 64,
+    .size = 512,
+    .width = 32,
+    .height = 32,
     .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_NONE,
     .inanimate = TRUE,
     .compressed = FALSE,
     .tracks = TRACKS_NONE,
-    .oam = &gObjectEventBaseOam_64x64,
-    .subspriteTables = sOamTables_64x64,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_InterstellarRiftGate,
     .images = sPicTable_InterstellarRiftGate,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -6463,7 +6463,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftSc
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_InterstellarRiftGate,
-    .images = sPicTable_InterstellarRiftScar,
+    // v0.16 look restored: scars render as the classic pulsing rift portal.
+    .images = sPicTable_InterstellarRiftGate,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -6481,8 +6482,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftBl
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Inanimate,
-    .images = sPicTable_InterstellarRiftBlight,
+    .anims = sAnimTable_InterstellarRiftGate,
+    // v0.16 look restored: blights also use the classic pulsing rift portal.
+    .images = sPicTable_InterstellarRiftGate,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
