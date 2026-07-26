@@ -132,7 +132,12 @@ Interstellar_Route4_EventScript_BrendanMudkip::
 Interstellar_Route4_EventScript_RivalMay::
 	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_RivalNotice
 	waitmovement 0
-	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_RivalApproach
+	@ May idles at (43,5); the player triggers from (41-42, 7-8). Walk her into
+	@ the player's column so she ends up directly above them, facing down.
+	getplayerxy VAR_0x8004, VAR_0x8005
+	call_if_eq VAR_0x8005, 7, Interstellar_Route4_EventScript_MayRow7
+	call_if_eq VAR_0x8005, 8, Interstellar_Route4_EventScript_MayRow8
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox Interstellar_Route4_Text_RivalAlive, MSGBOX_DEFAULT
 	closemessage
@@ -194,6 +199,64 @@ Interstellar_Route4_EventScript_TrigDone::
 Interstellar_Route4_Movement_RivalNotice:
 	emote_exclamation_mark
 	delay_16
+	step_end
+
+Interstellar_Route4_EventScript_MayRow7::
+	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_7
+	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_7
+	return
+
+Interstellar_Route4_EventScript_MayRow8::
+	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_8
+	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_8
+	return
+
+Interstellar_Route4_EventScript_MayTo41_7::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_7
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo42_7::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_7
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo41_8::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_8
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo42_8::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_8
+	waitmovement 0
+	return
+
+Interstellar_Route4_Movement_MayTo41_7:
+	walk_down
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+Interstellar_Route4_Movement_MayTo42_7:
+	walk_down
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+Interstellar_Route4_Movement_MayTo41_8:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+Interstellar_Route4_Movement_MayTo42_8:
+	walk_down
+	walk_down
+	walk_left
+	walk_in_place_faster_down
 	step_end
 
 Interstellar_Route4_Movement_RivalApproach:
