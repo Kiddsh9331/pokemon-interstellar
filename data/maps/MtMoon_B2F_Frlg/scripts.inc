@@ -4,6 +4,9 @@ MtMoon_B2F_Frlg_MapScripts::
 
 MtMoon_B2F_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_MT_MOON_1F
+	@ GARY is not standing in the cave waiting -- he arrives through the tear.
+	@ A TEMP flag, so it is recomputed on every load and can never latch.
+	setflag FLAG_TEMP_11
 	end
 
 MtMoon_B2F_EventScript_ShowFossils::
@@ -14,23 +17,33 @@ MtMoon_B2F_EventScript_ShowFossils::
 MtMoon_B2F_EventScript_GaryRiftTrigger::
 	lockall
 	goto_if_set FLAG_INTERSTELLAR_GARY_MT_MOON_DONE, MtMoon_B2F_EventScript_GaryRiftDone
-	@ The rift tears open above the fossil chamber and drops him through.
+	@ The rift tears open in the rock above the gate...
 	playse SE_M_TELEPORT
-	delay 20
+	clearflag FLAG_INTERSTELLAR_GARY_PORTAL_HIDDEN
+	addobject LOCALID_INTERSTELLAR_GARY_PORTAL
+	delay 40
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 20
-	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, MtMoon_B2F_Movement_GaryFallFromRift
+	@ ...and puts him on the ground. He walks out of it toward the player; if
+	@ they are stood right below the gate he simply stops a tile short.
+	addobject LOCALID_INTERSTELLAR_GARY_MT_MOON
+	delay 12
+	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, MtMoon_B2F_Movement_GaryStepOutOfRift
 	waitmovement 0
-	msgbox MtMoon_B2F_Text_GaryFallFromRift, MSGBOX_DEFAULT
-	closemessage
-	@ ...then snaps shut, leaving a scar in the ceiling rock.
+	waitse
+	playse SE_PIN
+	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, Common_Movement_ExclamationMark
+	waitmovement 0
+	@ ...then it snaps shut, leaving a scar in the rock.
 	playse SE_M_TELEPORT
-	removeobject 14
+	removeobject LOCALID_INTERSTELLAR_GARY_PORTAL
 	setflag FLAG_INTERSTELLAR_GARY_PORTAL_HIDDEN
 	clearflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
-	addobject 15
+	addobject LOCALID_INTERSTELLAR_GARY_SCAR
 	delay 30
+	msgbox MtMoon_B2F_Text_GaryFallFromRift, MSGBOX_DEFAULT
+	closemessage
 	switch VAR_STARTER_MON
 	case 0, MtMoon_B2F_EventScript_GaryBattleCharmander
 	case 1, MtMoon_B2F_EventScript_GaryBattleSquirtle
@@ -66,11 +79,12 @@ MtMoon_B2F_EventScript_GaryRiftDone::
 	releaseall
 	end
 
-MtMoon_B2F_Movement_GaryFallFromRift:
+@ (13,6) is the tear itself. Two steps south puts him through the gate at
+@ (13,7) and onto (13,8); a player stood in the way just stops him a tile
+@ early, which reads as him pulling up short in front of them.
+MtMoon_B2F_Movement_GaryStepOutOfRift:
+	walk_slow_down
 	walk_down
-	walk_down
-	walk_down
-	face_right
 	step_end
 
 MtMoon_B2F_Text_GaryFallFromRift:

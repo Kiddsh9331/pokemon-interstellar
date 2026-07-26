@@ -46,15 +46,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 17
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Rattata
-Level: 17
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 17
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_YOUNGSTER_TIMMY ===
@@ -461,11 +461,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Weedle
-Level: 17
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Kakuna
-Level: 17
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_ROBBY ===
@@ -478,15 +478,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Metapod
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_CALE ===
@@ -664,11 +664,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Oddish
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Bellsprout
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_IRIS ===
@@ -681,7 +681,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Clefairy
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_RELI ===
@@ -1512,11 +1512,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Magnemite
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Voltorb
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SUPER_NERD_MIGUEL ===
@@ -1529,15 +1529,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Grimer
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Voltorb
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Koffing
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SUPER_NERD_AIDAN ===
@@ -1705,15 +1705,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Geodude
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Geodude
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Onix
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_HIKER_FRANKLIN ===
@@ -5212,11 +5212,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 18
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_2 ===
@@ -5229,15 +5229,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Sandshrew
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Rattata
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_3 ===
@@ -5250,11 +5250,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Ekans
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_4 ===
@@ -5267,11 +5267,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Sandshrew
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_5 ===
@@ -5284,11 +5284,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Machop
-Level: 17
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Drowzee
-Level: 17
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_6 ===
@@ -5318,11 +5318,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Raticate
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_8 ===
@@ -5335,11 +5335,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Drowzee
-Level: 21
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Machop
-Level: 21
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_9 ===
@@ -5352,11 +5352,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Raticate
-Level: 21
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Raticate
-Level: 21
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TEAM_ROCKET_GRUNT_10 ===
@@ -13832,14 +13832,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Poochyena
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - Howl
 - Bite
 
 Carvanha
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Bite
 - Leer
@@ -13855,14 +13855,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Zubat
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Leech Life
 - Supersonic
 - Bite
 
 Poochyena
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - Sand Attack
@@ -13878,7 +13878,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Carvanha
-Level: 20
+Level: 18
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Bite
 - Leer
@@ -13895,7 +13895,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Wailmer
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Water Gun
 - Rollout
@@ -13911,14 +13911,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Numel
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - Growl
 - Ember
 
 Poochyena
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - Howl
@@ -13934,7 +13934,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Baltoy
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Rock Tomb
 - Confusion
@@ -13950,14 +13950,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Poochyena
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - Sand Attack
 - Bite
 
 Numel
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - Growl
@@ -13974,14 +13974,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Baltoy
-Level: 20
+Level: 18
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Rock Tomb
 - Confusion
 - Harden
 
 Poochyena
-Level: 20
+Level: 18
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - Sand Attack
@@ -13998,7 +13998,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Stunky
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Scratch
 - Poison Gas
@@ -14006,7 +14006,7 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Smokescreen
 
 Zubat
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Wing Attack
 - Supersonic
@@ -14022,7 +14022,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Glameow
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Fake Out
 - Scratch
@@ -14030,7 +14030,7 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Feint Attack
 
 Croagunk
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Poison Sting
 - Pursuit
@@ -14046,14 +14046,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Bronzor
-Level: 19
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Confusion
 - Hypnosis
 - Imprison
 
 Croagunk
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Poison Sting
 - Mud-Slap
@@ -14069,14 +14069,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Zubat
-Level: 18
+Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Wing Attack
 - Supersonic
 - Astonish
 
 Stunky
-Level: 20
+Level: 18
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Scratch
 - Poison Gas

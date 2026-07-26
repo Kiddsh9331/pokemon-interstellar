@@ -21,9 +21,14 @@ Interstellar_Route3_EventScript_MayTrigger::
 	goto_if_set FLAG_INTERSTELLAR_MAY_ROUTE3_DONE, Interstellar_Route3_EventScript_TrigDone
 	goto_if_unset FLAG_DEFEATED_BROCK, Interstellar_Route3_EventScript_TrigDone
 	setvar VAR_TEMP_1, 1
-	@ She idles at (7,10); the player trips this at (3, 9-11). Walk her into the
-	@ player's own row so she ends up directly in front of them, facing west.
+	@ The trigger is four columns wide (x 2-5) across every walkable row, so
+	@ there is no line through the entrance that misses it. Close the player up
+	@ to x=5 first, then walk May to (6, their row): whichever tile they tripped
+	@ it on, the two of them end up face to face.
 	getplayerxy VAR_0x8004, VAR_0x8005
+	call_if_eq VAR_0x8004, 2, Interstellar_Route3_EventScript_PlayerStepUp3
+	call_if_eq VAR_0x8004, 3, Interstellar_Route3_EventScript_PlayerStepUp2
+	call_if_eq VAR_0x8004, 4, Interstellar_Route3_EventScript_PlayerStepUp1
 	call_if_eq VAR_0x8005, 9, Interstellar_Route3_EventScript_MayRow9
 	call_if_eq VAR_0x8005, 10, Interstellar_Route3_EventScript_MayRow10
 	call_if_eq VAR_0x8005, 11, Interstellar_Route3_EventScript_MayRow11
@@ -57,6 +62,21 @@ Interstellar_Route3_EventScript_MayGuide::
 	release
 	end
 
+Interstellar_Route3_EventScript_PlayerStepUp1::
+	applymovement LOCALID_PLAYER, Interstellar_Route3_Movement_Step1
+	waitmovement 0
+	return
+
+Interstellar_Route3_EventScript_PlayerStepUp2::
+	applymovement LOCALID_PLAYER, Interstellar_Route3_Movement_Step2
+	waitmovement 0
+	return
+
+Interstellar_Route3_EventScript_PlayerStepUp3::
+	applymovement LOCALID_PLAYER, Interstellar_Route3_Movement_Step3
+	waitmovement 0
+	return
+
 Interstellar_Route3_EventScript_MayRow9::
 	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayToRow9
 	waitmovement 0
@@ -72,33 +92,40 @@ Interstellar_Route3_EventScript_MayRow11::
 	waitmovement 0
 	return
 
-@ (7,10) -> (4,9), ending face-left: one tile east of a player stood at (3,9).
+Interstellar_Route3_Movement_Step1:
+	walk_right
+	step_end
+
+Interstellar_Route3_Movement_Step2:
+	walk_right
+	walk_right
+	step_end
+
+Interstellar_Route3_Movement_Step3:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+@ (7,10) -> (6,9), ending face-left: right in front of a player stood at (5,9).
 Interstellar_Route3_Movement_MayToRow9:
 	walk_up
 	walk_left
-	walk_left
-	walk_left
 	step_end
 
-@ (7,10) -> (4,10)
+@ (7,10) -> (6,10)
 Interstellar_Route3_Movement_MayToRow10:
 	walk_left
-	walk_left
-	walk_left
 	step_end
 
-@ (7,10) -> (4,11)
+@ (7,10) -> (6,11)
 Interstellar_Route3_Movement_MayToRow11:
 	walk_down
 	walk_left
-	walk_left
-	walk_left
 	step_end
 
-@ Four tiles east is walkable on all three rows.
+@ Two tiles east is open ground on all three rows (x9-11 is cliff at row 11).
 Interstellar_Route3_Movement_MayExit:
-	walk_right
-	walk_right
 	walk_right
 	walk_right
 	step_end
