@@ -346,6 +346,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Meteorite;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftGate;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftScar;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftBlight;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftScarMed;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticGruntM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticGruntF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LaprasDoll;
@@ -756,6 +757,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_INTERSTELLAR_RIFT_GATE]   = &gObjectEventGraphicsInfo_InterstellarRiftGate,
     [OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR]   = &gObjectEventGraphicsInfo_InterstellarRiftScar,
     [OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT] = &gObjectEventGraphicsInfo_InterstellarRiftBlight,
+    [OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR_MED] = &gObjectEventGraphicsInfo_InterstellarRiftScarMed,
     [OBJ_EVENT_GFX_GALACTIC_GRUNT_M]         = &gObjectEventGraphicsInfo_GalacticGruntM,
     [OBJ_EVENT_GFX_GALACTIC_GRUNT_F]         = &gObjectEventGraphicsInfo_GalacticGruntF,
     [OBJ_EVENT_GFX_LAPRAS_DOLL]              = &gObjectEventGraphicsInfo_LaprasDoll,
