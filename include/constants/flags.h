@@ -1233,8 +1233,8 @@
 #define FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED                        0x49B // Unused Flag
 #define FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN                0x49C // Unused Flag
 #define FLAG_INTERSTELLAR_INFINITE_REPEL                            0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
+#define FLAG_INTERSTELLAR_PALLET_PORTAL_CLOSED                      0x49E // Unused Flag
+#define FLAG_INTERSTELLAR_PALLET_SCAR_HIDDEN                        0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag

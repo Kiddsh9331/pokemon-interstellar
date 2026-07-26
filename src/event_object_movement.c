@@ -10104,6 +10104,15 @@ static void ObjectEventUpdateSubpriority(struct ObjectEvent *objEvent, struct Sp
     if (objEvent->fixedPriority)
         return;
 
+    // Interstellar: rift scars and blights are ground decals burned into the
+    // world — they must never draw over the player or NPCs.
+    if (objEvent->graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR
+     || objEvent->graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT)
+    {
+        sprite->subpriority = 0xFF;
+        return;
+    }
+
     // If transitioning between elevations, use the player's elevation
     if (!objEvent->currentElevation && (objEvent->localId == OBJ_EVENT_ID_FOLLOWER || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER))
         objEvent = &gObjectEvents[gPlayerAvatar.objectEventId];

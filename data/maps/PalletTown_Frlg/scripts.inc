@@ -7,6 +7,7 @@ PalletTown_Frlg_MapScripts::
 
 PalletTown_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PALLET_TOWN
+	call Interstellar_Pallet_EventScript_SetupRift
 	call_if_set FLAG_PALLET_LADY_NOT_BLOCKING_SIGN, PalletTown_EventScript_TryReadySignLady
 	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 0, PalletTown_EventScript_SetSignLadyPos
 	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1, PalletTown_EventScript_SetSignLadyDone
@@ -550,6 +551,19 @@ PalletTown_Text_PressStartToOpenMenuCopy::
 
 
 
+@ While the player still lies where they fell, the rift portal hangs open
+@ beside them; partway through the scene it snaps shut, leaving the scar.
+Interstellar_Pallet_EventScript_SetupRift::
+	goto_if_ge VAR_INTERSTELLAR_STATE, 5, Interstellar_Pallet_EventScript_RiftClosed
+	clearflag FLAG_INTERSTELLAR_PALLET_PORTAL_CLOSED
+	setflag FLAG_INTERSTELLAR_PALLET_SCAR_HIDDEN
+	return
+
+Interstellar_Pallet_EventScript_RiftClosed::
+	setflag FLAG_INTERSTELLAR_PALLET_PORTAL_CLOSED
+	clearflag FLAG_INTERSTELLAR_PALLET_SCAR_HIDDEN
+	return
+
 Interstellar_Pallet_EventScript_Found::
 	lockall
 	@ Hold the white-out while Oak reaches the player. The first line of the
@@ -566,6 +580,14 @@ Interstellar_Pallet_EventScript_Found::
 	delay 30
 	msgbox Interstellar_Pallet_Text_ColdStone, MSGBOX_DEFAULT
 	closemessage
+	@ The portal that carried the player here collapses into a scar.
+	delay 20
+	playse SE_M_TELEPORT
+	removeobject 7
+	setflag FLAG_INTERSTELLAR_PALLET_PORTAL_CLOSED
+	clearflag FLAG_INTERSTELLAR_PALLET_SCAR_HIDDEN
+	addobject 5
+	delay 30
 	msgbox Interstellar_Pallet_Text_OakFindsYou, MSGBOX_DEFAULT
 	closemessage
 	opendoor 16, 13
