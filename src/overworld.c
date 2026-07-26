@@ -561,6 +561,9 @@ void LoadObjEventTemplatesFromHeader(void)
             gSaveBlock1Ptr->objectEventTemplates[i] = gMapHeader.events->objectEvents[i];
         }
     }
+
+    // Interstellar: re-scatter this map's rift scars for the current session.
+    Interstellar_RandomiseRifts();
 }
 
 void LoadSaveblockObjEventScripts(void)
