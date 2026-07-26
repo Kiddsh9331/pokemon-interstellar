@@ -69,6 +69,7 @@ Interstellar_EventScript_InitKantoState::
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 1
 	setvar VAR_MAP_SCENE_PEWTER_CITY, 2
 	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
+	setflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
 	setvar VAR_MAP_SCENE_CERULEAN_CITY_RIVAL, 1
 	setflag FLAG_HIDE_CERULEAN_RIVAL
 	setvar VAR_MAP_SCENE_CERULEAN_CITY_ROCKET, 1
@@ -86,6 +87,7 @@ Interstellar_EventScript_InitKantoState::
 	@ use the item from the bag to switch it off/on. Remove for release.
 	additem ITEM_MYSTIC_TICKET
 	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
+	setflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
 	setflag FLAG_INTERSTELLAR_INFINITE_REPEL
 	return
 

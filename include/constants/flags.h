@@ -1236,6 +1236,8 @@
 #define FLAG_INTERSTELLAR_PALLET_PORTAL_CLOSED                      0x49E // Unused Flag
 #define FLAG_INTERSTELLAR_PALLET_SCAR_HIDDEN                        0x49F // Unused Flag
 #define FLAG_INTERSTELLAR_PALLET_ROAD_CLEARED                       0x4A0 // Unused Flag
+#define FLAG_INTERSTELLAR_GARY_PORTAL_HIDDEN                        0x4A1 // Unused Flag
+#define FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN                          0x4A2 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag

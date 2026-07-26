@@ -14,10 +14,23 @@ MtMoon_B2F_EventScript_ShowFossils::
 MtMoon_B2F_EventScript_GaryRiftTrigger::
 	lockall
 	goto_if_set FLAG_INTERSTELLAR_GARY_MT_MOON_DONE, MtMoon_B2F_EventScript_GaryRiftDone
+	@ The rift tears open above the fossil chamber and drops him through.
+	playse SE_M_TELEPORT
+	delay 20
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	delay 20
 	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, MtMoon_B2F_Movement_GaryFallFromRift
 	waitmovement 0
 	msgbox MtMoon_B2F_Text_GaryFallFromRift, MSGBOX_DEFAULT
 	closemessage
+	@ ...then snaps shut, leaving a scar in the ceiling rock.
+	playse SE_M_TELEPORT
+	removeobject 14
+	setflag FLAG_INTERSTELLAR_GARY_PORTAL_HIDDEN
+	clearflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
+	addobject 15
+	delay 30
 	switch VAR_STARTER_MON
 	case 0, MtMoon_B2F_EventScript_GaryBattleCharmander
 	case 1, MtMoon_B2F_EventScript_GaryBattleSquirtle
@@ -47,6 +60,8 @@ MtMoon_B2F_EventScript_GaryAfterBattle::
 	end
 
 MtMoon_B2F_EventScript_GaryRiftDone::
+	setflag FLAG_INTERSTELLAR_GARY_PORTAL_HIDDEN
+	clearflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
 	setvar VAR_INTERSTELLAR_MT_MOON_GARY_SCENE, 1
 	releaseall
 	end
