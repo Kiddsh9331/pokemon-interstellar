@@ -198,7 +198,6 @@ Interstellar_Route4_Movement_RivalNotice:
 
 Interstellar_Route4_Movement_RivalApproach:
 	walk_down
-	walk_down
 	face_left
 	step_end
 
