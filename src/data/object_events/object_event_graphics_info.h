@@ -6440,7 +6440,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftGa
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_InterstellarRiftGate,
+    .anims = sAnimTable_Inanimate,
     .images = sPicTable_InterstellarRiftGate,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
@@ -6462,7 +6462,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftSc
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_InterstellarRiftGate,
+    .anims = sAnimTable_Inanimate,
     // v0.16 look restored: scars render as the classic pulsing rift portal.
     .images = sPicTable_InterstellarRiftGate,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -6482,7 +6482,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftBl
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_InterstellarRiftGate,
+    .anims = sAnimTable_Inanimate,
     // v0.16 look restored: blights also use the classic pulsing rift portal.
     .images = sPicTable_InterstellarRiftGate,
     .affineAnims = gDummySpriteAffineAnimTable,
