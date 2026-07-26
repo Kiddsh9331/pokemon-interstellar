@@ -88,7 +88,9 @@ Interstellar_EventScript_InitKantoState::
 	additem ITEM_MYSTIC_TICKET
 	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	setflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
-	setflag FLAG_INTERSTELLAR_INFINITE_REPEL
+	@ Rift Repel starts OFF: encounters are normal until the player toggles
+	@ the key item on from the KEY ITEMS pocket.
+	clearflag FLAG_INTERSTELLAR_INFINITE_REPEL
 	return
 
 Interstellar_Town_EventScript_LockedHouse::
