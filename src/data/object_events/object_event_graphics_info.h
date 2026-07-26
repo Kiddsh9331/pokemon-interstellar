@@ -6452,19 +6452,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftSc
     // and make the scar fall back to white.
     .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
+    .size = 2048,
+    .width = 64,
+    .height = 64,
     .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_NONE,
     .inanimate = TRUE,
     .compressed = FALSE,
     .tracks = TRACKS_NONE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = sOamTables_64x64,
     .anims = sAnimTable_Inanimate,
-    // v0.16 look restored: scars render as the classic pulsing rift portal.
-    .images = sPicTable_InterstellarRiftGate,
+    // v0.14 look: the jagged starburst crack left where a portal closed.
+    .images = sPicTable_InterstellarRiftScar,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -6472,19 +6472,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftBl
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
+    .size = 128,
+    .width = 16,
+    .height = 16,
     .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_NONE,
     .inanimate = TRUE,
     .compressed = FALSE,
     .tracks = TRACKS_NONE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = sOamTables_16x16,
     .anims = sAnimTable_Inanimate,
-    // v0.16 look restored: blights also use the classic pulsing rift portal.
-    .images = sPicTable_InterstellarRiftGate,
+    // v0.14 look: small residual rift splat.
+    .images = sPicTable_InterstellarRiftBlight,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
