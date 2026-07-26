@@ -1836,6 +1836,24 @@ u8 UpdateSpritePaletteWithTime(u8 paletteNum)
     return paletteNum;
 }
 
+#include "util.h"
+
+// All rift objects (gate, scars, blights) share one sprite palette. Breathe
+// its brightness so every rift pulses with light. Palette-only: the swirl
+// model itself is never touched, so it cannot glitch like frame animation.
+static void UpdateInterstellarRiftPulse(void)
+{
+    static u8 sRiftPulse = 0;
+    u8 palNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE);
+    u32 t, tri;
+
+    if (palNum == 0xFF || gPaletteFade.active)
+        return;
+    t = (sRiftPulse += 2) & 0xFF;
+    tri = t < 128 ? t : 256 - t;
+    BlendPalette(OBJ_PLTT_ID(palNum), 16, 1 + (tri * 3) / 128, RGB(24, 22, 31));
+}
+
 static void OverworldBasic(void)
 {
     ScriptContext_RunScript();
@@ -1845,6 +1863,7 @@ static void OverworldBasic(void)
     UpdateCameraPanning();
     BuildOamBuffer();
     UpdatePaletteFade();
+    UpdateInterstellarRiftPulse();
     UpdateTilesetAnimations();
     DoScheduledBgTilemapCopiesToVram();
     // Every minute if no palette fade is active, update TOD blending as needed
