@@ -10104,10 +10104,11 @@ static void ObjectEventUpdateSubpriority(struct ObjectEvent *objEvent, struct Sp
     if (objEvent->fixedPriority)
         return;
 
-    // Interstellar: rift scars and blights are ground decals burned into the
-    // world — they must never draw over the player or NPCs.
+    // Interstellar: rift visuals (portal, scars, blights) always render
+    // behind the player and NPCs — they are part of the world, not actors.
     if (objEvent->graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR
-     || objEvent->graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT)
+     || objEvent->graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_BLIGHT
+     || objEvent->graphicsId == OBJ_EVENT_GFX_INTERSTELLAR_RIFT_GATE)
     {
         sprite->subpriority = 0xFF;
         return;
