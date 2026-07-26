@@ -4,56 +4,43 @@
 // spots occupied at once: every warp and map edge still reaches every
 // other, so any subset the game picks can never block a route.
 
-static const struct RiftSpot sRiftSpots_PALLET_TOWN[] = {
-    {10, 14}, { 3, 13}, {19, 14}, { 3,  7}, {19,  9}, {15, 17}, {16,  2}, { 9, 10}, { 9,  2}, {14,  9}, { 4,  3}, {10,  6}, { 5, 17}, {20,  4},
-};
-
 static const struct RiftSpot sRiftSpots_ROUTE1[] = {
-    { 4, 17}, {13, 23}, {11, 27}, { 5,  3}, { 9, 13}, {13,  2}, {15,  6}, {12, 18}, {20, 18}, { 6, 31}, {19, 11}, { 2, 23}, { 5, 12}, {19, 23},
+    {18,  9}, {14, 29}, {14, 35}, { 5, 24}, {17, 13}, { 6, 35}, {13,  9}, { 6, 19}, {17, 24}, { 4, 30}, { 5, 14}, { 9, 30}, {13, 24}, {19,  5},
 };
 
 static const struct RiftSpot sRiftSpots_VIRIDIAN_CITY[] = {
-    {27, 35}, { 7, 29}, {22, 26}, {32, 11}, {12, 31}, {29, 26}, {36, 16}, {32,  5}, {14, 24}, {41, 19}, {23, 19}, {17, 28}, {41, 26}, {19,  2},
+    {18, 22}, {18, 26}, {26, 22}, {13, 20}, {17, 34}, {31, 20}, {13, 32}, {22, 35}, {36, 34}, {29,  8}, {38, 23}, {31, 26}, {39, 27}, {22,  8},
 };
 
 static const struct RiftSpot sRiftSpots_ROUTE2[] = {
-    {20,  4}, {16,  3}, {15, 20}, {20, 25}, {20, 20}, {20, 36}, { 7, 10}, {16, 38}, { 4,  5}, {13, 12}, {16, 29}, {16, 25}, {11,  5}, {20, 15},
+    { 7,  9}, {19, 30}, {16, 17}, { 6,  5}, {18, 36},
 };
 
 static const struct RiftSpot sRiftSpots_VIRIDIAN_FOREST[] = {
-    {43, 58}, {47, 35}, {27, 12}, {25, 57}, { 5, 60}, {35, 57}, {33, 16}, {10, 57}, {48,  5}, { 4, 17}, {39, 24}, { 3, 39}, {40, 44}, {31, 48},
+    { 9, 60}, { 5, 33}, {13, 21}, {35, 60}, { 5, 17}, {37, 18}, {21, 23}, {29, 17}, {18,  9}, {42, 21}, {14,  9}, {29, 54}, {15, 29}, {14, 55},
 };
 
 static const struct RiftSpot sRiftSpots_PEWTER_CITY[] = {
-    {16, 12}, {34, 15}, {12, 24}, {26,  8}, {10, 11}, {28, 32}, {23, 36}, {22, 14}, { 7, 17}, {33, 31}, {36, 24}, {36, 35}, {33,  3}, {10,  3},
+    {31, 34}, {34, 20}, {25, 35}, {35,  6}, {36, 16}, {28, 22}, {11, 35}, {10, 11}, {26, 14}, {37, 35}, {16, 35}, {19, 29}, {23, 31}, {16, 11},
 };
 
 static const struct RiftSpot sRiftSpots_ROUTE3[] = {
-    {60, 11}, {27, 15}, {12,  4}, {74, 14}, {46,  5}, {66, 11}, {39, 13}, {27,  5}, {17, 12}, {42,  9}, {69,  2}, {46, 16}, {36,  7}, {21,  3},
+    {37, 14}, {26,  6}, {41, 16}, {17, 11}, {43, 12}, {67, 14}, {73, 16}, {60, 15}, {70,  4}, {17,  6},
 };
 
 static const struct RiftSpot sRiftSpots_MT_MOON_1F[] = {
-    {39, 11}, {33, 37}, {19,  7}, {26,  9}, {29, 37}, {16, 19}, {38, 18}, {39, 36}, {34, 19}, {26, 24}, { 3, 34}, { 6,  8}, {38, 26}, {15, 30},
-};
-
-static const struct RiftSpot sRiftSpots_MT_MOON_B1F[] = {
-    { 4, 15}, { 6,  3}, { 9, 16}, {23, 16}, {13, 18}, {17, 18}, { 3,  8},
+    { 8, 36}, {37, 11}, {23,  5}, {36, 26}, {35, 20}, {29,  8}, {37,  5}, { 7,  5}, {39, 36}, { 9, 16}, {21,  9}, { 8, 32}, {15, 20}, {32, 25},
 };
 
 static const struct RiftSpot sRiftSpots_MT_MOON_B2F[] = {
-    {31, 14}, {39, 30}, {37, 34}, { 5,  3}, {32, 19}, { 9, 21}, {41, 37}, { 9, 31}, {45, 21}, {23,  8}, {27, 14}, {13, 15}, {29,  9}, {16, 22},
-};
-
-static const struct RiftSpot sRiftSpots_ROUTE4[] = {
-    { 7,  5}, {14, 16}, {15,  5}, {10, 10}, { 3,  6}, {10, 16}, {20, 14}, {15, 11}, { 6, 13}, {20,  8}, {11,  6},
+    {39, 30}, {26, 19}, {35, 22}, {11,  6}, {30, 16}, {10, 35}, {40, 17}, {39, 37}, {15,  6}, {10, 24}, {17, 11}, { 5,  6}, {11, 16}, {10, 31},
 };
 
 static const struct RiftSpot sRiftSpots_CERULEAN_CITY[] = {
-    {36, 13}, {31, 35}, {39, 21}, {22,  3}, {14, 18}, {18, 23}, {25, 15}, {15, 35}, {27, 29}, {34, 24}, { 9, 21}, {36, 17}, {28, 25}, { 8, 12},
+    {33, 25}, {37, 17}, {23, 25}, {25, 12}, {29, 16}, {15, 23}, {11, 23}, {18, 29}, {10, 15}, {29, 25}, {19, 24},
 };
 
 static const struct RiftSpotList sRiftSpotLists[] = {
-    { MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), ARRAY_COUNT(sRiftSpots_PALLET_TOWN), sRiftSpots_PALLET_TOWN },
     { MAP_GROUP(MAP_ROUTE1), MAP_NUM(MAP_ROUTE1), ARRAY_COUNT(sRiftSpots_ROUTE1), sRiftSpots_ROUTE1 },
     { MAP_GROUP(MAP_VIRIDIAN_CITY), MAP_NUM(MAP_VIRIDIAN_CITY), ARRAY_COUNT(sRiftSpots_VIRIDIAN_CITY), sRiftSpots_VIRIDIAN_CITY },
     { MAP_GROUP(MAP_ROUTE2), MAP_NUM(MAP_ROUTE2), ARRAY_COUNT(sRiftSpots_ROUTE2), sRiftSpots_ROUTE2 },
