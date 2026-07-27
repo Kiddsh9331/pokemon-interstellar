@@ -229,11 +229,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Weedle
-Level: 5
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 5
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_DOUG ===
@@ -267,7 +267,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Weedle
-Level: 10
+Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_DEREK ===
@@ -280,7 +280,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Kricketot
-Level: 9
+Level: 8
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Growl
 - Bide
@@ -293,7 +293,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Bug Bite
 
 Combee
-Level: 9
+Level: 8
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Sweet Scent
 - Gust
@@ -309,7 +309,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Surskit
-Level: 10
+Level: 9
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Bubble
 - Quick Attack
@@ -323,7 +323,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Poison Sting
 
 Nincada
-Level: 9
+Level: 8
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Scratch
 - Harden
@@ -339,7 +339,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Venipede
-Level: 9
+Level: 8
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Poison Sting
 - Rollout
@@ -352,7 +352,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Bug Bite
 
 Purrloin
-Level: 9
+Level: 8
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Scratch
 - Growl
@@ -368,7 +368,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Grubbin
-Level: 10
+Level: 9
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
 - String Shot
@@ -382,7 +382,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Stun Spore
 
 Dewpider
-Level: 9
+Level: 8
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Bubble
 - Infestation
@@ -9284,7 +9284,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 6
+Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie

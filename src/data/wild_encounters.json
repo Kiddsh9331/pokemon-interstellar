@@ -12476,12 +12476,12 @@
               },
               {
                 "min_level": 7,
-                "max_level": 8,
+                "max_level": 7,
                 "species": "SPECIES_WURMPLE"
               },
               {
                 "min_level": 7,
-                "max_level": 8,
+                "max_level": 7,
                 "species": "SPECIES_SEEDOT"
               },
               {
@@ -12496,12 +12496,12 @@
               },
               {
                 "min_level": 7,
-                "max_level": 8,
+                "max_level": 7,
                 "species": "SPECIES_PIKACHU"
               },
               {
                 "min_level": 7,
-                "max_level": 8,
+                "max_level": 7,
                 "species": "SPECIES_LEDYBA"
               },
               {
@@ -12511,17 +12511,17 @@
               },
               {
                 "min_level": 7,
-                "max_level": 8,
+                "max_level": 7,
                 "species": "SPECIES_COMBEE"
-              },
-              {
-                "min_level": 8,
-                "max_level": 9,
-                "species": "SPECIES_SHROOMISH"
               },
               {
                 "min_level": 7,
                 "max_level": 8,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 7,
+                "max_level": 7,
                 "species": "SPECIES_BUDEW"
               }
             ]
@@ -32331,63 +32331,63 @@
             "encounter_rate": 21,
             "mons": [
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_MANKEY"
               },
               {
-                "min_level": 3,
-                "max_level": 4,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_SPEAROW"
               },
               {
-                "min_level": 2,
-                "max_level": 3,
+                "min_level": 4,
+                "max_level": 5,
                 "species": "SPECIES_NIDORAN_M"
               },
               {
-                "min_level": 3,
-                "max_level": 4,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_MAREEP"
               },
               {
-                "min_level": 2,
-                "max_level": 3,
+                "min_level": 4,
+                "max_level": 5,
                 "species": "SPECIES_PHANPY"
               },
               {
-                "min_level": 3,
-                "max_level": 4,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_SNUBBULL"
               },
               {
-                "min_level": 4,
-                "max_level": 5,
+                "min_level": 5,
+                "max_level": 6,
                 "species": "SPECIES_MAKUHITA"
               },
               {
-                "min_level": 4,
-                "max_level": 5,
+                "min_level": 5,
+                "max_level": 6,
                 "species": "SPECIES_ARON"
               },
               {
-                "min_level": 3,
-                "max_level": 4,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_ELECTRIKE"
               },
               {
-                "min_level": 4,
-                "max_level": 5,
+                "min_level": 5,
+                "max_level": 6,
                 "species": "SPECIES_BONSLY"
               },
               {
-                "min_level": 4,
-                "max_level": 5,
+                "min_level": 5,
+                "max_level": 6,
                 "species": "SPECIES_BUNEARY"
               },
               {
-                "min_level": 4,
-                "max_level": 5,
+                "min_level": 5,
+                "max_level": 6,
                 "species": "SPECIES_BUIZEL"
               }
             ]
