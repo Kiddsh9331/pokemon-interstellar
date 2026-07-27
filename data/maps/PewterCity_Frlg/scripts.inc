@@ -7,6 +7,11 @@ PewterCity_OnTransition::
 	setvar VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 0
 	@ The running-shoes aide is gone from the map entirely; Oak hands the shoes
 	@ over in the prologue. May's Mt. Moon briefing moved to the start of ROUTE 3.
+	@ The vanilla gym guide's "follow me to the GYM" scene is suppressed --
+	@ InitKantoState pre-sets VAR_MAP_SCENE_PEWTER_CITY to 2, so his triggers
+	@ can never fire. Without this he just stands in the ROUTE 3 road forever
+	@ with nothing to do.
+	setflag FLAG_HIDE_PEWTER_CITY_GYM_GUIDE
 	@ The ROUTE 3 road guard stands until BROCK is beaten. TEMP flag, so it is
 	@ recomputed every load and can never latch the wrong way round.
 	clearflag FLAG_TEMP_11
