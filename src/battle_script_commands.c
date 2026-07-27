@@ -9740,6 +9740,14 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
     }
     switch (ballId)
     {
+    case BALL_POKE:
+    {
+        // Interstellar: the AEON BALL is the only ball there is, so it climbs
+        // with the badges instead of being replaced by a better one.
+        static const u16 sAeonBallMultiplier[AEON_BALL_TIERS] = { 100, 150, 200 };
+        ball->multiplier = sAeonBallMultiplier[Interstellar_AeonBallTier()];
+        break;
+    }
     case BALL_GREAT:
         ball->multiplier = 150;
         break;

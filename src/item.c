@@ -817,8 +817,33 @@ const u8 *GetItemName(enum Item itemId)
     return name == NULL ? gQuestionMarksItemName : name;
 }
 
+// A GREAT BALL from the second badge, an ULTRA BALL from the fifth. There is
+// no other ball to buy, so the AEON BALL has to be all of them in turn.
+u32 Interstellar_AeonBallTier(void)
+{
+    u32 i, badges = 0;
+
+    for (i = FLAG_BADGE01_GET; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
+    {
+        if (FlagGet(i))
+            badges++;
+    }
+
+    if (badges >= 5)
+        return 2;
+    if (badges >= 2)
+        return 1;
+    return 0;
+}
+
 u32 GetItemPrice(enum Item itemId)
 {
+    // ...and it costs what it is worth at the time.
+    static const u16 sAeonBallPrice[AEON_BALL_TIERS] = { 200, 600, 1200 };
+
+    if (itemId == ITEM_POKE_BALL)
+        return sAeonBallPrice[Interstellar_AeonBallTier()];
+
     return gItemsInfo[SanitizeItemId(itemId)].price;
 }
 

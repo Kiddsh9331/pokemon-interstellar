@@ -282,4 +282,10 @@ bool32 IsHoldEffectChoice(enum HoldEffect holdEffect);
 ShopCriteriaFunc GetItemShopCriteriaFunc(u32 itemId);
 bool32 IsItemShopCriteriaFulfilled(u32 itemId);
 
+// Interstellar: the AEON BALL is the only ball in the game, so it grows with
+// the player instead of being replaced. 0 below two badges, 1 from the second,
+// 2 from the fifth -- indexes both its catch multiplier and its shop price.
+u32 Interstellar_AeonBallTier(void);
+#define AEON_BALL_TIERS 3
+
 #endif // GUARD_ITEM_H
