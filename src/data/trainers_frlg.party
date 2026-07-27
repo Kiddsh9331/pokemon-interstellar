@@ -16,11 +16,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Rattata
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Ekans
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_YOUNGSTER_CALVIN ===
@@ -398,15 +398,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Caterpie
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Weedle
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Caterpie
-Level: 11
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BUG_CATCHER_GREG ===
@@ -630,7 +630,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Jigglypuff
-Level: 15
+Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_CRISSY ===
@@ -1041,13 +1041,13 @@ Double Battle: No
 AI: Check Bad Move
 
 Geodude
-Level: 11
+Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Defense Curl
 
 Sandshrew
-Level: 12
+Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Scratch
 - Defense Curl
@@ -1165,7 +1165,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Goldeen
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_PICNICKER_NANCY ===
@@ -2805,11 +2805,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Horsea
-Level: 19
+Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Shellder
-Level: 20
+Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SWIMMER_MALE_RICHARD ===
@@ -4601,7 +4601,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Poochyena
-Level: 21
+Level: 17
 IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Tackle
 - Sand Attack
@@ -4609,7 +4609,7 @@ IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Bite
 
 Grovyle
-Level: 22
+Level: 19
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Quick Attack
 - Screech
@@ -4626,7 +4626,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Poochyena
-Level: 21
+Level: 17
 IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Tackle
 - Sand Attack
@@ -4634,7 +4634,7 @@ IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Bite
 
 Combusken
-Level: 22
+Level: 19
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Ember
 - Quick Attack
@@ -4651,7 +4651,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Poochyena
-Level: 21
+Level: 17
 IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Tackle
 - Sand Attack
@@ -4659,7 +4659,7 @@ IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Bite
 
 Marshtomp
-Level: 22
+Level: 19
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Water Gun
 - Bite
@@ -7174,25 +7174,25 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Geodude
-Level: 12
+Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Defense Curl
 
 Larvitar
-Level: 13
+Level: 12
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Bite
 - Rock Throw
 
 Aron
-Level: 14
+Level: 13
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Headbutt
 - Rock Tomb
 
 Cranidos
-Level: 15
+Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Headbutt
@@ -7209,7 +7209,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Staryu
-Level: 21
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Harden
@@ -7217,19 +7217,19 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Water Pulse
 
 Wooper
-Level: 22
+Level: 20
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Water Gun
 - Mud Shot
 
 Carvanha
-Level: 23
+Level: 21
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Bite
 - Water Pulse
 
 Piplup
-Level: 25
+Level: 22
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Peck
 - Growl
