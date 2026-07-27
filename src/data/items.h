@@ -197,9 +197,9 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("Aeon Ball"),
         .price = 200,
         .description = COMPOUND_STRING(
-            "Cleanses the rift\n"
-            "from a POKéMON as\n"
-            "it is caught."),
+            "Cleanses a caught\n"
+            "POKéMON of the\n"
+            "rift's residue."),
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
         .battleUsage = EFFECT_ITEM_THROW_BALL,
