@@ -37,8 +37,12 @@ Interstellar_Route3_EventScript_MayTrigger::
 	msgbox Interstellar_Route3_Text_MayGuide, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_INTERSTELLAR_MAY_ROUTE3_DONE
-	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayExit
-	waitmovement 0
+	@ She said she would scout ahead, so let her actually go -- east up the
+	@ route and off the edge of the screen before she is despawned.
+	getplayerxy VAR_0x8004, VAR_0x8005
+	call_if_eq VAR_0x8005, 9, Interstellar_Route3_EventScript_MayExitRow9
+	call_if_eq VAR_0x8005, 10, Interstellar_Route3_EventScript_MayExitRow10
+	call_if_eq VAR_0x8005, 11, Interstellar_Route3_EventScript_MayExitRow11
 	removeobject LOCALID_INTERSTELLAR_MAY_ROUTE3
 	setflag FLAG_TEMP_11
 	releaseall
@@ -55,8 +59,12 @@ Interstellar_Route3_EventScript_MayGuide::
 	msgbox Interstellar_Route3_Text_MayGuide, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_INTERSTELLAR_MAY_ROUTE3_DONE
-	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayExit
-	waitmovement 0
+	@ She said she would scout ahead, so let her actually go -- east up the
+	@ route and off the edge of the screen before she is despawned.
+	getplayerxy VAR_0x8004, VAR_0x8005
+	call_if_eq VAR_0x8005, 9, Interstellar_Route3_EventScript_MayExitRow9
+	call_if_eq VAR_0x8005, 10, Interstellar_Route3_EventScript_MayExitRow10
+	call_if_eq VAR_0x8005, 11, Interstellar_Route3_EventScript_MayExitRow11
 	removeobject LOCALID_INTERSTELLAR_MAY_ROUTE3
 	setflag FLAG_TEMP_11
 	release
@@ -124,8 +132,45 @@ Interstellar_Route3_Movement_MayToRow11:
 	walk_left
 	step_end
 
-@ Two tiles east is open ground on all three rows (x9-11 is cliff at row 11).
-Interstellar_Route3_Movement_MayExit:
+Interstellar_Route3_EventScript_MayExitRow9::
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayExitEast
+	waitmovement 0
+	return
+
+Interstellar_Route3_EventScript_MayExitRow10::
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayExitEast
+	waitmovement 0
+	return
+
+@ Row 11 runs into cliff at x9-11, so she steps up onto row 10 before heading off.
+Interstellar_Route3_EventScript_MayExitRow11::
+	applymovement LOCALID_INTERSTELLAR_MAY_ROUTE3, Interstellar_Route3_Movement_MayExitUpThenEast
+	waitmovement 0
+	return
+
+@ From (6, row) out to x=15. The player is stood at x=5, so the screen ends
+@ around x=12: she is gone from view well before she is despawned.
+Interstellar_Route3_Movement_MayExitEast:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Interstellar_Route3_Movement_MayExitUpThenEast:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_right
 	walk_right
 	step_end
