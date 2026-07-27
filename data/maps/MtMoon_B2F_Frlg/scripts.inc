@@ -65,10 +65,34 @@ MtMoon_B2F_EventScript_GaryBattleBulbasaur::
 MtMoon_B2F_EventScript_GaryAfterBattle::
 	msgbox MtMoon_B2F_Text_GaryAfterBattle, MSGBOX_DEFAULT
 	closemessage
+	@ He does not get to leave on his own -- the scar tears back open and takes
+	@ him before he can finish the sentence.
+	playse SE_M_TELEPORT
+	removeobject LOCALID_INTERSTELLAR_GARY_SCAR
+	setflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
+	clearflag FLAG_INTERSTELLAR_GARY_PORTAL_HIDDEN
+	addobject LOCALID_INTERSTELLAR_GARY_PORTAL
+	delay 30
+	waitse
+	playse SE_PIN
+	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox MtMoon_B2F_Text_GaryPulledBack, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_INTERSTELLAR_GARY_MT_MOON, MtMoon_B2F_Movement_GaryPulledIntoRift
+	waitmovement 0
+	playse SE_M_TELEPORT
+	removeobject LOCALID_INTERSTELLAR_GARY_MT_MOON
+	delay 30
+	@ ...and then it closes for good, leaving the scar behind.
+	removeobject LOCALID_INTERSTELLAR_GARY_PORTAL
+	setflag FLAG_INTERSTELLAR_GARY_PORTAL_HIDDEN
+	clearflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
+	addobject LOCALID_INTERSTELLAR_GARY_SCAR
+	delay 30
 	setflag FLAG_INTERSTELLAR_GARY_MT_MOON_DONE
 	setvar VAR_INTERSTELLAR_MT_MOON_GARY_SCENE, 1
 	setvar VAR_MAP_SCENE_MT_MOON_B2F, 1
-	removeobject LOCALID_INTERSTELLAR_GARY_MT_MOON
 	releaseall
 	end
 
@@ -79,12 +103,25 @@ MtMoon_B2F_EventScript_GaryRiftDone::
 	releaseall
 	end
 
-@ (13,6) is the tear itself. Two steps south puts him through the gate at
-@ (13,7) and onto (13,8); a player stood in the way just stops him a tile
-@ early, which reads as him pulling up short in front of them.
+@ (13,6) is the tear itself. He comes down column 13 until something stops him
+@ -- the player, if they are stood in his way, which reads as pulling up short
+@ in front of them, otherwise the far side of the chamber at (13,10). The
+@ trigger only covers x12-15, so he always ends up within a tile or two.
 MtMoon_B2F_Movement_GaryStepOutOfRift:
 	walk_slow_down
 	walk_down
+	walk_down
+	walk_down
+	step_end
+
+@ The tear takes him back. Four steps north from anywhere on column 13 lands
+@ him at (13,7); the portal object itself blocks (13,6) and stops him dead
+@ under it, however far down the chamber he had got.
+MtMoon_B2F_Movement_GaryPulledIntoRift:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
 	step_end
 
 MtMoon_B2F_Text_GaryFallFromRift:
@@ -106,6 +143,13 @@ MtMoon_B2F_Text_GaryAfterBattle:
 	.string "I'm finding PROFESSOR OAK. If he\n"
 	.string "knows why the sky broke, he'll know\l"
 	.string "how to send me home.$"
+
+MtMoon_B2F_Text_GaryPulledBack:
+	.string "GARY: --no. No, it's opening\n"
+	.string "again.\p"
+	.string "I'm not finished! I have to reach\n"
+	.string "GRAMPS, I have to--\p"
+	.string "Tell him I was HERE!$"
 
 MtMoon_B2F_EventScript_Miguel::
 	lock

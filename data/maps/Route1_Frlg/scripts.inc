@@ -75,7 +75,7 @@ Route1_Text_ComeSeeUsIfYouNeedPokeBalls::
 	.string "If the wild POKéMON look wrong,\n"
 	.string "don't assume they are hostile.\p"
 	.string "Come to the MART if you need more\n"
-	.string "POKé BALLS or a safe place to ask.$"
+	.string "AEON BALLS or a safe place to ask.$"
 
 Route1_Text_PutPotionAway::
 	.string "{PLAYER} put the POTION away in\n"

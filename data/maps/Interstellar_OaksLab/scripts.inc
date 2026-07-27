@@ -125,7 +125,7 @@ Interstellar_OaksLab_Text_OakEasyNow:
 	.string "OAK: Sit. Breathe.\p"
 	.string "I watched the sky tear open and\n"
 	.string "deliver you to my doorstep,\l"
-	.string "clutching that POKé BALL like\l"
+	.string "clutching that AEON BALL like\l"
 	.string "the last real thing in the world.\p"
 	.string "Perhaps it was.\p"
 	.string "I am PROF. OAK. This is PALLET\n"

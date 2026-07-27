@@ -7,7 +7,64 @@ PewterCity_OnTransition::
 	setvar VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 0
 	@ The running-shoes aide is gone from the map entirely; Oak hands the shoes
 	@ over in the prologue. May's Mt. Moon briefing moved to the start of ROUTE 3.
+	@ The ROUTE 3 road guard stands until BROCK is beaten. TEMP flag, so it is
+	@ recomputed every load and can never latch the wrong way round.
+	clearflag FLAG_TEMP_11
+	goto_if_unset FLAG_DEFEATED_BROCK, PewterCity_OnTransition_End
+	setflag FLAG_TEMP_11
+
+PewterCity_OnTransition_End::
 	end
+
+@ The gate out to ROUTE 3 is four tiles wide, so one body cannot plug it. The
+@ guard holds the middle and these triggers turn the player back on the rest.
+Interstellar_Pewter_EventScript_RoadGuardTrigger::
+	lockall
+	goto_if_set FLAG_DEFEATED_BROCK, Interstellar_Pewter_EventScript_RoadOpen
+	applymovement LOCALID_INTERSTELLAR_PEWTER_GUARD, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Interstellar_Pewter_Text_RoadGuard, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Interstellar_Pewter_Movement_TurnBack
+	waitmovement 0
+	releaseall
+	end
+
+Interstellar_Pewter_EventScript_RoadOpen::
+	releaseall
+	end
+
+Interstellar_Pewter_EventScript_RoadGuard::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_BROCK, Interstellar_Pewter_EventScript_GuardStandsDown
+	msgbox Interstellar_Pewter_Text_RoadGuard, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Pewter_EventScript_GuardStandsDown::
+	msgbox Interstellar_Pewter_Text_RoadGuardDone, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Pewter_Movement_TurnBack:
+	walk_left
+	step_end
+
+Interstellar_Pewter_Text_RoadGuard::
+	.string "Hold it. ROUTE 3 is shut.\p"
+	.string "Half that road came down when the\n"
+	.string "sky tore, and MT. MOON is full of\l"
+	.string "things that were never in it.\p"
+	.string "BROCK's rule, not mine: nobody\n"
+	.string "goes east until they can hold\l"
+	.string "their own.\p"
+	.string "Beat him. Then I'll know you can.$"
+
+Interstellar_Pewter_Text_RoadGuardDone::
+	.string "BOULDERBADGE. Right then.\p"
+	.string "Road's yours. Keep to the middle\n"
+	.string "and don't touch the black seams.$"
 
 @ Impossible to speak to this NPC from a facing dir != DIR_EAST normally, so they arent checked
 @ Additionally, no movement script exists for facing DIR_SOUTH, which would necessitate walking out of bounds

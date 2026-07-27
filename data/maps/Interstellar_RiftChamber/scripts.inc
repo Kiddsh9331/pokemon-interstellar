@@ -187,7 +187,7 @@ Interstellar_Text_VaultCustody:
 	.string "The cleansed anchor is beyond\n"
 	.string "exhaustion. Its power will not\l"
 	.string "wake until every rift is sealed.\p"
-	.string "MEWTWO's POKé BALL was entrusted\n"
+	.string "Its AEON BALL was entrusted\n"
 	.string "to the RIFT VAULT.$"
 
 Interstellar_Text_MewtwoCleansed:
