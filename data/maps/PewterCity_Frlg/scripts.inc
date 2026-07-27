@@ -7,13 +7,10 @@ PewterCity_OnTransition::
 	setvar VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 0
 	@ The running-shoes aide is gone from the map entirely; Oak hands the shoes
 	@ over in the prologue. May's Mt. Moon briefing moved to the start of ROUTE 3.
-	@ The vanilla gym guide's "follow me to the GYM" scene is suppressed --
-	@ InitKantoState pre-sets VAR_MAP_SCENE_PEWTER_CITY to 2, so his triggers
-	@ can never fire. Without this he just stands in the ROUTE 3 road forever
-	@ with nothing to do.
-	setflag FLAG_HIDE_PEWTER_CITY_GYM_GUIDE
-	@ The ROUTE 3 road guard stands until BROCK is beaten. TEMP flag, so it is
-	@ recomputed every load and can never latch the wrong way round.
+	@ The vanilla "follow me to the GYM" escort is suppressed -- InitKantoState
+	@ pre-sets VAR_MAP_SCENE_PEWTER_CITY to 2, so its triggers can never fire.
+	@ That NPC now holds the ROUTE 3 gate instead of standing in the road with
+	@ nothing to do. TEMP flag, recomputed every load, so it cannot latch.
 	clearflag FLAG_TEMP_11
 	goto_if_unset FLAG_DEFEATED_BROCK, PewterCity_OnTransition_End
 	setflag FLAG_TEMP_11
@@ -26,7 +23,7 @@ PewterCity_OnTransition_End::
 Interstellar_Pewter_EventScript_RoadGuardTrigger::
 	lockall
 	goto_if_set FLAG_DEFEATED_BROCK, Interstellar_Pewter_EventScript_RoadOpen
-	applymovement LOCALID_INTERSTELLAR_PEWTER_GUARD, Common_Movement_ExclamationMark
+	applymovement LOCALID_PEWTER_GYM_GUIDE, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox Interstellar_Pewter_Text_RoadGuard, MSGBOX_DEFAULT
 	closemessage
@@ -57,17 +54,20 @@ Interstellar_Pewter_Movement_TurnBack:
 	step_end
 
 Interstellar_Pewter_Text_RoadGuard::
-	.string "Hold it. ROUTE 3 is shut.\p"
-	.string "Half that road came down when the\n"
-	.string "sky tore, and MT. MOON is full of\l"
-	.string "things that were never in it.\p"
-	.string "BROCK's rule, not mine: nobody\n"
-	.string "goes east until they can hold\l"
-	.string "their own.\p"
-	.string "Beat him. Then I'll know you can.$"
+	.string "Whoa. Not that way.\p"
+	.string "ROUTE 3 runs east to MT. MOON, and\n"
+	.string "MT. MOON runs on to the cave where\l"
+	.string "the ANCHOR sits.\p"
+	.string "That thing is holding every rift\n"
+	.string "in KANTO open. People have walked\l"
+	.string "in there and come back wrong.\p"
+	.string "BROCK is the wall this city has.\n"
+	.string "Beat him, and I'll believe you can\l"
+	.string "stand in front of it.\p"
+	.string "Until then, nobody goes past me.$"
 
 Interstellar_Pewter_Text_RoadGuardDone::
-	.string "BOULDERBADGE. Right then.\p"
+	.string "BOULDERBADGE. All right.\p"
 	.string "Road's yours. Keep to the middle\n"
 	.string "and don't touch the black seams.$"
 

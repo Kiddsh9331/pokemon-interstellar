@@ -725,6 +725,16 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
         return BATTLE_ENVIRONMENT_GRASS;
     if (MetatileBehavior_IsLongGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_LONG_GRASS;
+
+#if IS_FRLG
+    // VIRIDIAN FOREST is forest floor wall to wall. Standing on one of the dirt
+    // paths between the grass is still standing in the forest, so battles there
+    // keep the grass background instead of dropping to the plain one.
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_VIRIDIAN_FOREST)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_VIRIDIAN_FOREST))
+        return BATTLE_ENVIRONMENT_GRASS;
+#endif
+
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
         return BATTLE_ENVIRONMENT_SAND;
 
