@@ -322,12 +322,35 @@ static u32 ChooseWildMonIndex_Fishing(u8 rod)
     return wildMonIndex;
 }
 
+#if IS_FRLG
+// Interstellar: ROUTE 2 is a single map with VIRIDIAN FOREST wedged through the
+// middle of it. Its two patches of grass never touch -- rows 42-44 are solid
+// rock -- and the northern one is only reached after the forest, on the last
+// leg into PEWTER. That stretch carries its own band instead of the one the
+// player met down on the VIRIDIAN side.
+#define ROUTE2_NORTH_MIN_LEVEL 7
+#define ROUTE2_NORTH_MAX_LEVEL 10
+
+static bool32 IsRoute2NorthOfTheForest(void)
+{
+    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE2)
+        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE2)
+        && gSaveBlock1Ptr->pos.y < 45;
+}
+#endif
+
 u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex, enum WildPokemonArea area)
 {
     u8 min;
     u8 max;
     u8 range;
     u8 rand;
+
+#if IS_FRLG
+    if (area == WILD_AREA_LAND && IsRoute2NorthOfTheForest())
+        return ROUTE2_NORTH_MIN_LEVEL
+             + (Random() % (ROUTE2_NORTH_MAX_LEVEL - ROUTE2_NORTH_MIN_LEVEL + 1));
+#endif
 
     if (LURE_STEP_COUNT == 0)
     {
