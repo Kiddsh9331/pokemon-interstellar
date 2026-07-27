@@ -75,14 +75,24 @@ Interstellar_Slateport_EventScript_Arrival::
 	closemessage
 	msgbox Interstellar_Slateport_Text_BirchReunion, MSGBOX_DEFAULT
 	closemessage
+	msgbox Interstellar_Slateport_Text_OakArrival, MSGBOX_DEFAULT
+	closemessage
 	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	setvar VAR_INTERSTELLAR_STATE, 9
 	releaseall
 	end
 
+@ Step up out of the tear, toward the two of them.
 Interstellar_Slateport_Movement_ExitRift:
-	walk_down
+	walk_up
 	step_end
+
+Interstellar_EventScript_OakSlateport::
+	lock
+	faceplayer
+	msgbox Interstellar_Slateport_Text_OakTalk, MSGBOX_DEFAULT
+	release
+	end
 
 Interstellar_EventScript_BirchSlateport::
 	lock
@@ -118,6 +128,27 @@ Interstellar_Slateport_Text_BirchReunion:
 	.string "enough to trust them.\p"
 	.string "You're alive.\n"
 	.string "That's the whole experiment, then.$"
+
+Interstellar_Slateport_Text_OakArrival:
+	.string "OAK: And there it is. Two minutes\n"
+	.string "late and entirely worth the wait.\p"
+	.string "BIRCH: You could have warned me\n"
+	.string "you'd be standing on my beach.\p"
+	.string "OAK: I could have. The rift was\n"
+	.string "less polite about it than I was.\p"
+	.string "OAK: {PLAYER}. Whatever you did\n"
+	.string "under CERULEAN, KANTO is quieter\l"
+	.string "for it. I felt the whole region\l"
+	.string "let go at once.\p"
+	.string "BIRCH: Then we start here.$"
+
+Interstellar_Slateport_Text_OakTalk:
+	.string "OAK: I have spent my life writing\n"
+	.string "down where POKéMON live.\p"
+	.string "Now the where keeps moving.\p"
+	.string "BIRCH has the coast charted. I'm\n"
+	.string "here for the parts that don't fit\l"
+	.string "either of our notebooks.$"
 
 Interstellar_Slateport_Text_BirchTalk:
 	.string "BIRCH: You've crossed a region\n"

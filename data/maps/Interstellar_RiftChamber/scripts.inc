@@ -5,6 +5,12 @@ Interstellar_RiftChamber_MapScripts::
 Interstellar_RiftChamber_OnTransition::
 	@ A full portal only exists during a crossing scene.
 	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	@ The collapse tears are placed by the scene, never by the map. TEMP flags,
+	@ so if the player ever walks back in here the room is whole again.
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_14
 	end
 
 Interstellar_EventScript_CorruptedMewtwo::
@@ -40,35 +46,95 @@ Interstellar_EventScript_MewtwoCaught::
 	waitfanfare
 	waitmessage
 	closemessage
-	goto Interstellar_EventScript_RiftStabilizes
-	end
-
-Interstellar_EventScript_MewtwoDefeated::
-	msgbox Interstellar_Text_MewtwoCleansed, MSGBOX_DEFAULT
-	closemessage
+	@ Cleansed and sealed. The chamber is empty from here on.
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
-	goto Interstellar_EventScript_RiftStabilizes
+	goto Interstellar_EventScript_RiftCollapse
 	end
 
-Interstellar_EventScript_RiftStabilizes::
-	playse SE_THUNDER
-	setvar VAR_0x8004, 2
-	setvar VAR_0x8005, 2
-	setvar VAR_0x8006, 10
-	setvar VAR_0x8007, 4
+Interstellar_EventScript_MewtwoDefeated::
+	@ Beaten is not the same as cleansed. The rift is still knotted through it,
+	@ so it stays exactly where it is until someone brings an AEON BALL back.
+	msgbox Interstellar_Text_MewtwoDriven, MSGBOX_DEFAULT
+	closemessage
+	goto Interstellar_EventScript_RiftCollapse
+	end
+
+@ ---------------------------------------------------------------------------
+@ Whatever happened to the anchor, letting go of it costs the chamber. Tears
+@ open one after another, each nearer than the last, until one opens under the
+@ player and takes them across.
+@ ---------------------------------------------------------------------------
+Interstellar_EventScript_RiftCollapse::
+	playse SE_M_EARTHQUAKE
+	call Interstellar_EventScript_CollapseRumble
+	msgbox Interstellar_Text_ChamberComesApart, MSGBOX_DEFAULT
+	closemessage
+
+	fadescreenspeed FADE_TO_WHITE, 5
+	clearflag FLAG_TEMP_11
+	addobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_1
+	fadescreenspeed FADE_FROM_WHITE, 5
+	call Interstellar_EventScript_CollapseRumble
+
+	fadescreenspeed FADE_TO_WHITE, 5
+	clearflag FLAG_TEMP_12
+	addobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_2
+	fadescreenspeed FADE_FROM_WHITE, 5
+	call Interstellar_EventScript_CollapseRumble
+
+	fadescreenspeed FADE_TO_WHITE, 4
+	clearflag FLAG_TEMP_13
+	addobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_3
+	fadescreenspeed FADE_FROM_WHITE, 4
+	call Interstellar_EventScript_CollapseRumble
+
+	fadescreenspeed FADE_TO_WHITE, 3
+	clearflag FLAG_TEMP_14
+	addobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_4
+	fadescreenspeed FADE_FROM_WHITE, 3
+	call Interstellar_EventScript_CollapseRumble
+
+	@ ...and then a whole one opens.
+	playse SE_M_TELEPORT
+	fadescreenspeed FADE_TO_WHITE, 2
+	clearflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	addobject LOCALID_INTERSTELLAR_KANTO_RIFT_PORTAL
+	fadescreenspeed FADE_FROM_WHITE, 2
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	delay 20
+	msgbox Interstellar_Text_PulledThrough, MSGBOX_DEFAULT
+	closemessage
+	playse SE_M_TELEPORT
+	setvar VAR_0x8004, 3
+	setvar VAR_0x8005, 3
+	setvar VAR_0x8006, 14
+	setvar VAR_0x8007, 3
 	special ShakeCamera
 	waitstate
-	msgbox Interstellar_Text_RiftCrystallizes, MSGBOX_DEFAULT
-	closemessage
-	clearflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
-	setvar VAR_INTERSTELLAR_STATE, 7
-	fadescreenspeed FADE_TO_WHITE, 2
-	warp MAP_CERULEAN_CITY, 9, 14
+	removeobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_1
+	removeobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_2
+	removeobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_3
+	removeobject LOCALID_INTERSTELLAR_COLLAPSE_SCAR_4
+	setflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
+	setvar VAR_INTERSTELLAR_STATE, 8
+	fadescreenspeed FADE_TO_WHITE, 1
+	warp MAP_SLATEPORT_CITY, 20, 42
 	waitstate
 	releaseall
 	end
+
+Interstellar_EventScript_CollapseRumble::
+	playse SE_MUD_BALL
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 3
+	special ShakeCamera
+	waitstate
+	return
 
 Interstellar_EventScript_KantoRiftScar::
 	lock
@@ -190,6 +256,7 @@ Interstellar_Text_VaultCustody:
 	.string "Its AEON BALL was entrusted\n"
 	.string "to the RIFT VAULT.$"
 
+@ Unused: the anchor is only freed by catching it, never by winning.
 Interstellar_Text_MewtwoCleansed:
 	.string "The corrupted aura shatters\n"
 	.string "like old glass.\p"
@@ -201,6 +268,28 @@ Interstellar_Text_MewtwoCleansed:
 	.string "It is free.\n"
 	.string "Perhaps, someday, it will let\l"
 	.string "you prove yourself again.$"
+
+Interstellar_Text_MewtwoDriven:
+	.string "The corrupted aura gutters--\n"
+	.string "then draws itself back in.\p"
+	.string "The creature sinks down where it\n"
+	.string "stands. It does not leave.\p"
+	.string "It cannot. The rift is knotted\n"
+	.string "through it, and beating a thing\l"
+	.string "is not the same as freeing it.\p"
+	.string "Only the ball can do that.$"
+
+Interstellar_Text_ChamberComesApart:
+	.string "The floor answers with a sound\n"
+	.string "like a held breath letting go.\p"
+	.string "Something that was holding this\n"
+	.string "room together has stopped.$"
+
+Interstellar_Text_PulledThrough:
+	.string "The last tear opens wide enough\n"
+	.string "to walk through-- and does not\l"
+	.string "wait to be walked through.\p"
+	.string "{PLAYER} is pulled off their feet.$"
 
 Interstellar_Text_RiftStillPulses:
 	.string "The rift pulses on, unbroken.\n"
