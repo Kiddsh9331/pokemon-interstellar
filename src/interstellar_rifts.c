@@ -58,7 +58,10 @@ static u8 sLightningPhase;
 // and washed the whole map out.
 void Interstellar_UpdateStormLightning(void)
 {
-    if (gMapHeader.weather != WEATHER_SHADE || gPaletteFade.active)
+    // Overcast outdoors only -- a few vanilla interiors are WEATHER_SHADE too,
+    // and lightning flashing inside a mansion would be nonsense.
+    if (gMapHeader.weather != WEATHER_SHADE || gPaletteFade.active
+     || !MapHasNaturalLight(gMapHeader.mapType))
         return;
 
     if (sLightningPhase != 0)
@@ -100,8 +103,9 @@ void Interstellar_UpdateStormLightning(void)
         return;
     }
 
-    // roughly every 6-14 seconds
-    if (++sLightningTimer >= 360 + (Random() % 480))
+    // Roughly every 15-30 seconds. This is the far edge of the storm, not the
+    // middle of it -- the middle is waiting in CERULEAN.
+    if (++sLightningTimer >= 900 + (Random() % 900))
     {
         sLightningTimer = 0;
         sLightningPhase = 12;
