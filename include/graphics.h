@@ -260,7 +260,15 @@ extern const u32 gBattleEnvironmentTilemap_Building[];
 extern const u32 gBattleEnvironmentAnimTiles_Building[];
 extern const u32 gBattleEnvironmentAnimTilemap_Building[];
 extern const u16 gBattleEnvironmentPalette_Building[];
+// Own artwork rather than Building's, since the backgrounds patch draws
+// outdoor trainers, gym trainers and leaders as separate scenes.
+extern const u32 gBattleEnvironmentTiles_Plain[];
+extern const u32 gBattleEnvironmentTilemap_Plain[];
 extern const u16 gBattleEnvironmentPalette_Plain[];
+extern const u32 gBattleEnvironmentTiles_Gym[];
+extern const u32 gBattleEnvironmentTilemap_Gym[];
+extern const u32 gBattleEnvironmentTiles_Leader[];
+extern const u32 gBattleEnvironmentTilemap_Leader[];
 extern const u16 gBattleEnvironmentPalette_Frontier[];
 extern const u32 gBattleEnvironmentTiles_Stadium[];
 extern const u32 gBattleEnvironmentTilemap_Stadium[];
