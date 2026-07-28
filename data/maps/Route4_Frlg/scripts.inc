@@ -111,6 +111,7 @@ Interstellar_Route4_OT_HideBoth::
 
 Interstellar_Route4_EventScript_RivalTrigger::
 	lockall
+	setvar VAR_TEMP_1, 1
 	goto_if_set FLAG_INTERSTELLAR_RIVAL4_DONE, Interstellar_Route4_EventScript_TrigDone
 	goto Interstellar_Route4_EventScript_RivalMay
 
@@ -132,11 +133,13 @@ Interstellar_Route4_EventScript_BrendanMudkip::
 Interstellar_Route4_EventScript_RivalMay::
 	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_RivalNotice
 	waitmovement 0
-	@ May idles at (43,5); the player triggers from (41-42, 7-8). Walk her into
-	@ the player's column so she ends up directly above them, facing down.
+	@ May idles at (43,5); the player trips this anywhere in x41-42, rows 6-9.
+	@ Walk her into their column so she ends up directly above them, facing down.
 	getplayerxy VAR_0x8004, VAR_0x8005
+	call_if_eq VAR_0x8005, 6, Interstellar_Route4_EventScript_MayRow6
 	call_if_eq VAR_0x8005, 7, Interstellar_Route4_EventScript_MayRow7
 	call_if_eq VAR_0x8005, 8, Interstellar_Route4_EventScript_MayRow8
+	call_if_eq VAR_0x8005, 9, Interstellar_Route4_EventScript_MayRow9
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox Interstellar_Route4_Text_RivalAlive, MSGBOX_DEFAULT
@@ -201,63 +204,9 @@ Interstellar_Route4_Movement_RivalNotice:
 	delay_16
 	step_end
 
-Interstellar_Route4_EventScript_MayRow7::
-	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_7
-	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_7
-	return
 
-Interstellar_Route4_EventScript_MayRow8::
-	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_8
-	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_8
-	return
 
-Interstellar_Route4_EventScript_MayTo41_7::
-	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_7
-	waitmovement 0
-	return
 
-Interstellar_Route4_EventScript_MayTo42_7::
-	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_7
-	waitmovement 0
-	return
-
-Interstellar_Route4_EventScript_MayTo41_8::
-	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_8
-	waitmovement 0
-	return
-
-Interstellar_Route4_EventScript_MayTo42_8::
-	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_8
-	waitmovement 0
-	return
-
-Interstellar_Route4_Movement_MayTo41_7:
-	walk_down
-	walk_left
-	walk_left
-	walk_in_place_faster_down
-	step_end
-
-Interstellar_Route4_Movement_MayTo42_7:
-	walk_down
-	walk_left
-	walk_in_place_faster_down
-	step_end
-
-Interstellar_Route4_Movement_MayTo41_8:
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_in_place_faster_down
-	step_end
-
-Interstellar_Route4_Movement_MayTo42_8:
-	walk_down
-	walk_down
-	walk_left
-	walk_in_place_faster_down
-	step_end
 
 Interstellar_Route4_Movement_RivalApproach:
 	walk_down
@@ -297,3 +246,128 @@ Interstellar_Route4_Text_RivalParting:
 	.string "a POKéMON anymore.\p"
 	.string "Be careful, {PLAYER}. I'll scout\n"
 	.string "east and meet you at the next tear.$"
+
+Interstellar_Route4_EventScript_MayRow6::
+	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_6
+	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_6
+	return
+
+Interstellar_Route4_EventScript_MayRow7::
+	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_7
+	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_7
+	return
+
+Interstellar_Route4_EventScript_MayRow8::
+	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_8
+	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_8
+	return
+
+Interstellar_Route4_EventScript_MayRow9::
+	call_if_eq VAR_0x8004, 41, Interstellar_Route4_EventScript_MayTo41_9
+	call_if_eq VAR_0x8004, 42, Interstellar_Route4_EventScript_MayTo42_9
+	return
+
+Interstellar_Route4_EventScript_MayTo41_6::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_6
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo41_7::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_7
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo41_8::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_8
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo41_9::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo41_9
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo42_6::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_6
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo42_7::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_7
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo42_8::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_8
+	waitmovement 0
+	return
+
+Interstellar_Route4_EventScript_MayTo42_9::
+	applymovement LOCALID_INTERSTELLAR_RIVAL_MAY, Interstellar_Route4_Movement_MayTo42_9
+	waitmovement 0
+	return
+
+@ (43,5) -> (41,5), one tile above a player stood at (41,6)
+Interstellar_Route4_Movement_MayTo41_6:
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+@ (43,5) -> (41,6), one tile above a player stood at (41,7)
+Interstellar_Route4_Movement_MayTo41_7:
+	walk_down
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+@ (43,5) -> (41,7), one tile above a player stood at (41,8)
+Interstellar_Route4_Movement_MayTo41_8:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+@ (43,5) -> (41,8), one tile above a player stood at (41,9)
+Interstellar_Route4_Movement_MayTo41_9:
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+@ (43,5) -> (42,5), one tile above a player stood at (42,6)
+Interstellar_Route4_Movement_MayTo42_6:
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+@ (43,5) -> (42,6), one tile above a player stood at (42,7)
+Interstellar_Route4_Movement_MayTo42_7:
+	walk_down
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+@ (43,5) -> (42,7), one tile above a player stood at (42,8)
+Interstellar_Route4_Movement_MayTo42_8:
+	walk_down
+	walk_down
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+@ (43,5) -> (42,8), one tile above a player stood at (42,9)
+Interstellar_Route4_Movement_MayTo42_9:
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_in_place_faster_down
+	step_end
+

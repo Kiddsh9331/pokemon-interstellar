@@ -203,7 +203,7 @@
     {
       "type": "trigger",
       "x": 41,
-      "y": 7,
+      "y": 6,
       "elevation": 3,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -211,7 +211,7 @@
     },
     {
       "type": "trigger",
-      "x": 42,
+      "x": 41,
       "y": 7,
       "elevation": 3,
       "var": "VAR_TEMP_1",
@@ -229,8 +229,44 @@
     },
     {
       "type": "trigger",
+      "x": 41,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Interstellar_Route4_EventScript_RivalTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 6,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Interstellar_Route4_EventScript_RivalTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Interstellar_Route4_EventScript_RivalTrigger"
+    },
+    {
+      "type": "trigger",
       "x": 42,
       "y": 8,
+      "elevation": 3,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Interstellar_Route4_EventScript_RivalTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 9,
       "elevation": 3,
       "var": "VAR_TEMP_1",
       "var_value": "0",
