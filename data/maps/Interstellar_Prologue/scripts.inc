@@ -14,9 +14,9 @@ Interstellar_Prologue_EventScript_Begin::
 	waitmovement 0
 	msgbox Interstellar_Prologue_Text_BirchBigDay, MSGBOX_DEFAULT
 	closemessage
-	call Interstellar_EventScript_ChooseStarter
-	bufferleadmonspeciesname STR_VAR_1
-	msgbox Interstellar_Prologue_Text_BirchPerfect, MSGBOX_DEFAULT
+	@ He never gets the case open. The storm takes the moment off him, and the
+	@ choice waits until OAK finds all twelve gathered on the other side.
+	msgbox Interstellar_Prologue_Text_BirchReachesForCase, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	playse SE_THUNDER
@@ -67,6 +67,15 @@ Interstellar_Prologue_Text_BirchBigDay:
 	.string "Still... every journey needs a first\n"
 	.string "step. Today's the day.$"
 
+Interstellar_Prologue_Text_BirchReachesForCase:
+	.string "PROF. BIRCH: Go on, then. They're\n"
+	.string "in the case behind me-- pick the\l"
+	.string "one that looks back at you.\p"
+	.string "...Hm?\p"
+	.string "That sound is not wind.\n"
+	.string "Do you hear it?$"
+
+@ Unused: BIRCH never completes the handover.
 Interstellar_Prologue_Text_BirchPerfect:
 	.string "PROF. BIRCH: {STR_VAR_1}, is it?\n"
 	.string "A fine choice.\p"

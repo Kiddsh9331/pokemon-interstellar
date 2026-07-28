@@ -24,6 +24,14 @@ Interstellar_OaksLab_EventScript_Wake::
 	closemessage
 	msgbox Interstellar_OaksLab_Text_OakYouCrossed, MSGBOX_DEFAULT
 	closemessage
+	@ BIRCH never got the case open. OAK has twelve of them sitting in his lab
+	@ and no good explanation for why, which is explanation enough.
+	msgbox Interstellar_OaksLab_Text_OakTwelveGathered, MSGBOX_DEFAULT
+	closemessage
+	call Interstellar_EventScript_ChooseStarter
+	bufferleadmonspeciesname STR_VAR_1
+	msgbox Interstellar_OaksLab_Text_OakGoodChoice, MSGBOX_DEFAULT
+	closemessage
 	playfanfare MUS_OBTAIN_ITEM
 	message Interstellar_OaksLab_Text_ReceivedFieldKit
 	waitfanfare
@@ -153,6 +161,26 @@ Interstellar_OaksLab_Text_OakYouCrossed:
 	.string "lived. Nobody else has.\p"
 	.string "That makes you, {PLAYER}, the most\n"
 	.string "important trainer in the world.$"
+
+Interstellar_OaksLab_Text_OakTwelveGathered:
+	.string "OAK: Now. Before anything else.\p"
+	.string "Three nights ago my lab filled up\n"
+	.string "with POKéMON that are not from\l"
+	.string "this region, and in some cases\l"
+	.string "not from this century.\p"
+	.string "Twelve of them. Every one a first\n"
+	.string "partner, from four different eras,\l"
+	.string "sat in my entrance hall waiting.\p"
+	.string "I have no theory for it. But they\n"
+	.string "arrived three nights ago, and so,\l"
+	.string "it seems, did you.\p"
+	.string "Go on. One of them is yours.$"
+
+Interstellar_OaksLab_Text_OakGoodChoice:
+	.string "OAK: {STR_VAR_1}.\p"
+	.string "It did not hesitate either. Take\n"
+	.string "care of each other-- the road out\l"
+	.string "there is not the one I mapped.$"
 
 Interstellar_OaksLab_Text_ReceivedFieldKit:
 	.string "OAK handed over his old field kit\n"
