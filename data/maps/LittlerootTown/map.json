@@ -3,7 +3,7 @@
   "name": "LittlerootTown",
   "layout": "LAYOUT_LITTLEROOT_TOWN",
   "music": "MUS_LITTLEROOT",
-  "region": "REGION_HOENN",
+  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -13,13 +13,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE101",
-      "offset": 0,
-      "direction": "up"
-    }
-  ],
+  "connections": [],
   "object_events": [
     {
       "local_id": "LOCALID_LITTLEROOT_TWIN",

@@ -111,7 +111,9 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/LittlerootTown/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_OLDALE_TOWN",
@@ -595,7 +597,9 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/LittlerootTown_BrendansHouse_1F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_BrendansHouse_1F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
@@ -606,7 +610,9 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/LittlerootTown_BrendansHouse_2F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_BrendansHouse_2F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
@@ -617,7 +623,9 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/LittlerootTown_MaysHouse_1F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_1F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
@@ -628,7 +636,9 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/LittlerootTown_MaysHouse_2F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_2F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
@@ -639,7 +649,9 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_HOUSE1",
