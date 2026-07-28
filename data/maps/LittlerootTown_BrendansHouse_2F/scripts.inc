@@ -1,4 +1,7 @@
 LittlerootTown_BrendansHouse_2F_MapScripts::
+.if IS_FRLG
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Interstellar_Hoenn_Bedroom_OnFrame
+.endif
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_2F_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_BrendansHouse_2F_OnWarp
 	.byte 0

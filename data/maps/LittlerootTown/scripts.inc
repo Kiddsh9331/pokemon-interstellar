@@ -105,6 +105,9 @@ LittlerootTown_OnFrame:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
+.if IS_FRLG
+	map_script_2 VAR_INTERSTELLAR_STATE, 3, Interstellar_Hoenn_EventScript_Storm
+.endif
 	.2byte 0
 
 LittlerootTown_EventScript_StepOffTruckMale::

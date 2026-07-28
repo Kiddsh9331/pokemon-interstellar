@@ -100,6 +100,9 @@ LittlerootTown_ProfessorBirchsLab_OnFrame:
 	map_script_2 VAR_BIRCH_LAB_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexEvent
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_ChooseJohtoStarter
+.if IS_FRLG
+	map_script_2 VAR_INTERSTELLAR_STATE, 2, Interstellar_Hoenn_EventScript_LabScene
+.endif
 	.2byte 0
 
 @ The starter is technically given prior to this on Route 101 by special ChooseStarter
