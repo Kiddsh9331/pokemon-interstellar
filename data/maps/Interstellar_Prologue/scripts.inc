@@ -96,7 +96,7 @@ Interstellar_Prologue_Text_BirchOutsideNow:
 
 @ ---------- 12-starter selection (all Gen 1-4 starters, era menu first) ----------
 Interstellar_EventScript_ChooseStarter::
-	msgbox Interstellar_Prologue_Text_BirchTwelve, MSGBOX_DEFAULT
+	msgbox Interstellar_Text_OakTwelve, MSGBOX_DEFAULT
 Interstellar_EventScript_EraMenu::
 	message Interstellar_Prologue_Text_WhichEra
 	waitmessage
@@ -268,14 +268,17 @@ Interstellar_EventScript_OfferPiplup::
 	setvar VAR_STARTER_MON, 2
 	return
 
-Interstellar_Prologue_Text_BirchTwelve:
-	.string "PROF. BIRCH: Colleagues from every\n"
-	.string "region sent partners over for my\l"
-	.string "field study-- OAK, ELM, ROWAN...\p"
-	.string "All TWELVE are here, from four\n"
-	.string "different eras of research.\p"
+@ The choice happens in OAK's lab now, and nobody sent these -- he found them
+@ waiting. The old BIRCH wording went with the lab it used to be set in.
+Interstellar_Text_OakTwelve:
+	.string "PROF. OAK: Twelve of them.\p"
+	.string "Every starter I know, and several\n"
+	.string "I have only read about-- JOHTO,\l"
+	.string "HOENN, SINNOH.\p"
+	.string "They were waiting in here when I\n"
+	.string "opened up this morning.\p"
 	.string "Any era. Any partner.\n"
-	.string "The choice is yours!$"
+	.string "The choice is yours.$"
 
 Interstellar_Prologue_Text_WhichEra:
 	.string "Which region's partner\n"

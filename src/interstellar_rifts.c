@@ -82,9 +82,14 @@ static void SetLightningBlendWindows(bool32 enable)
 void Interstellar_UpdateStormLightning(void)
 {
     // Overcast outdoors only -- a few vanilla interiors are WEATHER_SHADE too,
-    // and lightning flashing inside a mansion would be nonsense.
-    if (gMapHeader.weather != WEATHER_SHADE || gPaletteFade.active
-     || !MapHasNaturalLight(gMapHeader.mapType))
+    // and lightning flashing inside a mansion would be nonsense. ROUTE 1 is the
+    // exception: it carries the rain as well, so it is named rather than picked
+    // up by weather, which would drag the whole slow-rain tier in with it.
+    if (gPaletteFade.active || !MapHasNaturalLight(gMapHeader.mapType))
+        return;
+    if (gMapHeader.weather != WEATHER_SHADE
+     && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE1)
+       && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE1)))
         return;
 
     if (sLightningPhase != 0)

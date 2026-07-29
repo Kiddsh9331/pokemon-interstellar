@@ -163,6 +163,14 @@ Interstellar_Hoenn_EventScript_Storm::
 	lockall
 	setweather WEATHER_RAIN_THUNDERSTORM
 	doweather
+	@ BIRCH followed the player out of the lab, but the town's copy of him is
+	@ hidden at new game, so his lines were playing to an empty street. Bring him
+	@ back and stand him in the lab doorway at (7,16), directly above the tile the
+	@ player warps onto. Object 8 on this map; it has no LOCALID constant.
+	setobjectxyperm 8, 7, 16
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	addobject 8
+	turnobject 8, DIR_SOUTH
 	delay 20
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
