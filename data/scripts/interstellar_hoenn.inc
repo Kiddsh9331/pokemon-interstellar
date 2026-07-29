@@ -29,10 +29,16 @@ Interstellar_Hoenn_EventScript_MomScene::
 	releaseall
 	end
 
-@ BIRCH stands at (6,4); the player comes in at (6,12) or (7,12).
+@ The lab door in LITTLEROOT targets warp 0, so the player always arrives at
+@ (6,12). BIRCH stands at (6,4) and column 6 is clear the whole way down -- the
+@ three starter balls sit on (6,8) but are hidden, so he walks straight through
+@ them. The player takes two steps in and BIRCH comes to meet them.
 Interstellar_Hoenn_EventScript_LabScene::
 	lockall
 	applymovement LOCALID_PLAYER, Interstellar_Hoenn_Movement_IntoLab
+	waitmovement 0
+	delay 20
+	applymovement LOCALID_BIRCHS_LAB_BIRCH, Interstellar_Hoenn_Movement_BirchApproach
 	waitmovement 0
 	msgbox Interstellar_Prologue_Text_BirchBigDay, MSGBOX_DEFAULT
 	closemessage
@@ -67,15 +73,28 @@ Interstellar_Hoenn_EventScript_LabScene::
 	releaseall
 	end
 
+@ (6,12) -> (6,10), facing up.
 Interstellar_Hoenn_Movement_IntoLab:
-	walk_up
 	walk_up
 	walk_up
 	step_end
 
-@ Outside, with the sky coming apart over LITTLEROOT.
+@ (6,4) -> (6,9), which leaves him facing down at the player.
+Interstellar_Hoenn_Movement_BirchApproach:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+@ Outside, with the sky coming apart over LITTLEROOT. The town's own weather is
+@ the slow rain that has been falling since the player left the house; the storm
+@ beat escalates it to thunder, the way the old prologue town did.
 Interstellar_Hoenn_EventScript_Storm::
 	lockall
+	setweather WEATHER_RAIN_THUNDERSTORM
+	doweather
 	delay 20
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
