@@ -337,8 +337,13 @@ EventScript_ResetAllMapFlagsFrlg::
 	@ vanilla move-in, rival and starter events are pre-set past their scenes
 	@ and their cast is hidden. BIRCH stays, in his lab, and so does MOM.
 	setvar VAR_LITTLEROOT_TOWN_STATE, 4
-	setvar VAR_LITTLEROOT_INTRO_STATE, 5
-	setvar VAR_LITTLEROOT_RIVAL_STATE, 2
+	@ 7 is past every scene in the move-in: 5 marches the player back
+	@ upstairs to set the clock, 6 is the gym match on the TV, and under 6
+	@ leaves the moving boxes on the floor.
+	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	@ 2 is "meet the rival": three coord_events downstairs still fire on
+	@ it, and the rival is hidden, so they would play to an empty room.
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
 	setvar VAR_BIRCH_LAB_STATE, 6
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK

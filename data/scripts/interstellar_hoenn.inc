@@ -21,13 +21,81 @@ Interstellar_Hoenn_EventScript_Wake::
 	releaseall
 	end
 
+@ Downstairs the storm is already the morning news. MOM stands at her default
+@ (2,6) -- VAR_LITTLEROOT_INTRO_STATE is set past every vanilla scene, so
+@ nothing repositions her -- and the player comes down the stairs at (8,2).
+@ The player crosses to the TV and MOM comes over to watch it with them.
 Interstellar_Hoenn_EventScript_MomScene::
 	lockall
-	msgbox Interstellar_House1F_Text_MomBigDay, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Interstellar_Hoenn_Movement_PlayerToTV
+	waitmovement 0
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Interstellar_Hoenn_Movement_MomToTV
+	waitmovement 0
+	msgbox Interstellar_Hoenn_Text_MomWeather, MSGBOX_DEFAULT
+	closemessage
+	msgbox Interstellar_Hoenn_Text_TVWeather, MSGBOX_DEFAULT
+	closemessage
+	msgbox Interstellar_Hoenn_Text_TVSightings, MSGBOX_DEFAULT
+	closemessage
+	msgbox Interstellar_Hoenn_Text_TVSky, MSGBOX_DEFAULT
+	closemessage
+	msgbox Interstellar_Hoenn_Text_MomGoToBirch, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_INTERSTELLAR_STATE, 2
 	releaseall
 	end
+
+@ (8,2) -> (5,4), which is the tile right of the TV, facing it.
+Interstellar_Hoenn_Movement_PlayerToTV:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+@ (2,6) -> (5,5) along row 5, the only clear lane across the room -- row 6 is
+@ the kitchen counter. That leaves her directly below the player, turned up.
+Interstellar_Hoenn_Movement_MomToTV:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_faster_up
+	step_end
+
+Interstellar_Hoenn_Text_MomWeather:
+	.string "MOM: There you are.\p"
+	.string "Did the thunder keep you up?\n"
+	.string "It's been like that since dawn.\p"
+	.string "No rain. Not a drop. Just the sky\n"
+	.string "arguing with itself.$"
+
+Interstellar_Hoenn_Text_TVWeather:
+	.string "TV: ...still no front, no drop in\n"
+	.string "pressure, nothing to explain it.\p"
+	.string "LITTLEROOT, OLDALE, half of\n"
+	.string "ROUTE 103. All the same sky.$"
+
+Interstellar_Hoenn_Text_TVSightings:
+	.string "TV: And trainers on the coast are\n"
+	.string "reporting POKéMON nobody can put\l"
+	.string "a name to.\p"
+	.string "Not HOENN species. Not in any\n"
+	.string "guidebook we have here.$"
+
+Interstellar_Hoenn_Text_TVSky:
+	.string "TV: Viewers have been sending us\n"
+	.string "this one all morning.\p"
+	.string "A seam of light, low over the\n"
+	.string "trees. It doesn't drift with the\l"
+	.string "clouds. It doesn't move at all.$"
+
+Interstellar_Hoenn_Text_MomGoToBirch:
+	.string "MOM: PROF. BIRCH has been at the\n"
+	.string "lab since it started.\p"
+	.string "Go on. He'll want you where he\n"
+	.string "can see you.$"
 
 @ The lab door in LITTLEROOT targets warp 0, so the player always arrives at
 @ (6,12). BIRCH stands at (6,4) and column 6 is clear the whole way down -- the
