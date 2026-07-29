@@ -2,7 +2,12 @@ const u32 gBallGfx_Strange[] = INCGFX_U32("graphics/balls/strange.png", ".4bpp.s
 const u16 gBallPal_Strange[] = INCGFX_U16("graphics/balls/strange.png", ".gbapal");
 
 const u32 gBallGfx_Poke[] = INCGFX_U32("graphics/balls/poke.png", ".4bpp.smol");
+// The red-and-white ball, kept for OAK's opening speech and for trades:
+// the AEON BALL is what the player throws, but it does not exist yet when
+// OAK is explaining what a POKeMON is.
+const u32 gBallGfx_Classic[] = INCGFX_U32("graphics/balls/classic.png", ".4bpp.smol");
 const u16 gBallPal_Poke[] = INCGFX_U16("graphics/balls/poke.png", ".gbapal");
+const u16 gBallPal_Classic[] = INCGFX_U16("graphics/balls/classic.png", ".gbapal");
 
 const u32 gBallGfx_Great[] = INCGFX_U32("graphics/balls/great.png", ".4bpp.smol");
 const u16 gBallPal_Great[] = INCGFX_U16("graphics/balls/great.png", ".gbapal");

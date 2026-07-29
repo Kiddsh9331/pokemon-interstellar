@@ -23,7 +23,8 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/SlateportCity/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity/map.bin",
-      "layout_version": "frlg"
+      "layout_version": "frlg",
+      "layout_format": "emerald"
     },
     {
       "id": "LAYOUT_MAUVILLE_CITY",
@@ -113,7 +114,8 @@
       "blockdata_filepath": "data/layouts/LittlerootTown/map.bin",
       "layout_version": "frlg",
       "border_width": 2,
-      "border_height": 2
+      "border_height": 2,
+      "layout_format": "emerald"
     },
     {
       "id": "LAYOUT_OLDALE_TOWN",
@@ -599,7 +601,8 @@
       "blockdata_filepath": "data/layouts/LittlerootTown_BrendansHouse_1F/map.bin",
       "layout_version": "frlg",
       "border_width": 2,
-      "border_height": 2
+      "border_height": 2,
+      "layout_format": "emerald"
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
@@ -612,7 +615,8 @@
       "blockdata_filepath": "data/layouts/LittlerootTown_BrendansHouse_2F/map.bin",
       "layout_version": "frlg",
       "border_width": 2,
-      "border_height": 2
+      "border_height": 2,
+      "layout_format": "emerald"
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
@@ -625,7 +629,8 @@
       "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_1F/map.bin",
       "layout_version": "frlg",
       "border_width": 2,
-      "border_height": 2
+      "border_height": 2,
+      "layout_format": "emerald"
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
@@ -638,7 +643,8 @@
       "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_2F/map.bin",
       "layout_version": "frlg",
       "border_width": 2,
-      "border_height": 2
+      "border_height": 2,
+      "layout_format": "emerald"
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
@@ -651,7 +657,8 @@
       "blockdata_filepath": "data/layouts/LittlerootTown_ProfessorBirchsLab/map.bin",
       "layout_version": "frlg",
       "border_width": 2,
-      "border_height": 2
+      "border_height": 2,
+      "layout_format": "emerald"
     },
     {
       "id": "LAYOUT_HOUSE1",

@@ -51,6 +51,7 @@ static enum PokeBall GetBattlerPokeballItemId(enum BattlerId battler);
 
 #define GFX_TAG_STRANGE_BALL 55000
 #define GFX_TAG_POKE_BALL    55001
+#define GFX_TAG_CLASSIC_BALL 55901
 #define GFX_TAG_GREAT_BALL   55002
 #define GFX_TAG_ULTRA_BALL   55003
 #define GFX_TAG_MASTER_BALL  55004
@@ -1230,13 +1231,28 @@ static void SpriteCB_ReleasedMonFlyOut(struct Sprite *sprite)
 
 #define sTimer       data[5]
 
+// OAK's speech and the trade animation keep the original ball.
+static const struct CompressedSpriteSheet sClassicBallSheet =
+    {gBallGfx_Classic, 384, GFX_TAG_CLASSIC_BALL};
+static const struct SpritePalette sClassicBallPalette =
+    {gBallPal_Classic, GFX_TAG_CLASSIC_BALL};
+static const struct SpriteTemplate sClassicBallTemplate =
+{
+    .tileTag = GFX_TAG_CLASSIC_BALL,
+    .paletteTag = GFX_TAG_CLASSIC_BALL,
+    .oam = &sBallOamData,
+    .anims = sBallAnimSequences,
+    .affineAnims = sAffineAnim_BallRotate,
+    .callback = SpriteCB_BallThrow,
+};
+
 u8 CreateTradePokeballSprite(u8 monSpriteId, u8 monPalNum, u8 x, u8 y, u8 oamPriority, u8 subPriority, u8 delay, u32 fadePalettes)
 {
     u8 spriteId;
 
-    LoadCompressedSpriteSheetUsingHeap(&gPokeBalls[BALL_POKE].pic);
-    LoadSpritePalette(&gPokeBalls[BALL_POKE].palette);
-    spriteId = CreateSprite(&gPokeBalls[BALL_POKE].spriteTemplate, x, y, subPriority);
+    LoadCompressedSpriteSheetUsingHeap(&sClassicBallSheet);
+    LoadSpritePalette(&sClassicBallPalette);
+    spriteId = CreateSprite(&sClassicBallTemplate, x, y, subPriority);
     gSprites[spriteId].sMonSpriteId = monSpriteId;
     gSprites[spriteId].sDelay = delay;
     gSprites[spriteId].sMonPalNum = monPalNum;

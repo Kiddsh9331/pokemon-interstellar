@@ -10,6 +10,8 @@ extern const u16 gMessageBox_Pal[];
 extern const u32 gBallGfx_Strange[];
 extern const u16 gBallPal_Strange[];
 extern const u32 gBallGfx_Poke[];
+extern const u32 gBallGfx_Classic[];
+extern const u16 gBallPal_Classic[];
 extern const u16 gBallPal_Poke[];
 extern const u32 gBallGfx_Great[];
 extern const u16 gBallPal_Great[];

@@ -798,7 +798,16 @@ string generate_layout_headers_text(Json layouts_data) {
              << "\t.4byte " << blockdata_label << "\n"
              << "\t.4byte " << json_to_string(layout, "primary_tileset") << "\n"
              << "\t.4byte " << json_to_string(layout, "secondary_tileset") << "\n";
-        if (layout_version == "frlg")
+        // Interstellar: isFrlg picks the tileset split used at runtime -- 640
+        // tiles and 7 primary palettes for FireRed, 512 and 6 for Emerald. A
+        // Hoenn map imported into the FireRed build must be emitted here
+        // (layout_version frlg) while still being read with the Emerald split,
+        // or its tiles and palettes land in the wrong slots and the map renders
+        // as garbage. "layout_format" separates those two decisions.
+        string layout_format = json_to_string(layout, "layout_format", true);
+        if (layout_format.empty())
+            layout_format = layout_version;
+        if (layout_format == "frlg")
             text << "\t.byte TRUE\n";
         else
             text << "\t.byte FALSE\n";
