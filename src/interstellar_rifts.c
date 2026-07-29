@@ -52,10 +52,33 @@ static u32 sRiftSeed; // zero at boot, rolled on first overworld load
 // ---------------------------------------------------------------------------
 static u16 sLightningTimer;
 static u8 sLightningPhase;
+static u16 sLightningSavedBldCnt;
 
 // The flash uses the GPU brightness blend, NOT the palette buffers: writing
 // palettes here overwrote the weather shading and day/night tint every frame
 // and washed the whole map out.
+//
+// BLDY on its own is not enough. The overworld runs with WIN0 and WIN1 on and
+// neither WININ nor WINOUT requesting the colour special effect, so the blend
+// is masked off across the whole screen and the storm was invisible no matter
+// how bright the flash was set. FadeScreenHardware() hits the same wall and
+// solves it the same way: switch the colour-effect bits on for the duration,
+// then hand them back along with the overworld's own BLDCNT, which is what
+// draws grass and reflections.
+static void SetLightningBlendWindows(bool32 enable)
+{
+    if (enable)
+    {
+        SetGpuRegBits(REG_OFFSET_WININ, WININ_WIN0_CLR | WININ_WIN1_CLR);
+        SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WIN01_CLR);
+    }
+    else
+    {
+        ClearGpuRegBits(REG_OFFSET_WININ, WININ_WIN0_CLR | WININ_WIN1_CLR);
+        ClearGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WIN01_CLR);
+    }
+}
+
 void Interstellar_UpdateStormLightning(void)
 {
     // Overcast outdoors only -- a few vanilla interiors are WEATHER_SHADE too,
@@ -69,24 +92,22 @@ void Interstellar_UpdateStormLightning(void)
         u32 bldy;
 
         sLightningPhase--;
-        // double strike, then back to normal
+        // A stab, the strike proper, then a fade back down -- about two thirds
+        // of a second, which is long enough to read as lightning rather than a
+        // dropped frame.
         switch (sLightningPhase)
         {
-        case 10:
-        case 6:
-            bldy = 10;
-            break;
-        case 9:
-        case 5:
-            bldy = 5;
-            break;
-        case 8:
-        case 4:
-            bldy = 2;
-            break;
-        default:
-            bldy = 0;
-            break;
+        case 22: bldy = 11; break;
+        case 21: bldy = 6;  break;
+        case 20: bldy = 3;  break;
+        case 15: bldy = 14; break;
+        case 14: bldy = 12; break;
+        case 13: bldy = 8;  break;
+        case 12: bldy = 6;  break;
+        case 11: bldy = 4;  break;
+        case 10: bldy = 2;  break;
+        case 9:  bldy = 1;  break;
+        default: bldy = 0;  break;
         }
 
         if (bldy != 0)
@@ -98,17 +119,22 @@ void Interstellar_UpdateStormLightning(void)
         {
             SetGpuReg(REG_OFFSET_BLDY, 0);
             if (sLightningPhase == 0) // hand the registers back
-                SetGpuReg(REG_OFFSET_BLDCNT, 0);
+            {
+                SetGpuReg(REG_OFFSET_BLDCNT, sLightningSavedBldCnt);
+                SetLightningBlendWindows(FALSE);
+            }
         }
         return;
     }
 
-    // Roughly every 15-30 seconds. This is the far edge of the storm, not the
+    // Roughly every 8-16 seconds. This is the far edge of the storm, not the
     // middle of it -- the middle is waiting in CERULEAN.
-    if (++sLightningTimer >= 900 + (Random() % 900))
+    if (++sLightningTimer >= 480 + (Random() % 480))
     {
         sLightningTimer = 0;
-        sLightningPhase = 12;
+        sLightningPhase = 24;
+        sLightningSavedBldCnt = GetGpuReg(REG_OFFSET_BLDCNT);
+        SetLightningBlendWindows(TRUE);
         PlaySE(SE_THUNDER);
     }
 }
