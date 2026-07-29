@@ -469,21 +469,28 @@ string generate_groups_text(Json groups_data, vector<string> &invalid_maps) {
     vector<string> valid_groups;
     for (auto &key : groups_data["group_order"].array_items()) {
         string group = json_to_string(key);
-        vector<string> valid_maps;
         auto maps = groups_data[group].array_items();
+
+        // A map that belongs to the other game becomes NULL rather than being
+        // dropped, so it keeps its slot. The MAP_ constants are numbered from
+        // this same unfiltered list, so removing an entry instead would shift
+        // every map after it in the group and silently point its constant at a
+        // neighbour -- or, past the end, at whatever group follows in ROM.
+        ostringstream body;
+        int valid_count = 0;
         for (Json &map_name : maps) {
             string map_name_str = json_to_string(map_name);
             auto it = find(invalid_maps.begin(), invalid_maps.end(), map_name_str);
             if (it == invalid_maps.end()) {
-                valid_maps.push_back(map_name_str);
+                body << "\t.4byte " << map_name_str << "\n";
+                valid_count++;
+            } else {
+                body << "\t.4byte NULL\n";
             }
         }
 
-        if (valid_maps.size() > 0) {
-            text << group << "::\n";
-            for (string map : valid_maps)
-                text << "\t.4byte " << map << "\n";
-            text << "\n";
+        if (valid_count > 0) {
+            text << group << "::\n" << body.str() << "\n";
             valid_groups.push_back(group);
         }
     }
