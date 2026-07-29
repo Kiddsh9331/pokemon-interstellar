@@ -45,7 +45,8 @@ Interstellar_Hoenn_EventScript_MomScene::
 	releaseall
 	end
 
-@ (8,2) -> (5,4), which is the tile right of the TV, facing it.
+@ Down the stairs puts the player on (8,3), not the (8,2) warp tile, so this
+@ lands on (5,5): beside the TV unit, facing it.
 Interstellar_Hoenn_Movement_PlayerToTV:
 	walk_down
 	walk_down
@@ -54,14 +55,16 @@ Interstellar_Hoenn_Movement_PlayerToTV:
 	walk_left
 	step_end
 
-@ (2,6) -> (5,5) along row 5, the only clear lane across the room -- row 6 is
-@ the kitchen counter. That leaves her directly below the player, turned up.
+@ (2,6) -> (4,5), stopping one tile short of the player and already facing
+@ them. Row 5 is the only clear lane across the room -- row 6 is the kitchen
+@ counter -- and stopping short matters twice over: walking any further would
+@ take her through the player's own tile, and standing on the tile below him
+@ would draw her over him from the waist down, since overworld sprites are two
+@ tiles tall and sort by y.
 Interstellar_Hoenn_Movement_MomToTV:
 	walk_up
 	walk_right
 	walk_right
-	walk_right
-	walk_in_place_faster_up
 	step_end
 
 Interstellar_Hoenn_Text_MomWeather:
