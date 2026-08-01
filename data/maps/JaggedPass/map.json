@@ -3,7 +3,7 @@
   "name": "JaggedPass",
   "layout": "LAYOUT_JAGGED_PASS",
   "music": "MUS_PETALBURG_WOODS",
-  "region": "REGION_HOENN",
+  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_JAGGED_PASS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -227,22 +227,5 @@
       "script": "JaggedPass_EventScript_OpenMagmaHideout"
     }
   ],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 8,
-      "y": 10,
-      "elevation": 3,
-      "item": "ITEM_FULL_HEAL",
-      "flag": "FLAG_HIDDEN_ITEM_JAGGED_PASS_FULL_HEAL"
-    },
-    {
-      "type": "hidden_item",
-      "x": 7,
-      "y": 29,
-      "elevation": 3,
-      "item": "ITEM_GREAT_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_JAGGED_PASS_GREAT_BALL"
-    }
-  ]
+  "bg_events": []
 }

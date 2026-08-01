@@ -23,6 +23,19 @@ const u16 gMetatileAttributes_Lab[] = INCBIN_U16("data/tilesets/secondary/lab/me
 
 const u16 gMetatiles_BrendansMaysHouse[] = INCBIN_U16("data/tilesets/secondary/brendans_mays_house/metatiles.bin");
 const u16 gMetatileAttributes_BrendansMaysHouse[] = INCBIN_U16("data/tilesets/secondary/brendans_mays_house/metatile_attributes.bin");
+// Act 2 brings these Hoenn tilesets into the FireRed build.
+const u16 gMetatiles_Mauville[] = INCBIN_U16("data/tilesets/secondary/mauville/metatiles.bin");
+const u16 gMetatileAttributes_Mauville[] = INCBIN_U16("data/tilesets/secondary/mauville/metatile_attributes.bin");
+const u16 gMetatiles_MauvilleGym[] = INCBIN_U16("data/tilesets/secondary/mauville_gym/metatiles.bin");
+const u16 gMetatileAttributes_MauvilleGym[] = INCBIN_U16("data/tilesets/secondary/mauville_gym/metatile_attributes.bin");
+const u16 gMetatiles_Lavaridge[] = INCBIN_U16("data/tilesets/secondary/lavaridge/metatiles.bin");
+const u16 gMetatileAttributes_Lavaridge[] = INCBIN_U16("data/tilesets/secondary/lavaridge/metatile_attributes.bin");
+const u16 gMetatiles_LavaridgeGym[] = INCBIN_U16("data/tilesets/secondary/lavaridge_gym/metatiles.bin");
+const u16 gMetatileAttributes_LavaridgeGym[] = INCBIN_U16("data/tilesets/secondary/lavaridge_gym/metatile_attributes.bin");
+const u16 gMetatiles_PokemonCenter[] = INCBIN_U16("data/tilesets/secondary/pokemon_center/metatiles.bin");
+const u16 gMetatileAttributes_PokemonCenter[] = INCBIN_U16("data/tilesets/secondary/pokemon_center/metatile_attributes.bin");
+const u16 gMetatiles_Shop[] = INCBIN_U16("data/tilesets/secondary/shop/metatiles.bin");
+const u16 gMetatileAttributes_Shop[] = INCBIN_U16("data/tilesets/secondary/shop/metatile_attributes.bin");
 
 #endif
 

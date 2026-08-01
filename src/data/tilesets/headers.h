@@ -91,6 +91,67 @@ const struct Tileset gTileset_BrendansMaysHouse =
     .metatileAttributes = gMetatileAttributes_BrendansMaysHouse,
     .callback = NULL,
 };
+const struct Tileset gTileset_Mauville =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Mauville,
+    .palettes = gTilesetPalettes_Mauville,
+    .metatiles = gMetatiles_Mauville,
+    .metatileAttributes = gMetatileAttributes_Mauville,
+    .callback = InitTilesetAnim_Mauville,
+};
+const struct Tileset gTileset_MauvilleGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MauvilleGym,
+    .palettes = gTilesetPalettes_MauvilleGym,
+    .metatiles = gMetatiles_MauvilleGym,
+    .metatileAttributes = gMetatileAttributes_MauvilleGym,
+    .callback = InitTilesetAnim_MauvilleGym,
+};
+const struct Tileset gTileset_Lavaridge =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Lavaridge,
+    .palettes = gTilesetPalettes_Lavaridge,
+    .metatiles = gMetatiles_Lavaridge,
+    .metatileAttributes = gMetatileAttributes_Lavaridge,
+    .callback = InitTilesetAnim_Lavaridge,
+};
+const struct Tileset gTileset_LavaridgeGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LavaridgeGym,
+    .palettes = gTilesetPalettes_LavaridgeGym,
+    .metatiles = gMetatiles_LavaridgeGym,
+    .metatileAttributes = gMetatileAttributes_LavaridgeGym,
+    .callback = NULL,
+};
+const struct Tileset gTileset_PokemonCenter =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PokemonCenter,
+    .palettes = gTilesetPalettes_PokemonCenter,
+    .metatiles = gMetatiles_PokemonCenter,
+    .metatileAttributes = gMetatileAttributes_PokemonCenter,
+    .callback = NULL,
+};
+const struct Tileset gTileset_Shop =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Shop,
+    .palettes = gTilesetPalettes_Shop,
+    .metatiles = gMetatiles_Shop,
+    .metatileAttributes = gMetatileAttributes_Shop,
+    .callback = NULL,
+};
+
 #endif
 
 #if !IS_FRLG
