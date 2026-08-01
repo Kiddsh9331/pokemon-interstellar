@@ -1,4 +1,5 @@
 #include "global.h"
+#include "config/interstellar_debug.h"
 #include "clock.h"
 #include "new_game.h"
 #include "random.h"
@@ -57,6 +58,9 @@ extern const u8 EventScript_ResetAllMapFlagsFrlg[];
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
+#if INTERSTELLAR_DEBUG_ACT2_START
+extern const u8 Interstellar_EventScript_DebugAct2Setup[];
+#endif
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
 static void ResetDexNav(void);
@@ -135,6 +139,13 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
+#if INTERSTELLAR_DEBUG_ACT2_START
+    // Straight to the ACT 1 -> ACT 2 crossing; the scar is two tiles north.
+    SetWarpDestination(MAP_GROUP(MAP_INTERSTELLAR_RIFT_CHAMBER), MAP_NUM(MAP_INTERSTELLAR_RIFT_CHAMBER),
+                       WARP_ID_NONE, 18, 19);
+    WarpIntoMap();
+    return;
+#endif
     if (IS_FRLG)
         SetWarpDestination(MAP_GROUP(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F), MAP_NUM(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F), WARP_ID_NONE, 4, 3); // Interstellar: wake up in Littleroot
     else // Pokémon Interstellar: new game begins in Birch's lab (prologue), not the truck.
@@ -216,6 +227,9 @@ void NewGameInitData(void)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     else
         RunScriptImmediately(EventScript_ResetAllMapFlags);
+#if INTERSTELLAR_DEBUG_ACT2_START
+    RunScriptImmediately(Interstellar_EventScript_DebugAct2Setup);
+#endif
 #if IS_FRLG
         StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 #endif
