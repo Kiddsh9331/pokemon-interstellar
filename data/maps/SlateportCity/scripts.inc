@@ -75,7 +75,9 @@ Interstellar_Slateport_EventScript_Arrival::
 	closemessage
 	msgbox Interstellar_Slateport_Text_BirchReunion, MSGBOX_DEFAULT
 	closemessage
-	msgbox Interstellar_Slateport_Text_OakArrival, MSGBOX_DEFAULT
+	msgbox Interstellar_Slateport_Text_BirchHome, MSGBOX_DEFAULT
+	closemessage
+	msgbox Interstellar_Slateport_Text_BirchAnchor, MSGBOX_DEFAULT
 	closemessage
 	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	setvar VAR_INTERSTELLAR_STATE, 9
@@ -86,13 +88,6 @@ Interstellar_Slateport_EventScript_Arrival::
 Interstellar_Slateport_Movement_ExitRift:
 	walk_up
 	step_end
-
-Interstellar_EventScript_OakSlateport::
-	lock
-	faceplayer
-	msgbox Interstellar_Slateport_Text_OakTalk, MSGBOX_DEFAULT
-	release
-	end
 
 Interstellar_EventScript_BirchSlateport::
 	lock
@@ -123,32 +118,32 @@ Interstellar_Slateport_Text_Arrival:
 Interstellar_Slateport_Text_BirchReunion:
 	.string "BIRCH: {PLAYER}?\p"
 	.string "...{PLAYER}!\p"
-	.string "I knew the readings were yours.\n"
+	.string "Here. Up you get-- slowly, I have\n"
+	.string "got you.\p"
+	.string "I knew those readings were yours.\n"
 	.string "I just didn't know if I was brave\l"
-	.string "enough to trust them.\p"
-	.string "You're alive.\n"
-	.string "That's the whole experiment, then.$"
+	.string "enough to trust them.$"
 
-Interstellar_Slateport_Text_OakArrival:
-	.string "OAK: And there it is. Two minutes\n"
-	.string "late and entirely worth the wait.\p"
-	.string "BIRCH: You could have warned me\n"
-	.string "you'd be standing on my beach.\p"
-	.string "OAK: I could have. The rift was\n"
-	.string "less polite about it than I was.\p"
-	.string "OAK: {PLAYER}. Whatever you did\n"
-	.string "under CERULEAN, KANTO is quieter\l"
-	.string "for it. I felt the whole region\l"
-	.string "let go at once.\p"
-	.string "BIRCH: Then we start here.$"
+Interstellar_Slateport_Text_BirchHome:
+	.string "BIRCH: Now listen, because this is\n"
+	.string "the part that matters.\p"
+	.string "This is HOENN. Ours. The gauge\n"
+	.string "reads flat to the horizon and the\l"
+	.string "date on my notes is the right one.\p"
+	.string "You are not somewhere that looks\n"
+	.string "like home, {PLAYER}.\p"
+	.string "You are home.$"
 
-Interstellar_Slateport_Text_OakTalk:
-	.string "OAK: I have spent my life writing\n"
-	.string "down where POKéMON live.\p"
-	.string "Now the where keeps moving.\p"
-	.string "BIRCH has the coast charted. I'm\n"
-	.string "here for the parts that don't fit\l"
-	.string "either of our notebooks.$"
+Interstellar_Slateport_Text_BirchAnchor:
+	.string "BIRCH: Which is the good news.\p"
+	.string "The gauge has been reading an\n"
+	.string "anchor since the sky tore open.\l"
+	.string "Not KANTO. Here.\p"
+	.string "Four badges first. WATTSON, then\n"
+	.string "FLANNERY. Then we talk about it.\p"
+	.string "I have seen what one of these does\n"
+	.string "to a region. You go at it ready,\l"
+	.string "or you do not go.$"
 
 Interstellar_Slateport_Text_BirchTalk:
 	.string "BIRCH: You've crossed a region\n"

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "config/interstellar_debug.h"
 #include "util.h"
 #include "berry_fix_program.h"
 #include "bg.h"
@@ -804,7 +805,8 @@ static void SetTitleScreenScene_Run(s16 *data)
         {
             SetTitleScreenScene(data, TITLESCREENSCENE_CRY);
         }
-        else if (QUICKSTART && JOY_NEW(SELECT_BUTTON))
+        else if (QUICKSTART && (JOY_NEW(SELECT_BUTTON)
+              || (INTERSTELLAR_DEBUG_ACT2_START && ++data[7] > 30)))
         {
             Quickstart();
         }
