@@ -646,11 +646,17 @@
 #define TRAINER_INTERSTELLAR_GALACTIC_MTMOON_3      638
 #define TRAINER_INTERSTELLAR_GALACTIC_MTMOON_4      639
 
+// Act 2 gym leaders. The vanilla WATTSON/FLANNERY ids live in opponents.h
+// and are already initialised there, so the hack gets its own, the way
+// BROCK and MISTY do.
+#define TRAINER_LEADER_WATTSON                     640
+#define TRAINER_LEADER_FLANNERY                    641
+
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT_FRLG can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_FRLG                      640
+#define TRAINERS_COUNT_FRLG                      642
 #define MAX_TRAINERS_COUNT_FRLG                  768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_FRLG_H

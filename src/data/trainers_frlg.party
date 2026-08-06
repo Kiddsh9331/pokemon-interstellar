@@ -14082,3 +14082,79 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Poison Gas
 - Fury Swipes
 - Screech
+
+=== TRAINER_LEADER_WATTSON ===
+Name: WATTSON
+Class: Leader Frlg
+Pic: Leader Brock Frlg
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Magnemite
+Level: 30
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Thunder Wave
+- Spark
+- Supersonic
+
+Electrike
+Level: 30
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Spark
+- Quick Attack
+- Howl
+
+Voltorb
+Level: 31
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+- Spark
+- Screech
+- Rollout
+
+Magneton
+Level: 32
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Thunderbolt
+- Thunder Wave
+- Sonic Boom
+- Supersonic
+
+=== TRAINER_LEADER_FLANNERY ===
+Name: FLANNERY
+Class: Leader Frlg
+Pic: Leader Misty Frlg
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Slugma
+Level: 36
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+- Ember
+- Rock Throw
+- Harden
+
+Numel
+Level: 36
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+- Flame Wheel
+- Magnitude
+- Take Down
+
+Vileplume
+Level: 37
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Mega Drain
+- Sleep Powder
+- Acid
+
+Torkoal
+Level: 38
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Overheat
+- Body Slam
+- Curse
+- Attract

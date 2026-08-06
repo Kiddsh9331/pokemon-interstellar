@@ -121,7 +121,7 @@ Interstellar_EventScript_RiftCollapse::
 	setflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
 	setvar VAR_INTERSTELLAR_STATE, 8
 	fadescreenspeed FADE_TO_WHITE, 1
-	warp MAP_SLATEPORT_CITY, 20, 42
+	warp MAP_SLATEPORT_CITY, 18, 42
 	waitstate
 	releaseall
 	end
@@ -155,7 +155,7 @@ Interstellar_EventScript_KantoRiftScar::
 	delay 30
 	fadescreenspeed FADE_TO_WHITE, 2
 	setvar VAR_INTERSTELLAR_STATE, 8
-	warp MAP_SLATEPORT_CITY, 20, 42
+	warp MAP_SLATEPORT_CITY, 18, 42
 	waitstate
 	release
 	end
