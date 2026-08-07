@@ -97,6 +97,7 @@ Interstellar_Slateport_Movement_ExitRift:
 Interstellar_EventScript_BirchSlateport::
 	lock
 	faceplayer
+	goto_if_ge VAR_INTERSTELLAR_STATE, 14, Interstellar_EventScript_BirchStorm
 	msgbox Interstellar_Slateport_Text_BirchTalk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_BirchSlateportHint
 	fadescreen FADE_TO_BLACK
@@ -109,7 +110,32 @@ Interstellar_EventScript_BirchSlateport::
 	end
 
 Interstellar_EventScript_BirchSlateportHint::
+	goto_if_ge VAR_INTERSTELLAR_STATE, 12, Interstellar_EventScript_BirchHintLavaridge
 	msgbox Interstellar_Slateport_Text_BirchHint, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_BirchHintLavaridge::
+	msgbox Interstellar_Slateport_Text_BirchHintLavaridge, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_BirchStorm::
+	msgbox Interstellar_Slateport_Text_BirchStorm, MSGBOX_DEFAULT
+	closemessage
+	msgbox Interstellar_Slateport_Text_BirchRest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_BirchStormNoRest
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	fadescreen FADE_FROM_BLACK
+	msgbox Interstellar_Slateport_Text_BirchHealed, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_BirchStormNoRest::
+	msgbox Interstellar_Slateport_Text_BirchGoodLuck, MSGBOX_DEFAULT
 	release
 	end
 
@@ -166,6 +192,46 @@ Interstellar_Slateport_Text_BirchHint:
 	.string "than most. WATTSON is keeping the\l"
 	.string "lights on at the end of it.\p"
 	.string "Go see him. Badge three.$"
+
+Interstellar_Slateport_Text_BirchHintLavaridge:
+	.string "BIRCH: Badge three already?\n"
+	.string "Ha! I knew those readings\l"
+	.string "were yours.\p"
+	.string "West now. Up ROUTE 112, over the\n"
+	.string "pass, to LAVARIDGE.\p"
+	.string "FLANNERY holds badge four.\p"
+	.string "…And {PLAYER}. What the rift did\n"
+	.string "to her mountain, it did gently.\l"
+	.string "It is not always so.$"
+
+Interstellar_Slateport_Text_BirchStorm:
+	.string "BIRCH: Four badges.\p"
+	.string "So it's time I kept my word.\p"
+	.string "The anchor reads from the storm\n"
+	.string "over the open sea. RAYQUAZA's\l"
+	.string "pillar.\p"
+	.string "The sky's own guardian, pinned\n"
+	.string "inside the wound it died trying\l"
+	.string "to close.\p"
+	.string "A ranger launch is waiting at the\n"
+	.string "harbor. The storm parts for\l"
+	.string "nothing bigger than a rowboat--\p"
+	.string "and maybe, the readings say,\n"
+	.string "for you.\p"
+	.string "STEVEN is already circling the\n"
+	.string "stormline. You won't be alone\l"
+	.string "up there for long.\p"
+	.string "And {PLAYER}. It fought for the\n"
+	.string "whole sky once. Alone.\p"
+	.string "Whatever you find in that tower…\n"
+	.string "it was the good guy.$"
+
+Interstellar_Slateport_Text_BirchRest:
+	.string "BIRCH: Rest first?$"
+
+Interstellar_Slateport_Text_BirchGoodLuck:
+	.string "BIRCH: The harbor, then.\p"
+	.string "Bring the sky its guardian back.$"
 
 SlateportCity_EventScript_ScottScene::
 	lockall

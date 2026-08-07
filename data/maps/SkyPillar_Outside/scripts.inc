@@ -1,24 +1,31 @@
 SkyPillar_Outside_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_Outside_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, SkyPillar_Outside_OnLoad
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SkyPillar_Outside_OnFrame
 	.byte 0
 
+@ Interstellar: the SOOTOPOLIS crisis never reaches this world. The tower
+@ door answers to the story (four badges, state 14), and MAY holds the
+@ doorway until the scanner has said the anchor's name out loud.
 SkyPillar_Outside_OnTransition:
-	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_HideMapNamePopup
-	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, SkyPillar_Outside_EventScript_CheckSetAbnormalWeather
+	call Interstellar_SkyPillar_EventScript_SyncMay
 	end
 
-SkyPillar_Outside_EventScript_HideMapNamePopup::
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-	return
+Interstellar_SkyPillar_EventScript_SyncMay::
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	goto_if_lt VAR_INTERSTELLAR_STATE, 14, Interstellar_SkyPillar_EventScript_SyncMayDone
+	goto_if_ge VAR_INTERSTELLAR_STATE, 15, Interstellar_SkyPillar_EventScript_SyncMayDone
+	goto_if_set FLAG_INTERSTELLAR_RIVAL_SKYPILLAR_DONE, Interstellar_SkyPillar_EventScript_SyncMayShore
+	clearflag FLAG_TEMP_11
+	goto Interstellar_SkyPillar_EventScript_SyncMayDone
 
-SkyPillar_Outside_EventScript_CheckSetAbnormalWeather::
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+Interstellar_SkyPillar_EventScript_SyncMayShore::
+	clearflag FLAG_TEMP_12
+Interstellar_SkyPillar_EventScript_SyncMayDone::
 	return
 
 SkyPillar_Outside_OnLoad:
-	call_if_set FLAG_WALLACE_GOES_TO_SKY_PILLAR, SkyPillar_Outside_EventScript_OpenDoor
+	call_if_ge VAR_INTERSTELLAR_STATE, 14, SkyPillar_Outside_EventScript_OpenDoor
 	end
 
 SkyPillar_Outside_EventScript_OpenDoor::
@@ -26,108 +33,78 @@ SkyPillar_Outside_EventScript_OpenDoor::
 	setmetatile 14, 5, METATILE_Pacifidlog_SkyPillar_DoorOpen_Bottom, FALSE
 	return
 
-SkyPillar_Outside_OnFrame:
-	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_WallaceScene
-	.2byte 0
-
-SkyPillar_Outside_EventScript_WallaceScene::
-	lockall
-	applymovement LOCALID_SKY_PILLAR_WALLACE, SkyPillar_Outside_Movement_WallaceApproachPlayer
-	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	msgbox SkyPillar_Outside_Text_OpenedDoorToSkyPillar, MSGBOX_DEFAULT
+Interstellar_EventScript_MaySkyPillar::
+	lock
+	faceplayer
+	msgbox Interstellar_SkyPillarOut_Text_MayIntro, MSGBOX_DEFAULT
 	closemessage
-	delay 30
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 1  @ horizontal pan
-	setvar VAR_0x8006, 8  @ num shakes
-	setvar VAR_0x8007, 3  @ shake delay
-	special ShakeCamera
-	waitstate
-	delay 40
-	msgbox SkyPillar_Outside_Text_EarthquakeNotMomentToWaste, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_PLAYER, SkyPillar_Outside_Movement_PlayerClimbSkyPillar
-	applymovement LOCALID_SKY_PILLAR_WALLACE, SkyPillar_Outside_Movement_WallaceClimbSkyPillar
-	waitmovement 0
-	setvar VAR_0x8004, 1   @ vertical pan
-	setvar VAR_0x8005, 3   @ horizontal pan
-	setvar VAR_0x8006, 20  @ num shakes
-	setvar VAR_0x8007, 5   @ shake delay
-	special ShakeCamera
-	waitstate
-	delay 20
-	applymovement LOCALID_SKY_PILLAR_WALLACE, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	delay 10
-	applymovement LOCALID_SKY_PILLAR_WALLACE, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	delay 20
-	applymovement LOCALID_SKY_PILLAR_WALLACE, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	delay 30
-	msgbox SkyPillar_Outside_Text_SituationGettingWorse, MSGBOX_DEFAULT
-	closemessage
-	setflag FLAG_SYS_WEATHER_CTRL
-	setweather WEATHER_ABNORMAL
-	doweather
-	special WaitWeather
-	delay 30
-	msgbox SkyPillar_Outside_Text_GotToGoBackForSootopolis, MSGBOX_DEFAULT
-	closemessage
-	playse SE_EXIT
-	fadescreenswapbuffers FADE_TO_BLACK
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 4
-	removeobject LOCALID_SKY_PILLAR_WALLACE
-	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
-	fadescreenswapbuffers FADE_FROM_BLACK
-	releaseall
+	switch VAR_STARTER_MON
+	case 0, Interstellar_SkyPillarOut_EventScript_MayBlaziken
+	case 1, Interstellar_SkyPillarOut_EventScript_MaySwampert
+	case 2, Interstellar_SkyPillarOut_EventScript_MaySceptile
 	end
 
-SkyPillar_Outside_Movement_WallaceApproachPlayer:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	step_end
+Interstellar_SkyPillarOut_EventScript_MayBlaziken::
+	trainerbattle_no_intro TRAINER_INTERSTELLAR_RIVAL_SP_BLAZIKEN, Interstellar_SkyPillarOut_Text_MayDefeat
+	goto Interstellar_EventScript_MayAfterBattle
+	end
 
-SkyPillar_Outside_Movement_WallaceClimbSkyPillar:
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
+Interstellar_SkyPillarOut_EventScript_MaySwampert::
+	trainerbattle_no_intro TRAINER_INTERSTELLAR_RIVAL_SP_SWAMPERT, Interstellar_SkyPillarOut_Text_MayDefeat
+	goto Interstellar_EventScript_MayAfterBattle
+	end
 
-SkyPillar_Outside_Movement_PlayerClimbSkyPillar:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	step_end
+Interstellar_SkyPillarOut_EventScript_MaySceptile::
+	trainerbattle_no_intro TRAINER_INTERSTELLAR_RIVAL_SP_SCEPTILE, Interstellar_SkyPillarOut_Text_MayDefeat
+	goto Interstellar_EventScript_MayAfterBattle
+	end
+
+Interstellar_EventScript_MayAfterBattle::
+	msgbox Interstellar_SkyPillarOut_Text_MayScanner, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_INTERSTELLAR_SP_MAY_DOOR, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 30
+	msgbox Interstellar_SkyPillarOut_Text_MayItsRayquaza, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_INTERSTELLAR_RIVAL_SKYPILLAR_DONE
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_INTERSTELLAR_SP_MAY_DOOR
+	setflag FLAG_TEMP_11
+	clearflag FLAG_TEMP_12
+	addobject LOCALID_INTERSTELLAR_SP_MAY_SHORE
+	fadescreen FADE_FROM_BLACK
+	msgbox Interstellar_SkyPillarOut_Text_MayStepsAside, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_MayShore::
+	lock
+	faceplayer
+	msgbox Interstellar_SkyPillarOut_Text_MayShore, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_LaunchReturn::
+	lock
+	faceplayer
+	msgbox Interstellar_SkyPillarOut_Text_SailorReturn, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_LaunchWaits
+	msgbox Interstellar_SkyPillarOut_Text_SailorCastOff, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	playse SE_SHIP
+	waitse
+	warp MAP_SLATEPORT_CITY_HARBOR, 8, 11
+	waitstate
+	release
+	end
+
+Interstellar_EventScript_LaunchWaits::
+	msgbox Interstellar_SkyPillarOut_Text_SailorWaits, MSGBOX_DEFAULT
+	release
+	end
 
 SkyPillar_Outside_EventScript_Wallace::
 	end
@@ -137,33 +114,72 @@ SkyPillar_Outside_EventScript_ClosedDoor::
 	end
 
 SkyPillar_Outside_Text_DoorIsClosed:
-	.string "The door is closed.$"
+	.string "The door is sealed against the\n"
+	.string "storm.$"
 
-SkyPillar_Outside_Text_OpenedDoorToSkyPillar:
-	.string "WALLACE: Oh, my, I'm terribly sorry!\p"
-	.string "In my haste, I didn't notice that\n"
-	.string "I'd left you behind!\p"
-	.string "I've opened the locked door of\n"
-	.string "the SKY PILLAR.\p"
-	.string "{PLAYER}{KUN}, let's be on our way!$"
+Interstellar_SkyPillarOut_Text_MayIntro:
+	.string "MAY: I checked the badge case.\n"
+	.string "It's really you.\p"
+	.string "Good. Because I have been standing\n"
+	.string "under this thing for an hour, my\l"
+	.string "hair is ruined, and these are the\l"
+	.string "worst readings I have ever logged.\p"
+	.string "The anchor is up there, {PLAYER}.\n"
+	.string "Top of the tower. Holding the\l"
+	.string "whole storm shut.\p"
+	.string "Before you climb-- show me\n"
+	.string "you're ready.\p"
+	.string "Not for the badge count.\n"
+	.string "For me.$"
 
-SkyPillar_Outside_Text_EarthquakeNotMomentToWaste:
-	.string "WALLACE: It's an earthquake!\p"
-	.string "There's not a moment to waste!\n"
-	.string "We've got to hurry!$"
+Interstellar_SkyPillarOut_Text_MayDefeat:
+	.string "…Okay.\n"
+	.string "Okay. You're ready.$"
 
-SkyPillar_Outside_Text_SituationGettingWorse:
-	.string "WALLACE: Hmm…\n"
-	.string "The situation is getting worse…$"
+Interstellar_SkyPillarOut_Text_MayScanner:
+	.string "MAY: I knew you were ready. I\n"
+	.string "just needed to feel it.\p"
+	.string "Hang on. The scanner finally has\n"
+	.string "a clean lock on the anchor.\p"
+	.string "Big. Serpentine. Old-- the signal\n"
+	.string "is layered like tree rings.\p"
+	.string "Wait.\p"
+	.string "That profile is in DAD's field\n"
+	.string "guide. That's…$"
 
-SkyPillar_Outside_Text_GotToGoBackForSootopolis:
-	.string "WALLACE: This isn't good…\p"
-	.string "The weather distortion is spreading\n"
-	.string "even here…\p"
-	.string "{PLAYER}{KUN}.\p"
-	.string "RAYQUAZA should be farther up\n"
-	.string "from here.\p"
-	.string "I'm worried about SOOTOPOLIS.\n"
-	.string "I've got to go back.\p"
-	.string "Everything is in your hands now.\n"
-	.string "Don't fail us!$"
+Interstellar_SkyPillarOut_Text_MayItsRayquaza:
+	.string "MAY: …RAYQUAZA.\p"
+	.string "The guardian didn't abandon the\n"
+	.string "world, {PLAYER}.\p"
+	.string "The world's wound took it.\p"
+	.string "It fought the sky-breaker alone,\n"
+	.string "and the rift closed around it\l"
+	.string "like a trap.\p"
+	.string "…Go. Cleanse it. Ball or battle,\n"
+	.string "either way it goes free.\p"
+	.string "I'll hold the door.$"
+
+Interstellar_SkyPillarOut_Text_MayStepsAside:
+	.string "MAY walks down to the waterline\n"
+	.string "without another word, watching\l"
+	.string "the storm turn.$"
+
+Interstellar_SkyPillarOut_Text_MayShore:
+	.string "MAY: All this time I was racing\n"
+	.string "you to the anchors.\p"
+	.string "I didn't think about what it\n"
+	.string "would feel like when we found\l"
+	.string "one that used to be the good guy.\p"
+	.string "Go on. It has waited long enough.$"
+
+Interstellar_SkyPillarOut_Text_SailorReturn:
+	.string "RANGER: Some weather, eh?\n"
+	.string "Launch is ready when you are.\p"
+	.string "Back to SLATEPORT?$"
+
+Interstellar_SkyPillarOut_Text_SailorCastOff:
+	.string "RANGER: Casting off!$"
+
+Interstellar_SkyPillarOut_Text_SailorWaits:
+	.string "RANGER: No hurry.\p"
+	.string "I'll keep her steady.$"

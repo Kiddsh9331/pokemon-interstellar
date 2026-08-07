@@ -619,11 +619,14 @@ bool8 IsBattleSEPlaying(enum BattlerId battler)
 
 static bool8 IsInterstellarRiftWildBattler(enum BattlerId battler)
 {
-    // State 6 spans the damaged Kanto portion of Act 1. Player-owned mons
-    // (including the starter) deliberately retain their normal appearance.
+    // State 6 spans the damaged Kanto portion of Act 1; state 9 onward is
+    // Hoenn under the SKY PILLAR anchor, corrupted until Act 4 knits the
+    // world. Player-owned mons (including the starter) deliberately retain
+    // their normal appearance.
+    u16 state = VarGet(VAR_INTERSTELLAR_STATE);
     return !(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_LINK))
         && !IsOnPlayerSide(battler)
-        && VarGet(VAR_INTERSTELLAR_STATE) == 6;
+        && (state == 6 || state >= 9);
 }
 
 static void ApplyInterstellarRiftCorruption(u32 paletteOffset, enum Species species, u32 personality)
@@ -761,6 +764,18 @@ static void ApplyInterstellarRiftCorruption(u32 paletteOffset, enum Species spec
         gPlttBufferUnfaded[paletteOffset + 13] = RGB(25, 1, 31);
         gPlttBufferUnfaded[paletteOffset + 14] = RGB(8, 21, 31);
         gPlttBufferUnfaded[paletteOffset + 15] = RGB(18, 2, 31);
+        CpuCopy32(&gPlttBufferUnfaded[paletteOffset], &gPlttBufferFaded[paletteOffset], PLTT_SIZE_4BPP);
+    }
+    // RAYQUAZA's green reads as sickness rather than shadow: void violets
+    // shot through with one acid-bright rift green.
+    else if (species == SPECIES_RAYQUAZA)
+    {
+        gPlttBufferUnfaded[paletteOffset + 10] = RGB(2, 6, 3);
+        gPlttBufferUnfaded[paletteOffset + 11] = RGB(6, 0, 14);
+        gPlttBufferUnfaded[paletteOffset + 12] = RGB(12, 2, 22);
+        gPlttBufferUnfaded[paletteOffset + 13] = RGB(22, 4, 31);
+        gPlttBufferUnfaded[paletteOffset + 14] = RGB(10, 26, 12);
+        gPlttBufferUnfaded[paletteOffset + 15] = RGB(20, 2, 31);
         CpuCopy32(&gPlttBufferUnfaded[paletteOffset], &gPlttBufferFaded[paletteOffset], PLTT_SIZE_4BPP);
     }
 }

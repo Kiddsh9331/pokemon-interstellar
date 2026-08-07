@@ -538,3 +538,58 @@ SlateportCity_Harbor_Text_HandedScannerToStern:
 SlateportCity_Harbor_Text_ThisWillHelpResearch:
 	.string "CAPT. STERN: Thanks, {PLAYER}{KUN}!\n"
 	.string "This will help our research a lot!$"
+
+@ ---------------------------------------------------------------------------
+@ Interstellar: the ranger launch to the SKY PILLAR storm. Available once
+@ BIRCH clears the trip at four badges (state 14).
+@ ---------------------------------------------------------------------------
+Interstellar_EventScript_RangerLaunch::
+	lock
+	faceplayer
+	goto_if_ge VAR_INTERSTELLAR_STATE, 14, Interstellar_Harbor_EventScript_LaunchReady
+	msgbox Interstellar_Harbor_Text_StormEatsBoats, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Harbor_EventScript_LaunchReady::
+	msgbox Interstellar_Harbor_Text_LaunchReady, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_Harbor_EventScript_LaunchLater
+	msgbox Interstellar_Harbor_Text_CastOff, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	playse SE_SHIP
+	waitse
+	warp MAP_SKY_PILLAR_OUTSIDE, 19, 14
+	waitstate
+	release
+	end
+
+Interstellar_Harbor_EventScript_LaunchLater::
+	msgbox Interstellar_Harbor_Text_LaunchLater, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_Harbor_Text_StormEatsBoats:
+	.string "RANGER: See that dark line on\n"
+	.string "the horizon? Permanent storm.\p"
+	.string "It eats boats. Eats compasses.\n"
+	.string "Eats radio, some nights.\p"
+	.string "Nobody sails there until the\n"
+	.string "PROFESSOR says otherwise.$"
+
+Interstellar_Harbor_Text_LaunchReady:
+	.string "RANGER: PROF. BIRCH radioed ahead.\n"
+	.string "Four badges. The real thing.\p"
+	.string "The launch is fueled, and the\n"
+	.string "storm is as polite as it gets.\p"
+	.string "Out to the SKY PILLAR?$"
+
+Interstellar_Harbor_Text_CastOff:
+	.string "RANGER: Casting off!\p"
+	.string "…If the sky guardian is really\n"
+	.string "in there, kid, tell it the\l"
+	.string "fishing fleet says thanks.$"
+
+Interstellar_Harbor_Text_LaunchLater:
+	.string "RANGER: Aye. She'll be fueled\n"
+	.string "when you're ready.$"

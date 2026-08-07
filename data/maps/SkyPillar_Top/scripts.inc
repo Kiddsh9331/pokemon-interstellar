@@ -1,9 +1,12 @@
 SkyPillar_Top_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, SkyPillar_Top_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_Top_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, SkyPillar_Top_OnWarp
 	.byte 0
 
+@ Interstellar: the anchor of the Hoenn rift. The cracked-floor era never
+@ happened here (VAR_SKY_PILLAR_STATE stays 0), so the top always loads the
+@ clean layout. A KO leaves the boss object in place -- catching is the only
+@ thing that removes it for good, exactly like the MEWTWO chamber.
 SkyPillar_Top_OnResume:
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, SkyPillar_Top_EventScript_TryRemoveRayquaza
 	end
@@ -16,167 +19,220 @@ SkyPillar_Top_EventScript_TryRemoveRayquaza::
 
 SkyPillar_Top_OnTransition:
 	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_SetCleanLayout
-	call_if_ge VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_TryShowRayquaza
+	@ A full portal only exists during a crossing scene.
+	setflag FLAG_INTERSTELLAR_SKYPILLAR_PORTAL_CLOSED
 	end
 
 SkyPillar_Top_EventScript_SetCleanLayout::
 	setmaplayoutindex LAYOUT_SKY_PILLAR_TOP_CLEAN
-	setobjectmovementtype LOCALID_RAYQUAZA_SLEEPING, MOVEMENT_TYPE_FACE_DOWN
 	return
 
-SkyPillar_Top_EventScript_TryShowRayquaza::
-	call_if_unset FLAG_DEFEATED_RAYQUAZA, SkyPillar_Top_EventScript_ShowRayquaza
-	return
-
-SkyPillar_Top_EventScript_ShowRayquaza::
-	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
-	return
-
-SkyPillar_Top_OnWarp:
-	map_script_2 VAR_SKY_PILLAR_STATE, 0, SkyPillar_Top_EventScript_RayquazaFaceDown
-	.2byte 0
-
-SkyPillar_Top_EventScript_RayquazaFaceDown::
-	turnobject LOCALID_RAYQUAZA_SLEEPING, DIR_SOUTH
-	end
-
-SkyPillar_Top_EventScript_Rayquaza::
-	lockall
+Interstellar_EventScript_CorruptedRayquaza::
+	lock
+	faceplayer
+	msgbox Interstellar_SkyPillar_Text_RayquazaStirs, MSGBOX_DEFAULT
+	closemessage
 	waitse
 	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_RAYQUAZA, 70
+	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1
+	setwildbattle SPECIES_RAYQUAZA, 44
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
+	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedRayquaza
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromRayquaza
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromRayquaza
-	setflag FLAG_DEFEATED_RAYQUAZA
-	releaseall
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Interstellar_EventScript_RayquazaCaught
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Interstellar_EventScript_RayquazaDefeated
+	msgbox Interstellar_SkyPillar_Text_StormStillTurns, MSGBOX_DEFAULT
+	release
 	end
 
-SkyPillar_Top_EventScript_DefeatedRayquaza::
-	setflag FLAG_DEFEATED_RAYQUAZA
-	goto SkyPillar_Top_EventScript_DefeatedRayquaza2
-	end
-
-SkyPillar_Top_EventScript_RanFromRayquaza::
-	setvar VAR_0x8004, SPECIES_RAYQUAZA
-	goto SkyPillar_Top_EventScript_RanFromRayquaza2
-	end
-
-SkyPillar_Top_EventScript_DefeatedRayquaza2::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	releaseall
-	end
-
-SkyPillar_Top_EventScript_RanFromRayquaza2::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	bufferspeciesname STR_VAR_1, VAR_0x8004
-	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
-	releaseall
-	end
-
-SkyPillar_Top_EventScript_AwakenRayquaza::
-	lockall
-	fadeoutbgm 1
-	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
-	waitmovement 0
-	special SpawnCameraObject
-	applymovement LOCALID_CAMERA, SkyPillar_Top_Movement_CameraPanUp
-	waitmovement 0
-	special RemoveCameraObject
-	applymovement LOCALID_RAYQUAZA_SLEEPING, SkyPillar_Top_Movement_RayquazaStir
-	waitmovement 0
-	waitse
-	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 1  @ horizontal pan
-	setvar VAR_0x8006, 8  @ num shakes
-	setvar VAR_0x8007, 3  @ shake delay
-	special ShakeCamera
-	waitstate
-	waitse
-	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 2  @ horizontal pan
-	setvar VAR_0x8006, 8  @ num shakes
-	setvar VAR_0x8007, 5  @ shake delay
-	special ShakeCamera
-	waitstate
-	waitmoncry
-	applymovement LOCALID_RAYQUAZA_SLEEPING, SkyPillar_Top_Movement_RayquazaFlyOff
-	waitmovement 0
-	removeobject LOCALID_RAYQUAZA_SLEEPING
-	msgbox SkyPillar_Top_Text_RayquazaFlewOff, MSGBOX_DEFAULT
+Interstellar_EventScript_RayquazaCaught::
+	setflag FLAG_INTERSTELLAR_RAYQUAZA_CAUGHT
+	msgbox Interstellar_SkyPillar_Text_BallGoesStill, MSGBOX_DEFAULT
 	closemessage
-	delay 20
-	fadeinbgm 1
-	special SpawnCameraObject
-	applymovement LOCALID_CAMERA, SkyPillar_Top_Movement_CameraPanDown
+	setvar VAR_0x8004, SPECIES_RAYQUAZA
+	special Interstellar_SealCaughtBoss
+	playfanfare MUS_OBTAIN_ITEM
+	message Interstellar_SkyPillar_Text_VaultCustody
+	waitfanfare
+	waitmessage
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto Interstellar_EventScript_StormParts
+	end
+
+Interstellar_EventScript_RayquazaDefeated::
+	@ Beaten is not the same as caught. It rises into its own storm and
+	@ comes back down whenever the player does.
+	msgbox Interstellar_SkyPillar_Text_RisesIntoStorm, MSGBOX_DEFAULT
+	closemessage
+	goto Interstellar_EventScript_StormParts
+	end
+
+@ ---------------------------------------------------------------------------
+@ Either way the anchor is cleansed and the storm lets go of the tower.
+@ ---------------------------------------------------------------------------
+Interstellar_EventScript_StormParts::
+	playse SE_THUNDER
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 10
+	setvar VAR_0x8007, 3
+	special ShakeCamera
+	waitstate
+	msgbox Interstellar_SkyPillar_Text_StormOpens, MSGBOX_DEFAULT
+	closemessage
+	clearflag FLAG_INTERSTELLAR_HIDE_SKYPILLAR_STEVEN
+	addobject LOCALID_INTERSTELLAR_SP_STEVEN
+	applymovement LOCALID_INTERSTELLAR_SP_STEVEN, Interstellar_SkyPillar_Movement_StevenArrives
 	waitmovement 0
-	special RemoveCameraObject
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 5
-	setvar VAR_SKY_PILLAR_STATE, 1
-	setvar VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE, 1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	msgbox Interstellar_SkyPillar_Text_StevenItRemembered, MSGBOX_DEFAULT
+	closemessage
+	playse SE_M_TELEPORT
+	fadescreenspeed FADE_TO_WHITE, 4
+	clearflag FLAG_INTERSTELLAR_SKYPILLAR_SCAR_HIDDEN
+	addobject LOCALID_INTERSTELLAR_SP_SCAR
+	fadescreenspeed FADE_FROM_WHITE, 4
+	msgbox Interstellar_SkyPillar_Text_GateCrystallizes, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_INTERSTELLAR_STATE, 15
+	msgbox Interstellar_SkyPillar_Text_StevenWestward, MSGBOX_DEFAULT
 	releaseall
 	end
 
-@ Rayquaza has unusual movement frames
-@ See comments, or sAnimTable_Rayquaza
-SkyPillar_Top_Movement_RayquazaStir:
-	delay_16
-	walk_in_place_fast_left  @ Coiled, awake
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	walk_in_place_left  @ Coiled, mouth open
-	delay_16
-	walk_in_place_right  @ Normal, awake
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
+Interstellar_SkyPillar_Movement_StevenArrives:
+	walk_up
+	walk_up
 	step_end
 
-SkyPillar_Top_Movement_RayquazaFlyOff:
-	delay_16
-	walk_in_place_down  @ Coiled, asleep
-	delay_8
-	walk_in_place_right  @ Normal, awake
-	delay_8
-	walk_faster_up  @ Fly up
-	slide_up
-	slide_up
-	slide_up
-	slide_up
-	slide_up
-	slide_up
-	step_end
+Interstellar_EventScript_StevenSkyPillar::
+	lock
+	faceplayer
+	msgbox Interstellar_SkyPillar_Text_StevenFerryOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_StevenStays
+	msgbox Interstellar_SkyPillar_Text_StevenSkarmory, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	playse SE_M_WING_ATTACK
+	waitse
+	warp MAP_SLATEPORT_CITY, 19, 42
+	waitstate
+	release
+	end
 
-SkyPillar_Top_Movement_CameraPanUp:
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	step_end
+Interstellar_EventScript_StevenStays::
+	msgbox Interstellar_SkyPillar_Text_StevenStays, MSGBOX_DEFAULT
+	release
+	end
 
-SkyPillar_Top_Movement_CameraPanDown:
-	walk_slow_down
-	walk_slow_down
-	walk_slow_down
-	step_end
+Interstellar_EventScript_SkyPillarScar::
+	lock
+	msgbox Interstellar_SkyPillar_Text_ScarWestward, MSGBOX_DEFAULT
+	release
+	end
 
-SkyPillar_Top_Text_RayquazaFlewOff:
-	.string "The awakened RAYQUAZA flew off…$"
+Interstellar_SkyPillar_Text_RayquazaStirs:
+	.string "It is coiled around the summit\n"
+	.string "like a scar around a wound.\p"
+	.string "The storm turns overhead in a\n"
+	.string "slow, patient spiral. It has\l"
+	.string "been holding the sky shut for\l"
+	.string "a long time.\p"
+	.string "It fought the falling star alone,\n"
+	.string "and the wound it could not close\l"
+	.string "closed around it instead.\p"
+	.string "The guardian of the sky opens\n"
+	.string "one eye.$"
 
+Interstellar_SkyPillar_Text_StormStillTurns:
+	.string "The storm still turns.\p"
+	.string "The anchor waits. It has nowhere\n"
+	.string "else to be.$"
+
+Interstellar_SkyPillar_Text_BallGoesStill:
+	.string "The ball rocks once… twice…\p"
+	.string "…and goes still.\p"
+	.string "Through its shell, a last curl of\n"
+	.string "violet bleeds out and scatters\l"
+	.string "on the wind.$"
+
+Interstellar_SkyPillar_Text_VaultCustody:
+	.string "The dormant ball was entrusted\n"
+	.string "to the RIFT VAULT.\p"
+	.string "Inside, faint and slow, its glow\n"
+	.string "pulses once.\p"
+	.string "Some promises outrank sleep.$"
+
+Interstellar_SkyPillar_Text_RisesIntoStorm:
+	.string "The corruption tears away like\n"
+	.string "old bandages.\p"
+	.string "RAYQUAZA circles the pillar\n"
+	.string "once. It looks at you-- long,\l"
+	.string "unhurried, remembering.\p"
+	.string "Then it rises, up, into the\n"
+	.string "heart of its own storm.$"
+
+Interstellar_SkyPillar_Text_StormOpens:
+	.string "The spiral overhead slows…\n"
+	.string "hesitates…\p"
+	.string "…and opens.\p"
+	.string "For the first time since the sky\n"
+	.string "broke, the sun touches the top\l"
+	.string "of the SKY PILLAR.$"
+
+Interstellar_SkyPillar_Text_StevenItRemembered:
+	.string "STEVEN: I watched it from the\n"
+	.string "stormline. The moment it let go.\p"
+	.string "It circled once. Looked down.\n"
+	.string "Then it went up, not away.\p"
+	.string "…It remembered something.\p"
+	.string "Or someone.$"
+
+Interstellar_SkyPillar_Text_GateCrystallizes:
+	.string "Light races along the summit\n"
+	.string "stones and knots itself into\l"
+	.string "a standing scar.\p"
+	.string "The rift here is stable now.\n"
+	.string "A door, not a wound.$"
+
+Interstellar_SkyPillar_Text_StevenWestward:
+	.string "STEVEN: The readings through the\n"
+	.string "gate run westward in time.\p"
+	.string "Old wood. Incense. A tower that\n"
+	.string "burned somewhere else, and here\l"
+	.string "never did.\p"
+	.string "JOHTO, or I am no geologist.\p"
+	.string "Rest first. You have earned a\n"
+	.string "region's worth of it.\p"
+	.string "When you need the sky, my\n"
+	.string "SKARMORY knows the way down.$"
+
+Interstellar_SkyPillar_Text_StevenFerryOffer:
+	.string "STEVEN: SKARMORY can have you in\n"
+	.string "SLATEPORT before the spray dries.\p"
+	.string "Shall we?$"
+
+Interstellar_SkyPillar_Text_StevenSkarmory:
+	.string "STEVEN: Hold on tight.$"
+
+Interstellar_SkyPillar_Text_StevenStays:
+	.string "STEVEN: Take your time.\p"
+	.string "Not many people get to stand in\n"
+	.string "this much quiet.$"
+
+Interstellar_SkyPillar_Text_ScarWestward:
+	.string "The scar hums, westward in time.\p"
+	.string "Old wood. Incense. Bells.\n"
+	.string "JOHTO waits on the far side.\p"
+	.string "…This is where ACT 2 ends.\p"
+	.string "Your save file carries forward\n"
+	.string "into ACT 3.\p"
+	.string "Thank you for playing\n"
+	.string "POKéMON INTERSTELLAR!$"

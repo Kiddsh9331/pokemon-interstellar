@@ -14566,3 +14566,84 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Razor Leaf
 - Gust
 - Stomp
+
+=== TRAINER_INTERSTELLAR_RIVAL_SP_BLAZIKEN ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Mightyena
+Level: 39
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Crunch
+- Scary Face
+- Swagger
+
+Swellow
+Level: 40
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aerial Ace
+- Quick Attack
+- Endeavor
+
+Blaziken
+Level: 41
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+
+=== TRAINER_INTERSTELLAR_RIVAL_SP_SWAMPERT ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Mightyena
+Level: 39
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Crunch
+- Scary Face
+- Swagger
+
+Swellow
+Level: 40
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aerial Ace
+- Quick Attack
+- Endeavor
+
+Swampert
+Level: 41
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+
+=== TRAINER_INTERSTELLAR_RIVAL_SP_SCEPTILE ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Mightyena
+Level: 39
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Crunch
+- Scary Face
+- Swagger
+
+Swellow
+Level: 40
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aerial Ace
+- Quick Attack
+- Endeavor
+
+Sceptile
+Level: 41
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
