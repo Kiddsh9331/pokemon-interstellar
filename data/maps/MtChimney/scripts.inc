@@ -4,11 +4,20 @@ MtChimney_MapScripts::
 	.byte 0
 
 MtChimney_OnTransition:
-	setvar VAR_JAGGED_PASS_ASH_WEATHER, 1
+	@ Interstellar: no more ash on a mountain that grows gardens.
+	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
+	call Interstellar_MtChimney_EventScript_SyncFlannery
 	end
 
+Interstellar_MtChimney_EventScript_SyncFlannery::
+	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
+	goto_if_lt VAR_INTERSTELLAR_STATE, 12, Interstellar_MtChimney_EventScript_SyncFlanneryDone
+	goto_if_ge VAR_INTERSTELLAR_STATE, 13, Interstellar_MtChimney_EventScript_SyncFlanneryDone
+	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
+Interstellar_MtChimney_EventScript_SyncFlanneryDone::
+	return
+
 MtChimney_OnResume:
-	setstepcallback STEP_CB_ASH
 	end
 
 MtChimney_EventScript_Archie::
@@ -449,6 +458,12 @@ MtChimney_EventScript_AquaPoochyena::
 
 MtChimney_EventScript_MeteoriteMachine::
 	lockall
+	msgbox Interstellar_MtChimney_Text_OldSurveyRig, MSGBOX_DEFAULT
+	releaseall
+	end
+
+MtChimney_EventScript_MeteoriteMachineUnused::
+	lockall
 	goto_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_MachineOn
 	goto_if_set FLAG_RECEIVED_METEORITE, MtChimney_EventScript_MachineOff
 	msgbox MtChimney_Text_RemoveTheMeteorite, MSGBOX_YESNO
@@ -851,3 +866,118 @@ MtChimney_Text_SawyerRematchDefeat:
 MtChimney_Text_SawyerPostRematch:
 	.string "Actually, it really is hot here.\n"
 	.string "I'm overdressed for these parts.$"
+
+@ ---------------------------------------------------------------------------
+@ Interstellar: the crater is the setpiece of the act. FLANNERY is up here
+@ between badge three and the walk back down (states 12-13), taking notes
+@ on the ecosystem that ate her family volcano.
+@ ---------------------------------------------------------------------------
+Interstellar_MtChimney_EventScript_BowlReveal::
+	lockall
+	setvar VAR_TEMP_3, 1
+	msgbox Interstellar_MtChimney_Text_BowlReveal, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Interstellar_EventScript_FlanneryChimney::
+	lock
+	faceplayer
+	msgbox Interstellar_MtChimney_Text_FlanneryGarden, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_INTERSTELLAR_STATE, 13
+	clearflag FLAG_INTERSTELLAR_FLANNERY_AWAY
+	fadescreen FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
+	fadescreen FADE_FROM_BLACK
+	msgbox Interstellar_MtChimney_Text_FlanneryHeadsDown, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_MtChimney_EventScript_Todd::
+	trainerbattle_single TRAINER_INTERSTELLAR_CHIMNEY_TODD, Interstellar_MtChimney_Text_ToddIntro, Interstellar_MtChimney_Text_ToddDefeat
+	msgbox Interstellar_MtChimney_Text_ToddPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_MtChimney_EventScript_Mimi::
+	trainerbattle_single TRAINER_INTERSTELLAR_CHIMNEY_MIMI, Interstellar_MtChimney_Text_MimiIntro, Interstellar_MtChimney_Text_MimiDefeat
+	msgbox Interstellar_MtChimney_Text_MimiPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_MtChimney_Text_BowlReveal:
+	.string "Spray drifts over the rim.\p"
+	.string "Where the mountain's fire was, a\n"
+	.string "garden hangs from the crater walls,\l"
+	.string "drinking a waterfall.\p"
+	.string "And under the water, faint as a\n"
+	.string "pulse: warmth.\p"
+	.string "Not gone. Waiting.$"
+
+Interstellar_MtChimney_Text_FlanneryGarden:
+	.string "FLANNERY: Don't say it.\p"
+	.string "Everyone says it. “It's beautiful,\n"
+	.string "FLANNERY.” And it is.\p"
+	.string "My family kept this volcano for\n"
+	.string "four generations. The springs.\l"
+	.string "The ash. Heat in the floorboards.\p"
+	.string "One morning the mountain forgot\n"
+	.string "all of it.\p"
+	.string "Now there's a waterfall where my\n"
+	.string "grandfather's fire was, and it\l"
+	.string "doesn't even have the decency\l"
+	.string "to be ugly.\p"
+	.string "...A MASQUERAIN landed on my arm\n"
+	.string "yesterday. At this altitude.\p"
+	.string "I took notes for three hours.\p"
+	.string "So. You're climbing with a fresh\n"
+	.string "DYNAMO BADGE, which makes you\l"
+	.string "mine next.\p"
+	.string "Good. I'm the LAVARIDGE leader.\n"
+	.string "I guard what's left of the fire.\p"
+	.string "Finish looking. I mean it -- look\n"
+	.string "properly. Then come down.\p"
+	.string "I'll be at the gym, deciding\n"
+	.string "whether fire still means anything\l"
+	.string "on this mountain.\p"
+	.string "You're going to help me decide.$"
+
+Interstellar_MtChimney_Text_FlanneryHeadsDown:
+	.string "FLANNERY heads down the pass,\n"
+	.string "stopping twice to write\l"
+	.string "something.$"
+
+Interstellar_MtChimney_Text_ToddIntro:
+	.string "I pitched my tent in a forest.\n"
+	.string "I woke up on a volcano!\p"
+	.string "That is NOT what the brochure\n"
+	.string "said!$"
+
+Interstellar_MtChimney_Text_ToddDefeat:
+	.string "The tent stays.\n"
+	.string "I have nowhere else to be.$"
+
+Interstellar_MtChimney_Text_ToddPost:
+	.string "The HERACROSS like the vines.\p"
+	.string "So... home, I guess.$"
+
+Interstellar_MtChimney_Text_MimiIntro:
+	.string "The flowers bloom at the wrong\n"
+	.string "altitude and nobody TELLS them!\p"
+	.string "Isn't it wonderful?$"
+
+Interstellar_MtChimney_Text_MimiDefeat:
+	.string "Petals everywhere!$"
+
+Interstellar_MtChimney_Text_MimiPost:
+	.string "GRANDMA says the mountain is\n"
+	.string "dreaming.\p"
+	.string "I hope it doesn't wake up\n"
+	.string "embarrassed.$"
+
+Interstellar_MtChimney_Text_OldSurveyRig:
+	.string "An old survey rig, bolted to the\n"
+	.string "rock. The dials are dark.\p"
+	.string "Someone has scratched a note into\n"
+	.string "the casing:\p"
+	.string "“It measured the fire. It has\n"
+	.string "nothing to say about the water.”$"

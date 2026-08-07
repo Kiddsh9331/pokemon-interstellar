@@ -14474,3 +14474,95 @@ IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
 - Flame Wheel
 - Swift
 - Smokescreen
+
+=== TRAINER_INTERSTELLAR_JP_BERN ===
+Name: BERN
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Machop
+Level: 31
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Karate Chop
+- Bulk Up
+- Rock Tomb
+
+Slugma
+Level: 32
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Flame Burst
+- Rock Throw
+- Harden
+
+=== TRAINER_INTERSTELLAR_JP_SUSIE ===
+Name: SUSIE
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Gloom
+Level: 31
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Mega Drain
+- Sleep Powder
+- Acid
+
+Aipom
+Level: 31
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Swift
+- Tickle
+- Fury Swipes
+
+=== TRAINER_INTERSTELLAR_CHIMNEY_TODD ===
+Name: TODD
+Class: Camper
+Pic: Camper
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Heracross
+Level: 33
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Horn Attack
+- Brick Break
+- Aerial Ace
+
+Shroomish
+Level: 33
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Mega Drain
+- Stun Spore
+- Headbutt
+
+=== TRAINER_INTERSTELLAR_CHIMNEY_MIMI ===
+Name: MIMI
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Roselia
+Level: 34
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Magical Leaf
+- Toxic
+- Grass Whistle
+
+Tropius
+Level: 34
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Razor Leaf
+- Gust
+- Stomp

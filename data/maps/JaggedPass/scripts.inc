@@ -5,7 +5,6 @@ JaggedPass_MapScripts::
 	.byte 0
 
 JaggedPass_OnResume:
-	setstepcallback STEP_CB_ASH
 	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
 	end
 
@@ -319,3 +318,41 @@ Interstellar_JaggedPass_Text_MayRattled:
 Interstellar_JaggedPass_Text_MayCounting:
 	.string "MAY: Counting rifts.\n"
 	.string "Not faces.$"
+
+Interstellar_JaggedPass_EventScript_Bern::
+	trainerbattle_single TRAINER_INTERSTELLAR_JP_BERN, Interstellar_JaggedPass_Text_BernIntro, Interstellar_JaggedPass_Text_BernDefeat
+	msgbox Interstellar_JaggedPass_Text_BernPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_JaggedPass_EventScript_Susie::
+	trainerbattle_single TRAINER_INTERSTELLAR_JP_SUSIE, Interstellar_JaggedPass_Text_SusieIntro, Interstellar_JaggedPass_Text_SusieDefeat
+	msgbox Interstellar_JaggedPass_Text_SusiePost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_JaggedPass_Text_BernIntro:
+	.string "This mountain is SUPPOSED to be\n"
+	.string "on fire!\p"
+	.string "I have climbed it for forty\n"
+	.string "years! I would know!$"
+
+Interstellar_JaggedPass_Text_BernDefeat:
+	.string "Hmph. The jungle fights back.$"
+
+Interstellar_JaggedPass_Text_BernPost:
+	.string "Fine. FINE.\p"
+	.string "The moss is... soft.\p"
+	.string "I am not saying it twice.$"
+
+Interstellar_JaggedPass_Text_SusieIntro:
+	.string "The tour bus dropped us off and\n"
+	.string "the whole trail was ash!\p"
+	.string "That was... what year is it?\n"
+	.string "Where did all this GREEN come from?$"
+
+Interstellar_JaggedPass_Text_SusieDefeat:
+	.string "Even my sandwiches are confused.$"
+
+Interstellar_JaggedPass_Text_SusiePost:
+	.string "If you meet a tour guide up\n"
+	.string "there, tell him the picnic is\l"
+	.string "still ON.$"
