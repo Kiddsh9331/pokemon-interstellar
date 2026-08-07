@@ -62,6 +62,8 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	setvar VAR_0x8008, 4
 	call Common_EventScript_SetGymTrainers
 	call LavaridgeTown_Gym_1F_EventScript_GiveOverheat
+	msgbox Interstellar_LavaridgeGym_Text_FourBadges, MSGBOX_DEFAULT
+	setvar VAR_INTERSTELLAR_STATE, 14
 	release
 	end
 
@@ -136,7 +138,13 @@ LavaridgeTown_Gym_1F_EventScript_GymGuide::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_LAVARIDGE_GYM, LavaridgeTown_Gym_1F_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_INTERSTELLAR_FLANNERY_AWAY, Interstellar_LavaridgeGym_EventScript_GuideFlanneryAway
 	msgbox LavaridgeTown_Gym_1F_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_LavaridgeGym_EventScript_GuideFlanneryAway::
+	msgbox Interstellar_LavaridgeGym_Text_FlanneryAtCrater, MSGBOX_DEFAULT
 	release
 	end
 
@@ -286,31 +294,21 @@ LavaridgeTown_Gym_B1F_Text_EliPostBattle:
 	.string "Hehehehe.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryIntro:
-	.string "Welcome… No, wait.\p"
-	.string "Puny TRAINER, how good to see you've\n"
-	.string "made it here!\p"
-	.string "I have been entrusted with the…\n"
-	.string "No, wait.\p"
-	.string "I am FLANNERY, and I'm the GYM\n"
-	.string "LEADER here!\p"
-	.string "Uh…\n"
-	.string "Dare not underestimate me, though\l"
-	.string "I have been LEADER only a short time!\p"
-	.string "With skills inherited from my grand-\n"
-	.string "father, I shall, uh…demonstrate the\l"
-	.string "hot moves we have honed on this land!$"
+	.string "FLANNERY: You took your time.\n"
+	.string "Good. The garden deserves it.\p"
+	.string "Everyone down here thinks fire is\n"
+	.string "finished on this mountain.\l"
+	.string "A museum piece. Old weather.\p"
+	.string "This gym keeps the last embers my\n"
+	.string "grandfather banked.\p"
+	.string "If they still mean something,\n"
+	.string "we prove it here. Right now.\p"
+	.string "With everything I have!$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
-	.string "Oh…\n"
-	.string "I guess I was trying too hard…\p"
-	.string "I… I've only recently become\n"
-	.string "a GYM LEADER.\p"
-	.string "I tried too hard to be someone\n"
-	.string "I'm not.\p"
-	.string "I have to do things my natural way. If\n"
-	.string "I don't, my POKéMON will be confused.\p"
-	.string "Thanks for teaching me that.\n"
-	.string "For that, you deserve this.$"
+	.string "…It still burns.\p"
+	.string "You felt it too, right?\n"
+	.string "It still means something.$"
 
 LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge:
 	.string "{PLAYER} received the HEAT BADGE\n"
@@ -384,3 +382,29 @@ LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons:
 	.string "that can battle?\p"
 	.string "I hate to say this, but when you come\n"
 	.string "see me, bring at least two POKéMON.$"
+
+Interstellar_LavaridgeGym_Text_FourBadges:
+	.string "FLANNERY: The HEAT BADGE.\p"
+	.string "That makes four, by my count.\n"
+	.string "Which means BIRCH owes you a\l"
+	.string "conversation.\p"
+	.string "The storm over the sea. The one\n"
+	.string "no boat can reach.\p"
+	.string "That's RAYQUAZA's tower,\n"
+	.string "{PLAYER}. The gauge has screamed\l"
+	.string "about it since the sky broke.\p"
+	.string "Go to SLATEPORT. BIRCH has been\n"
+	.string "waiting for someone with four\l"
+	.string "badges since the day it happened.\p"
+	.string "And hey. The mountain kept its\n"
+	.string "warmth under the water.\p"
+	.string "Maybe the sky kept its guardian.\n"
+	.string "Go find out.$"
+
+Interstellar_LavaridgeGym_Text_FlanneryAtCrater:
+	.string "FLANNERY isn't here.\p"
+	.string "She's been up at the crater for\n"
+	.string "days, taking notes on the gardens.\p"
+	.string "Up JAGGED PASS, past the falls.\n"
+	.string "You can't miss the whole new\l"
+	.string "ecosystem.$"
