@@ -73,15 +73,56 @@ MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	special MauvilleGymDeactivatePuzzle
 	end
 
+@ Interstellar: the DYNAMO BADGE is not won on this floor. WATTSON sends the
+@ challenger down into NEW MAUVILLE and takes the battle there; the gym keeps
+@ its trainers, its puzzle, and (afterwards) the vanilla rematch flow.
 MauvilleCity_Gym_EventScript_Wattson::
+	goto_if_unset FLAG_BADGE03_GET, Interstellar_MauvilleGym_EventScript_WattsonSendOff
 	trainerbattle_single TRAINER_LEADER_WATTSON, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
 	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
+	goto_if_set FLAG_INTERSTELLAR_NM_GENERATOR_OFF, MauvilleCity_Gym_EventScript_CompletedNewMauville
 	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
 	release
 	end
+
+Interstellar_MauvilleGym_EventScript_WattsonSendOff::
+	lock
+	faceplayer
+	msgbox Interstellar_MauvilleGym_Text_WattsonSendOff, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_INTERSTELLAR_STATE, 10
+	clearflag FLAG_INTERSTELLAR_HIDE_NEWMAUVILLE_WATTSON
+	setflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
+	playse SE_EXIT
+	fadescreen FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreen FADE_FROM_BLACK
+	msgbox Interstellar_MauvilleGym_Text_WattsonAlreadyGone, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_MauvilleGym_Text_WattsonSendOff:
+	.string "WATTSON: WAHAHAHA! A challenger!\p"
+	.string "Half of HOENN sits in the dark,\n"
+	.string "and someone walks in asking for\l"
+	.string "MY badge!\p"
+	.string "I like it. But listen, kid.\p"
+	.string "NEW MAUVILLE is drinking the rift\n"
+	.string "like it is free electricity.\p"
+	.string "The old generator howls all night.\n"
+	.string "My grid is one surge from black.\p"
+	.string "The DYNAMO BADGE is not on this\n"
+	.string "floor today. It is down THERE.\p"
+	.string "ROUTE 110, the door in the south\n"
+	.string "rock. I will tell it to expect you.\p"
+	.string "Meet me in the humming dark!$"
+
+Interstellar_MauvilleGym_Text_WattsonAlreadyGone:
+	.string "The gym hums along without him.\p"
+	.string "On the floor: a coffee mug,\n"
+	.string "still warm.$"
 
 MauvilleCity_Gym_EventScript_WattsonDefeated::
 	message MauvilleCity_Gym_Text_ReceivedDynamoBadge

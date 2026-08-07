@@ -1255,6 +1255,8 @@
 #define FLAG_INTERSTELLAR_HIDE_RIVAL_SKYPILLAR                      0x4AE // Unused Flag
 #define FLAG_INTERSTELLAR_HIDE_NEWMAUVILLE_WATTSON                  0x4AF // Unused Flag
 #define FLAG_INTERSTELLAR_ACT2_FLAGS_INIT                           0x4B0 // Unused Flag
+#define FLAG_INTERSTELLAR_NM_DOOR_OPENED                            0x4B1 // Unused Flag
+#define FLAG_INTERSTELLAR_NM_GENERATOR_OFF                          0x4B2 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag

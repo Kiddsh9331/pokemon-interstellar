@@ -149,12 +149,6 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 // Unused?
-#define FLAG_0x143               0x143
-#define FLAG_0x144               0x144
-#define FLAG_0x145               0x145
-#define FLAG_0x146               0x146
-#define FLAG_0x147               0x147
-#define FLAG_0x148               0x148
 #define FLAG_0x149               0x149
 #define FLAG_0x14A               0x14A
 #define FLAG_0x14B               0x14B
@@ -1719,9 +1713,6 @@
 #define FLAG_DEFEATED_KYOGRE                 0
 #define FLAG_DEFEATED_GROUDON                0
 #define FLAG_DEFEATED_RAYQUAZA               0
-#define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0
-#define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0
-#define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0
 #define FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT 0
 #define FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT 0
 #define FLAG_DEFEATED_SUDOWOODO              0
@@ -2324,7 +2315,6 @@
 #define FLAG_LANDMARK_MR_BRINEY_HOUSE               0
 #define FLAG_LANDMARK_ABANDONED_SHIP                0
 #define FLAG_LANDMARK_SEASHORE_HOUSE                0
-#define FLAG_LANDMARK_NEW_MAUVILLE                  0
 #define FLAG_LANDMARK_OLD_LADY_REST_SHOP            0
 #define FLAG_LANDMARK_TRICK_HOUSE                   0
 #define FLAG_LANDMARK_WINSTRATE_FAMILY              0
@@ -2589,3 +2579,9 @@
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                          0x140
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                      0x141
 #define FLAG_INTERSTELLAR_ACT2_FLAGS_INIT                         0x142
+#define FLAG_INTERSTELLAR_NM_DOOR_OPENED                          0x143
+#define FLAG_INTERSTELLAR_NM_GENERATOR_OFF                        0x144
+#define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE                      0x145
+#define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE                      0x146
+#define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE                      0x147
+#define FLAG_LANDMARK_NEW_MAUVILLE                                0x148
