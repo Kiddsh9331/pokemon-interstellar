@@ -665,11 +665,14 @@
 #define TRAINER_INTERSTELLAR_GYM_ELI                   653
 #define TRAINER_INTERSTELLAR_GYM_ANGELO                654
 
+// Act 2 story battles.
+#define TRAINER_INTERSTELLAR_WRONGRIVAL                655
+
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT_FRLG can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_FRLG                      655
+#define TRAINERS_COUNT_FRLG                      656
 #define MAX_TRAINERS_COUNT_FRLG                  768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_FRLG_H

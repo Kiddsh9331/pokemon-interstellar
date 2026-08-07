@@ -19,6 +19,7 @@ JaggedPass_EventScript_SetReadyToOpenHideout::
 	return
 
 JaggedPass_OnTransition:
+	call Interstellar_JaggedPass_EventScript_SyncMay
 	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
 	end
 
@@ -264,3 +265,57 @@ JaggedPass_Text_AutumnPostBattle:
 	.string "What is that odd rock protrusion\n"
 	.string "a little up the hill from here?$"
 
+
+@ ---------------------------------------------------------------------------
+@ Interstellar: the real MAY, an hour behind her own face. She waits on the
+@ lower pass once the wrong one has come and gone, and moves ahead when the
+@ CHIMNEY arc is done (state 13).
+@ ---------------------------------------------------------------------------
+Interstellar_JaggedPass_EventScript_SyncMay::
+	setflag FLAG_TEMP_11
+	goto_if_unset FLAG_INTERSTELLAR_WRONG_RIVAL_DONE, Interstellar_JaggedPass_EventScript_SyncMayDone
+	goto_if_ge VAR_INTERSTELLAR_STATE, 13, Interstellar_JaggedPass_EventScript_SyncMayDone
+	clearflag FLAG_TEMP_11
+Interstellar_JaggedPass_EventScript_SyncMayDone::
+	return
+
+Interstellar_EventScript_RivalAftermath::
+	lock
+	faceplayer
+	goto_if_set FLAG_INTERSTELLAR_RIVAL_AFTERMATH_DONE, Interstellar_JaggedPass_EventScript_MayShort
+	msgbox Interstellar_JaggedPass_Text_MayRattled, MSGBOX_DEFAULT
+	setflag FLAG_INTERSTELLAR_RIVAL_AFTERMATH_DONE
+	release
+	end
+
+Interstellar_JaggedPass_EventScript_MayShort::
+	msgbox Interstellar_JaggedPass_Text_MayCounting, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_JaggedPass_Text_MayRattled:
+	.string "MAY: Hey. {PLAYER}.\p"
+	.string "Tell me you saw her too.\p"
+	.string "She came down the pass wearing my\n"
+	.string "jacket and my scanner, and she\l"
+	.string "looked at ME like I was the ghost.\p"
+	.string "A JOHTO badge case, {PLAYER}.\n"
+	.string "Five badges. I have never set\l"
+	.string "foot in JOHTO.\p"
+	.string "DAD's scanner says this mountain\n"
+	.string "is carrying twice the people it\l"
+	.string "holds. Whole camps that fell in\l"
+	.string "from somebody else's weather.\p"
+	.string "...I am fine. I am counting\n"
+	.string "rifts, not faces.\p"
+	.string "Go on up. If you find FLANNERY,\n"
+	.string "tell her the hot springs are the\l"
+	.string "least of it.\p"
+	.string "And {PLAYER}? If you meet me\n"
+	.string "again up there...\p"
+	.string "Check the badge case before you\n"
+	.string "trust her.$"
+
+Interstellar_JaggedPass_Text_MayCounting:
+	.string "MAY: Counting rifts.\n"
+	.string "Not faces.$"
