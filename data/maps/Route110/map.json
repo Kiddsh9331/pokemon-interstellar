@@ -499,7 +499,15 @@
       "flag": "FLAG_HIDE_ROUTE_110_BIRCH"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 35,
+      "y": 24,
+      "elevation": 3,
+      "dest_map": "MAP_NEW_MAUVILLE_ENTRANCE",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [
     {
       "type": "trigger",

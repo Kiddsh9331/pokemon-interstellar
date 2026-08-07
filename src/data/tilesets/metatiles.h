@@ -50,6 +50,10 @@ const u16 gMetatiles_OceanicMuseum[] = INCBIN_U16("data/tilesets/secondary/ocean
 const u16 gMetatileAttributes_OceanicMuseum[] = INCBIN_U16("data/tilesets/secondary/oceanic_museum/metatile_attributes.bin");
 const u16 gMetatiles_PokemonFanClub[] = INCBIN_U16("data/tilesets/secondary/pokemon_fan_club/metatiles.bin");
 const u16 gMetatileAttributes_PokemonFanClub[] = INCBIN_U16("data/tilesets/secondary/pokemon_fan_club/metatile_attributes.bin");
+const u16 gMetatiles_Pacifidlog[] = INCBIN_U16("data/tilesets/secondary/pacifidlog/metatiles.bin");
+const u16 gMetatileAttributes_Pacifidlog[] = INCBIN_U16("data/tilesets/secondary/pacifidlog/metatile_attributes.bin");
+const u16 gMetatiles_Cave[] = INCBIN_U16("data/tilesets/secondary/cave/metatiles.bin");
+const u16 gMetatileAttributes_Cave[] = INCBIN_U16("data/tilesets/secondary/cave/metatile_attributes.bin");
 
 #endif
 

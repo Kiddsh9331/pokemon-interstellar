@@ -2114,7 +2114,10 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/NewMauville_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/NewMauville_Entrance/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_NEW_MAUVILLE_INSIDE",
@@ -2125,7 +2128,10 @@
       "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/NewMauville_Inside/border.bin",
       "blockdata_filepath": "data/layouts/NewMauville_Inside/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_ABANDONED_SHIP_DECK",
@@ -3616,7 +3622,10 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyPillar_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_Entrance/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_OUTSIDE",
@@ -3627,7 +3636,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_Outside/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_Outside/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_1F",
@@ -3638,7 +3650,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_1F/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_1F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_2F",
@@ -3649,7 +3664,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_2F/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_2F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_3F",
@@ -3660,7 +3678,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_3F/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_3F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_4F",
@@ -3671,7 +3692,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_4F/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_4F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SEAFLOOR_CAVERN_ROOM9_LAVA",
@@ -3726,7 +3750,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_5F/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_5F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_TOP",
@@ -3737,7 +3764,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_Top/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_Top/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_LOBBY",
@@ -4865,7 +4895,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_1F_Clean/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_1F_Clean/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_2F_CLEAN",
@@ -4876,7 +4909,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_2F_Clean/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_2F_Clean/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_3F_CLEAN",
@@ -4887,7 +4923,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_3F_Clean/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_3F_Clean/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_4F_CLEAN",
@@ -4898,7 +4937,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_4F_Clean/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_4F_Clean/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_5F_CLEAN",
@@ -4909,7 +4951,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_5F_Clean/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_5F_Clean/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SKY_PILLAR_TOP_CLEAN",
@@ -4920,7 +4965,10 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillar_Top_Clean/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillar_Top_Clean/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F",

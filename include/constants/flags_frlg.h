@@ -149,11 +149,6 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 // Unused?
-#define FLAG_0x13E               0x13E
-#define FLAG_0x13F               0x13F
-#define FLAG_0x140               0x140
-#define FLAG_0x141               0x141
-#define FLAG_0x142               0x142
 #define FLAG_0x143               0x143
 #define FLAG_0x144               0x144
 #define FLAG_0x145               0x145
@@ -1368,7 +1363,6 @@
 
 // emerald flags
 // Scripts
-#define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0
 #define FLAG_RESCUED_BIRCH                       0
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0
 
@@ -1929,7 +1923,6 @@
 #define FLAG_HIDE_VERDANTURF_TOWN_SCOTT                             0
 #define FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT                  0
 #define FLAG_HIDE_PETALBURG_GYM_NORMAN                              0
-#define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA                           0
 #define FLAG_HIDE_LILYCOVE_CONTEST_HALL_CONTEST_ATTENDANT_1         0
 #define FLAG_HIDE_LILYCOVE_MUSEUM_CURATOR                           0
 #define FLAG_HIDE_LILYCOVE_MUSEUM_PATRON_1                          0
@@ -1997,7 +1990,6 @@
 #define FLAG_HIDE_LILYCOVE_CITY_AQUA_GRUNTS                         0
 #define FLAG_HIDE_MAGMA_HIDEOUT_4F_GROUDON                          0
 #define FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS                         0
-#define FLAG_HIDE_SKY_PILLAR_WALLACE                                0
 #define FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE                              0
 #define FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS                              0
 #define FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY                       0
@@ -2093,9 +2085,6 @@
 #define FLAG_HIDE_LILYCOVE_CITY_RIVAL                               0
 #define FLAG_HIDE_ROUTE_120_STEVEN                                  0
 #define FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN                            0
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1                            0
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_2                            0
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3                            0
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_1                      0
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_2                      0
 #define FLAG_HIDE_OLDALE_TOWN_RIVAL                                 0
@@ -2188,8 +2177,6 @@
 #define FLAG_ITEM_AQUA_HIDEOUT_B2F_NEST_BALL                        0
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_MAX_POTION                       0
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_TM_SKILL_SWAP                    0
-#define FLAG_ITEM_NEW_MAUVILLE_ULTRA_BALL                           0
-#define FLAG_ITEM_NEW_MAUVILLE_ESCAPE_ROPE                          0
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL    0
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_2_SCANNER        0
 #define FLAG_ITEM_SCORCHED_SLAB_TM_SUNNY_DAY                        0
@@ -2222,7 +2209,6 @@
 #define FLAG_ITEM_ROUTE_120_HYPER_POTION                            0
 #define FLAG_ITEM_ROUTE_120_NEST_BALL                               0
 #define FLAG_ITEM_ROUTE_123_ELIXIR                                  0
-#define FLAG_ITEM_NEW_MAUVILLE_THUNDER_STONE                        0
 #define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_TM_HAIL                       0
 #define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_NEVER_MELT_ICE                0
 #define FLAG_ITEM_ROUTE_103_GUARD_SPEC                              0
@@ -2232,8 +2218,6 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_CALCIUM                         0
 #define FLAG_ITEM_MT_PYRE_3F_SUPER_REPEL                            0
 #define FLAG_ITEM_ROUTE_118_HYPER_POTION                            0
-#define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0
-#define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0
 #define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MASTER_BALL                 0 // Unused Flag, leftover from the Ruby Magma hideout
 #define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MAX_ELIXIR                  0 // Unused Flag, leftover from the Ruby Magma hideout
@@ -2578,3 +2562,30 @@
 #define FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_2   0x128
 #define FLAG_HIDE_SLATEPORT_CITY_STERNS_SHIPYARD_MR_BRINEY        0x129
 #define FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_FAMILIAR_AQUA_GRUNT 0x124
+// --- Pokémon Interstellar, Act 2 (0x12A-0x13D freed by the Act 2 seal work;
+// 0x13E-0x142 taken from the FLAG_0x13E-0x153 unused run, placeholders retired) ---
+#define FLAG_INTERSTELLAR_RAYQUAZA_CAUGHT                         0x12A
+#define FLAG_INTERSTELLAR_SKYPILLAR_SCAR_HIDDEN                   0x12B
+#define FLAG_INTERSTELLAR_SKYPILLAR_PORTAL_CLOSED                 0x12C
+#define FLAG_INTERSTELLAR_WRONG_RIVAL_DONE                        0x12D
+#define FLAG_INTERSTELLAR_RIVAL_AFTERMATH_DONE                    0x12E
+#define FLAG_INTERSTELLAR_RIVAL_SKYPILLAR_DONE                    0x12F
+#define FLAG_INTERSTELLAR_FLANNERY_AWAY                           0x130
+#define FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY                   0x131
+#define FLAG_INTERSTELLAR_HIDE_SKYPILLAR_STEVEN                   0x132
+#define FLAG_INTERSTELLAR_HIDE_WRONG_RIVAL                        0x133
+#define FLAG_INTERSTELLAR_HIDE_RIVAL_ROUTE112                     0x134
+#define FLAG_INTERSTELLAR_HIDE_RIVAL_SKYPILLAR                    0x135
+#define FLAG_INTERSTELLAR_HIDE_NEWMAUVILLE_WATTSON                0x136
+#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1                          0x137
+#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_2                          0x138
+#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3                          0x139
+#define FLAG_HIDE_SKY_PILLAR_WALLACE                              0x13A
+#define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA                         0x13B
+#define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL                   0x13C
+#define FLAG_ITEM_NEW_MAUVILLE_ULTRA_BALL                         0x13D
+#define FLAG_ITEM_NEW_MAUVILLE_ESCAPE_ROPE                        0x13E
+#define FLAG_ITEM_NEW_MAUVILLE_THUNDER_STONE                      0x13F
+#define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                          0x140
+#define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                      0x141
+#define FLAG_INTERSTELLAR_ACT2_FLAGS_INIT                         0x142

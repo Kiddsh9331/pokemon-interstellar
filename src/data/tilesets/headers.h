@@ -221,6 +221,26 @@ const struct Tileset gTileset_PokemonFanClub =
     .metatileAttributes = gMetatileAttributes_PokemonFanClub,
     .callback = NULL,
 };
+const struct Tileset gTileset_Pacifidlog =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Pacifidlog,
+    .palettes = gTilesetPalettes_Pacifidlog,
+    .metatiles = gMetatiles_Pacifidlog,
+    .metatileAttributes = gMetatileAttributes_Pacifidlog,
+    .callback = InitTilesetAnim_Pacifidlog,
+};
+const struct Tileset gTileset_Cave =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Cave,
+    .palettes = gTilesetPalettes_Cave,
+    .metatiles = gMetatiles_Cave,
+    .metatileAttributes = gMetatileAttributes_Cave,
+    .callback = InitTilesetAnim_Cave,
+};
 
 #endif
 
