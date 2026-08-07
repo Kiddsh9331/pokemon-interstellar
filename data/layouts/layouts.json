@@ -684,7 +684,9 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/House1/border.bin",
       "blockdata_filepath": "data/layouts/House1/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_HOUSE2",
@@ -695,7 +697,9 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/House2/border.bin",
       "blockdata_filepath": "data/layouts/House2/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_POKEMON_CENTER_1F",
@@ -745,7 +749,9 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/House3/border.bin",
       "blockdata_filepath": "data/layouts/House3/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_DEWFORD_TOWN_GYM",
@@ -789,7 +795,10 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/LavaridgeTown_HerbShop/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_HerbShop/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_GYM_1F",
@@ -930,7 +939,9 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/HouseWithBed/border.bin",
       "blockdata_filepath": "data/layouts/HouseWithBed/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SLATEPORT_CITY_STERNS_SHIPYARD_1F",
@@ -941,7 +952,10 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/SlateportCity_SternsShipyard_1F/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_SternsShipyard_1F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SLATEPORT_CITY_STERNS_SHIPYARD_2F",
@@ -952,7 +966,10 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/SlateportCity_SternsShipyard_2F/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_SternsShipyard_2F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_UNUSED_CONTEST_ROOM2",
@@ -985,7 +1002,10 @@
       "secondary_tileset": "gTileset_PokemonFanClub",
       "border_filepath": "data/layouts/SlateportCity_PokemonFanClub/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_PokemonFanClub/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
@@ -996,7 +1016,10 @@
       "secondary_tileset": "gTileset_OceanicMuseum",
       "border_filepath": "data/layouts/SlateportCity_OceanicMuseum_1F/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_OceanicMuseum_1F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_SLATEPORT_CITY_OCEANIC_MUSEUM_2F",
@@ -1007,7 +1030,10 @@
       "secondary_tileset": "gTileset_OceanicMuseum",
       "border_filepath": "data/layouts/SlateportCity_OceanicMuseum_2F/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_OceanicMuseum_2F/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_HARBOR",
@@ -1018,7 +1044,9 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/Harbor/border.bin",
       "blockdata_filepath": "data/layouts/Harbor/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_MAUVILLE_CITY_GYM",
@@ -1043,7 +1071,10 @@
       "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/MauvilleCity_BikeShop/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity_BikeShop/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_MAUVILLE_CITY_GAME_CORNER",
@@ -1054,7 +1085,10 @@
       "secondary_tileset": "gTileset_MauvilleGameCorner",
       "border_filepath": "data/layouts/MauvilleCity_GameCorner/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity_GameCorner/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_RUSTBORO_CITY_DEVON_CORP_1F",
@@ -4286,7 +4320,9 @@
       "secondary_tileset": "gTileset_BattleTent",
       "border_filepath": "data/layouts/BattleTentLobby/border.bin",
       "blockdata_filepath": "data/layouts/BattleTentLobby/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_BATTLE_TENT_CORRIDOR",
@@ -4297,7 +4333,9 @@
       "secondary_tileset": "gTileset_BattleTent",
       "border_filepath": "data/layouts/BattleTentCorridor/border.bin",
       "blockdata_filepath": "data/layouts/BattleTentCorridor/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_BATTLE_TENT_BATTLE_ROOM",
@@ -4308,7 +4346,9 @@
       "secondary_tileset": "gTileset_BattleTent",
       "border_filepath": "data/layouts/BattleTentBattleRoom/border.bin",
       "blockdata_filepath": "data/layouts/BattleTentBattleRoom/map.bin",
-      "layout_version": "emerald"
+      "layout_format": "emerald",
+      "border_width": 2,
+      "border_height": 2
     },
     {
       "id": "LAYOUT_VERDANTURF_TOWN_BATTLE_TENT_BATTLE_ROOM",

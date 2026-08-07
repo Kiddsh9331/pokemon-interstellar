@@ -151,6 +151,76 @@ const struct Tileset gTileset_Shop =
     .metatileAttributes = gMetatileAttributes_Shop,
     .callback = NULL,
 };
+const struct Tileset gTileset_BattleTent =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BattleTent,
+    .palettes = gTilesetPalettes_BattleTent,
+    .metatiles = gMetatiles_BattleTent,
+    .metatileAttributes = gMetatileAttributes_BattleTent,
+    .callback = NULL,
+};
+const struct Tileset gTileset_BikeShop =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BikeShop,
+    .palettes = gTilesetPalettes_BikeShop,
+    .metatiles = gMetatiles_BikeShop,
+    .metatileAttributes = gMetatileAttributes_BikeShop,
+    .callback = InitTilesetAnim_BikeShop,
+};
+const struct Tileset gTileset_Facility =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Facility,
+    .palettes = gTilesetPalettes_Facility,
+    .metatiles = gMetatiles_Facility,
+    .metatileAttributes = gMetatileAttributes_Facility,
+    .callback = NULL,
+};
+const struct Tileset gTileset_GenericBuilding =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GenericBuilding,
+    .palettes = gTilesetPalettes_GenericBuilding,
+    .metatiles = gMetatiles_GenericBuilding,
+    .metatileAttributes = gMetatileAttributes_GenericBuilding,
+    .callback = NULL,
+};
+const struct Tileset gTileset_MauvilleGameCorner =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MauvilleGameCorner,
+    .palettes = gTilesetPalettes_MauvilleGameCorner,
+    .metatiles = gMetatiles_MauvilleGameCorner,
+    .metatileAttributes = gMetatileAttributes_MauvilleGameCorner,
+    .callback = NULL,
+};
+const struct Tileset gTileset_OceanicMuseum =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_OceanicMuseum,
+    .palettes = gTilesetPalettes_OceanicMuseum,
+    .metatiles = gMetatiles_OceanicMuseum,
+    .metatileAttributes = gMetatileAttributes_OceanicMuseum,
+    .callback = NULL,
+};
+const struct Tileset gTileset_PokemonFanClub =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PokemonFanClub,
+    .palettes = gTilesetPalettes_PokemonFanClub,
+    .metatiles = gMetatiles_PokemonFanClub,
+    .metatileAttributes = gMetatileAttributes_PokemonFanClub,
+    .callback = NULL,
+};
 
 #endif
 

@@ -84,8 +84,12 @@ Interstellar_Slateport_EventScript_Arrival::
 	releaseall
 	end
 
-@ Step up out of the tear, toward the two of them.
+@ Three steps up out of the tear: the scar sprite is 64px, so its arms reach
+@ a tile past their anchor -- two clear tiles keeps the art off the player
+@ from the rift. BIRCH waits beside that spot rather than on it.
 Interstellar_Slateport_Movement_ExitRift:
+	walk_up
+	walk_up
 	walk_up
 	step_end
 

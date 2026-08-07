@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
       "script": "MtChimney_EventScript_Tabitha",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
@@ -303,7 +303,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtChimney_EventScript_Grunt2",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
@@ -342,7 +342,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtChimney_EventScript_Shelby",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TRAINERS"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
@@ -355,7 +355,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "6",
       "script": "MtChimney_EventScript_Melissa",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TRAINERS"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
@@ -368,7 +368,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtChimney_EventScript_Sheila",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TRAINERS"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
@@ -381,7 +381,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtChimney_EventScript_Shirley",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TRAINERS"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     },
     {
       "local_id": "LOCALID_MT_CHIMNEY_MAGMA_GRUNT_1",
@@ -395,7 +395,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MtChimney_EventScript_Grunt1",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
@@ -408,24 +408,10 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "6",
       "script": "MtChimney_EventScript_Sawyer",
-      "flag": "FLAG_HIDE_MT_CHIMNEY_TRAINERS"
+      "flag": "FLAG_INTERSTELLAR_HIDE_ACT2_VANILLA_TRAINERS"
     }
   ],
   "warp_events": [
-    {
-      "x": 17,
-      "y": 36,
-      "elevation": 0,
-      "dest_map": "MAP_MT_CHIMNEY_CABLE_CAR_STATION",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 18,
-      "y": 36,
-      "elevation": 0,
-      "dest_map": "MAP_MT_CHIMNEY_CABLE_CAR_STATION",
-      "dest_warp_id": "1"
-    },
     {
       "x": 20,
       "y": 41,

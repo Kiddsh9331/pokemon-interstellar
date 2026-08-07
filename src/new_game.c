@@ -58,7 +58,7 @@ extern const u8 EventScript_ResetAllMapFlagsFrlg[];
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
-#if INTERSTELLAR_DEBUG_ACT2_START
+#if INTERSTELLAR_DEBUG_ACT2_START && IS_FRLG
 extern const u8 Interstellar_EventScript_DebugAct2Setup[];
 #endif
 static void ResetMiniGamesRecords(void);
@@ -139,7 +139,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-#if INTERSTELLAR_DEBUG_ACT2_START
+#if INTERSTELLAR_DEBUG_ACT2_START && IS_FRLG
     // Straight to the ACT 1 -> ACT 2 crossing; the scar is two tiles north.
     SetWarpDestination(MAP_GROUP(MAP_INTERSTELLAR_RIFT_CHAMBER), MAP_NUM(MAP_INTERSTELLAR_RIFT_CHAMBER),
                        WARP_ID_NONE, 18, 19);
@@ -227,7 +227,7 @@ void NewGameInitData(void)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     else
         RunScriptImmediately(EventScript_ResetAllMapFlags);
-#if INTERSTELLAR_DEBUG_ACT2_START
+#if INTERSTELLAR_DEBUG_ACT2_START && IS_FRLG
     RunScriptImmediately(Interstellar_EventScript_DebugAct2Setup);
 #endif
 #if IS_FRLG

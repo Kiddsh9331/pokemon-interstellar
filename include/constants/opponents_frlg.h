@@ -651,12 +651,24 @@
 // BROCK and MISTY do.
 #define TRAINER_LEADER_WATTSON                     640
 #define TRAINER_LEADER_FLANNERY                    641
+#define TRAINER_INTERSTELLAR_GYM_KIRK                  642
+#define TRAINER_INTERSTELLAR_GYM_SHAWN                 643
+#define TRAINER_INTERSTELLAR_GYM_BEN                   644
+#define TRAINER_INTERSTELLAR_GYM_VIVIAN                645
+#define TRAINER_INTERSTELLAR_GYM_COLE                  646
+#define TRAINER_INTERSTELLAR_GYM_AXLE                  647
+#define TRAINER_INTERSTELLAR_GYM_KEEGAN                648
+#define TRAINER_INTERSTELLAR_GYM_DANIELLE              649
+#define TRAINER_INTERSTELLAR_GYM_GERALD                650
+#define TRAINER_INTERSTELLAR_GYM_JACE                  651
+#define TRAINER_INTERSTELLAR_GYM_JEFF                  652
+#define TRAINER_INTERSTELLAR_GYM_ELI                   653
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT_FRLG can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_FRLG                      642
+#define TRAINERS_COUNT_FRLG                      654
 #define MAX_TRAINERS_COUNT_FRLG                  768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_FRLG_H
