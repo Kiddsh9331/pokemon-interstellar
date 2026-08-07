@@ -161,9 +161,10 @@ Interstellar_Slateport_Text_BirchHealed:
 Interstellar_Slateport_Text_BirchHint:
 	.string "BIRCH: The RIFT GAUGE points north,\n"
 	.string "toward MAUVILLE.\p"
-	.string "The road is not safe yet. I'm\n"
-	.string "charting the stable path through\l"
-	.string "the changed coast. Stay close.$"
+	.string "ROUTE 110 held together better\n"
+	.string "than most. WATTSON is keeping the\l"
+	.string "lights on at the end of it.\p"
+	.string "Go see him. Badge three.$"
 
 SlateportCity_EventScript_ScottScene::
 	lockall

@@ -663,12 +663,13 @@
 #define TRAINER_INTERSTELLAR_GYM_JACE                  651
 #define TRAINER_INTERSTELLAR_GYM_JEFF                  652
 #define TRAINER_INTERSTELLAR_GYM_ELI                   653
+#define TRAINER_INTERSTELLAR_GYM_ANGELO                654
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT_FRLG can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_FRLG                      654
+#define TRAINERS_COUNT_FRLG                      655
 #define MAX_TRAINERS_COUNT_FRLG                  768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_FRLG_H

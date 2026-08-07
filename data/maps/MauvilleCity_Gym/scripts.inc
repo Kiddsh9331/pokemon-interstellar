@@ -88,26 +88,14 @@ MauvilleCity_Gym_EventScript_WattsonDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
-	clearflag FLAG_HIDE_VERDANTURF_TOWN_SCOTT
 	setflag FLAG_DEFEATED_MAUVILLE_GYM
 	setflag FLAG_BADGE03_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 3
 	call Common_EventScript_SetGymTrainers
 	special MauvilleGymDeactivatePuzzle
 	special DrawWholeMapView
 	playse SE_UNLOCK
 	call MauvilleCity_Gym_EventScript_GiveShockWave
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
 	release
 	end
 
@@ -217,7 +205,7 @@ MauvilleCity_Gym_EventScript_Vivian::
 	end
 
 MauvilleCity_Gym_EventScript_Angelo::
-	trainerbattle_single TRAINER_ANGELO, MauvilleCity_Gym_Text_AngeloIntro, MauvilleCity_Gym_Text_AngeloDefeat
+	trainerbattle_single TRAINER_INTERSTELLAR_GYM_ANGELO, MauvilleCity_Gym_Text_AngeloIntro, MauvilleCity_Gym_Text_AngeloDefeat
 	msgbox MauvilleCity_Gym_Text_AngeloPostBattle, MSGBOX_AUTOCLOSE
 	end
 

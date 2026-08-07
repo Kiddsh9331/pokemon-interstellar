@@ -38,22 +38,24 @@ DewfordTown_Gym_SetGymTrainers::
 	return
 
 MauvilleCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_KIRK
-	settrainerflag TRAINER_SHAWN
-	settrainerflag TRAINER_BEN
-	settrainerflag TRAINER_VIVIAN
-	settrainerflag TRAINER_ANGELO
+	@ Interstellar: these two gyms run in the FIRERED build, where the vanilla
+	@ Emerald ids sit past TRAINERS_COUNT_FRLG and would corrupt other flags.
+	settrainerflag TRAINER_INTERSTELLAR_GYM_KIRK
+	settrainerflag TRAINER_INTERSTELLAR_GYM_SHAWN
+	settrainerflag TRAINER_INTERSTELLAR_GYM_BEN
+	settrainerflag TRAINER_INTERSTELLAR_GYM_VIVIAN
+	settrainerflag TRAINER_INTERSTELLAR_GYM_ANGELO
 	return
 
 LavaridgeTown_Gym_SetGymTrainers::
-	settrainerflag TRAINER_COLE
-	settrainerflag TRAINER_AXLE
-	settrainerflag TRAINER_KEEGAN
-	settrainerflag TRAINER_GERALD
-	settrainerflag TRAINER_DANIELLE
-	settrainerflag TRAINER_JACE
-	settrainerflag TRAINER_JEFF
-	settrainerflag TRAINER_ELI
+	settrainerflag TRAINER_INTERSTELLAR_GYM_COLE
+	settrainerflag TRAINER_INTERSTELLAR_GYM_AXLE
+	settrainerflag TRAINER_INTERSTELLAR_GYM_KEEGAN
+	settrainerflag TRAINER_INTERSTELLAR_GYM_GERALD
+	settrainerflag TRAINER_INTERSTELLAR_GYM_DANIELLE
+	settrainerflag TRAINER_INTERSTELLAR_GYM_JACE
+	settrainerflag TRAINER_INTERSTELLAR_GYM_JEFF
+	settrainerflag TRAINER_INTERSTELLAR_GYM_ELI
 	return
 
 PetalburgCity_Gym_SetGymTrainers::

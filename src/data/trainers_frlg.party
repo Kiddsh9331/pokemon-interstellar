@@ -14414,3 +14414,26 @@ Level: 34
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Flame Wheel
 - Magnitude
+
+=== TRAINER_INTERSTELLAR_GYM_ANGELO ===
+Name: ANGELO
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Plusle
+Level: 27
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Spark
+- Helping Hand
+- Quick Attack
+
+Minun
+Level: 27
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Spark
+- Charm
+- Quick Attack
