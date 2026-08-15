@@ -73,11 +73,14 @@ Interstellar_Slateport_EventScript_Arrival::
 	addobject LOCALID_INTERSTELLAR_SLATEPORT_RIFT_SCAR
 	setflag FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA
 	setflag FLAG_HIDE_SLATEPORT_CITY_SCOTT
+	turnobject LOCALID_INTERSTELLAR_SLATEPORT_BIRCH, DIR_EAST
 	msgbox Interstellar_Slateport_Text_Arrival, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_INTERSTELLAR_SLATEPORT_BIRCH, Common_Movement_WalkInPlaceFasterRight
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
+	turnobject LOCALID_INTERSTELLAR_SLATEPORT_BIRCH, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox Interstellar_Slateport_Text_BirchReunion, MSGBOX_DEFAULT
 	closemessage
 	msgbox Interstellar_Slateport_Text_BirchHome, MSGBOX_DEFAULT
