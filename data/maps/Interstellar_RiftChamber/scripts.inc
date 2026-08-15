@@ -16,7 +16,10 @@ Interstellar_RiftChamber_OnTransition::
 	end
 
 Interstellar_RiftChamber_EventScript_SyncRift::
-	goto_if_le VAR_INTERSTELLAR_STATE, 6, Interstellar_RiftChamber_EventScript_SyncRiftLive
+	@ The tear is a live, open portal until the crossing is complete (the
+	@ SLATEPORT arrival, state 9). Only then does it settle into the
+	@ crystallized scar the travel flow reopens on demand.
+	goto_if_le VAR_INTERSTELLAR_STATE, 8, Interstellar_RiftChamber_EventScript_SyncRiftLive
 	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
 	return
 
@@ -157,6 +160,28 @@ Interstellar_EventScript_KantoRiftScar::
 	clearflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
 	removeobject LOCALID_INTERSTELLAR_KANTO_RIFT_SCAR
 	addobject LOCALID_INTERSTELLAR_KANTO_RIFT_PORTAL
+	goto Interstellar_EventScript_KantoCrossOut
+	end
+
+@ The open portal is touchable while the crossing is pending. Before the
+@ anchor is resolved it refuses passage; after, stepping through IS the
+@ crossing -- same staging as the reopened scar.
+Interstellar_EventScript_KantoRiftPortalTouch::
+	lock
+	goto_if_set FLAG_INTERSTELLAR_MEWTWO_CAUGHT, Interstellar_EventScript_KantoPortalOffer
+	goto_if_ge VAR_INTERSTELLAR_STATE, 7, Interstellar_EventScript_KantoPortalOffer
+	msgbox Interstellar_Text_PortalAnchorHolds, MSGBOX_DEFAULT
+	release
+	end
+
+Interstellar_EventScript_KantoPortalOffer::
+	msgbox Interstellar_Text_PortalStandsOpen, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_KantoRiftScarWait
+	closemessage
+	goto Interstellar_EventScript_KantoCrossOut
+	end
+
+Interstellar_EventScript_KantoCrossOut::
 	playse SE_THUNDER
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
@@ -364,3 +389,15 @@ Interstellar_Text_LeaveRift:
 	.string "The way back to CERULEAN shimmers\n"
 	.string "at the cave mouth.\p"
 	.string "Leave the rift chamber?$"
+
+Interstellar_Text_PortalAnchorHolds:
+	.string "The rift convulses around the\n"
+	.string "anchor's grip.\p"
+	.string "While it holds, nothing crosses\n"
+	.string "this and lives.$"
+
+Interstellar_Text_PortalStandsOpen:
+	.string "The rift stands open. Warm light\n"
+	.string "spills from the far side--\l"
+	.string "salt, sun, somewhere else.\p"
+	.string "Step through?$"
