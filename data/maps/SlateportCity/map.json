@@ -494,7 +494,8 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Interstellar_EventScript_BirchSlateport",
-      "flag": "0"
+      "flag": "0",
+      "local_id": "LOCALID_INTERSTELLAR_SLATEPORT_BIRCH"
     },
     {
       "local_id": "LOCALID_INTERSTELLAR_SLATEPORT_RIFT_SCAR",

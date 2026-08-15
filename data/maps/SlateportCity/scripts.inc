@@ -9,6 +9,7 @@ SlateportCity_OnTransition:
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_MovePeopleForSternInterview
 	call_if_eq VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_SetReadyForScottScene
 	call_if_unset FLAG_INTERSTELLAR_ACT2_FLAGS_INIT, Interstellar_EventScript_InitAct2Flags
+	call_if_unset FLAG_INTERSTELLAR_TEST_KIT_ISSUED, Interstellar_EventScript_SlateportKitCatchUp
 	goto_if_eq VAR_INTERSTELLAR_STATE, 8, SlateportCity_OnTransition_KeepArrivalRift
 	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
 	clearflag FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN
@@ -74,6 +75,9 @@ Interstellar_Slateport_EventScript_Arrival::
 	setflag FLAG_HIDE_SLATEPORT_CITY_SCOTT
 	msgbox Interstellar_Slateport_Text_Arrival, MSGBOX_DEFAULT
 	closemessage
+	applymovement LOCALID_INTERSTELLAR_SLATEPORT_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
 	msgbox Interstellar_Slateport_Text_BirchReunion, MSGBOX_DEFAULT
 	closemessage
 	msgbox Interstellar_Slateport_Text_BirchHome, MSGBOX_DEFAULT
@@ -1533,3 +1537,18 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+@ Old saves from before the flag remap arrive without the ACT 1 field kit
+@ (the flag moved out from under them). Quietly restock it on arrival: the
+@ RIFT TEST KIT, PHASE MODULE and RIFT REPEL key items plus the testing
+@ stacks. additem is silent, so this is safe in ON_TRANSITION.
+Interstellar_EventScript_SlateportKitCatchUp::
+	additem ITEM_OLD_SEA_MAP
+	additem ITEM_AURORA_TICKET
+	additem ITEM_MYSTIC_TICKET
+	additem ITEM_RARE_CANDY, 999
+	additem ITEM_MASTER_BALL, 999
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_INTERSTELLAR_TEST_KIT_ISSUED
+	return

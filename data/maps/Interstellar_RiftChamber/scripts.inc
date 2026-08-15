@@ -3,8 +3,10 @@ Interstellar_RiftChamber_MapScripts::
 	.byte 0
 
 Interstellar_RiftChamber_OnTransition::
-	@ A full portal only exists during a crossing scene.
-	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	@ While the anchor still holds the mega-rift, the tear behind it is a
+	@ live, open portal. Only after the anchor is resolved does it settle
+	@ into the crystallized scar the travel flow reopens on demand.
+	call Interstellar_RiftChamber_EventScript_SyncRift
 	@ The collapse tears are placed by the scene, never by the map. TEMP flags,
 	@ so if the player ever walks back in here the room is whole again.
 	setflag FLAG_TEMP_11
@@ -12,6 +14,16 @@ Interstellar_RiftChamber_OnTransition::
 	setflag FLAG_TEMP_13
 	setflag FLAG_TEMP_14
 	end
+
+Interstellar_RiftChamber_EventScript_SyncRift::
+	goto_if_le VAR_INTERSTELLAR_STATE, 6, Interstellar_RiftChamber_EventScript_SyncRiftLive
+	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	return
+
+Interstellar_RiftChamber_EventScript_SyncRiftLive::
+	clearflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	setflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
+	return
 
 Interstellar_EventScript_CorruptedMewtwo::
 	lock
