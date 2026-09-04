@@ -806,7 +806,7 @@ static void SetTitleScreenScene_Run(s16 *data)
             SetTitleScreenScene(data, TITLESCREENSCENE_CRY);
         }
         else if (QUICKSTART && (JOY_NEW(SELECT_BUTTON)
-              || (INTERSTELLAR_DEBUG_ACT2_START && ++data[7] > 30)))
+              || (INTERSTELLAR_DEBUG_ACT2_START && ++data[7] > 300)))
         {
             Quickstart();
         }
