@@ -4444,7 +4444,10 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route111_NoMirageTower/border.bin",
       "blockdata_filepath": "data/layouts/Route111_NoMirageTower/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+    "layout_format": "emerald",
+    "border_width": 2,
+    "border_height": 2
     },
     {
       "id": "LAYOUT_UNION_ROOM",
