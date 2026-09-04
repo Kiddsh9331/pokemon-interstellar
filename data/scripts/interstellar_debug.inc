@@ -13,6 +13,9 @@ Interstellar_EventScript_DebugAct2Setup::
 	setflag FLAG_INTERSTELLAR_MEWTWO_CAUGHT
 	clearflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
 	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
+	@ The prologue normally hides these; the debug start skips the prologue.
+	setflag FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN
+	setflag FLAG_INTERSTELLAR_GARY_SCAR_HIDDEN
 	setvar VAR_INTERSTELLAR_STATE, 7
 
 	@ Everything ACT 1 would have handed over by now.

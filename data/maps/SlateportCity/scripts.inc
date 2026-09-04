@@ -69,8 +69,6 @@ Interstellar_Slateport_EventScript_Arrival::
 	removeobject LOCALID_INTERSTELLAR_SLATEPORT_RIFT_PORTAL
 	setflag FLAG_INTERSTELLAR_RIFT_PORTAL_CLOSED
 	clearflag FLAG_INTERSTELLAR_KANTO_GATE_LOCKED
-	clearflag FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN
-	addobject LOCALID_INTERSTELLAR_SLATEPORT_RIFT_SCAR
 	setflag FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA
 	setflag FLAG_HIDE_SLATEPORT_CITY_SCOTT
 	turnobject LOCALID_INTERSTELLAR_SLATEPORT_BIRCH, DIR_EAST
@@ -83,6 +81,18 @@ Interstellar_Slateport_EventScript_Arrival::
 	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox Interstellar_Slateport_Text_BirchReunion, MSGBOX_DEFAULT
 	closemessage
+	@ Mid-conversation, the tear behind you finally gives out and
+	@ crystallizes into the standing scar. Both of you turn at the sound.
+	turnobject LOCALID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_INTERSTELLAR_SLATEPORT_BIRCH, DIR_SOUTH
+	delay 16
+	playse SE_M_TELEPORT
+	clearflag FLAG_INTERSTELLAR_SLATEPORT_RIFT_SCAR_HIDDEN
+	addobject LOCALID_INTERSTELLAR_SLATEPORT_RIFT_SCAR
+	delay 30
+	turnobject LOCALID_INTERSTELLAR_SLATEPORT_BIRCH, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_WEST
+	delay 10
 	msgbox Interstellar_Slateport_Text_BirchHome, MSGBOX_DEFAULT
 	closemessage
 	msgbox Interstellar_Slateport_Text_BirchAnchor, MSGBOX_DEFAULT
