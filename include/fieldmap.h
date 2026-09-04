@@ -14,7 +14,11 @@
 #define NUM_PALS_TOTAL 13
 #define MAX_MAP_DATA_SIZE 10240
 
-#define NUM_TILES_PER_METATILE 8
+// Metatiles carry three layers of 2x2 tiles, one per background layer.
+// The METATILE_LAYER_TYPE indirection is gone: every metatile now states
+// all three layers outright, so tiles 0-3 are the bottom background,
+// 4-7 the middle and 8-11 the top.
+#define NUM_TILES_PER_METATILE 12
 
 // Map coordinates are offset by 7 when using the map
 // buffer because it needs to load sufficient border

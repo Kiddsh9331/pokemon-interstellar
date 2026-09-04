@@ -244,6 +244,31 @@ static void DrawMetatileAt(const struct MapLayout *mapLayout, u16 offset, int x,
 
 static void DrawMetatile(s32 metatileLayerType, const u16 *tiles, u16 offset)
 {
+    // Three-layer metatiles map straight onto the three background layers, so
+    // the layer type no longer decides where anything lands -- the tileset data
+    // says it. Bg1 is the layer that covers object event sprites.
+    gOverworldTilemapBuffer_Bg3[offset] = tiles[0];
+    gOverworldTilemapBuffer_Bg3[offset + 1] = tiles[1];
+    gOverworldTilemapBuffer_Bg3[offset + 0x20] = tiles[2];
+    gOverworldTilemapBuffer_Bg3[offset + 0x21] = tiles[3];
+
+    gOverworldTilemapBuffer_Bg2[offset] = tiles[4];
+    gOverworldTilemapBuffer_Bg2[offset + 1] = tiles[5];
+    gOverworldTilemapBuffer_Bg2[offset + 0x20] = tiles[6];
+    gOverworldTilemapBuffer_Bg2[offset + 0x21] = tiles[7];
+
+    gOverworldTilemapBuffer_Bg1[offset] = tiles[8];
+    gOverworldTilemapBuffer_Bg1[offset + 1] = tiles[9];
+    gOverworldTilemapBuffer_Bg1[offset + 0x20] = tiles[10];
+    gOverworldTilemapBuffer_Bg1[offset + 0x21] = tiles[11];
+
+    ScheduleBgCopyTilemapToVram(1);
+    ScheduleBgCopyTilemapToVram(2);
+    ScheduleBgCopyTilemapToVram(3);
+}
+
+static void DrawMetatile_Unused(s32 metatileLayerType, const u16 *tiles, u16 offset)
+{
     switch (metatileLayerType)
     {
     case METATILE_LAYER_TYPE_SPLIT:
