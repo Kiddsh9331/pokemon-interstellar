@@ -9,6 +9,9 @@ Route110_OnResume:
 	end
 
 Route110_OnTransition:
+	@ Interstellar: the vanilla rival ambush at the cycling road pillar is not
+	@ this story's MAY -- retire it before its coord triggers can fire.
+	call_if_eq VAR_ROUTE110_STATE, 0, Interstellar_Route110_EventScript_RetireRivalScene
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
@@ -987,3 +990,105 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
 
+
+Interstellar_Route110_EventScript_RetireRivalScene::
+	setvar VAR_ROUTE110_STATE, 1
+	return
+
+Interstellar_Route110_EventScript_Psychic::
+	trainerbattle_single TRAINER_INTERSTELLAR_R110_PSYCHIC, Interstellar_Route110_Text_PsychicIntro, Interstellar_Route110_Text_PsychicDefeat
+	msgbox Interstellar_Route110_Text_PsychicPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_Route110_EventScript_Fisherman::
+	trainerbattle_single TRAINER_INTERSTELLAR_R110_FISHERMAN, Interstellar_Route110_Text_FishermanIntro, Interstellar_Route110_Text_FishermanDefeat
+	msgbox Interstellar_Route110_Text_FishermanPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_Route110_EventScript_Lass::
+	trainerbattle_single TRAINER_INTERSTELLAR_R110_LASS, Interstellar_Route110_Text_LassIntro, Interstellar_Route110_Text_LassDefeat
+	msgbox Interstellar_Route110_Text_LassPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_Route110_EventScript_Camper::
+	trainerbattle_single TRAINER_INTERSTELLAR_R110_CAMPER, Interstellar_Route110_Text_CamperIntro, Interstellar_Route110_Text_CamperDefeat
+	msgbox Interstellar_Route110_Text_CamperPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_Route110_EventScript_Youngster::
+	trainerbattle_single TRAINER_INTERSTELLAR_R110_YOUNGSTER, Interstellar_Route110_Text_YoungsterIntro, Interstellar_Route110_Text_YoungsterDefeat
+	msgbox Interstellar_Route110_Text_YoungsterPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_Route110_Text_PsychicIntro:
+	.string "In my year there was no tower of\n"
+	.string "roads over this route.\p"
+	.string "I sit under it and listen to it\n"
+	.string "hum. It hums in the wrong key.$"
+
+Interstellar_Route110_Text_PsychicDefeat:
+	.string "Even your POKéMON hums wrong.\n"
+	.string "Wonderful.$"
+
+Interstellar_Route110_Text_PsychicPost:
+	.string "SAFFRON is that way. Or it was.\n"
+	.string "Or it will be. Prepositions are\l"
+	.string "hard now.$"
+
+Interstellar_Route110_Text_FishermanIntro:
+	.string "The water here tastes like a\n"
+	.string "different year. The fish agree.\p"
+	.string "Half my catch hasn't been\n"
+	.string "discovered yet.$"
+
+Interstellar_Route110_Text_FishermanDefeat:
+	.string "Threw that one back too.$"
+
+Interstellar_Route110_Text_FishermanPost:
+	.string "I fished LAKE OF RAGE before the\n"
+	.string "sky broke. This beats it, and I\l"
+	.string "hate that it beats it.$"
+
+Interstellar_Route110_Text_LassIntro:
+	.string "My PACHIRISU keeps pointing at\n"
+	.string "the power lines like it's home.\p"
+	.string "We're from a while from now.\n"
+	.string "Don't ask how far.$"
+
+Interstellar_Route110_Text_LassDefeat:
+	.string "Okay, that settles the decade\n"
+	.string "argument.$"
+
+Interstellar_Route110_Text_LassPost:
+	.string "The rangers said stay put and\n"
+	.string "someone strong would come by.\p"
+	.string "I guess you're someone strong.$"
+
+Interstellar_Route110_Text_CamperIntro:
+	.string "I camped this route before the\n"
+	.string "sky broke, and I'm not leaving.\p"
+	.string "Somebody has to remember what\n"
+	.string "normal looked like.$"
+
+Interstellar_Route110_Text_CamperDefeat:
+	.string "Fine. New normal wins.$"
+
+Interstellar_Route110_Text_CamperPost:
+	.string "MAUVILLE still has lights.\n"
+	.string "WATTSON doesn't sleep, they say.\p"
+	.string "Go on. The road holds.$"
+
+Interstellar_Route110_Text_YoungsterIntro:
+	.string "I was walking to VERMILION and\n"
+	.string "then the ocean was on the wrong\l"
+	.string "side!\p"
+	.string "Fight me. It helps me not think\n"
+	.string "about it.$"
+
+Interstellar_Route110_Text_YoungsterDefeat:
+	.string "That helped a little.$"
+
+Interstellar_Route110_Text_YoungsterPost:
+	.string "A lady with huge hair told me the\n"
+	.string "mountain up north grows flowers\l"
+	.string "now. Mountains DO that here?$"

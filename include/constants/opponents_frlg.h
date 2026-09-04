@@ -680,12 +680,17 @@
 #define TRAINER_INTERSTELLAR_CHIMNEY_ROCKET            666
 #define TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_A           667
 #define TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_B           668
+#define TRAINER_INTERSTELLAR_R110_PSYCHIC              669
+#define TRAINER_INTERSTELLAR_R110_FISHERMAN            670
+#define TRAINER_INTERSTELLAR_R110_LASS                 671
+#define TRAINER_INTERSTELLAR_R110_CAMPER               672
+#define TRAINER_INTERSTELLAR_R110_YOUNGSTER            673
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT_FRLG can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_FRLG                      669
+#define TRAINERS_COUNT_FRLG                      674
 #define MAX_TRAINERS_COUNT_FRLG                  768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_FRLG_H

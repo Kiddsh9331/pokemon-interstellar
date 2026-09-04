@@ -21,7 +21,7 @@ Interstellar_EventScript_DebugAct2Setup::
 	@ Everything ACT 1 would have handed over by now.
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_BADGE02_GET
-	setflag FLAG_INTERSTELLAR_TEST_KIT_ISSUED
+	@ (test kit deliberately NOT flagged: the Slateport catch-up issues it on arrival)
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_POKEDEX_GET
 	setflag FLAG_RECEIVED_RUNNING_SHOES

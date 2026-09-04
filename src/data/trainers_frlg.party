@@ -14797,3 +14797,128 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Body Slam
 - Iron Defense
 - Smokescreen
+
+=== TRAINER_INTERSTELLAR_R110_PSYCHIC ===
+Name: HOLLIS
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Kadabra
+Level: 28
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Psybeam
+- Reflect
+- Disable
+- Confusion
+
+Exeggcute
+Level: 27
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Confusion
+- Leech Seed
+- Hypnosis
+- Bullet Seed
+
+=== TRAINER_INTERSTELLAR_R110_FISHERMAN ===
+Name: BRANNIGAN
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Chinchou
+Level: 27
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Spark
+- Water Gun
+- Confuse Ray
+- Flail
+
+Quagsire
+Level: 28
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Mud Shot
+- Water Gun
+- Slam
+- Yawn
+
+=== TRAINER_INTERSTELLAR_R110_LASS ===
+Name: MARLEY
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Pachirisu
+Level: 27
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Spark
+- Quick Attack
+- Charm
+- Swift
+
+Buizel
+Level: 28
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aqua Jet
+- Quick Attack
+- Swift
+- Pursuit
+
+=== TRAINER_INTERSTELLAR_R110_CAMPER ===
+Name: DILLON
+Class: Camper
+Pic: Camper
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Electrike
+Level: 28
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Spark
+- Quick Attack
+- Thunder Wave
+- Bite
+
+Vigoroth
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Slash
+- Encore
+- Uproar
+- Fury Swipes
+
+=== TRAINER_INTERSTELLAR_R110_YOUNGSTER ===
+Name: COLE
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Raticate
+Level: 27
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Hyper Fang
+- Quick Attack
+- Scary Face
+- Sucker Punch
+
+Voltorb
+Level: 28
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Spark
+- Rollout
+- Screech
+- Swift
