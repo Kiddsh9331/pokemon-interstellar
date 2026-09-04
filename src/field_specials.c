@@ -17,6 +17,7 @@
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_specials.h"
+#include "ui_birch_case.h"
 #include "field_weather.h"
 #include "graphics.h"
 #include "international_string_util.h"
@@ -5810,4 +5811,16 @@ void Interstellar_SealCaughtBoss(void)
             }
         }
     }
+}
+
+
+// --- Pokémon Interstellar ---
+// Opens BIRCH's case so the player picks their partner from it. The case
+// gives the mon and sets VAR_STARTER_MON to 0/1/2 (grass/fire/water) itself,
+// which is the same contract the old era-and-trio menus used, so the rival's
+// counter pick keeps working unchanged.
+void StartInterstellarStarterCase(void)
+{
+    FadeScreen(FADE_TO_BLACK, 0);
+    CreateTask(Task_OpenBirchCase, 0);
 }

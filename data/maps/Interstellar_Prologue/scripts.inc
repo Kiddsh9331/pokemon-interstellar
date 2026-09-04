@@ -97,6 +97,14 @@ Interstellar_Prologue_Text_BirchOutsideNow:
 @ ---------- 12-starter selection (all Gen 1-4 starters, era menu first) ----------
 Interstellar_EventScript_ChooseStarter::
 	msgbox Interstellar_Text_OakTwelve, MSGBOX_DEFAULT
+	closemessage
+	@ BIRCH opens the case. It hands over the mon and sets VAR_STARTER_MON
+	@ itself, so the rival's counter pick still reads the same variable.
+	special StartInterstellarStarterCase
+	waitstate
+	return
+
+@ The old era-and-trio menus, kept until the case has a socket for SINNOH.
 Interstellar_EventScript_EraMenu::
 	message Interstellar_Prologue_Text_WhichEra
 	waitmessage
@@ -337,3 +345,4 @@ Interstellar_Text_MonChimchar:
 
 Interstellar_Text_MonPiplup:
 	.string "PIPLUP$"
+
