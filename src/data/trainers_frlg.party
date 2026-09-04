@@ -14647,3 +14647,153 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 Sceptile
 Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+
+=== TRAINER_INTERSTELLAR_JAGGED_ROCKET ===
+Name: GRUNT
+Class: Team Rocket Frlg
+Pic: Rocket Grunt M Frlg
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Arbok
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Glare
+- Poison Fang
+- Bite
+- Screech
+
+Golbat
+Level: 33
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Wing Attack
+- Confuse Ray
+- Bite
+- Air Cutter
+
+=== TRAINER_INTERSTELLAR_JAGGED_GALACTIC ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt F
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Glameow
+Level: 33
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fake Out
+- Slash
+- Charm
+- Fury Swipes
+
+Croagunk
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Poison Jab
+- Revenge
+- Taunt
+- Sucker Punch
+
+=== TRAINER_INTERSTELLAR_CHIMNEY_AQUA ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Carvanha
+Level: 33
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Crunch
+- Aqua Jet
+- Screech
+- Focus Energy
+
+Wailmer
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Water Pulse
+- Rollout
+- Astonish
+- Rest
+
+=== TRAINER_INTERSTELLAR_CHIMNEY_ROCKET ===
+Name: GRUNT
+Class: Team Rocket Frlg
+Pic: Rocket Grunt F Frlg
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Houndour
+Level: 33
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Flamethrower
+- Bite
+- Odor Sleuth
+- Smog
+
+Murkrow
+Level: 34
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Wing Attack
+- Night Shade
+- Taunt
+- Haze
+
+=== TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_A ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Mightyena
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Crunch
+- Swagger
+- Howl
+- Sand Attack
+
+Camerupt
+Level: 36
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Magnitude
+- Flame Burst
+- Rock Slide
+- Amnesia
+
+=== TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_B ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt F
+Gender: Female
+Music: Magma
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Golbat
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Confuse Ray
+- Wing Attack
+- Toxic
+- Bite
+
+Torkoal
+Level: 36
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Flame Wheel
+- Body Slam
+- Iron Defense
+- Smokescreen

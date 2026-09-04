@@ -356,3 +356,41 @@ Interstellar_JaggedPass_Text_SusiePost:
 	.string "If you meet a tour guide up\n"
 	.string "there, tell him the picnic is\l"
 	.string "still ON.$"
+
+Interstellar_JaggedPass_EventScript_RocketGrunt::
+	trainerbattle_single TRAINER_INTERSTELLAR_JAGGED_ROCKET, Interstellar_JaggedPass_Text_RocketIntro, Interstellar_JaggedPass_Text_RocketDefeat
+	msgbox Interstellar_JaggedPass_Text_RocketPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_JaggedPass_EventScript_GalacticGrunt::
+	trainerbattle_single TRAINER_INTERSTELLAR_JAGGED_GALACTIC, Interstellar_JaggedPass_Text_GalacticIntro, Interstellar_JaggedPass_Text_GalacticDefeat
+	msgbox Interstellar_JaggedPass_Text_GalacticPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_JaggedPass_Text_RocketIntro:
+	.string "The boss said dig under MT. MOON.\p"
+	.string "One wrong tunnel, and the rock\n"
+	.string "let go of me.$"
+
+Interstellar_JaggedPass_Text_RocketDefeat:
+	.string "The sky here is the wrong kind\n"
+	.string "of dark.$"
+
+Interstellar_JaggedPass_Text_RocketPost:
+	.string "No ROCKET post reports back from…\n"
+	.string "whenever this is.\p"
+	.string "Maybe that means I'm off shift.$"
+
+Interstellar_JaggedPass_Text_GalacticIntro:
+	.string "We were promised a new world.\p"
+	.string "Cleaner. Quieter. Empty of all\n"
+	.string "this… mess.$"
+
+Interstellar_JaggedPass_Text_GalacticDefeat:
+	.string "…This broken one looks just like\n"
+	.string "the blueprints.$"
+
+Interstellar_JaggedPass_Text_GalacticPost:
+	.string "I keep waiting to feel glad.\p"
+	.string "I'm going to sit by the waterfall\n"
+	.string "for a while instead.$"

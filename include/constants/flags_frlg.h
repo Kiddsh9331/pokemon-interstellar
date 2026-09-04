@@ -149,8 +149,8 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 // Unused?
-#define FLAG_0x149               0x149
-#define FLAG_0x14A               0x14A
+#define FLAG_INTERSTELLAR_CHIMNEY_TAG_DONE        0x149 // Interstellar: crater tag battle beside FLANNERY resolved
+#define FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR 0x14A // Interstellar: displaced MAGMA pair at the crater rim
 #define FLAG_0x14B               0x14B
 #define FLAG_0x14C               0x14C
 #define FLAG_0x14D               0x14D

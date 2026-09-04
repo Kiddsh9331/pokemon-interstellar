@@ -42,3 +42,37 @@ EVs: 252 Atk / 252 SpA / 6 SpD
 - Protect
 - Solar Beam
 - Dragon Claw
+
+=== PARTNER_FLANNERY ===
+Name: FLANNERY
+Class: Leader
+Pic: Leader Flannery
+Gender: Female
+Music: Female
+AI: Basic Trainer
+
+Slugma
+Ability: Flame Body
+Level: 36
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Flame Burst
+- Rock Slide
+- Yawn
+- Recover
+
+Camerupt
+Level: 37
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Earth Power
+- Flamethrower
+- Rock Slide
+- Amnesia
+
+Torkoal
+Ability: White Smoke
+Level: 38
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Overheat
+- Body Slam
+- Iron Defense
+- Yawn

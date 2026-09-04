@@ -425,7 +425,7 @@
       "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 20,
       "y": 15,
       "elevation": 3,
@@ -434,11 +434,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Interstellar_MtChimney_EventScript_Todd",
+      "script": "Interstellar_MtChimney_EventScript_AquaGrunt",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
       "x": 20,
       "y": 34,
       "elevation": 3,
@@ -447,7 +447,46 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Interstellar_MtChimney_EventScript_Mimi",
+      "script": "Interstellar_MtChimney_EventScript_RocketGrunt",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 12,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_MtChimney_EventScript_MagmaPairA",
+      "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 12,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_MtChimney_EventScript_MagmaPairB",
+      "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR_MED",
+      "x": 13,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_MtChimney_EventScript_PairScar",
       "flag": "0"
     }
   ],

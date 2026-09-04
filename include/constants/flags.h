@@ -1275,8 +1275,8 @@
 #define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
 #define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag
 #define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
-#define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
-#define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
+#define FLAG_INTERSTELLAR_CHIMNEY_TAG_DONE                          0x4B3 // Interstellar mirror
+#define FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR                   0x4B4 // Interstellar mirror
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
 #define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
