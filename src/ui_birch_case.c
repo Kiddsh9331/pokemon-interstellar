@@ -52,13 +52,15 @@
  */
  
 //==========DEFINES==========//
+#define NUM_STARTER_BALLS 12
+
 struct MenuResources
 {
     MainCallback savedCallback;     // determines callback to run when we exit. e.g. where do we want to go after closing the menu
     u8 gfxLoadState;
     u16 monSpriteId;
-    u16 pokeballSpriteIds[9];
-    struct Pokemon starterMons[9];
+    u16 pokeballSpriteIds[NUM_STARTER_BALLS];
+    struct Pokemon starterMons[NUM_STARTER_BALLS];
     u16 handSpriteId;
     u16 handPosition;
     u16 selector_x;
@@ -109,8 +111,11 @@ enum BallPositions
     BALL_MIDDLE_FIRST,
     BALL_MIDDLE_SECOND,
     BALL_MIDDLE_THIRD,
+    BALL_MIDDLE_FOURTH,
     BALL_BOTTOM_FIRST,
     BALL_BOTTOM_SECOND,
+    BALL_BOTTOM_THIRD,
+    BALL_BOTTOM_FOURTH,
 };
 
 struct MonChoiceData{ // This is the format used to define a mon, everything left out will default to 0 and be blank or use the in game defaults
@@ -133,22 +138,25 @@ struct MonChoiceData{ // This is the format used to define a mon, everything lef
 //
 //  Making Changes Here Changes The Options In The UI. This is where you define your mons
 //
-static const struct MonChoiceData sStarterChoices[9] =
+static const struct MonChoiceData sStarterChoices[NUM_STARTER_BALLS] =
 {
-    // BIRCH's cross-region field study: one column per era, one row per type.
-    // The case is moulded for nine balls (4/3/2), so SINNOH's trio has no
-    // socket to sit in yet -- see docs before adding it.
-    [BALL_TOP_FIRST]        = {SPECIES_BULBASAUR,  5, 0},
-    [BALL_TOP_SECOND]       = {SPECIES_CHIKORITA,  5, 0},
-    [BALL_TOP_THIRD]        = {SPECIES_TREECKO,    5, 0},
-    [BALL_TOP_FOURTH]       = {SPECIES_CHARMANDER, 5, 1},
+    // BIRCH's cross-region field study: one column per era -- KANTO, JOHTO,
+    // HOENN, SINNOH -- and one row per type. starterChoice keeps the old
+    // era-menu contract the rival's counter-pick reads: 0/1/2 = grass/fire/water.
+    [BALL_TOP_FIRST]      = {SPECIES_BULBASAUR,  5, 0},
+    [BALL_TOP_SECOND]     = {SPECIES_CHIKORITA,  5, 0},
+    [BALL_TOP_THIRD]      = {SPECIES_TREECKO,    5, 0},
+    [BALL_TOP_FOURTH]     = {SPECIES_TURTWIG,    5, 0},
 
-    [BALL_MIDDLE_FIRST]     = {SPECIES_CYNDAQUIL,  5, 1},
-    [BALL_MIDDLE_SECOND]    = {SPECIES_TORCHIC,    5, 1},
-    [BALL_MIDDLE_THIRD]     = {SPECIES_SQUIRTLE,   5, 2},
+    [BALL_MIDDLE_FIRST]   = {SPECIES_CHARMANDER, 5, 1},
+    [BALL_MIDDLE_SECOND]  = {SPECIES_CYNDAQUIL,  5, 1},
+    [BALL_MIDDLE_THIRD]   = {SPECIES_TORCHIC,    5, 1},
+    [BALL_MIDDLE_FOURTH]  = {SPECIES_CHIMCHAR,   5, 1},
 
-    [BALL_BOTTOM_FIRST]     = {SPECIES_TOTODILE,   5, 2},
-    [BALL_BOTTOM_SECOND]    = {SPECIES_MUDKIP,     5, 2},
+    [BALL_BOTTOM_FIRST]   = {SPECIES_SQUIRTLE,   5, 2},
+    [BALL_BOTTOM_SECOND]  = {SPECIES_TOTODILE,   5, 2},
+    [BALL_BOTTOM_THIRD]   = {SPECIES_MUDKIP,     5, 2},
+    [BALL_BOTTOM_FOURTH]  = {SPECIES_PIPLUP,     5, 2},
 };
 
 //==========EWRAM==========//
@@ -318,19 +326,13 @@ static const struct SpriteTemplate sSpriteTemplate_PokeballShinyMap =
 
 static const struct SpriteCordsStruct sBallSpriteCords[3][4] = {
         {{40, TOP_ROW_Y}, {88, TOP_ROW_Y}, {152, TOP_ROW_Y}, {200, TOP_ROW_Y}},
-        {{64, MIDDLE_ROW_Y}, {120, MIDDLE_ROW_Y}, {176, MIDDLE_ROW_Y}},
-        {{96, BOTTOM_ROW_Y}, {144, BOTTOM_ROW_Y}},
+        {{40, MIDDLE_ROW_Y}, {88, MIDDLE_ROW_Y}, {152, MIDDLE_ROW_Y}, {200, MIDDLE_ROW_Y}},
+        {{40, BOTTOM_ROW_Y}, {88, BOTTOM_ROW_Y}, {152, BOTTOM_ROW_Y}, {200, BOTTOM_ROW_Y}},
 };
 
 static void CursorCallback(struct Sprite *sprite)
 {
-    struct SpriteCordsStruct current_position = {0,0};
-    if(sBirchCaseDataPtr->handPosition <= 3)
-        current_position = sBallSpriteCords[0][sBirchCaseDataPtr->handPosition];
-    else if(sBirchCaseDataPtr->handPosition <= 6)  
-        current_position = sBallSpriteCords[1][sBirchCaseDataPtr->handPosition - 4];
-    else
-        current_position = sBallSpriteCords[2][sBirchCaseDataPtr->handPosition - 7];
+    struct SpriteCordsStruct current_position = sBallSpriteCords[sBirchCaseDataPtr->handPosition / 4][sBirchCaseDataPtr->handPosition % 4];
 
     sprite->x = current_position.x;
     sprite->y = current_position.y - 6;
@@ -364,26 +366,13 @@ static void CreateHandSprite()
     u16 x, y;
     struct SpriteCordsStruct current_position = {0,0};
 
-    for(i=0; i<9; i++)
+    for(i=0; i<NUM_STARTER_BALLS; i++)
     {
         if(sStarterChoices[i].species == SPECIES_NONE) // Choose Non Empty Slot To Start In
             continue;
     
-        if(sBirchCaseDataPtr->handPosition <= 3)
-        {
-            current_position = sBallSpriteCords[0][sBirchCaseDataPtr->handPosition];
-            break;
-        }
-        else if(sBirchCaseDataPtr->handPosition <= 6)  
-        {
-            current_position = sBallSpriteCords[1][sBirchCaseDataPtr->handPosition - 4];
-            break;
-        }
-        else
-        {
-            current_position = sBallSpriteCords[2][sBirchCaseDataPtr->handPosition - 7];
-            break;
-        }
+        current_position = sBallSpriteCords[sBirchCaseDataPtr->handPosition / 4][sBirchCaseDataPtr->handPosition % 4];
+        break;
     }
 
     x = current_position.x;
@@ -416,7 +405,7 @@ static void CreatePokeballSprites()
 {
     u16 i = 0;
 
-    for(i=0; i<9; i++)
+    for(i=0; i<NUM_STARTER_BALLS; i++)
     {
         u16 x, y;
         const struct SpriteTemplate *spriteTemplate;
@@ -424,22 +413,8 @@ static void CreatePokeballSprites()
         if(sStarterChoices[i].species == SPECIES_NONE)
             continue;
 
-        if(i <= 3)
-        {
-            x = sBallSpriteCords[0][i].x;
-            y = sBallSpriteCords[0][i].y;
-        }
-        else if(i <= 6)
-        {
-            
-            x = sBallSpriteCords[1][i - 4].x;
-            y = sBallSpriteCords[1][i - 4].y;
-        }
-        else
-        {
-            x = sBallSpriteCords[2][i - 7].x;
-            y = sBallSpriteCords[2][i - 7].y;
-        }
+        x = sBallSpriteCords[i / 4][i % 4].x;
+        y = sBallSpriteCords[i / 4][i % 4].y;
 
         if (GetMonData(&sBirchCaseDataPtr->starterMons[i], MON_DATA_IS_SHINY))
             spriteTemplate = &sSpriteTemplate_PokeballShinyMap;
@@ -458,7 +433,7 @@ static void CreatePokeballSprites()
 static void DestroyPokeballSprites()
 {
     u8 i = 0;
-    for(i = 0; i < 9; i++)
+    for(i = 0; i < NUM_STARTER_BALLS; i++)
     {
         DestroySprite(&gSprites[sBirchCaseDataPtr->pokeballSpriteIds[i]]);
         sBirchCaseDataPtr->pokeballSpriteIds[i] = SPRITE_NONE;
@@ -552,7 +527,7 @@ void BirchCase_Init(MainCallback callback)
     sBirchCaseDataPtr->handSpriteId = SPRITE_NONE;
     GenerateStarterMons();
 
-    for(i=0; i < 9; i++)
+    for(i=0; i < NUM_STARTER_BALLS; i++)
     {
         sBirchCaseDataPtr->pokeballSpriteIds[i] = SPRITE_NONE;
     }
@@ -951,109 +926,28 @@ static void Task_BirchCaseMain(u8 taskId)
     if(JOY_NEW(DPAD_UP))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move up
-        {
-            if(sBirchCaseDataPtr->handPosition < BALL_TOP_THIRD)
-                sBirchCaseDataPtr->handPosition = BALL_BOTTOM_FIRST;
-            else
-                sBirchCaseDataPtr->handPosition = BALL_BOTTOM_SECOND;
-        }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move up
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_MIDDLE_FIRST)
-                sBirchCaseDataPtr->handPosition = BALL_TOP_FIRST;
-            else if (sBirchCaseDataPtr->handPosition == BALL_MIDDLE_SECOND)
-                sBirchCaseDataPtr->handPosition = BALL_TOP_SECOND;
-            else
-                sBirchCaseDataPtr->handPosition = BALL_TOP_THIRD;
-        }
-        else  // bottom row move up
-        {
-            sBirchCaseDataPtr->handPosition = BALL_MIDDLE_SECOND;
-        }
+        sBirchCaseDataPtr->handPosition = (sBirchCaseDataPtr->handPosition + 8) % NUM_STARTER_BALLS;
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
     if(JOY_NEW(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move down
-        {
-            if(sBirchCaseDataPtr->handPosition < BALL_TOP_THIRD)
-                sBirchCaseDataPtr->handPosition = BALL_MIDDLE_FIRST;
-            else if(sBirchCaseDataPtr->handPosition == BALL_TOP_THIRD)
-                sBirchCaseDataPtr->handPosition = BALL_MIDDLE_SECOND;
-            else
-                sBirchCaseDataPtr->handPosition = BALL_MIDDLE_THIRD;
-        }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move down
-        {
-            if(sBirchCaseDataPtr->handPosition < BALL_MIDDLE_SECOND)
-                sBirchCaseDataPtr->handPosition = BALL_BOTTOM_FIRST;
-            else
-                sBirchCaseDataPtr->handPosition = BALL_BOTTOM_SECOND;
-        }
-        else  // bottom row move down
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_BOTTOM_FIRST)
-                sBirchCaseDataPtr->handPosition = BALL_TOP_SECOND;
-            else
-                sBirchCaseDataPtr->handPosition = BALL_TOP_THIRD;
-        }
+        sBirchCaseDataPtr->handPosition = (sBirchCaseDataPtr->handPosition + 4) % NUM_STARTER_BALLS;
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
     if(JOY_NEW(DPAD_RIGHT))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move down
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_TOP_FOURTH) // top row move down
-                sBirchCaseDataPtr->handPosition = BALL_TOP_FIRST;
-            else
-                sBirchCaseDataPtr->handPosition += 1;
-        }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move down
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_MIDDLE_THIRD) // top row move down
-                sBirchCaseDataPtr->handPosition = BALL_MIDDLE_FIRST;
-            else
-                sBirchCaseDataPtr->handPosition += 1;
-        }
-        else  // bottom row move down
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_BOTTOM_SECOND) // top row move down
-                sBirchCaseDataPtr->handPosition = BALL_BOTTOM_FIRST;
-            else
-                sBirchCaseDataPtr->handPosition += 1;
-        }
+        sBirchCaseDataPtr->handPosition = (sBirchCaseDataPtr->handPosition & ~3) | ((sBirchCaseDataPtr->handPosition + 1) & 3);
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
     if(JOY_NEW(DPAD_LEFT))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move down
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_TOP_FIRST) // top row move down
-                sBirchCaseDataPtr->handPosition = BALL_TOP_FOURTH;
-            else
-                sBirchCaseDataPtr->handPosition -= 1;
-        }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move down
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_MIDDLE_FIRST) // top row move down
-                sBirchCaseDataPtr->handPosition = BALL_MIDDLE_THIRD;
-            else
-                sBirchCaseDataPtr->handPosition -= 1;
-        }
-        else  // bottom row move down
-        {
-            if(sBirchCaseDataPtr->handPosition == BALL_BOTTOM_FIRST) // top row move down
-                sBirchCaseDataPtr->handPosition = BALL_BOTTOM_SECOND;
-            else
-                sBirchCaseDataPtr->handPosition -= 1;
-        }
+        sBirchCaseDataPtr->handPosition = (sBirchCaseDataPtr->handPosition & ~3) | ((sBirchCaseDataPtr->handPosition + 3) & 3);
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
