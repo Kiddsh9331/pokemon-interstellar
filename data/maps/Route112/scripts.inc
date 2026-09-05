@@ -255,3 +255,15 @@ Interstellar_Route112_Text_WrongMayGone:
 	.string "looking back.\p"
 	.string "A JOHTO badge case, five badges\n"
 	.string "lit, swings at her hip.$"
+
+Interstellar_Route112_EventScript_CableCarDead::
+	msgbox Interstellar_Route112_Text_CableCarDead, MSGBOX_SIGN
+	end
+
+Interstellar_Route112_Text_CableCarDead:
+	.string "CABLE CAR -- OUT OF SERVICE\p"
+	.string "The car has not run since the sky\n"
+	.string "broke. The cable climbs into cloud\l"
+	.string "and does not come back down.\p"
+	.string "A note, in marker: “Use the pass.\n"
+	.string "Mind the ledges. -- F.”$"

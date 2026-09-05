@@ -1092,3 +1092,13 @@ Interstellar_Route110_Text_YoungsterPost:
 	.string "A lady with huge hair told me the\n"
 	.string "mountain up north grows flowers\l"
 	.string "now. Mountains DO that here?$"
+
+Interstellar_Route110_EventScript_SandbarScar::
+	msgbox Interstellar_Route110_Text_SandbarScar, MSGBOX_SIGN
+	end
+
+Interstellar_Route110_Text_SandbarScar:
+	.string "The channel to the generator island\n"
+	.string "drained in a single night.\p"
+	.string "The tear that drank it still hangs\n"
+	.string "over the wet sand, humming.$"

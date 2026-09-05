@@ -358,7 +358,15 @@ Interstellar_NewMauville_Text_WattsonAfter:
 	.string "her a garden.\p"
 	.string "She will pretend she is not glad\n"
 	.string "of a challenger. She is.\p"
-	.string "LAVARIDGE. West, up ROUTE 112.\p"
+	.string "And those two in the odd uniforms?\n"
+	.string "The sky has been dropping people\l"
+	.string "all over the region.\p"
+	.string "If they are down here, they are\n"
+	.string "on the mountain too.\p"
+	.string "FLANNERY should hear it from you.\p"
+	.string "LAVARIDGE. West, up ROUTE 112.\n"
+	.string "The cable car is dead -- take the\l"
+	.string "pass on foot.\p"
 	.string "Me? One more night down here.\n"
 	.string "Somebody has to sing to her.$"
 
@@ -388,3 +396,44 @@ Interstellar_NewMauville_Text_GeneratorHowls:
 	.string "The generator howls and swallows.\p"
 	.string "The dials read a number that has\n"
 	.string "no name on this side of the sky.$"
+
+Interstellar_NewMauville_EventScript_GalacticA::
+	trainerbattle_single TRAINER_INTERSTELLAR_NM_GALACTIC_A, Interstellar_NewMauville_Text_GalacticAIntro, Interstellar_NewMauville_Text_GalacticADefeat
+	msgbox Interstellar_NewMauville_Text_GalacticAPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_NewMauville_EventScript_GalacticB::
+	trainerbattle_single TRAINER_INTERSTELLAR_NM_GALACTIC_B, Interstellar_NewMauville_Text_GalacticBIntro, Interstellar_NewMauville_Text_GalacticBDefeat
+	msgbox Interstellar_NewMauville_Text_GalacticBPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_NewMauville_Text_GalacticAIntro:
+	.string "This machine drinks the sky.\p"
+	.string "The boss promised us a new world\n"
+	.string "with power like this in it.\p"
+	.string "Nobody said it would HUM.$"
+
+Interstellar_NewMauville_Text_GalacticADefeat:
+	.string "It hums in my teeth now.$"
+
+Interstellar_NewMauville_Text_GalacticAPost:
+	.string "We fell in from… later.\n"
+	.string "A lot later.\p"
+	.string "I keep waiting for orders. The\n"
+	.string "radio only gets weather.$"
+
+Interstellar_NewMauville_Text_GalacticBIntro:
+	.string "Don't touch the dials! He has been\n"
+	.string "reading them like scripture since\l"
+	.string "we landed.\p"
+	.string "If you want past us, prove the new\n"
+	.string "world has room for you.$"
+
+Interstellar_NewMauville_Text_GalacticBDefeat:
+	.string "…Fine. It has room.$"
+
+Interstellar_NewMauville_Text_GalacticBPost:
+	.string "There were others when we fell.\p"
+	.string "They went for the mountain. Said\n"
+	.string "it looked like home was burning.\p"
+	.string "It is not burning. I checked.$"

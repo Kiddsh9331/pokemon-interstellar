@@ -131,6 +131,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Interstellar_EventScript_WattsonNewMauville",
       "flag": "FLAG_INTERSTELLAR_HIDE_NEWMAUVILLE_WATTSON"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GALACTIC_GRUNT_M",
+      "x": 30,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Interstellar_NewMauville_EventScript_GalacticA",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GALACTIC_GRUNT_F",
+      "x": 34,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Interstellar_NewMauville_EventScript_GalacticB",
+      "flag": "0"
     }
   ],
   "warp_events": [

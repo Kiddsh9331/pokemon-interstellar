@@ -2330,6 +2330,24 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
         }
     }
 
+    // Interstellar: lazy field moves. Nobody in the party knows it? Anyone
+    // who could learn it may use it -- no HM, no teaching.
+    if (gSpecialVar_Result == PARTY_SIZE)
+    {
+        for (u32 i = 0; i < PARTY_SIZE; i++)
+        {
+            enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
+            if (!species)
+                break;
+            if (!GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && CanLearnTeachableMove(species, move))
+            {
+                gSpecialVar_Result = i;
+                gSpecialVar_0x8004 = species;
+                break;
+            }
+        }
+    }
+
     return FALSE;
 }
 

@@ -14922,3 +14922,53 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rollout
 - Screech
 - Swift
+
+=== TRAINER_INTERSTELLAR_NM_GALACTIC_A ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Bronzor
+Level: 29
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Confusion
+- Iron Defense
+- Hypnosis
+- Extrasensory
+
+Stunky
+Level: 30
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Poison Gas
+- Bite
+- Fury Swipes
+- Smokescreen
+
+=== TRAINER_INTERSTELLAR_NM_GALACTIC_B ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt F
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Glameow
+Level: 29
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Fake Out
+- Slash
+- Charm
+- Fury Swipes
+
+Croagunk
+Level: 30
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Poison Jab
+- Revenge
+- Taunt
+- Sucker Punch
