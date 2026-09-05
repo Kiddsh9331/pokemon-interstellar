@@ -176,7 +176,7 @@
 #define VAR_0x40A0                 0x40A0
 #define VAR_0x40A1                 0x40A1
 #define VAR_0x40A2                 0x40A2
-#define VAR_0x40A3                 0x40A3
+#define VAR_0x40A3                 0x40A3 // Interstellar: in use as VAR_CABLE_CAR_STATION_STATE (vars.h) by the revived cable car
 #define VAR_0x40A4                 0x40A4
 #define VAR_0x40A5                 0x40A5
 #define VAR_0x40A6                 0x40A6

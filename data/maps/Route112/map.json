@@ -253,6 +253,20 @@
       "elevation": 0,
       "dest_map": "MAP_FIERY_PATH",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 28,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE112_CABLE_CAR_STATION",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE112_CABLE_CAR_STATION",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
@@ -276,22 +290,6 @@
     }
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 28,
-      "y": 27,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Interstellar_Route112_EventScript_CableCarDead"
-    },
-    {
-      "type": "sign",
-      "x": 29,
-      "y": 27,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Interstellar_Route112_EventScript_CableCarDead"
-    },
     {
       "type": "sign",
       "x": 19,

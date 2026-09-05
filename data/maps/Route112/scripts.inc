@@ -135,10 +135,10 @@ Route112_Text_CantLetAnyonePassUntilTheyreBack:
 	.string "we're not to let anyone pass, right.$"
 
 Route112_Text_NotEasyToGetBackToLavaridge:
-	.string "The cable car's dead and the ledges\n"
-	.string "only go one way.\p"
-	.string "Someone cut a path through them\n"
-	.string "last week. The rift, or a kid with a\l"
+	.string "The cable car runs again -- WATTSON\n"
+	.string "put it on his grid.\p"
+	.string "And someone cut a path through the\n"
+	.string "ledges. The rift, or a kid with a\l"
 	.string "shovel.\p"
 	.string "Either way, thank you.$"
 
@@ -258,15 +258,3 @@ Interstellar_Route112_Text_WrongMayGone:
 	.string "looking back.\p"
 	.string "A JOHTO badge case, five badges\n"
 	.string "lit, swings at her hip.$"
-
-Interstellar_Route112_EventScript_CableCarDead::
-	msgbox Interstellar_Route112_Text_CableCarDead, MSGBOX_SIGN
-	end
-
-Interstellar_Route112_Text_CableCarDead:
-	.string "CABLE CAR -- OUT OF SERVICE\p"
-	.string "The car has not run since the sky\n"
-	.string "broke. The cable climbs into cloud\l"
-	.string "and does not come back down.\p"
-	.string "A note, in marker: “Use the pass.\n"
-	.string "Mind the ledges. -- F.”$"

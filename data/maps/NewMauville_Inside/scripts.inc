@@ -364,9 +364,10 @@ Interstellar_NewMauville_Text_WattsonAfter:
 	.string "If they are down here, they are\n"
 	.string "on the mountain too.\p"
 	.string "FLANNERY should hear it from you.\p"
-	.string "LAVARIDGE. West, up ROUTE 112.\n"
-	.string "The cable car is dead -- take the\l"
-	.string "pass on foot.\p"
+	.string "LAVARIDGE. West, up ROUTE 112.\p"
+	.string "The cable car runs on my grid now.\n"
+	.string "It holds. Mostly. The pass is there\l"
+	.string "if it does not.\p"
 	.string "Me? One more night down here.\n"
 	.string "Somebody has to sing to her.$"
 

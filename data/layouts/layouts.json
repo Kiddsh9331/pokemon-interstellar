@@ -1385,7 +1385,10 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/CableCarStation/border.bin",
       "blockdata_filepath": "data/layouts/CableCarStation/map.bin",
-      "layout_version": "emerald"
+      "layout_version": "frlg",
+    "layout_format": "emerald",
+    "border_width": 2,
+    "border_height": 2
     },
     {
       "id": "LAYOUT_ROUTE114_FOSSIL_MANIACS_HOUSE",

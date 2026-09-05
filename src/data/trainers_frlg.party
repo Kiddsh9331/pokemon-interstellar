@@ -14086,7 +14086,7 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 === TRAINER_LEADER_WATTSON ===
 Name: WATTSON
 Class: Leader Frlg
-Pic: Leader Brock Frlg
+Pic: Leader Wattson
 Gender: Male
 Music: Male
 Double Battle: No
@@ -14124,7 +14124,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 === TRAINER_LEADER_FLANNERY ===
 Name: FLANNERY
 Class: Leader Frlg
-Pic: Leader Misty Frlg
+Pic: Leader Flannery
 Gender: Female
 Music: Female
 Double Battle: No
