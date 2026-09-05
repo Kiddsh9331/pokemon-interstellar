@@ -810,51 +810,47 @@ Route110_Text_BrendanExplainItemfinder:
 	.string "POKéMON.$"
 
 Route110_Text_RideBikeAtFullSpeed:
-	.string "Wouldn't it be great to ride a BIKE\n"
-	.string "at full speed on CYCLING ROAD?$"
+	.string "Wouldn't it be great to ride the\n"
+	.string "CYCLING ROAD at full speed?\p"
+	.string "Dad says not till the humming stops.\n"
+	.string "The humming isn't stopping.$"
 
 Route110_Text_HairStreamsBehindMe:
-	.string "How do you like the way my raven-\n"
-	.string "colored hair streams behind me?\p"
-	.string "I grew my hair out just for that.$"
+	.string "How do you like the way my hair\n"
+	.string "streams behind me?\p"
+	.string "On the high road it streams UP,\n"
+	.string "some days. I try not to think about\l"
+	.string "it.$"
 
 Route110_Text_YouGotBikeFromRydel:
-	.string "Oh, hey, you got that BIKE from RYDEL!\p"
-	.string "Oh, it's glaringly obvious.\n"
-	.string "It says right on your bike…\p"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\n"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\p"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\n"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\p"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\n"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\p"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\n"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\p"
-	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL…\n"
-	.string "That name's everywhere.\p"
-	.string "You should ride it around all over\n"
-	.string "the place--it's good advertising!$"
+	.string "A RYDEL bike! Say what you like,\n"
+	.string "the man still opens every morning.\p"
+	.string "RYDEL, RYDEL, RYDEL… the name is on\n"
+	.string "everything that still rolls.$"
 
 Route110_Text_TwoRoads:
-	.string "The two roads, one above, one below…\p"
-	.string "A road each for people and POKéMON.\n"
+	.string "Two roads, one above, one below.\p"
+	.string "The upper one hums with the rift.\n"
+	.string "The lower one floods.\p"
 	.string "Perhaps that is right and fair.$"
 
 Route110_Text_WalkOnTheLowRoad:
-	.string "I don't have a BIKE, so I'll take\n"
-	.string "a leisurely walk on the low road.$"
+	.string "No BIKE for me. The low road, on\n"
+	.string "foot, in the wet.\p"
+	.string "Forty years I've walked it. It has\n"
+	.string "never been this quiet.$"
 
 Route110_Text_BikeTechniques:
-	.string "Learning techniques will make BIKE\n"
-	.string "riding even more fun.\p"
-	.string "There are some places that you can\n"
-	.string "reach only by using a BIKE technique.$"
+	.string "BIKE techniques still matter.\p"
+	.string "The road up top skips now, like a\n"
+	.string "record. Little jumps under you.\p"
+	.string "Learn to hop or learn to fall.$"
 
 Route110_Text_WhichShouldIChoose:
-	.string "Which should I choose?\p"
-	.string "Make a beeline for MAUVILLE on\n"
-	.string "CYCLING ROAD, or take the low road\l"
-	.string "and look for POKéMON?$"
+	.string "Which should I take?\p"
+	.string "The CYCLING ROAD hums since the sky\n"
+	.string "broke. The low road just rains.\p"
+	.string "I'll take the rain.$"
 
 Route110_Text_CyclingChallengeResultSummary:
 	.string "Number of collisions:\n"
@@ -900,9 +896,11 @@ Route110_Text_RatedForNumberOfCollisions:
 	.string "and your total time.$"
 
 Route110_Text_AlwaysAimHigher:
-	.string "Regardless of the results, I count on\n"
-	.string "seeing more challenges from you.\l"
-	.string "Always aim higher!$"
+	.string "Whatever the sky does, a road is\n"
+	.string "still a road.\p"
+	.string "I'll be here timing runs when the\n"
+	.string "weather is a year again.\p"
+	.string "Aim higher!$"
 
 Route110_Text_AcroBikesDoNotQualify:
 	.string "On this CYCLING ROAD, those riding\n"

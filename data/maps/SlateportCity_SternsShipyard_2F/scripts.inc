@@ -10,13 +10,15 @@ SlateportCity_SternsShipyard_2F_EventScript_Scientist2::
 	end
 
 SlateportCity_SternsShipyard_2F_Text_ShipDesignMoreLikeBuilding:
-	.string "Designing a large ship is more like\n"
-	.string "making a big building than putting\l"
-	.string "together a transportation vehicle.$"
+	.string "Designing a ship is like designing\n"
+	.string "a building.\p"
+	.string "Designing one for the rift storm is\n"
+	.string "like designing a building that\l"
+	.string "argues back.$"
 
 SlateportCity_SternsShipyard_2F_Text_FloatsBecauseBuoyancy:
-	.string "Don't you think it's strange that\n"
-	.string "a ship made of heavy iron floats?\p"
-	.string "It floats because of a principle\n"
-	.string "called buoyancy.$"
+	.string "Iron floats because of buoyancy.\p"
+	.string "Past the reef, the water has stopped\n"
+	.string "agreeing to that.\p"
+	.string "We chart where. CAPT. STERN insists.$"
 

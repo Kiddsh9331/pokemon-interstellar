@@ -291,17 +291,21 @@ SlateportCity_BattleTentLobby_Text_ExplainTorment:
 	.string "I'm not laying a torment on you!$"
 
 SlateportCity_BattleTentLobby_Text_IllTryUsingBugMons:
-	.string "I don't really like BUG POKéMON,\n"
-	.string "but maybe I'll try using some for\l"
-	.string "a change of pace.\p"
-	.string "Who knows, I might even get to like\n"
-	.string "them!$"
+	.string "I don't love BUG POKéMON.\p"
+	.string "But the forest up in KANTO went\n"
+	.string "primeval, they say, and the bugs got\l"
+	.string "big.\p"
+	.string "Maybe I should learn.$"
 
 SlateportCity_BattleTentLobby_Text_BattleEvenWithoutToughMons:
-	.string "You can battle all you want here even\n"
-	.string "if you don't have any tough POKéMON.$"
+	.string "You can battle here without tough\n"
+	.string "POKéMON.\p"
+	.string "You can battle here without a\n"
+	.string "working sky. That's the point.$"
 
 SlateportCity_BattleTentLobby_Text_NiceIfMoreSelection:
-	.string "Wouldn't it be nice if they had more of\n"
-	.string "a selection?$"
+	.string "Wouldn't it be nice if they had more\n"
+	.string "selection?\p"
+	.string "Half of them fell in from other\n"
+	.string "years, so at least they're varied.$"
 

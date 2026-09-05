@@ -352,43 +352,44 @@ LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare:
 	.string "Or at least that's how the rumor goes.$"
 
 LavaridgeTown_Text_HotSpringsNeverRunDry:
-	.string "We draw as much hot water as we need,\n"
-	.string "and yet the hot springs never run dry.\p"
-	.string "Isn't it magical?\p"
-	.string "These hot springs appear near active\n"
-	.string "volcanoes. Veins of water under the\l"
-	.string "ground are heated by magma to well up\l"
-	.string "as hot springs.$"
+	.string "We drew hot water for a hundred\n"
+	.string "years and it never ran dry.\p"
+	.string "Now it runs clear and cold, from a\n"
+	.string "volcano that grows flowers.\p"
+	.string "I'm too old to be angry at a garden.$"
 
 LavaridgeTown_Text_PokemonNippedBackside:
-	.string "Being buried in this hot sand is…\n"
-	.string "Sigh…\p"
-	.string "So warm and heavenly…\p"
-	.string "Eh? Gyaah! Ouch!\p"
-	.string "A POKéMON nipped my backside!$"
+	.string "Buried in the sand… it used to be\n"
+	.string "warm…\p"
+	.string "Eh? Gyaah!\p"
+	.string "A POKéMON nipped my backside!\n"
+	.string "A BUDEW. In LAVARIDGE. Honestly.$"
 
 LavaridgeTown_Text_OhYouLikeHotSprings:
-	.string "Oh, you like hot springs, do you?\p"
-	.string "That's surprising for one as young\n"
-	.string "as you.$"
+	.string "You like hot springs?\p"
+	.string "They went cold the morning the sky\n"
+	.string "broke. Cold and sweet, like snowmelt.\p"
+	.string "I still sit in them. Habit.$"
 
 LavaridgeTown_Text_BatheInHotSpringsEveryDay:
-	.string "I bathe in the hot springs every day.\p"
-	.string "I want to become a beautiful and strong\n"
-	.string "GYM LEADER like FLANNERY.$"
+	.string "I still bathe every day, cold or not.\p"
+	.string "I want to be strong like FLANNERY.\p"
+	.string "She went up the mountain to look at\n"
+	.string "it. She hasn't stopped looking.$"
 
 LavaridgeTown_Text_IfPokemonInHotSprings:
-	.string "If people put POKéMON in hot springs,\n"
-	.string "it might be seriously strange.\p"
-	.string "Why, it might be an electric bath, or\n"
-	.string "a bubble bath, or even a lava bath…$"
+	.string "If people put POKéMON in the springs\n"
+	.string "now, it might be seriously strange.\p"
+	.string "A cold bath, a moss bath, a bath\n"
+	.string "from a different century…$"
 
 LavaridgeTown_Text_HotSpringsClaims:
-	.string "They're claiming that these hot springs\n"
-	.string "are good for calming nervous tension,\l"
-	.string "relieving aching muscles, solving\l"
-	.string "romantic problems, and attracting\l"
-	.string "money…$"
+	.string "They used to claim these springs\n"
+	.string "cured nerves, aches, romance and\l"
+	.string "money.\p"
+	.string "Now they only claim the water is\n"
+	.string "from somewhere else.\p"
+	.string "That one's true.$"
 
 LavaridgeTown_Text_TownSign:
 	.string "LAVARIDGE TOWN\p"

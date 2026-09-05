@@ -1147,29 +1147,30 @@ SlateportCity_Text_EffortRibbonLooksGoodOnIt:
 	.string "RIBBON looks good on it!$"
 
 SlateportCity_Text_WonderIfLighthouseStartlesPokemon:
-	.string "The light of the lighthouse reaches\n"
-	.string "dozens of miles away.\p"
-	.string "I wonder if it doesn't startle POKéMON\n"
-	.string "in the sea.$"
+	.string "The lighthouse still turns.\p"
+	.string "Some nights the beam hits something\n"
+	.string "past the reef and doesn't come back.\p"
+	.string "The keeper stopped mentioning it.$"
 
 SlateportCity_Text_SeaweedFullOfLife:
-	.string "Ooh, look at this!\p"
-	.string "The seaweed you can get around these\n"
-	.string "parts is fresh and full of life.\p"
-	.string "Why, it looks like it can even rear up\n"
-	.string "and attack!$"
+	.string "Ooh, look at this seaweed!\p"
+	.string "It came in on the tide from… I don't\n"
+	.string "know where. It isn't from any coast\l"
+	.string "I know.\p"
+	.string "Tastes fine, though.$"
 
 SlateportCity_Text_HowTownIsBornAndGrows:
 	.string "Where the water is clean, the fruits\n"
-	.string "of bountiful harvest gather.\p"
-	.string "And where people gather, a market\n"
-	.string "soon starts.\p"
-	.string "That is how a town is born and grows.$"
+	.string "of harvest gather.\p"
+	.string "Where people gather, a market starts.\p"
+	.string "And when the sky breaks, the market\n"
+	.string "stays. That is how a town survives.$"
 
 SlateportCity_Text_SlateportWonderfulPlace:
-	.string "Shopping where you can breathe the\n"
-	.string "scent of the ocean…\p"
-	.string "SLATEPORT is such a wonderful place!$"
+	.string "Shopping with the scent of the ocean…\p"
+	.string "It smells different since the sky\n"
+	.string "broke. Older. Like a photograph.\p"
+	.string "Still wonderful, though.$"
 
 SlateportCity_Text_BuyBricksSoDecorWontGetDirty:
 	.string "If you put DOLLS or CUSHIONS on\n"
@@ -1179,27 +1180,29 @@ SlateportCity_Text_BuyBricksSoDecorWontGetDirty:
 	.string "when I leave them out.$"
 
 SlateportCity_Text_GoingToCompeteInBattleTent:
-	.string "Wroooar! I'm going to compete in\n"
-	.string "the BATTLE TENT, too!\p"
-	.string "But before that, I need to catch\n"
-	.string "some POKéMON!$"
+	.string "Wroooar! The BATTLE TENT still runs!\n"
+	.string "On a generator, but it runs!\p"
+	.string "I'm going to compete. You need\n"
+	.string "somewhere to put the feeling.$"
 
 SlateportCity_Text_BushedHikingFromMauville:
-	.string "Whew… I'm just bushed…\p"
-	.string "I hiked over from MAUVILLE CITY.\n"
-	.string "But, boy, this city's huge.\p"
-	.string "If I'd known this, I would've ridden\n"
-	.string "my BIKE here.$"
+	.string "Whew… I walked down from MAUVILLE.\p"
+	.string "Half the lights up there are out.\n"
+	.string "Down here the market never stopped.\p"
+	.string "People are like that. The sky breaks,\n"
+	.string "and we shop.$"
 
 SlateportCity_Text_EveryoneCallsHimCaptStern:
-	.string "STERN, the fellow who built the\n"
-	.string "MUSEUM, also happens to be the leader\l"
-	.string "of an undersea exploration team.\p"
-	.string "So, everyone calls him CAPT. STERN.$"
+	.string "CAPT. STERN built the MUSEUM and ran\n"
+	.string "the undersea expeditions.\p"
+	.string "Now he charts the tears in the sea.\n"
+	.string "Same job, he says. Deeper water.$"
 
 SlateportCity_Text_WhatsLongLineOverThere:
-	.string "What is that over there?\n"
-	.string "That long line…$"
+	.string "See that line?\p"
+	.string "The rangers post the rift readings\n"
+	.string "every morning.\p"
+	.string "Everybody checks. Nobody says why.$"
 
 SlateportCity_Text_VisitedMuseumOften:
 	.string "When I was a child, I visited\n"
@@ -1271,38 +1274,42 @@ SlateportCity_Text_HotSpringsAfterOperation:
 	.string "I can't wait!$"
 
 SlateportCity_Text_SeaIsSoWet:
-	.string "The sea is just so vast…\p"
-	.string "Could the sea have been made by\n"
-	.string "the tears shed by POKéMON?$"
+	.string "The sea is so vast…\p"
+	.string "And now there are places in it you\n"
+	.string "can't sail. The water just… stops\l"
+	.string "being water.\p"
+	.string "The rangers mark them with buoys.$"
 
 SlateportCity_Text_SinkOldBoats:
-	.string "Do you know what they do with old\n"
-	.string "ships that become too creaky to sail?\p"
-	.string "They sink them in the sea so they\n"
-	.string "become habitats for POKéMON.$"
+	.string "We used to sink old ships so POKéMON\n"
+	.string "could live in them.\p"
+	.string "A ship came UP last week.\n"
+	.string "Nobody sank it. Nobody built it yet.$"
 
 SlateportCity_Text_BuyTooMuch:
-	.string "Whenever I visit here, I get carried\n"
-	.string "away and buy too much.$"
+	.string "Whenever I visit, I buy too much.\p"
+	.string "The tears took the road east, so\n"
+	.string "what I buy here, stays here.$"
 
 SlateportCity_Text_GetNameRaterToHelpYou:
-	.string "If you want to change your POKéMON's\n"
-	.string "nickname, you'll have to get the NAME\l"
-	.string "RATER to help you.$"
+	.string "Want to change a nickname? The NAME\n"
+	.string "RATER is still in business.\p"
+	.string "Names are the one thing the rifts\n"
+	.string "haven't touched, he says.$"
 
 SlateportCity_Text_CantChangeTradeMonName:
-	.string "Any POKéMON you get in a trade,\n"
-	.string "you can't change its nickname.\p"
-	.string "The original TRAINER's love for that\n"
-	.string "POKéMON is in the nickname.$"
+	.string "A traded POKéMON keeps its nickname.\p"
+	.string "The old TRAINER's love is in it.\p"
+	.string "Some of those TRAINERS aren't in\n"
+	.string "this year anymore. The name is.$"
 
 SlateportCity_Text_BattleTentBuiltRecently:
-	.string "Recently, a BATTLE TENT was built\n"
-	.string "in SLATEPORT.\p"
-	.string "GYMS are fun, but the BATTLE TENT's\n"
-	.string "awesome in its own way.\p"
-	.string "You should go find tough POKéMON\n"
-	.string "for the BATTLE TENT!$"
+	.string "The BATTLE TENT was built just before\n"
+	.string "the sky broke.\p"
+	.string "Funny. It's the busiest place in\n"
+	.string "town now.\p"
+	.string "GYMS are for later. The TENT is for\n"
+	.string "tonight.$"
 
 SlateportCity_Text_CaptSternBeingInterviewed:
 	.string "I was hoping that it was a famous star\n"

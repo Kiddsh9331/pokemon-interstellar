@@ -29,10 +29,11 @@ Route111_OldLadysRestStop_EventScript_DeclineRest::
 	end
 
 Route111_OldLadysRestStop_Text_RestUpHere:
-	.string "Oh, dear, dear.\n"
-	.string "Aren't your POKéMON exhausted?\p"
-	.string "If you'd like, rest up here.\n"
-	.string "That's a fine idea! You should do that.$"
+	.string "Oh, dear, dear. Your POKéMON look\n"
+	.string "exhausted.\p"
+	.string "The rain doesn't stop out here.\p"
+	.string "Rest up. That's what this stop is\n"
+	.string "for, whatever the year.$"
 
 Route111_OldLadysRestStop_Text_TakeYourTimeRestUp:
 	.string "That's right.\n"

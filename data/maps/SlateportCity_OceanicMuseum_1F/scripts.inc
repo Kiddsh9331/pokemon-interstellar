@@ -228,7 +228,10 @@ SlateportCity_OceanicMuseum_1F_Text_WouldYouLikeToEnter:
 	.string "Would you like to enter?$"
 
 SlateportCity_OceanicMuseum_1F_Text_PleaseEnjoyYourself:
-	.string "Please enjoy yourself.$"
+	.string "Please enjoy yourself.\p"
+	.string "The new wing is about the rifts.\p"
+	.string "CAPT. STERN insists on the word\n"
+	.string "“exhibit.” We say “wound.”$"
 
 SlateportCity_OceanicMuseum_1F_Text_NotEnoughMoney:
 	.string "Oh? I'm sorry, but you don't seem to\n"

@@ -128,14 +128,15 @@ SlateportCity_SternsShipyard_1F_Text_DecidedToHelpDock:
 	.string "build one great ship, aye!$"
 
 SlateportCity_SternsShipyard_1F_Text_SeaIsLikeLivingThing:
-	.string "The seasons, the weather, where\n"
-	.string "the moon sits in the sky…\p"
-	.string "These and other conditions make\n"
-	.string "the sea change its expression.\p"
-	.string "That's right!\n"
-	.string "The sea is like a living thing!$"
+	.string "Seasons, weather, the moon…\p"
+	.string "The sea changes its face for all of\n"
+	.string "them. Now it changes for the rifts.\p"
+	.string "It is like a living thing.\n"
+	.string "A hurt one.$"
 
 SlateportCity_SternsShipyard_1F_Text_GetSeasickEasily:
-	.string "I get seasick real easily.\n"
-	.string "So I get to help out here instead.$"
+	.string "I get seasick easily.\p"
+	.string "So I'm here, drawing the launch that\n"
+	.string "goes to the SKY PILLAR storm.\p"
+	.string "Someone braver will sail it.$"
 

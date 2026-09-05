@@ -58,7 +58,9 @@ LavaridgeTown_HerbShop_Text_ExplainCharcoal:
 	.string "moves.$"
 
 LavaridgeTown_HerbShop_Text_HerbalMedicineWorksButMonWillDislike:
-	.string "Herbal medicine works impressively well.\n"
-	.string "But your POKéMON will dislike you for it.\l"
-	.string "It must be horribly bitter!$"
+	.string "Herbal medicine works. Your POKéMON\n"
+	.string "will hate you for it. Bitter!\p"
+	.string "The herbs grow on the volcano now.\n"
+	.string "That part is new.\p"
+	.string "The bitter is not.$"
 

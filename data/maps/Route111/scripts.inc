@@ -623,17 +623,18 @@ Route111_Text_VickyPostBattle:
 	.string "visit with us awhile.$"
 
 Route111_Text_ToughToKeepWinningUpTheRanks:
-	.string "If you don't raise your POKéMON some\n"
-	.string "more, it could be tough to keep winning\l"
-	.string "up through the ranks.\p"
-	.string "I've heard the POKéMON LEAGUE's\n"
-	.string "ELITE FOUR are far stronger than\l"
-	.string "any GYM LEADER.$"
+	.string "Keep raising your POKéMON.\p"
+	.string "The marsh out here breeds them\n"
+	.string "strange and strong.\p"
+	.string "A LEAGUE is coming, they say. One for\n"
+	.string "everybody, from every year.$"
 
 Route111_Text_WinstrateFamilyDestroyedMe:
-	.string "I challenged the WINSTRATE family,\n"
-	.string "but four matches in a row is tough\l"
-	.string "going… They destroyed me.$"
+	.string "I challenged the WINSTRATE family.\p"
+	.string "Four matches in the rain. They\n"
+	.string "destroyed me.\p"
+	.string "The sky breaks and that family just\n"
+	.string "keeps training. Unreal.$"
 
 Route111_Text_RouteSignMauville:
 	.string "ROUTE 111\n"
@@ -664,11 +665,12 @@ Route111_Text_TrainerTipsSpAtkSpDef:
 	.string "DEFENSE.”$"
 
 Route111_Text_ShouldBeMirageTowerAroundHere:
-	.string "There should be a tower made of sand\n"
-	.string "around here somewhere.\p"
-	.string "But for some reason, it can be seen\n"
-	.string "sometimes, and sometimes not.\p"
-	.string "That's why I call it the MIRAGE TOWER.$"
+	.string "There was a tower of sand out here.\n"
+	.string "You could see it, some days.\p"
+	.string "Then the desert turned to marsh and\n"
+	.string "the tower was gone for good.\p"
+	.string "Maybe it was only ever a day that\n"
+	.string "hadn't happened.$"
 
 Route111_Text_MirageTowerClearlyVisible:
 	.string "I see it!\n"
