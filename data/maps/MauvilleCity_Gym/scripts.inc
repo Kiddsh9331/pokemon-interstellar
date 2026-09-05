@@ -120,8 +120,11 @@ Interstellar_MauvilleGym_Text_WattsonSendOff:
 	.string "Maybe they did.\p"
 	.string "The DYNAMO BADGE is not on this\n"
 	.string "floor today. It is down THERE.\p"
-	.string "ROUTE 110, the door in the south\n"
-	.string "rock. I will tell it to expect you.\p"
+	.string "ROUTE 110, the rock island off the\n"
+	.string "east shore, past the TRICK HOUSE.\p"
+	.string "The channel to it drained the night\n"
+	.string "the sky broke. Walk the sand.\p"
+	.string "I will tell the door to expect you.\p"
 	.string "Meet me in the humming dark!$"
 
 Interstellar_MauvilleGym_Text_WattsonAlreadyGone:
