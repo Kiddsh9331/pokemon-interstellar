@@ -48,6 +48,7 @@ static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
 static void QueueAnimTiles_General_Waterfall(u16);
 static void QueueAnimTiles_General_LandWaterEdge(u16);
+static void QueueAnimTiles_General_Void(u16); // Interstellar: rift-void border twinkle
 static void QueueAnimTiles_Building_TVTurnedOn(u16);
 static void QueueAnimTiles_Rustboro_WindyWater(u16, u8);
 static void QueueAnimTiles_Rustboro_Fountain(u16);
@@ -73,6 +74,17 @@ static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
 static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
+
+// Interstellar: the rift void (layout border on sealed maps) -- stars twinkle in tiles 490..495
+const u16 gTilesetAnims_General_Void_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/void/0.png", ".4bpp");
+const u16 gTilesetAnims_General_Void_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/void/1.png", ".4bpp");
+const u16 gTilesetAnims_General_Void_Frame2[] = INCGFX_U16("data/tilesets/primary/general/anim/void/2.png", ".4bpp");
+const u16 *const gTilesetAnims_General_Void[] = {
+    gTilesetAnims_General_Void_Frame0, gTilesetAnims_General_Void_Frame0, gTilesetAnims_General_Void_Frame0,
+    gTilesetAnims_General_Void_Frame0, gTilesetAnims_General_Void_Frame1, gTilesetAnims_General_Void_Frame0,
+    gTilesetAnims_General_Void_Frame0, gTilesetAnims_General_Void_Frame0, gTilesetAnims_General_Void_Frame2,
+    gTilesetAnims_General_Void_Frame0, gTilesetAnims_General_Void_Frame1, gTilesetAnims_General_Void_Frame2,
+};
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/1.png", ".4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/0.png", ".4bpp");
@@ -641,6 +653,8 @@ static void TilesetAnim_General(u16 timer)
         QueueAnimTiles_General_Waterfall(timer / 16);
     if (timer % 16 == 4)
         QueueAnimTiles_General_LandWaterEdge(timer / 16);
+    if (timer % 16 == 5)
+        QueueAnimTiles_General_Void(timer / 16);
 }
 
 static void TilesetAnim_Building(u16 timer)
@@ -665,6 +679,12 @@ static void QueueAnimTiles_General_SandWaterEdge(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_General_SandWaterEdge);
     AppendTilesetAnimToBuffer(gTilesetAnims_General_SandWaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(464)), 10 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_General_Void(u16 timer)
+{
+    u16 i = (timer / 3) % ARRAY_COUNT(gTilesetAnims_General_Void);
+    AppendTilesetAnimToBuffer(gTilesetAnims_General_Void[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(490)), 6 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_General_Waterfall(u16 timer)
