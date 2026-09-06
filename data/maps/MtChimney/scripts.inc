@@ -11,12 +11,11 @@ MtChimney_OnTransition:
 
 Interstellar_MtChimney_EventScript_SyncFlannery::
 	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
-	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR
+	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS
+	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL
 	goto_if_lt VAR_INTERSTELLAR_STATE, 12, Interstellar_MtChimney_EventScript_SyncFlanneryDone
 	goto_if_ge VAR_INTERSTELLAR_STATE, 13, Interstellar_MtChimney_EventScript_SyncFlanneryDone
 	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
-	goto_if_set FLAG_INTERSTELLAR_CHIMNEY_TAG_DONE, Interstellar_MtChimney_EventScript_SyncFlanneryDone
-	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR
 Interstellar_MtChimney_EventScript_SyncFlanneryDone::
 	return
 
@@ -459,12 +458,6 @@ MtChimney_EventScript_AquaPoochyena::
 	msgbox MtChimney_Text_Bushaa, MSGBOX_SIGN
 	end
 
-MtChimney_EventScript_MeteoriteMachine::
-	lockall
-	msgbox Interstellar_MtChimney_Text_OldSurveyRig, MSGBOX_DEFAULT
-	releaseall
-	end
-
 MtChimney_EventScript_MeteoriteMachineUnused::
 	lockall
 	goto_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_MachineOn
@@ -889,16 +882,55 @@ Interstellar_EventScript_FlanneryChimney::
 	msgbox Interstellar_MtChimney_Text_FlanneryGardenIntro, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_TEMP_4, 1
-	@ The displaced MAGMA pair has been listening from the rim.
-	playse SE_PIN
+	goto Interstellar_MtChimney_EventScript_RimGateOpens
+	end
+
+@ The scar on the shore was never quite closed. It opens for two men who
+@ have already lived through all of this, and are not the men who did it.
+Interstellar_MtChimney_EventScript_RimGateOpens::
+	msgbox Interstellar_MtChimney_Text_ScarSplits, MSGBOX_DEFAULT
+	closemessage
+	turnobject LOCALID_PLAYER, DIR_EAST
+	turnobject 31, DIR_EAST
+	delay 12
+	playse SE_THUNDER
+	fadescreenspeed FADE_TO_WHITE, 1
+	removeobject 36
+	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL
+	addobject 37
+	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS
+	addobject 34
+	addobject 35
+	fadescreenspeed FADE_FROM_WHITE, 1
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 3
+	special ShakeCamera
+	waitstate
+	delay 20
 	applymovement 34, Common_Movement_ExclamationMark
+	applymovement 35, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement 34, Interstellar_MtChimney_Movement_PairApproach
-	applymovement 35, Interstellar_MtChimney_Movement_PairApproach
-	waitmovement 0
-	msgbox Interstellar_MtChimney_Text_MagmaAWake, MSGBOX_DEFAULT
-	msgbox Interstellar_MtChimney_Text_MagmaBFell, MSGBOX_DEFAULT
-	msgbox Interstellar_MtChimney_Text_FlanneryNotHis, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_MaxieMtChimney, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_ArchieCold, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_MaxieSettled, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_ArchieWhyHere, MSGBOX_DEFAULT
+	closemessage
+	turnobject 31, DIR_EAST
+	msgbox Interstellar_MtChimney_Text_FlanneryMyMountain, MSGBOX_DEFAULT
+	closemessage
+	turnobject 34, DIR_NORTH
+	delay 16
+	turnobject 34, DIR_WEST
+	msgbox Interstellar_MtChimney_Text_MaxieMeteoriteGone, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_ArchieHandOff, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_MaxieOldHabits, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_ArchieOldest, MSGBOX_DEFAULT
+	closemessage
+	turnobject 31, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_WEST
+	msgbox Interstellar_MtChimney_Text_FlanneryNotOnMyRim, MSGBOX_DEFAULT
 Interstellar_MtChimney_EventScript_TagPrompt::
 	msgbox Interstellar_MtChimney_Text_FlanneryPickThree, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, Interstellar_MtChimney_EventScript_TagChooseParty
@@ -915,7 +947,7 @@ Interstellar_MtChimney_EventScript_TagChooseParty::
 	goto Interstellar_MtChimney_EventScript_TagPrompt
 
 Interstellar_MtChimney_EventScript_DoTagBattle::
-	multi_2_vs_2 TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_A, Interstellar_MtChimney_Text_MagmaALose, TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_B, Interstellar_MtChimney_Text_MagmaBLose, PARTNER_FLANNERY
+	multi_2_vs_2 TRAINER_INTERSTELLAR_CHIMNEY_MAXIE, Interstellar_MtChimney_Text_MaxieLose, TRAINER_INTERSTELLAR_CHIMNEY_ARCHIE, Interstellar_MtChimney_Text_ArchieLose, PARTNER_FLANNERY
 	switch VAR_RESULT
 	case 1, Interstellar_MtChimney_EventScript_TagWon
 	fadescreen FADE_TO_BLACK
@@ -924,15 +956,26 @@ Interstellar_MtChimney_EventScript_DoTagBattle::
 Interstellar_MtChimney_EventScript_TagWon::
 	special LoadPlayerParty
 	setflag FLAG_INTERSTELLAR_CHIMNEY_TAG_DONE
-	msgbox Interstellar_MtChimney_Text_MagmaADidntWake, MSGBOX_DEFAULT
-	msgbox Interstellar_MtChimney_Text_MagmaBComeAway, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_MaxieItsOver, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_ArchieNotThoseMen, MSGBOX_DEFAULT
+	msgbox Interstellar_MtChimney_Text_MaxieBackThrough, MSGBOX_DEFAULT
 	closemessage
-	applymovement 35, Interstellar_MtChimney_Movement_PairLeave
-	applymovement 34, Interstellar_MtChimney_Movement_PairLeave
-	waitmovement 0
+	turnobject 34, DIR_EAST
+	turnobject 35, DIR_EAST
+	delay 24
+	playse SE_M_TELEPORT
+	fadescreenspeed FADE_TO_WHITE, 1
 	removeobject 34
 	removeobject 35
-	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR
+	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS
+	removeobject 37
+	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL
+	addobject 36
+	fadescreenspeed FADE_FROM_WHITE, 1
+	delay 20
+	turnobject 31, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_WEST
+	msgbox Interstellar_MtChimney_Text_FlanneryWritingThatDown, MSGBOX_DEFAULT
 	msgbox Interstellar_MtChimney_Text_FlanneryBadgePart, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_INTERSTELLAR_STATE, 13
@@ -945,16 +988,40 @@ Interstellar_MtChimney_EventScript_TagWon::
 	release
 	end
 
-Interstellar_MtChimney_EventScript_MagmaPairA::
-	msgbox Interstellar_MtChimney_Text_MagmaPairAIdle, MSGBOX_NPC
+Interstellar_MtChimney_EventScript_MaxieIdle::
+	msgbox Interstellar_MtChimney_Text_MaxieIdle, MSGBOX_NPC
 	end
 
-Interstellar_MtChimney_EventScript_MagmaPairB::
-	msgbox Interstellar_MtChimney_Text_MagmaPairBIdle, MSGBOX_NPC
+Interstellar_MtChimney_EventScript_ArchieIdle::
+	msgbox Interstellar_MtChimney_Text_ArchieIdle, MSGBOX_NPC
 	end
 
-Interstellar_MtChimney_EventScript_PairScar::
-	msgbox Interstellar_MtChimney_Text_PairScar, MSGBOX_SIGN
+Interstellar_MtChimney_EventScript_RimScar::
+	msgbox Interstellar_MtChimney_Text_RimScar, MSGBOX_SIGN
+	end
+
+Interstellar_MtChimney_EventScript_RimGate::
+	msgbox Interstellar_MtChimney_Text_RimGate, MSGBOX_SIGN
+	end
+
+Interstellar_MtChimney_EventScript_GalacticGrunt::
+	trainerbattle_single TRAINER_INTERSTELLAR_SUMMIT_GALACTIC, Interstellar_MtChimney_Text_GalacticIntro, Interstellar_MtChimney_Text_GalacticDefeat
+	msgbox Interstellar_MtChimney_Text_GalacticPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_MtChimney_EventScript_MagmaGruntF::
+	trainerbattle_single TRAINER_INTERSTELLAR_SUMMIT_MAGMA_F, Interstellar_MtChimney_Text_MagmaFIntro, Interstellar_MtChimney_Text_MagmaFDefeat
+	msgbox Interstellar_MtChimney_Text_MagmaFPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_MtChimney_EventScript_AquaGruntF::
+	trainerbattle_single TRAINER_INTERSTELLAR_SUMMIT_AQUA_F, Interstellar_MtChimney_Text_AquaFIntro, Interstellar_MtChimney_Text_AquaFDefeat
+	msgbox Interstellar_MtChimney_Text_AquaFPost, MSGBOX_AUTOCLOSE
+	end
+
+Interstellar_MtChimney_EventScript_RocketGruntM::
+	trainerbattle_single TRAINER_INTERSTELLAR_SUMMIT_ROCKET, Interstellar_MtChimney_Text_RocketMIntro, Interstellar_MtChimney_Text_RocketMDefeat
+	msgbox Interstellar_MtChimney_Text_RocketMPost, MSGBOX_AUTOCLOSE
 	end
 
 Interstellar_MtChimney_EventScript_AquaGrunt::
@@ -966,17 +1033,6 @@ Interstellar_MtChimney_EventScript_RocketGrunt::
 	trainerbattle_single TRAINER_INTERSTELLAR_CHIMNEY_ROCKET, Interstellar_MtChimney_Text_RocketIntro, Interstellar_MtChimney_Text_RocketDefeat
 	msgbox Interstellar_MtChimney_Text_RocketPost, MSGBOX_AUTOCLOSE
 	end
-
-Interstellar_MtChimney_Movement_PairApproach:
-	walk_left
-	step_end
-
-Interstellar_MtChimney_Movement_PairLeave:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
 
 Interstellar_MtChimney_EventScript_Todd::
 	trainerbattle_single TRAINER_INTERSTELLAR_CHIMNEY_TODD, Interstellar_MtChimney_Text_ToddIntro, Interstellar_MtChimney_Text_ToddDefeat
@@ -1014,30 +1070,6 @@ Interstellar_MtChimney_Text_FlanneryGardenIntro:
 	.string "yesterday. At this altitude.\p"
 	.string "I took notes for three hours.$"
 
-Interstellar_MtChimney_Text_MagmaAWake:
-	.string "GRUNT: Step away from the rim,\n"
-	.string "GYM LEADER.\p"
-	.string "The mountain isn't dead. It's\n"
-	.string "ASLEEP. TEAM MAGMA remembers\l"
-	.string "the fire, even if the sky forgot.\p"
-	.string "We wake it, and everything goes\n"
-	.string "back the way it was.$"
-
-Interstellar_MtChimney_Text_MagmaBFell:
-	.string "GRUNT: We fell through a hole in\n"
-	.string "the sky.\p"
-	.string "First thing he did when he stopped\n"
-	.string "shaking was check if the volcano\l"
-	.string "still worked.\p"
-	.string "I don't know what I'm checking\n"
-	.string "for anymore.$"
-
-Interstellar_MtChimney_Text_FlanneryNotHis:
-	.string "FLANNERY: You heard him. He wants\n"
-	.string "his fire back.\p"
-	.string "Funny thing. So do I.\p"
-	.string "And it's still not his to take.$"
-
 Interstellar_MtChimney_Text_FlanneryPickThree:
 	.string "FLANNERY: Two of us, two of them.\n"
 	.string "I bring three, you bring three.\p"
@@ -1047,21 +1079,6 @@ Interstellar_MtChimney_Text_FlanneryPatient:
 	.string "FLANNERY: Fix your team first.\n"
 	.string "They'll wait.\p"
 	.string "Anger that old is patient.$"
-
-Interstellar_MtChimney_Text_MagmaALose:
-	.string "The mountain didn't listen…$"
-
-Interstellar_MtChimney_Text_MagmaBLose:
-	.string "Told you. It isn't asleep.$"
-
-Interstellar_MtChimney_Text_MagmaADidntWake:
-	.string "GRUNT: …It didn't want to wake.$"
-
-Interstellar_MtChimney_Text_MagmaBComeAway:
-	.string "GRUNT: It's not asleep, and it's\n"
-	.string "not dead. It's DIFFERENT.\p"
-	.string "Come away from the edge now.\n"
-	.string "We'll figure out dinner.$"
 
 Interstellar_MtChimney_Text_FlanneryBadgePart:
 	.string "FLANNERY: So. You're climbing with\n"
@@ -1075,22 +1092,6 @@ Interstellar_MtChimney_Text_FlanneryBadgePart:
 	.string "whether fire still means anything\l"
 	.string "on this mountain.\p"
 	.string "You're going to help me decide.$"
-
-Interstellar_MtChimney_Text_MagmaPairAIdle:
-	.string "GRUNT: The lake is a mistake.\n"
-	.string "The garden is a mistake.\p"
-	.string "MAGMA can fix a mountain.\n"
-	.string "We just need it to wake up.$"
-
-Interstellar_MtChimney_Text_MagmaPairBIdle:
-	.string "GRUNT: Don't mind him.\p"
-	.string "It's easier to argue with a\n"
-	.string "volcano than to be lost.$"
-
-Interstellar_MtChimney_Text_PairScar:
-	.string "The tear the two of them fell\n"
-	.string "through, sealed to a scar.\p"
-	.string "It's still warm. Ash-warm.$"
 
 Interstellar_MtChimney_Text_AquaIntro:
 	.string "More sea! That was the entire\n"
@@ -1156,10 +1157,146 @@ Interstellar_MtChimney_Text_MimiPost:
 	.string "I hope it doesn't wake up\n"
 	.string "embarrassed.$"
 
-Interstellar_MtChimney_Text_OldSurveyRig:
-	.string "An old survey rig, bolted to the\n"
-	.string "rock. The dials are dark.\p"
-	.string "Someone has scratched a note into\n"
-	.string "the casing:\p"
-	.string "“It measured the fire. It has\n"
-	.string "nothing to say about the water.”$"
+Interstellar_MtChimney_Text_ScarSplits:
+	.string "Behind you, the scar on the shore\n"
+	.string "splits with a sound like tearing\l"
+	.string "cloth.$"
+
+Interstellar_MtChimney_Text_MaxieMtChimney:
+	.string "MAXIE: …MT. CHIMNEY.$"
+
+Interstellar_MtChimney_Text_ArchieCold:
+	.string "ARCHIE: MAXIE. Why is the crater\n"
+	.string "cold?$"
+
+Interstellar_MtChimney_Text_MaxieSettled:
+	.string "MAXIE: We settled this. Years ago.\p"
+	.string "SOOTOPOLIS, in the rain. You shook\n"
+	.string "my hand. You said we were done.$"
+
+Interstellar_MtChimney_Text_ArchieWhyHere:
+	.string "ARCHIE: I remember.\p"
+	.string "So why are we standing where it\n"
+	.string "started?$"
+
+Interstellar_MtChimney_Text_FlanneryMyMountain:
+	.string "FLANNERY: Started?\p"
+	.string "This is MY mountain. Nothing\n"
+	.string "starts here without me.$"
+
+Interstellar_MtChimney_Text_MaxieMeteoriteGone:
+	.string "MAXIE: The meteorite is gone. The\n"
+	.string "machine is gone.\p"
+	.string "If this is the day I came for\n"
+	.string "them… then this is the day I take\l"
+	.string "them back.$"
+
+Interstellar_MtChimney_Text_ArchieHandOff:
+	.string "ARCHIE: Then it's the day I stop\n"
+	.string "you. Hand off the ball, MAXIE.$"
+
+Interstellar_MtChimney_Text_MaxieOldHabits:
+	.string "MAXIE: Old habits, ARCHIE.$"
+
+Interstellar_MtChimney_Text_ArchieOldest:
+	.string "ARCHIE: The oldest.$"
+
+Interstellar_MtChimney_Text_FlanneryNotOnMyRim:
+	.string "FLANNERY: You two want to re-run\n"
+	.string "the worst day of your lives?\p"
+	.string "Not on my rim.\p"
+	.string "You. With me.$"
+
+Interstellar_MtChimney_Text_MaxieLose:
+	.string "Old habits lose, too.$"
+
+Interstellar_MtChimney_Text_ArchieLose:
+	.string "Heh. Told you, MAXIE.$"
+
+Interstellar_MtChimney_Text_MaxieItsOver:
+	.string "MAXIE: …It's over.\p"
+	.string "It was over before we fell.$"
+
+Interstellar_MtChimney_Text_ArchieNotThoseMen:
+	.string "ARCHIE: We're not those men.\p"
+	.string "The hole just remembered us\n"
+	.string "wrong.$"
+
+Interstellar_MtChimney_Text_MaxieBackThrough:
+	.string "MAXIE: The tear hums the way the\n"
+	.string "meteorite did.\p"
+	.string "We go back through it.\n"
+	.string "Together, this time.$"
+
+Interstellar_MtChimney_Text_FlanneryWritingThatDown:
+	.string "FLANNERY: …I'm writing that one\n"
+	.string "down.$"
+
+Interstellar_MtChimney_Text_MaxieIdle:
+	.string "MAXIE: I have stood here before.\n"
+	.string "I did not enjoy it then, either.$"
+
+Interstellar_MtChimney_Text_ArchieIdle:
+	.string "ARCHIE: A lake. On MY volcano.\p"
+	.string "…His volcano. Whatever.$"
+
+Interstellar_MtChimney_Text_RimScar:
+	.string "The tear on the shore, sealed to a\n"
+	.string "scar.\p"
+	.string "It's still warm. Ash-warm.$"
+
+Interstellar_MtChimney_Text_RimGate:
+	.string "The tear stands open. Through it:\n"
+	.string "rain, a handshake, a harbor at\l"
+	.string "peace.\p"
+	.string "Somebody's better year.$"
+
+Interstellar_MtChimney_Text_GalacticIntro:
+	.string "The blueprints said a lake would\n"
+	.string "be here.\p"
+	.string "Not this one. Not yet.$"
+
+Interstellar_MtChimney_Text_GalacticDefeat:
+	.string "A decade early. Figures.$"
+
+Interstellar_MtChimney_Text_GalacticPost:
+	.string "Where I'm from, this mountain is\n"
+	.string "one page in a report I haven't\l"
+	.string "written yet.$"
+
+Interstellar_MtChimney_Text_MagmaFIntro:
+	.string "Everyone up here keeps saying\n"
+	.string "“garden.”\p"
+	.string "I keep saying “volcano.”\n"
+	.string "Fight me.$"
+
+Interstellar_MtChimney_Text_MagmaFDefeat:
+	.string "…Garden.$"
+
+Interstellar_MtChimney_Text_MagmaFPost:
+	.string "Fine. Garden.\p"
+	.string "I'm not saying it twice.$"
+
+Interstellar_MtChimney_Text_AquaFIntro:
+	.string "The boss said the sea would rise.\p"
+	.string "He never said it would CLIMB.$"
+
+Interstellar_MtChimney_Text_AquaFDefeat:
+	.string "It climbed without us.$"
+
+Interstellar_MtChimney_Text_AquaFPost:
+	.string "I'm going to sit by the lake and\n"
+	.string "not think about anything.$"
+
+Interstellar_MtChimney_Text_RocketMIntro:
+	.string "My crew went into MT. MOON for\n"
+	.string "fossils.\p"
+	.string "I came out on a volcano.\n"
+	.string "Fossils don't grow here.$"
+
+Interstellar_MtChimney_Text_RocketMDefeat:
+	.string "Wrong mountain. Wrong everything.$"
+
+Interstellar_MtChimney_Text_RocketMPost:
+	.string "Three timelines, and I still can't\n"
+	.string "find the exit.$"

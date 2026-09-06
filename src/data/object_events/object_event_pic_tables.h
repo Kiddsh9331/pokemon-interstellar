@@ -2533,6 +2533,9 @@ static const struct SpriteFrameImage sPicTable_InterstellarRiftBlight[] = {
 static const struct SpriteFrameImage sPicTable_InterstellarRiftScarMed[] = {
     overworld_frame(gObjectEventPic_InterstellarRiftScarMed, 4, 4, 0),
 };
+static const struct SpriteFrameImage sPicTable_InterstellarRiftVeil[] = {
+    overworld_frame(gObjectEventPic_InterstellarRiftVeil, 4, 4, 0),
+};
 
 static const struct SpriteFrameImage sPicTable_GalacticGruntM[] = {
     overworld_frame(gObjectEventPic_GalacticGruntM, 2, 4, 0),

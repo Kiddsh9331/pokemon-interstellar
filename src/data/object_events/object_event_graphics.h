@@ -588,6 +588,7 @@ const u16 gObjectEventPic_BirthIslandStoneFrlg[] = INCGFX_U16("graphics/object_e
 const u16 gObjectEventPal_InterstellarRiftGate[] = INCGFX_U16("graphics/object_events/palettes/interstellar_rift_gate.pal", ".gbapal");
 const u32 gObjectEventPic_InterstellarRiftGate[] = INCGFX_U32("graphics/object_events/pics/misc/interstellar_rift_gate.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPic_InterstellarRiftScarMed[] = INCGFX_U16("graphics/object_events/pics/misc/interstellar_rift_scar_med.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u16 gObjectEventPic_InterstellarRiftVeil[] = INCGFX_U16("graphics/object_events/pics/misc/interstellar_rift_veil.png", ".4bpp", "-mwidth 4 -mheight 4"); // Interstellar: slice-edge blockade tear
 const u16 gObjectEventPal_InterstellarGalactic[] = INCGFX_U16("graphics/object_events/palettes/interstellar_galactic.pal", ".gbapal");
 const u16 gObjectEventPic_InterstellarRiftScar[] = INCGFX_U16("graphics/object_events/pics/misc/interstellar_rift_scar.png", ".4bpp", "-mwidth 8 -mheight 8");
 const u16 gObjectEventPic_InterstellarRiftBlight[] = INCGFX_U16("graphics/object_events/pics/misc/interstellar_rift_blight.png", ".4bpp", "-mwidth 2 -mheight 2");

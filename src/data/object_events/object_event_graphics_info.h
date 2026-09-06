@@ -6508,6 +6508,26 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftSc
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+// Interstellar: the veil -- a hole with the void behind it, only at sealed slice edges.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_InterstellarRiftVeil = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_INTERSTELLAR_RIFT_GATE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_NONE,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_NONE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Inanimate,
+    .images = sPicTable_InterstellarRiftVeil,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
 // Team Galactic grunts (Retro Platinum rip): single static down-facing frame,
 // both variants share one palette to stay inside the overworld palette pool.
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticGruntM = {

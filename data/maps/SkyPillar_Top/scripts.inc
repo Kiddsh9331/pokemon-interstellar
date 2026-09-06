@@ -87,30 +87,72 @@ Interstellar_EventScript_StormParts::
 	waitstate
 	msgbox Interstellar_SkyPillar_Text_StormOpens, MSGBOX_DEFAULT
 	closemessage
-	clearflag FLAG_INTERSTELLAR_HIDE_SKYPILLAR_STEVEN
-	addobject LOCALID_INTERSTELLAR_SP_STEVEN
-	applymovement LOCALID_INTERSTELLAR_SP_STEVEN, Interstellar_SkyPillar_Movement_StevenArrives
-	waitmovement 0
+	@ Letting go of the anchor costs the summit, exactly as it cost the chamber
+	@ under CERULEAN: tears open one after another, each nearer, until the last
+	@ one opens at your back and takes you.
+	playse SE_M_EARTHQUAKE
+	call Interstellar_SkyPillar_EventScript_Rumble
+	msgbox Interstellar_SkyPillar_Text_SummitComesApart, MSGBOX_DEFAULT
+	closemessage
+
+	fadescreenspeed FADE_TO_WHITE, 5
+	setobjectxy LOCALID_PLAYER, 14, 7
+	turnobject LOCALID_PLAYER, DIR_NORTH
+	clearflag FLAG_TEMP_11
+	addobject 5
+	fadescreenspeed FADE_FROM_WHITE, 5
+	call Interstellar_SkyPillar_EventScript_Rumble
+
+	fadescreenspeed FADE_TO_WHITE, 5
+	clearflag FLAG_TEMP_12
+	addobject 6
+	fadescreenspeed FADE_FROM_WHITE, 5
+	call Interstellar_SkyPillar_EventScript_Rumble
+
+	fadescreenspeed FADE_TO_WHITE, 4
+	clearflag FLAG_TEMP_13
+	addobject 7
+	fadescreenspeed FADE_FROM_WHITE, 4
+	call Interstellar_SkyPillar_EventScript_Rumble
+
+	fadescreenspeed FADE_TO_WHITE, 3
+	clearflag FLAG_TEMP_14
+	addobject 8
+	fadescreenspeed FADE_FROM_WHITE, 3
+	call Interstellar_SkyPillar_EventScript_Rumble
+
+	@ ...and then a whole one opens, directly behind you.
+	playse SE_M_TELEPORT
+	fadescreenspeed FADE_TO_WHITE, 2
+	clearflag FLAG_INTERSTELLAR_SKYPILLAR_PORTAL_CLOSED
+	addobject LOCALID_INTERSTELLAR_SP_GATE
+	fadescreenspeed FADE_FROM_WHITE, 2
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
-	msgbox Interstellar_SkyPillar_Text_StevenItRemembered, MSGBOX_DEFAULT
+	delay 20
+	msgbox Interstellar_SkyPillar_Text_PulledThrough, MSGBOX_DEFAULT
 	closemessage
 	playse SE_M_TELEPORT
-	fadescreenspeed FADE_TO_WHITE, 4
+	setvar VAR_0x8004, 3
+	setvar VAR_0x8005, 3
+	setvar VAR_0x8006, 14
+	setvar VAR_0x8007, 3
+	special ShakeCamera
+	waitstate
+	removeobject 5
+	removeobject 6
+	removeobject 7
+	removeobject 8
 	clearflag FLAG_INTERSTELLAR_SKYPILLAR_SCAR_HIDDEN
-	addobject LOCALID_INTERSTELLAR_SP_SCAR
-	fadescreenspeed FADE_FROM_WHITE, 4
-	msgbox Interstellar_SkyPillar_Text_GateCrystallizes, MSGBOX_DEFAULT
-	closemessage
+	setflag FLAG_INTERSTELLAR_SKYPILLAR_PORTAL_CLOSED
 	setvar VAR_INTERSTELLAR_STATE, 15
-	msgbox Interstellar_SkyPillar_Text_StevenWestward, MSGBOX_DEFAULT
+	fadescreenspeed FADE_TO_WHITE, 1
+	msgbox Interstellar_SkyPillar_Text_FarSideWontHold, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_SLATEPORT_CITY, 19, 42
+	waitstate
 	releaseall
 	end
-
-Interstellar_SkyPillar_Movement_StevenArrives:
-	walk_up
-	walk_up
-	step_end
 
 Interstellar_EventScript_StevenSkyPillar::
 	lock
@@ -236,3 +278,48 @@ Interstellar_SkyPillar_Text_ScarWestward:
 	.string "into ACT 3.\p"
 	.string "Thank you for playing\n"
 	.string "POKéMON INTERSTELLAR!$"
+
+Interstellar_SkyPillar_Text_SummitComesApart:
+	.string "The summit stones split.\p"
+	.string "Light comes up through the cracks,\n"
+	.string "and every crack is a door.$"
+
+Interstellar_SkyPillar_Text_PulledThrough:
+	.string "The wind turns around.\p"
+	.string "It goes the wrong way-- into the\n"
+	.string "tear at your back-- and takes you\l"
+	.string "with it.$"
+
+Interstellar_SkyPillar_Text_FarSideWontHold:
+	.string "Westward in time. Old wood.\n"
+	.string "Incense. Bells.\p"
+	.string "JOHTO, for one breath-- and then\n"
+	.string "the far side will not hold, and\l"
+	.string "the tear throws you back onto\l"
+	.string "salt air.\p"
+	.string "SLATEPORT.\p"
+	.string "…This is where ACT 2 ends.\p"
+	.string "Your save file carries forward\n"
+	.string "into ACT 3.\p"
+	.string "Thank you for playing\n"
+	.string "POKéMON INTERSTELLAR!$"
+
+@ Local copies: the chamber versions live in the FRLG-only script block, this map is built for both targets.
+Interstellar_SkyPillar_EventScript_Rumble::
+	playse SE_MUD_BALL
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 3
+	special ShakeCamera
+	waitstate
+	return
+
+Interstellar_SkyPillar_EventScript_Blight::
+	msgbox Interstellar_SkyPillar_Text_Blight, MSGBOX_SIGN
+	end
+
+Interstellar_SkyPillar_Text_Blight:
+	.string "A tear the size of a hand.\n"
+	.string "It hums. The stones around it\l"
+	.string "are warm.$"

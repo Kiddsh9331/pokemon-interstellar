@@ -678,8 +678,8 @@
 #define TRAINER_INTERSTELLAR_JAGGED_GALACTIC           664
 #define TRAINER_INTERSTELLAR_CHIMNEY_AQUA              665
 #define TRAINER_INTERSTELLAR_CHIMNEY_ROCKET            666
-#define TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_A           667
-#define TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_B           668
+#define TRAINER_INTERSTELLAR_CHIMNEY_MAXIE             667
+#define TRAINER_INTERSTELLAR_CHIMNEY_ARCHIE            668
 #define TRAINER_INTERSTELLAR_R110_PSYCHIC              669
 #define TRAINER_INTERSTELLAR_R110_FISHERMAN            670
 #define TRAINER_INTERSTELLAR_R110_LASS                 671
@@ -687,12 +687,20 @@
 #define TRAINER_INTERSTELLAR_R110_YOUNGSTER            673
 #define TRAINER_INTERSTELLAR_NM_GALACTIC_A             674
 #define TRAINER_INTERSTELLAR_NM_GALACTIC_B             675
+#define TRAINER_INTERSTELLAR_SUMMIT_GALACTIC           676
+#define TRAINER_INTERSTELLAR_SUMMIT_MAGMA_F            677
+#define TRAINER_INTERSTELLAR_SUMMIT_AQUA_F             678
+#define TRAINER_INTERSTELLAR_SUMMIT_ROCKET             679
+#define TRAINER_INTERSTELLAR_SUMMIT_GALACTIC           676
+#define TRAINER_INTERSTELLAR_SUMMIT_MAGMA_F            677
+#define TRAINER_INTERSTELLAR_SUMMIT_AQUA_F             678
+#define TRAINER_INTERSTELLAR_SUMMIT_ROCKET             679
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT_FRLG can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_FRLG                      676
+#define TRAINERS_COUNT_FRLG                      680
 #define MAX_TRAINERS_COUNT_FRLG                  768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_FRLG_H

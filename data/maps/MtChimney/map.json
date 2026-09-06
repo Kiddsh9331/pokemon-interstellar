@@ -333,8 +333,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 16,
-      "y": 18,
+      "x": 22,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 0,
@@ -426,7 +426,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
-      "x": 20,
+      "x": 23,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -451,30 +451,30 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
       "x": 12,
-      "y": 8,
+      "y": 7,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Interstellar_MtChimney_EventScript_MagmaPairA",
-      "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR"
+      "script": "Interstellar_MtChimney_EventScript_MaxieIdle",
+      "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
-      "x": 12,
-      "y": 9,
+      "graphics_id": "OBJ_EVENT_GFX_ARCHIE",
+      "x": 11,
+      "y": 7,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Interstellar_MtChimney_EventScript_MagmaPairB",
-      "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_MAGMA_PAIR"
+      "script": "Interstellar_MtChimney_EventScript_ArchieIdle",
+      "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_SCAR_MED",
@@ -486,7 +486,72 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Interstellar_MtChimney_EventScript_PairScar",
+      "script": "Interstellar_MtChimney_EventScript_RimScar",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_GATE",
+      "x": 13,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_MtChimney_EventScript_RimGate",
+      "flag": "FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GALACTIC_GRUNT_M",
+      "x": 28,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Interstellar_MtChimney_EventScript_GalacticGrunt",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 13,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Interstellar_MtChimney_EventScript_MagmaGruntF",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "x": 10,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Interstellar_MtChimney_EventScript_AquaGruntF",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "x": 22,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Interstellar_MtChimney_EventScript_RocketGruntM",
       "flag": "0"
     }
   ],
@@ -541,14 +606,6 @@
     }
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 14,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "MtChimney_EventScript_MeteoriteMachine"
-    },
     {
       "type": "sign",
       "x": 24,

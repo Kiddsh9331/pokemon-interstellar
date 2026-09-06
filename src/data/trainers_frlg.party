@@ -6340,7 +6340,7 @@ Persian
 Level: 42
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Pay Day
-- Faint Attack
+- Sucker Punch
 - Screech
 - Bite
 
@@ -6690,7 +6690,7 @@ Persian
 Level: 42
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Pay Day
-- Faint Attack
+- Sucker Punch
 - Bite
 - Screech
 
@@ -6775,7 +6775,7 @@ Level: 42
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Fury Swipes
 - Screech
-- Faint Attack
+- Sucker Punch
 - Pay Day
 
 Ponyta
@@ -6926,7 +6926,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Fury Swipes
 - Bite
 - Screech
-- Faint Attack
+- Sucker Punch
 
 Ninetales
 Level: 42
@@ -10715,7 +10715,7 @@ Ursaring
 Level: 50
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Slash
-- Faint Attack
+- Sucker Punch
 - Snore
 - Rest
 
@@ -10734,7 +10734,7 @@ Level: 47
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Slash
 - Screech
-- Faint Attack
+- Sucker Punch
 - Bite
 
 Dewgong
@@ -13230,7 +13230,7 @@ Ursaring
 Level: 55
 IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 - Slash
-- Faint Attack
+- Sucker Punch
 - Snore
 - Rest
 
@@ -13249,7 +13249,7 @@ Level: 53
 IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 - Slash
 - Screech
-- Faint Attack
+- Sucker Punch
 - Bite
 
 Dewgong
@@ -14347,7 +14347,7 @@ AI: Check Bad Move / Try To Faint
 Kecleon
 Level: 34
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Faint Attack
+- Sucker Punch
 - Bind
 - Lick
 
@@ -14748,55 +14748,73 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Taunt
 - Haze
 
-=== TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_A ===
-Name: GRUNT
-Class: Team Magma
-Pic: Magma Grunt M
+=== TRAINER_INTERSTELLAR_CHIMNEY_MAXIE ===
+Name: MAXIE
+Class: Magma Leader
+Pic: Magma Leader Maxie
 Gender: Male
 Music: Magma
+Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Mightyena
-Level: 35
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Crunch
-- Swagger
+Solrock
+Level: 36
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Rock Slide
+- Confusion
+- Cosmic Power
+- Fire Spin
+
+Houndoom
+Level: 36
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Fire Fang
+- Bite
 - Howl
-- Sand Attack
+- Smog
 
 Camerupt
-Level: 36
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Level: 38
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Lava Plume
 - Magnitude
-- Flame Burst
 - Rock Slide
 - Amnesia
 
-=== TRAINER_INTERSTELLAR_CHIMNEY_MAGMA_B ===
-Name: GRUNT
-Class: Team Magma
-Pic: Magma Grunt F
-Gender: Female
-Music: Magma
+=== TRAINER_INTERSTELLAR_CHIMNEY_ARCHIE ===
+Name: ARCHIE
+Class: Aqua Leader
+Pic: Aqua Leader Archie
+Gender: Male
+Music: Aqua
+Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Golbat
-Level: 35
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Confuse Ray
-- Wing Attack
-- Toxic
-- Bite
-
-Torkoal
+Lunatone
 Level: 36
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Flame Wheel
-- Body Slam
-- Iron Defense
-- Smokescreen
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Rock Slide
+- Confusion
+- Hypnosis
+- Cosmic Power
+
+Crawdaunt
+Level: 36
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Crabhammer
+- Knock Off
+- Leer
+- Protect
+
+Sharpedo
+Level: 38
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Crunch
+- Aqua Jet
+- Ice Fang
+- Screech
 
 === TRAINER_INTERSTELLAR_R110_PSYCHIC ===
 Name: HOLLIS
@@ -14972,3 +14990,119 @@ IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Revenge
 - Taunt
 - Sucker Punch
+
+=== TRAINER_INTERSTELLAR_SUMMIT_GALACTIC ===
+Name: GRUNT
+Class: Team Galactic
+Pic: Galactic Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Bronzor
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Confusion
+- Iron Defense
+- Hypnosis
+- Extrasensory
+
+Stunky
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Bite
+- Poison Gas
+- Fury Swipes
+- Toxic
+
+Croagunk
+Level: 36
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Poison Jab
+- Sucker Punch
+- Revenge
+- Mud-Slap
+
+=== TRAINER_INTERSTELLAR_SUMMIT_MAGMA_F ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt F
+Gender: Female
+Music: Magma
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Numel
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Lava Plume
+- Magnitude
+- Take Down
+- Amnesia
+
+Mightyena
+Level: 36
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Crunch
+- Swagger
+- Howl
+- Sand Attack
+
+=== TRAINER_INTERSTELLAR_SUMMIT_AQUA_F ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt F
+Gender: Female
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Carvanha
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Crunch
+- Aqua Jet
+- Screech
+- Scary Face
+
+Golbat
+Level: 36
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Wing Attack
+- Bite
+- Confuse Ray
+- Air Cutter
+
+=== TRAINER_INTERSTELLAR_SUMMIT_ROCKET ===
+Name: GRUNT
+Class: Team Rocket Frlg
+Pic: Rocket Grunt M Frlg
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Raticate
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Hyper Fang
+- Quick Attack
+- Sucker Punch
+- Scary Face
+
+Koffing
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Sludge
+- Smokescreen
+- Self-Destruct
+- Assurance
+
+Machoke
+Level: 36
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- Karate Chop
+- Seismic Toss
+- Leer
+- Vital Throw
