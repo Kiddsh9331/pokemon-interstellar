@@ -1,5 +1,7 @@
 # Pokémon Interstellar
 
+[![Build](https://github.com/Kiddsh9331/pokemon-interstellar/actions/workflows/interstellar.yml/badge.svg?branch=interstellar)](https://github.com/Kiddsh9331/pokemon-interstellar/actions/workflows/interstellar.yml)
+
 A GBA ROM hack built on [RHH's `pokeemerald-expansion`](https://github.com/rh-hideout/pokeemerald-expansion):
 an Emerald spin-off story with a FireRed look, played across four fractured regions.
 
