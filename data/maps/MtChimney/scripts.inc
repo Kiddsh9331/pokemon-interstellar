@@ -13,6 +13,7 @@ Interstellar_MtChimney_EventScript_SyncFlannery::
 	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
 	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS
 	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL
+	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_SCAR
 	goto_if_lt VAR_INTERSTELLAR_STATE, 12, Interstellar_MtChimney_EventScript_SyncFlanneryDone
 	goto_if_ge VAR_INTERSTELLAR_STATE, 13, Interstellar_MtChimney_EventScript_SyncFlanneryDone
 	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
@@ -878,6 +879,7 @@ Interstellar_MtChimney_EventScript_BowlReveal::
 Interstellar_EventScript_FlanneryChimney::
 	lock
 	faceplayer
+	goto_if_set FLAG_INTERSTELLAR_CHIMNEY_TAG_DONE, Interstellar_MtChimney_EventScript_FlanneryAfterScene
 	goto_if_eq VAR_TEMP_4, 1, Interstellar_MtChimney_EventScript_TagPrompt
 	msgbox Interstellar_MtChimney_Text_FlanneryGardenIntro, MSGBOX_DEFAULT
 	closemessage
@@ -894,14 +896,16 @@ Interstellar_MtChimney_EventScript_RimGateOpens::
 	turnobject 31, DIR_EAST
 	delay 12
 	playse SE_THUNDER
-	fadescreenspeed FADE_TO_WHITE, 1
+	@ No screen fade anywhere in this scene. Nothing here warps, so a fade never gets its
+	@ palettes reloaded, and it fights the day/night tint over the same buffer -- the map
+	@ ends up darker after every beat. The thunder and the shake carry it instead.
+	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_SCAR
 	removeobject 36
 	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL
 	addobject 37
 	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS
 	addobject 34
 	addobject 35
-	fadescreenspeed FADE_FROM_WHITE, 1
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
 	setvar VAR_0x8006, 8
@@ -964,26 +968,41 @@ Interstellar_MtChimney_EventScript_TagWon::
 	turnobject 35, DIR_EAST
 	delay 24
 	playse SE_M_TELEPORT
-	fadescreenspeed FADE_TO_WHITE, 1
 	removeobject 34
 	removeobject 35
 	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS
 	removeobject 37
 	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL
+	clearflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_SCAR
 	addobject 36
-	fadescreenspeed FADE_FROM_WHITE, 1
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 2
+	special ShakeCamera
+	waitstate
 	delay 20
 	turnobject 31, DIR_SOUTH
 	turnobject LOCALID_PLAYER, DIR_WEST
 	msgbox Interstellar_MtChimney_Text_FlanneryWritingThatDown, MSGBOX_DEFAULT
 	msgbox Interstellar_MtChimney_Text_FlanneryBadgePart, MSGBOX_DEFAULT
 	closemessage
+	msgbox Interstellar_MtChimney_Text_FlanneryPatchUp, MSGBOX_DEFAULT
+	closemessage
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	msgbox Interstellar_MtChimney_Text_FlanneryPatchedUp, MSGBOX_DEFAULT
+	closemessage
 	setvar VAR_INTERSTELLAR_STATE, 13
 	clearflag FLAG_INTERSTELLAR_FLANNERY_AWAY
-	fadescreen FADE_TO_BLACK
-	removeobject 31
+	@ She stays put: taking her off a live map wants a fade, and fades are what broke this
+	@ scene. The hide flag has her gone the next time you climb up.
 	setflag FLAG_INTERSTELLAR_HIDE_CHIMNEY_FLANNERY
-	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+Interstellar_MtChimney_EventScript_FlanneryAfterScene::
 	msgbox Interstellar_MtChimney_Text_FlanneryHeadsDown, MSGBOX_DEFAULT
 	release
 	end
@@ -1124,10 +1143,21 @@ Interstellar_MtChimney_Text_RocketPost:
 	.string "channel.\p"
 	.string "It's not a bad show, honestly.$"
 
+Interstellar_MtChimney_Text_FlanneryPatchUp:
+	.string "You took that standing up.\p"
+	.string "Hold still. Grandpa's rule: nobody\n"
+	.string "walks off my mountain hurt.$"
+
+Interstellar_MtChimney_Text_FlanneryPatchedUp:
+	.string "There. Good as new.\p"
+	.string "I've two more pages of notes, then I'm\n"
+	.string "heading down the pass.\p"
+	.string "Beat me to the GYM if you can.$"
+
 Interstellar_MtChimney_Text_FlanneryHeadsDown:
-	.string "FLANNERY heads down the pass,\n"
-	.string "stopping twice to write\l"
-	.string "something.$"
+	.string "Two more pages and I'm gone.\p"
+	.string "Don't wait up. The GYM is open\n"
+	.string "whether I'm standing in it or not.$"
 
 Interstellar_MtChimney_Text_ToddIntro:
 	.string "I pitched my tent in a forest.\n"

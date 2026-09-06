@@ -152,7 +152,7 @@
 #define FLAG_INTERSTELLAR_CHIMNEY_TAG_DONE        0x149 // Interstellar: crater tag battle beside FLANNERY resolved
 #define FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS    0x14A // Interstellar: MAXIE and ARCHIE, only while the rim gate is open
 #define FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL     0x14B // Interstellar: the rim gate on the scar's tile, open only during the crater scene
-#define FLAG_0x14C               0x14C
+#define FLAG_INTERSTELLAR_HIDE_CHIMNEY_SCAR       0x14C // Interstellar: the rim scar, hidden while the gate stands open
 #define FLAG_0x14D               0x14D
 #define FLAG_0x14E               0x14E
 #define FLAG_0x14F               0x14F
