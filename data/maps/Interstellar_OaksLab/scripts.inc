@@ -88,11 +88,9 @@ Interstellar_EventScript_OakIssueTestKit::
 	end
 
 Interstellar_EventScript_OakHeal::
-	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
-	fadescreen FADE_FROM_BLACK
 	msgbox Interstellar_OaksLab_Text_OakThereWeAre, MSGBOX_DEFAULT
 	return
 

@@ -117,11 +117,9 @@ Interstellar_EventScript_BirchSlateport::
 	goto_if_ge VAR_INTERSTELLAR_STATE, 14, Interstellar_EventScript_BirchStorm
 	msgbox Interstellar_Slateport_Text_BirchTalk, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_BirchSlateportHint
-	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
-	fadescreen FADE_FROM_BLACK
 	msgbox Interstellar_Slateport_Text_BirchHealed, MSGBOX_DEFAULT
 	release
 	end
@@ -142,11 +140,9 @@ Interstellar_EventScript_BirchStorm::
 	closemessage
 	msgbox Interstellar_Slateport_Text_BirchRest, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Interstellar_EventScript_BirchStormNoRest
-	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
-	fadescreen FADE_FROM_BLACK
 	msgbox Interstellar_Slateport_Text_BirchHealed, MSGBOX_DEFAULT
 	release
 	end
