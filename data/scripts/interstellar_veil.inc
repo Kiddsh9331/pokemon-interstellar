@@ -39,8 +39,14 @@ Interstellar_EventScript_RiftVeilSouth::
 
 Interstellar_EventScript_RiftVeilFlash::
 	playse SE_THUNDER
-	fadescreenspeed FADE_TO_WHITE, 1
-	fadescreenspeed FADE_FROM_WHITE, 1
+	@ No screen fade here: this script can fire over and over on the same map, and a
+	@ repeated fadescreen leaves the day/night palettes stuck black. The shake is the flash.
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 2
+	special ShakeCamera
+	waitstate
 	msgbox Interstellar_Text_RiftVeil, MSGBOX_DEFAULT
 	closemessage
 	return
