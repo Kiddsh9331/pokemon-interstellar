@@ -66,3 +66,9 @@ tools/aif2pcm/aif2pcm
 *.smolTM
 __pycache__
 .map_version
+
+# Interstellar: base ROMs you supply yourself, and generated patches
+baserom*.gba
+*.bps
+*.ips
+*.ups

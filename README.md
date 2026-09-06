@@ -1,53 +1,70 @@
-# About `pokeemerald-expansion`
+# Pokémon Interstellar
 
-![Gif that shows debugging functionality that is unique to pokeemerald-expansion such as rerolling Trainer ID, Cheat Start, PC from Debug Menu, Debug PC Fill, Pokémon Sprite Visualizer, Debug Warp to Map, and Battle Debug Menu](https://github.com/user-attachments/assets/cf9dfbee-4c6b-4bca-8e0a-07f116ef891c) ![Gif that shows overworld functionality that is unique to pokeemerald-expansion such as indoor running, BW2 style map popups, overworld followers, DNA Splicers, Gen 1 style fishing, OW Item descriptions, Quick Run from Battle, Use Last Ball, Wild Double Battles, and Catch from EXP](https://github.com/user-attachments/assets/383af243-0904-4d41-bced-721492fbc48e) ![Gif that shows off a number of modern Pokémon battle mechanics happening in the pokeemerald-expansion engine: 2 vs 1 battles, modern Pokémon, items, moves, abilities, fully customizable opponents and partners, Trainer Slides, and generational gimmicks](https://github.com/user-attachments/assets/50c576bc-415e-4d66-a38f-ad712f3316be)
+A GBA ROM hack built on [RHH's `pokeemerald-expansion`](https://github.com/rh-hideout/pokeemerald-expansion):
+an Emerald spin-off story with a FireRed look, played across four fractured regions.
 
-<!-- If you want to re-record or change these gifs, here are some notes that I used: https://files.catbox.moe/05001g.md -->
+A wounded Deoxys crash-lands and shatters time. Kanto, Hoenn, Johto and Sinnoh fuse into one broken
+timeline, and in the deepest scar of each region a legendary Pokémon is held as a **corrupted anchor**.
+You cross the rifts, take two gyms and one anchor per region, and try to put the sky back together.
 
-**`pokeemerald-expansion`** is a GBA ROM hack base that equips developers with a comprehensive toolkit for creating Pokémon ROM hacks. **`pokeemerald-expansion`** is built on top of [pret's `pokeemerald`](https://github.com/pret/pokeemerald) decompilation project. **It is not a playable Pokémon game on its own.**
+**There are no villains.** Every boss is a patient. Every anchor can be **caught** as well as beaten,
+and a caught anchor sleeps in the Rift Vault until the postgame opens it.
 
-# [Features](FEATURES.md)
+## Status
 
-**`pokeemerald-expansion`** offers hundreds of features from various [core series Pokémon games](https://bulbapedia.bulbagarden.net/wiki/Core_series), along with popular quality-of-life enhancements designed to streamline development and improve the player experience. A full list of those features can be found in [`FEATURES.md`](FEATURES.md).
+| Act | Region | Content |
+|---|---|---|
+| 1 | Kanto | Playable — prologue, Pewter and Cerulean gyms, Mt. Moon, Corrupted Mewtwo, crossing to Hoenn |
+| 2 | Hoenn | Playable — Slateport, Mauville and Lavaridge gyms, Mt. Chimney, Corrupted Rayquaza, Act 2 ending |
+| 3–5 | Johto, Sinnoh, finale | Not started |
 
-# [Credits](CREDITS.md)
+Both acts are demo-complete and end with a card telling you where the story stops.
 
- [![](https://img.shields.io/github/all-contributors/rh-hideout/pokeemerald-expansion/upcoming)](CREDITS.md)
+## Building
 
-If you use **`pokeemerald-expansion`**, please credit **RHH (Rom Hacking Hideout)**. Optionally, include the version number for clarity.
+The build runs on Linux or WSL. You do **not** need a base ROM: the whole game is compiled from source.
 
+```bash
+sudo apt install build-essential binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi libpng-dev python3
+git clone https://github.com/Kiddsh9331/pokemon-interstellar.git
+cd pokemon-interstellar
+git checkout -- src/data/heal_locations.json   # see the note below
+make firered -j$(nproc)                        # -> pokefirered.gba, the hack
 ```
-Based off RHH's pokeemerald-expansion 1.16.2 https://github.com/rh-hideout/pokeemerald-expansion/
+
+`make firered` is the hack. `make` (the Emerald target) still compiles but is not the game.
+
+**Always run `git checkout -- src/data/heal_locations.json` before building.** The map tooling
+rewrites that file in place for whichever target is building, so the two targets overwrite each
+other's entries. If a build fails with a `JSONPROC_ERROR`, restore the file and build again.
+
+For everything else about the engine, see [`README-rhh.md`](README-rhh.md) and [`INSTALL.md`](INSTALL.md).
+
+## Playing a demo
+
+**No ROMs are distributed here, and none are ever committed to this repository.** A built `.gba`
+is a complete Pokémon game and is not ours to hand out. Demos are shared as **BPS patches**, which
+you apply to a Pokémon FireRed (U) 1.0 ROM that you own:
+
+1. Download the `.bps` from [Releases](../../releases).
+2. Apply it to your own FireRed ROM with [Floating IPS](https://www.smwcentral.net/?p=section&a=details&id=11474),
+   [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) or any BPS patcher.
+3. Play the result in [mGBA](https://mgba.io).
+
+Or just build from source with the steps above.
+
+### Making a patch (maintainers)
+
+```bash
+python3 tools/interstellar/makepatch.py baserom_firered.gba pokefirered.gba interstellar-v0.99b.bps
 ```
 
-Please consider [crediting all contributors](CREDITS.md) involved in the project!
+The tool verifies its own output by applying the patch back and comparing checksums, so a patch that
+prints `OK` is known to reconstruct the ROM exactly. `baserom_firered.gba` is gitignored.
 
-# Choosing `pokeemerald` or **`pokeemerald-expansion`**
+## Credits
 
-- **`pokeemerald-expansion`** supports multiplayer functionality with other games built on **`pokeemerald-expansion`**. It is not compatible with official Pokémon games.
-- If compatibility with official games is important, use [`pokeemerald`](https://github.com/pret/pokeemerald). Otherwise, we recommend using **`pokeemerald-expansion`**.
-- **`pokeemerald-expansion`** incorporates regular updates from `pokeemerald`, including bug fixes and documentation improvements.
+Interstellar stands on other people's work. See [`CREDITS-INTERSTELLAR.md`](CREDITS-INTERSTELLAR.md)
+for the full list, and [`CREDITS.md`](CREDITS.md) for the expansion's own contributors.
 
-# [Getting Started](INSTALL.md)
-
-❗❗ **Important**: Do not use GitHub's "Download Zip" option as it will not include commit history. This is necessary if you want to update or merge other feature branches.
-
-If you're new to git and GitHub, [Team Aqua's Asset Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/) has a [guide to forking and cloning the repository](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/wiki/The-Basics-of-GitHub). Then you can follow one of the following guides:
-
-## 📥 [Installing **`pokeemerald-expansion`**](INSTALL.md)
-## 🏗️ [Building **`pokeemerald-expansion`**](INSTALL.md#Building-pokeemerald-expansion)
-## 🚚 [Migrating from **`pokeemerald`**](INSTALL.md#Migrating-from-pokeemerald)
-## 🚀 [Updating **`pokeemerald-expansion`**](INSTALL.md#Updating-pokeemerald-expansion)
-
-# [Documentation](https://rh-hideout.github.io/pokeemerald-expansion/)
-
-For detailed documentation, visit the [pokeemerald-expansion documentation page](https://rh-hideout.github.io/pokeemerald-expansion/).
-
-# [Contributions](CONTRIBUTING.md)
-If you are looking to [report a bug](CONTRIBUTING.md#Bug-Report), [open a pull request](CONTRIBUTING.md#Pull-Requests), or [request a feature](CONTRIBUTING.md#Feature-Request), our [`CONTRIBUTING.md`](CONTRIBUTING.md) has guides for each.
-
-# [Community](https://discord.gg/6CzjAG6GZk)
-
-[![](https://dcbadge.limes.pink/api/server/6CzjAG6GZk)](https://discord.gg/6CzjAG6GZk)
-
-Our community uses the [ROM Hacking Hideout (RHH) Discord server](https://discord.gg/6CzjAG6GZk) to communicate and organize. Most of our discussions take place there, and we welcome anybody to join us!
+Based on RHH's `pokeemerald-expansion` 1.16.3 — https://github.com/rh-hideout/pokeemerald-expansion/
