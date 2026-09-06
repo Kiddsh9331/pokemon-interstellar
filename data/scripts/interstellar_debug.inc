@@ -27,9 +27,10 @@ Interstellar_EventScript_DebugAct2Setup::
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setflag FLAG_SYS_B_DASH
 
-	givemon SPECIES_IVYSAUR, 30
-	givemon SPECIES_CHARMELEON, 30
-	givemon SPECIES_WARTORTLE, 30
+	@ Starters come fully evolved at 50 so ACT 2 can be tested from anywhere in it.
+	givemon SPECIES_VENUSAUR, 50
+	givemon SPECIES_CHARIZARD, 50
+	givemon SPECIES_BLASTOISE, 50
 	givemon SPECIES_PIKACHU, 30
 	givemon SPECIES_KADABRA, 30
 	givemon SPECIES_ONIX, 30
