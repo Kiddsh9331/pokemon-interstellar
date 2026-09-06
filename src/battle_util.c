@@ -13,6 +13,7 @@
 #include "battle_hold_effects.h"
 #include "battle_stat_change.h"
 #include "config_changes.h"
+#include "config/interstellar_debug.h"
 #include "party_menu.h"
 #include "pokemon.h"
 #include "international_string_util.h"
@@ -5572,6 +5573,11 @@ enum Obedience GetAttackerObedienceForAction(void)
     s32 calc;
     u8 obedienceLevel = 0;
     u8 levelReferenced;
+
+#if INTERSTELLAR_DEMO_ALWAYS_OBEY && !TESTING
+    // Interstellar: obedience is off for the demo -- see config/interstellar_debug.h.
+    return OBEYS;
+#endif
 
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
         return OBEYS;
