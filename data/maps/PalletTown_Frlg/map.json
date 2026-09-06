@@ -19,11 +19,6 @@
       "map": "MAP_ROUTE1",
       "offset": 0,
       "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE21_NORTH",
-      "offset": 0,
-      "direction": "down"
     }
   ],
   "object_events": [
@@ -155,6 +150,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Interstellar_Pallet_EventScript_RoadRubble",
       "flag": "FLAG_INTERSTELLAR_PALLET_ROAD_CLEARED"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_INTERSTELLAR_RIFT_VEIL",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Interstellar_EventScript_VeilScar",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -207,6 +215,42 @@
       "var": "VAR_TEMP_2",
       "var_value": "1",
       "script": "PalletTown_EventScript_SignLadyTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "0",
+      "script": "Interstellar_EventScript_RiftVeilSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "0",
+      "script": "Interstellar_EventScript_RiftVeilSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "0",
+      "script": "Interstellar_EventScript_RiftVeilSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "0",
+      "script": "Interstellar_EventScript_RiftVeilSouth"
     }
   ],
   "bg_events": [

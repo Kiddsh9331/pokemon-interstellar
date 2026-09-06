@@ -1341,6 +1341,13 @@ static void QueueAnimTiles_General_SandWatersEdge(u16 timer)
     AppendTilesetAnimToBuffer(sTilesetAnims_General_SandWatersEdge[timer % ARRAY_COUNT(sTilesetAnims_General_SandWatersEdge)], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(464)), 18 * TILE_SIZE_4BPP);
 }
 
+static void QueueAnimTiles_General_Frlg_Void(u16 timer)
+{
+    // Interstellar: the rift-void border tiles of the FireRed General tileset share the Hoenn frames.
+    u16 i = (timer / 3) % ARRAY_COUNT(gTilesetAnims_General_Void);
+    AppendTilesetAnimToBuffer(gTilesetAnims_General_Void[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(482)), 6 * TILE_SIZE_4BPP);
+}
+
 static void TilesetAnim_General_Frlg(u16 timer)
 {
     if (timer % 8 == 0)
@@ -1349,6 +1356,8 @@ static void TilesetAnim_General_Frlg(u16 timer)
         QueueAnimTiles_General_Water_Current_LandWatersEdge(timer / 16);
     if (timer % 16 == 2)
         QueueAnimTiles_General_Frlg_Flower(timer / 16);
+    if (timer % 16 == 3)
+        QueueAnimTiles_General_Frlg_Void(timer / 16);
 }
 
 void InitTilesetAnim_General_Frlg(void)

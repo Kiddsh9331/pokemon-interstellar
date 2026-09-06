@@ -19,11 +19,6 @@
       "map": "MAP_ROUTE23",
       "offset": 0,
       "direction": "up"
-    },
-    {
-      "map": "MAP_VIRIDIAN_CITY",
-      "offset": -10,
-      "direction": "right"
     }
   ],
   "object_events": [

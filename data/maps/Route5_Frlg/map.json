@@ -16,19 +16,12 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_CERULEAN_CITY",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_SAFFRON_CITY_CONNECTION",
       "offset": 0,
       "direction": "down"
     }
   ],
-  "object_events": [
-
-  ],
+  "object_events": [],
   "warp_events": [
     {
       "x": 31,
@@ -59,9 +52,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
