@@ -13,6 +13,11 @@ copyrighted ROMs.
 
 ## Borrowed art
 
+- **Act 2 (Hoenn) overworld tilesets** — the ORAS-style redraws of Emerald's General, Slateport,
+  Mauville, Lavaridge and Petalburg tilesets and their door animations, by **leob0505**, inspired by
+  TheDeadHeroAlistair and Pokémon Omega Ruby / Alpha Sapphire. Shared on
+  **[Team Aqua's Asset Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo)** ("LeoB ORAS"). Our rift
+  void, edge mist and Mt. Chimney's green trees are layered on top.
 - **Battle backgrounds (stadium)** — from **[Pokémon Soulgold](https://github.com/Eemeliri/soulgold)**
   (rahtak and contributors), whose README invites reuse with credit. Soulgold in turn credits
   **[Pokémon Heart & Soul](https://github.com/PokemonHnS-Development/pokehns-expansion)** (Lil Dill and team)

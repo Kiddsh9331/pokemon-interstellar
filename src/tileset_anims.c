@@ -683,8 +683,14 @@ static void QueueAnimTiles_General_SandWaterEdge(u16 timer)
 
 static void QueueAnimTiles_General_Void(u16 timer)
 {
+    // The six twinkle tiles are scattered since the ORAS General art took their old run
+    // (490-495); each frame is still six tiles side by side, sent one tile at a time.
+    static const u16 sVoidTiles[] = {322, 338, 492, 346, 349, 362};
     u16 i = (timer / 3) % ARRAY_COUNT(gTilesetAnims_General_Void);
-    AppendTilesetAnimToBuffer(gTilesetAnims_General_Void[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(490)), 6 * TILE_SIZE_4BPP);
+    u32 k;
+    for (k = 0; k < ARRAY_COUNT(sVoidTiles); k++)
+        AppendTilesetAnimToBuffer(gTilesetAnims_General_Void[i] + k * (TILE_SIZE_4BPP / 2),
+                                  (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(sVoidTiles[k])), TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_General_Waterfall(u16 timer)
