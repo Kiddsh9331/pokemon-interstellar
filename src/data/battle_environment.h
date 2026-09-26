@@ -225,10 +225,13 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .secretPowerEffect = PLAIN_SECRET_POWER_EFFECT,
         .camouflageType = PLAIN_CAMOUFLAGE_TYPE,
         .camouflageBlend = PLAIN_CAMOUFLAGE_BLEND,
-        .entry = ENVIRONMENT_ENTRY(Building),
-        .background = ENVIRONMENT_BACKGROUND(Plain),
-        .palette = gBattleEnvironmentPalette_Plain,
-        .battleIntroSlide = PLAIN_BATTLE_INTRO_SLIDE,
+        // Interstellar: paths and towns share the Heart & Soul grass field, so a trainer on the
+        // path fights on the same platforms as a wild mon in the grass beside it. Art only --
+        // Nature Power, Secret Power and Camouflage stay PLAIN.
+        .entry = ENVIRONMENT_ENTRY(TallGrass),
+        .background = ENVIRONMENT_BACKGROUND(TallGrass),
+        .palette = gBattleEnvironmentPalette_TallGrass,
+        .battleIntroSlide = BattleIntroSlide1,
     },
 
     [BATTLE_ENVIRONMENT_FRONTIER] =
@@ -497,6 +500,10 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .secretPowerEffect = MOVE_EFFECT_BURN,
         .camouflageType = TYPE_FIRE,
         .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(Volcano),
+        .background = ENVIRONMENT_BACKGROUND(Volcano),
+        .palette = gBattleEnvironmentPalette_Volcano,
+        .battleIntroSlide = CAVE_BATTLE_INTRO_SLIDE,
     },
 
     [BATTLE_ENVIRONMENT_DISTORTION_WORLD] =

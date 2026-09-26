@@ -23,6 +23,7 @@
 #include "text_window.h"
 #include "trig.h"
 #include "window.h"
+#include "rtc.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
@@ -861,6 +862,62 @@ static u8 GetBattleEnvironmentByMapScene(u8 mapBattleScene)
     return BATTLE_ENVIRONMENT_PLAIN;
 }
 
+// Heart & Soul time-of-day battle palettes (battlebg port, apply.py --tod).
+// [0] morning and evening (HnS's sunset palette), [1] night. NULL keeps the day palette.
+extern const u16 gBattleEnvironmentPalette_TallGrassTwilight[];
+extern const u16 gBattleEnvironmentPalette_TallGrassNight[];
+extern const u16 gBattleEnvironmentPalette_LongGrassNight[];
+extern const u16 gBattleEnvironmentPalette_SandTwilight[];
+extern const u16 gBattleEnvironmentPalette_SandNight[];
+extern const u16 gBattleEnvironmentPalette_WaterTwilight[];
+extern const u16 gBattleEnvironmentPalette_WaterNight[];
+extern const u16 gBattleEnvironmentPalette_PondWaterTwilight[];
+extern const u16 gBattleEnvironmentPalette_PondWaterNight[];
+extern const u16 gBattleEnvironmentPalette_RockTwilight[];
+extern const u16 gBattleEnvironmentPalette_RockNight[];
+static const u16 *const sBattleEnvironmentTimePalettes[BATTLE_ENVIRONMENT_COUNT][2] =
+{
+    [BATTLE_ENVIRONMENT_GRASS] = {gBattleEnvironmentPalette_TallGrassTwilight, gBattleEnvironmentPalette_TallGrassNight},
+    [BATTLE_ENVIRONMENT_PLAIN] = {gBattleEnvironmentPalette_TallGrassTwilight, gBattleEnvironmentPalette_TallGrassNight},
+    [BATTLE_ENVIRONMENT_LONG_GRASS] = {NULL, gBattleEnvironmentPalette_LongGrassNight},
+    [BATTLE_ENVIRONMENT_SAND] = {gBattleEnvironmentPalette_SandTwilight, gBattleEnvironmentPalette_SandNight},
+    [BATTLE_ENVIRONMENT_WATER] = {gBattleEnvironmentPalette_WaterTwilight, gBattleEnvironmentPalette_WaterNight},
+    [BATTLE_ENVIRONMENT_POND] = {gBattleEnvironmentPalette_PondWaterTwilight, gBattleEnvironmentPalette_PondWaterNight},
+    [BATTLE_ENVIRONMENT_MOUNTAIN] = {gBattleEnvironmentPalette_RockTwilight, gBattleEnvironmentPalette_RockNight},
+};
+
+static const u16 *GetBattleEnvironmentPalette(u16 environment)
+{
+    const u16 *palette;
+    u32 slot;
+
+    if (environment >= NELEMS(gBattleEnvironmentInfo))
+        environment = BATTLE_ENVIRONMENT_PLAIN;
+    palette = gBattleEnvironmentInfo[environment].palette;
+    if (!OW_ENABLE_DNS
+     || gMapHeader.mapType == MAP_TYPE_UNDERGROUND
+     || gMapHeader.mapType == MAP_TYPE_INDOOR
+     || gMapHeader.mapType == MAP_TYPE_SECRET_BASE
+     || gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+        return palette;
+
+    switch (GetTimeOfDay())
+    {
+    case TIME_MORNING:
+    case TIME_EVENING:
+        slot = 0;
+        break;
+    case TIME_NIGHT:
+        slot = 1;
+        break;
+    default:
+        return palette;
+    }
+    if (sBattleEnvironmentTimePalettes[environment][slot] != NULL)
+        palette = sBattleEnvironmentTimePalettes[environment][slot];
+    return palette;
+}
+
 // Loads the initial battle environment.
 static void LoadBattleEnvironmentGfx(u16 environment)
 {
@@ -869,7 +926,7 @@ static void LoadBattleEnvironmentGfx(u16 environment)
     // Copy to bg3
     DecompressDataWithHeaderVram(gBattleEnvironmentInfo[environment].background.tileset, (void *)(BG_CHAR_ADDR(2)));
     DecompressDataWithHeaderVram(gBattleEnvironmentInfo[environment].background.tilemap, (void *)(BG_SCREEN_ADDR(26)));
-    LoadPalette(gBattleEnvironmentInfo[environment].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+    LoadPalette(GetBattleEnvironmentPalette(environment), BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
 }
 
 // Loads the entry associated with the battle environment.
@@ -1335,7 +1392,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
         DecompressDataWithHeaderVram(gBattleEnvironmentInfo[GetBattleEnvironmentOverride()].background.tilemap, (void *)(BG_SCREEN_ADDR(26)));
         break;
     case 5:
-        LoadPalette(gBattleEnvironmentInfo[GetBattleEnvironmentOverride()].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+        LoadPalette(GetBattleEnvironmentPalette(GetBattleEnvironmentOverride()), BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
         break;
     case 6:
         LoadBattleMenuWindowGfx();
