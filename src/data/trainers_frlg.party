@@ -338,25 +338,29 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Venipede
+Venonat
 Level: 8
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
-- Poison Sting
-- Rollout
-
-Sewaddle
-Level: 8
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Tackle
-- String Shot
-- Bug Bite
+- Disable
+- Supersonic
 
-Purrloin
+
+Paras
 Level: 8
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Scratch
-- Growl
-- Assist
+- Stun Spore
+- Absorb
+
+
+Spinarak
+Level: 8
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Poison Sting
+- String Shot
+- Absorb
+
 
 === TRAINER_BUG_CATCHER_TESS ===
 Name: TESS
@@ -367,26 +371,27 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Grubbin
+Ledyba
 Level: 9
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Tackle
-- String Shot
-- Bug Bite
+- Supersonic
+- Swift
 
-Cutiefly
+
+Nincada
 Level: 8
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Absorb
-- Fairy Wind
-- Stun Spore
+- Scratch
+- Harden
+- Leech Life
 
-Dewpider
+
+Silcoon
 Level: 8
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Bubble
-- Infestation
-- Bite
+- Harden
+
 
 === TRAINER_BUG_CATCHER_COLTON ===
 Name: COLTON
@@ -7202,7 +7207,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Name: MISTY
 Class: Leader Frlg
 Pic: Leader Misty Frlg
-Gender: Male
+Gender: Female
 Music: Female
 Items: Super Potion
 Double Battle: No
@@ -7210,31 +7215,39 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Staryu
 Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Tackle
 - Harden
 - Recover
 - Water Pulse
+
 
 Wooper
 Level: 20
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Water Gun
 - Mud Shot
+- Slam
+- Yawn
+
 
 Carvanha
 Level: 21
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Bite
+- Aqua Jet
 - Water Pulse
+- Scary Face
 
-Piplup
+
+Prinplup @ Oran Berry
 Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bubble Beam
+- Metal Claw
 - Peck
 - Growl
-- Bubble
-- Water Pulse
+
 
 === TRAINER_LEADER_LT_SURGE ===
 Name: LT. SURGE
@@ -13843,7 +13856,7 @@ Level: 17
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Bite
 - Leer
-- Water Gun
+- Aqua Jet
 
 === TRAINER_INTERSTELLAR_AQUA_MTMOON_2 ===
 Name: GRUNT
@@ -13882,7 +13895,7 @@ Level: 18
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Bite
 - Leer
-- Water Gun
+- Aqua Jet
 - Screech
 
 === TRAINER_INTERSTELLAR_AQUA_MTMOON_4 ===
@@ -14091,35 +14104,43 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Items: Hyper Potion
 
 Magnemite
 Level: 30
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Thunder Wave
 - Spark
 - Supersonic
+- Mirror Shot
 
-Electrike
+
+Electrode
 Level: 30
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Spark
-- Quick Attack
-- Howl
-
-Voltorb
-Level: 31
-IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Spark
 - Screech
 - Rollout
+- Self-Destruct
 
-Magneton
-Level: 32
+
+Manectric
+Level: 31
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Spark
+- Bite
+- Howl
+- Quick Attack
+
+
+Magneton @ Sitrus Berry
+Level: 32
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Thunderbolt
 - Thunder Wave
-- Sonic Boom
+- Flash Cannon
 - Supersonic
+
 
 === TRAINER_LEADER_FLANNERY ===
 Name: FLANNERY
@@ -14129,35 +14150,43 @@ Gender: Female
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Items: Hyper Potion / Hyper Potion
 
-Slugma
+Magcargo
 Level: 36
-IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
-- Ember
-- Rock Throw
-- Harden
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Flamethrower
+- Rock Slide
+- Amnesia
+- Yawn
 
-Numel
-Level: 36
-IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
-- Flame Wheel
-- Magnitude
-- Take Down
+
+Camerupt
+Level: 37
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Earth Power
+- Lava Plume
+- Rock Slide
+- Amnesia
+
 
 Vileplume
 Level: 37
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Mega Drain
-- Sleep Powder
-- Acid
-
-Torkoal
-Level: 38
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Giga Drain
+- Sleep Powder
+- Sludge Bomb
+- Moonlight
+
+
+Torkoal @ White Herb
+Level: 38
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
 - Overheat
 - Body Slam
 - Curse
-- Attract
+- Yawn
+
 
 === TRAINER_INTERSTELLAR_GYM_KIRK ===
 Name: KIRK
@@ -14257,18 +14286,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
-Numel
+Ponyta
 Level: 33
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Flame Wheel
-- Magnitude
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Slugma
+Magcargo
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Ember
-- Rock Throw
-- Harden
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_AXLE ===
 Name: AXLE
@@ -14279,17 +14303,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
-Slugma
+Growlithe
 Level: 33
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Ember
-- Harden
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Numel
+Camerupt
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Flame Wheel
-- Take Down
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_KEEGAN ===
 Name: KEEGAN
@@ -14300,18 +14320,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
+Gloom
+Level: 33
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
 Slugma
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Flame Burst
-- Rock Throw
-
-Ponyta
-Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Flame Wheel
-- Stomp
-- Growl
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_DANIELLE ===
 Name: DANIELLE
@@ -14324,16 +14339,11 @@ AI: Check Bad Move / Try To Faint
 
 Meditite
 Level: 33
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Confusion
-- Detect
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Slugma
+Houndour
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Ember
-- Smog
-- Harden
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_GERALD ===
 Name: GERALD
@@ -14345,11 +14355,12 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Kecleon
+Level: 33
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Magmar
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Sucker Punch
-- Bind
-- Lick
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_JACE ===
 Name: JACE
@@ -14360,18 +14371,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
-Slugma
+Vulpix
 Level: 33
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Ember
-- Rock Throw
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Torkoal
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Body Slam
-- Smog
-- Curse
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_JEFF ===
 Name: JEFF
@@ -14382,17 +14388,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
-Slugma
+Houndour
 Level: 33
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Ember
-- Smog
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Slugma
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Flame Burst
-- Harden
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_ELI ===
 Name: ELI
@@ -14403,17 +14405,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
-Wingull
+Pelipper
 Level: 33
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Wing Attack
-- Water Gun
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Numel
+Camerupt
 Level: 34
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Flame Wheel
-- Magnitude
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_INTERSTELLAR_GYM_ANGELO ===
 Name: ANGELO
@@ -14447,33 +14445,41 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Croconaw
-Level: 32
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Feraligatr
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Crunch
 - Aqua Tail
 - Ice Fang
+- Slash
 
-Flaaffy
-Level: 32
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Ampharos
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Thunderbolt
 - Cotton Spore
 - Take Down
+- Thunder Punch
+
 
 Gligar
-Level: 33
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+Level: 35
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Acrobatics
 - Dig
 - Quick Attack
+- Slash
 
-Quilava
-Level: 33
-IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Typhlosion
+Level: 36
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Flame Wheel
+- Lava Plume
 - Swift
 - Smokescreen
+
 
 === TRAINER_INTERSTELLAR_JP_BERN ===
 Name: BERN
@@ -14484,19 +14490,29 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
-Machop
-Level: 31
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+Machoke
+Level: 33
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Karate Chop
+- Seismic Toss
+- Rock Slide
 - Bulk Up
-- Rock Tomb
+
+Graveler
+Level: 33
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Rock Slide
+- Magnitude
+- Defense Curl
+- Rollout
 
 Slugma
-Level: 32
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+Level: 33
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Flame Burst
 - Rock Throw
 - Harden
+- Amnesia
 
 === TRAINER_INTERSTELLAR_JP_SUSIE ===
 Name: SUSIE
@@ -14508,18 +14524,20 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Gloom
-Level: 31
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Mega Drain
-- Sleep Powder
 - Acid
+- Sleep Powder
+- Moonlight
 
-Aipom
-Level: 31
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+Ambipom
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Double Hit
 - Swift
-- Tickle
-- Fury Swipes
+- Screech
+- Agility
 
 === TRAINER_INTERSTELLAR_CHIMNEY_TODD ===
 Name: TODD
@@ -14531,18 +14549,20 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint
 
 Heracross
-Level: 33
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+Level: 31
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Horn Attack
 - Brick Break
-- Aerial Ace
+- Endure
+- Leer
 
-Shroomish
-Level: 33
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+Breloom
+Level: 31
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Mach Punch
 - Mega Drain
-- Stun Spore
 - Headbutt
+- Leech Seed
 
 === TRAINER_INTERSTELLAR_CHIMNEY_MIMI ===
 Name: MIMI
@@ -14555,17 +14575,19 @@ AI: Check Bad Move / Try To Faint
 
 Roselia
 Level: 34
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Magical Leaf
-- Toxic
-- Grass Whistle
+- Poison Sting
+- Stun Spore
+- Toxic Spikes
 
 Tropius
 Level: 34
-IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Razor Leaf
-- Gust
+- Air Slash
 - Stomp
+- Sweet Scent
 
 === TRAINER_INTERSTELLAR_RIVAL_SP_BLAZIKEN ===
 Name: MAY
@@ -14583,6 +14605,16 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Scary Face
 - Swagger
 
+
+Pelipper
+Level: 39
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Water Pulse
+- Wing Attack
+- Supersonic
+- Protect
+
+
 Swellow
 Level: 40
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
@@ -14590,8 +14622,18 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Quick Attack
 - Endeavor
 
+
+Breloom
+Level: 40
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Mach Punch
+- Seed Bomb
+- Headbutt
+- Stun Spore
+
+
 Blaziken
-Level: 41
+Level: 42
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_INTERSTELLAR_RIVAL_SP_SWAMPERT ===
@@ -14610,6 +14652,16 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Scary Face
 - Swagger
 
+
+Pelipper
+Level: 39
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Water Pulse
+- Wing Attack
+- Supersonic
+- Protect
+
+
 Swellow
 Level: 40
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
@@ -14617,8 +14669,18 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Quick Attack
 - Endeavor
 
+
+Breloom
+Level: 40
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Mach Punch
+- Seed Bomb
+- Headbutt
+- Stun Spore
+
+
 Swampert
-Level: 41
+Level: 42
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_INTERSTELLAR_RIVAL_SP_SCEPTILE ===
@@ -14637,6 +14699,16 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Scary Face
 - Swagger
 
+
+Pelipper
+Level: 39
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Water Pulse
+- Wing Attack
+- Supersonic
+- Protect
+
+
 Swellow
 Level: 40
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
@@ -14644,8 +14716,18 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Quick Attack
 - Endeavor
 
+
+Breloom
+Level: 40
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Mach Punch
+- Seed Bomb
+- Headbutt
+- Stun Spore
+
+
 Sceptile
-Level: 41
+Level: 42
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_INTERSTELLAR_JAGGED_ROCKET ===
