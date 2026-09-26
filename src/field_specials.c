@@ -5824,3 +5824,10 @@ void StartInterstellarStarterCase(void)
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_OpenBirchCase, 0);
 }
+
+// Interstellar: scenery Pokemon. Puts the species of the object just talked to in
+// gSpecialVar_0x8004, so one script can cry and name whichever Pokemon it is.
+void Interstellar_GetTalkedMonSpecies(void)
+{
+    gSpecialVar_0x8004 = OW_SPECIES(&gObjectEvents[gSelectedObjectEvent]);
+}

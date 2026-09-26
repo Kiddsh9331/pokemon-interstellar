@@ -798,6 +798,7 @@ gStdScripts_End::
 	.include "data/scripts/interstellar_hoenn.inc"
 	.include "data/scripts/interstellar_debug.inc"
 	.include "data/scripts/interstellar_veil.inc"
+	.include "data/scripts/interstellar_scenery.inc"
 	.include "data/maps/Interstellar_Bedroom/scripts.inc"
 	.include "data/maps/Interstellar_House1F/scripts.inc"
 	.include "data/maps/Interstellar_PrologueTown/scripts.inc"

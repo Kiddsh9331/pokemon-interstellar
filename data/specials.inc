@@ -641,3 +641,4 @@ gSpecials::
 	def_special CheckAddCoins
 	def_special Interstellar_SealCaughtBoss
 	def_special StartInterstellarStarterCase
+	def_special Interstellar_GetTalkedMonSpecies
