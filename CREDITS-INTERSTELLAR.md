@@ -17,6 +17,12 @@ copyrighted ROMs.
   (rahtak and contributors), whose README invites reuse with credit. Soulgold in turn credits
   **[Pokémon Heart & Soul](https://github.com/PokemonHnS-Development/pokehns-expansion)** (Lil Dill and team)
   and the artists behind Crystal Advance (Kertra), Johto Redrawn, and Kyledove.
+- **Map-name popup banners** (town, city, routes, woods, cliff, ocean, caves, historic, fall, cherry) —
+  from **[Pokémon Heart & Soul](https://github.com/PokemonHnS-Development/pokehns-expansion)** 2.0.6
+  (Lil Dill and team; pokemonHnS-expansion is based on RHH's pokeemerald-expansion 1.15.1), whose README
+  invites reuse and asks that the full credit chain be kept. Heart & Soul is itself built on
+  **[Modern Emerald](https://github.com/resetes12/pokeemerald)** (resetes12). The scenery Pokémon wandering
+  the routes and the HGSS-style Pokédex setting follow Heart & Soul's lead.
 - **Team Galactic overworld sprites** — ripped from **Pokémon Retro Platinum** (v0.1.2). These were taken
   from the ROM rather than from a source release; if you are the author and would rather they were not
   used, open an issue and they will be removed or redrawn.
