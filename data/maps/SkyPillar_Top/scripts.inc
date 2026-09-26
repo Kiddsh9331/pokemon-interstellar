@@ -21,6 +21,11 @@ SkyPillar_Top_OnTransition:
 	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_SetCleanLayout
 	@ A full portal only exists during a crossing scene.
 	setflag FLAG_INTERSTELLAR_SKYPILLAR_PORTAL_CLOSED
+	@ The collapse tears open one by one in the scene; TEMP flags reset on every warp, so hide them here.
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_14
 	end
 
 SkyPillar_Top_EventScript_SetCleanLayout::
@@ -36,7 +41,8 @@ Interstellar_EventScript_CorruptedRayquaza::
 	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1
+	@ Defensive totem: a catch fight should run long, not end in a wipe (+1 Atk with priority Extreme Speed was estimated to sweep Lv 40 teams)
+	settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
 	setwildbattle SPECIES_RAYQUAZA, 44
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
@@ -95,38 +101,38 @@ Interstellar_EventScript_StormParts::
 	msgbox Interstellar_SkyPillar_Text_SummitComesApart, MSGBOX_DEFAULT
 	closemessage
 
-	fadescreenspeed FADE_TO_WHITE, 5
+	fadescreenswapbuffers FADE_TO_WHITE
 	setobjectxy LOCALID_PLAYER, 14, 7
 	turnobject LOCALID_PLAYER, DIR_NORTH
 	clearflag FLAG_TEMP_11
 	addobject 5
-	fadescreenspeed FADE_FROM_WHITE, 5
+	fadescreenswapbuffers FADE_FROM_WHITE
 	call Interstellar_SkyPillar_EventScript_Rumble
 
-	fadescreenspeed FADE_TO_WHITE, 5
+	fadescreenswapbuffers FADE_TO_WHITE
 	clearflag FLAG_TEMP_12
 	addobject 6
-	fadescreenspeed FADE_FROM_WHITE, 5
+	fadescreenswapbuffers FADE_FROM_WHITE
 	call Interstellar_SkyPillar_EventScript_Rumble
 
-	fadescreenspeed FADE_TO_WHITE, 4
+	fadescreenswapbuffers FADE_TO_WHITE
 	clearflag FLAG_TEMP_13
 	addobject 7
-	fadescreenspeed FADE_FROM_WHITE, 4
+	fadescreenswapbuffers FADE_FROM_WHITE
 	call Interstellar_SkyPillar_EventScript_Rumble
 
-	fadescreenspeed FADE_TO_WHITE, 3
+	fadescreenswapbuffers FADE_TO_WHITE
 	clearflag FLAG_TEMP_14
 	addobject 8
-	fadescreenspeed FADE_FROM_WHITE, 3
+	fadescreenswapbuffers FADE_FROM_WHITE
 	call Interstellar_SkyPillar_EventScript_Rumble
 
 	@ ...and then a whole one opens, directly behind you.
 	playse SE_M_TELEPORT
-	fadescreenspeed FADE_TO_WHITE, 2
+	fadescreenswapbuffers FADE_TO_WHITE
 	clearflag FLAG_INTERSTELLAR_SKYPILLAR_PORTAL_CLOSED
 	addobject LOCALID_INTERSTELLAR_SP_GATE
-	fadescreenspeed FADE_FROM_WHITE, 2
+	fadescreenswapbuffers FADE_FROM_WHITE
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	delay 20

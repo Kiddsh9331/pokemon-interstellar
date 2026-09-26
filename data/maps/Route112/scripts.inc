@@ -187,10 +187,10 @@ Interstellar_Route112_EventScript_PassOpen::
 	trainerbattle_no_intro TRAINER_INTERSTELLAR_WRONGRIVAL, Interstellar_Route112_Text_WrongMayDefeat
 	msgbox Interstellar_Route112_Text_WrongMayAfter, MSGBOX_DEFAULT
 	closemessage
-	fadescreen FADE_TO_BLACK
+	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_INTERSTELLAR_WRONG_MAY
 	setflag FLAG_TEMP_11
-	fadescreen FADE_FROM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
 	msgbox Interstellar_Route112_Text_WrongMayGone, MSGBOX_DEFAULT
 	setflag FLAG_INTERSTELLAR_WRONG_RIVAL_DONE
 	setvar VAR_TEMP_2, 1

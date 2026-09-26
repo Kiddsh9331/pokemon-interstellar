@@ -96,9 +96,9 @@ Interstellar_MauvilleGym_EventScript_WattsonSendOff::
 	clearflag FLAG_INTERSTELLAR_HIDE_NEWMAUVILLE_WATTSON
 	setflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
 	playse SE_EXIT
-	fadescreen FADE_TO_BLACK
+	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
-	fadescreen FADE_FROM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
 	msgbox Interstellar_MauvilleGym_Text_WattsonAlreadyGone, MSGBOX_DEFAULT
 	release
 	end

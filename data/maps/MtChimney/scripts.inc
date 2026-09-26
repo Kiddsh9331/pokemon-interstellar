@@ -956,6 +956,7 @@ Interstellar_MtChimney_EventScript_DoTagBattle::
 	case 1, Interstellar_MtChimney_EventScript_TagWon
 	fadescreen FADE_TO_BLACK
 	special SetCB2WhiteOut
+	waitstate
 
 Interstellar_MtChimney_EventScript_TagWon::
 	special LoadPlayerParty
@@ -1144,18 +1145,18 @@ Interstellar_MtChimney_Text_RocketPost:
 	.string "It's not a bad show, honestly.$"
 
 Interstellar_MtChimney_Text_FlanneryPatchUp:
-	.string "You took that standing up.\p"
+	.string "FLANNERY: You took that standing up.\p"
 	.string "Hold still. Grandpa's rule: nobody\n"
 	.string "walks off my mountain hurt.$"
 
 Interstellar_MtChimney_Text_FlanneryPatchedUp:
-	.string "There. Good as new.\p"
+	.string "FLANNERY: There. Good as new.\p"
 	.string "I've two more pages of notes, then I'm\n"
 	.string "heading down the pass.\p"
 	.string "Beat me to the GYM if you can.$"
 
 Interstellar_MtChimney_Text_FlanneryHeadsDown:
-	.string "Two more pages and I'm gone.\p"
+	.string "FLANNERY: Two more pages and I'm gone.\p"
 	.string "Don't wait up. The GYM is open\n"
 	.string "whether I'm standing in it or not.$"
 

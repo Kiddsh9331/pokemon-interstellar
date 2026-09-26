@@ -184,8 +184,8 @@ Interstellar_Hoenn_EventScript_Storm::
 	waitstate
 	msgbox Interstellar_PrologueTown_Text_BirchTheSky, MSGBOX_DEFAULT
 	closemessage
-	fadescreenspeed FADE_TO_WHITE, 2
-	fadescreenspeed FADE_FROM_WHITE, 2
+	fadescreenswapbuffers FADE_TO_WHITE
+	fadescreenswapbuffers FADE_FROM_WHITE
 	playse SE_THUNDER
 	msgbox Interstellar_PrologueTown_Text_BirchGetDown, MSGBOX_DEFAULT
 	closemessage

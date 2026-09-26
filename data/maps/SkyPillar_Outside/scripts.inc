@@ -69,12 +69,12 @@ Interstellar_EventScript_MayAfterBattle::
 	msgbox Interstellar_SkyPillarOut_Text_MayItsRayquaza, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_INTERSTELLAR_RIVAL_SKYPILLAR_DONE
-	fadescreen FADE_TO_BLACK
+	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_INTERSTELLAR_SP_MAY_DOOR
 	setflag FLAG_TEMP_11
 	clearflag FLAG_TEMP_12
 	addobject LOCALID_INTERSTELLAR_SP_MAY_SHORE
-	fadescreen FADE_FROM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
 	msgbox Interstellar_SkyPillarOut_Text_MayStepsAside, MSGBOX_DEFAULT
 	release
 	end

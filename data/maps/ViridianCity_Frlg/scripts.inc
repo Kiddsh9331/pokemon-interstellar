@@ -488,7 +488,7 @@ Interstellar_Viridian_Text_MayScout:
 	.string "BROCK is keeping PEWTER together.\n"
 	.string "I'm heading through ROUTE 2 and\l"
 	.string "VIRIDIAN FOREST to reach him.\p"
-	.string "Then I'll check MT. MOON for another\l"
+	.string "Then I'll check MT. MOON for another\n"
 	.string "signal. Don't disappear again!$"
 
 ViridianCity_Text_GymDoorsAreLocked::
