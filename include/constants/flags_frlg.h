@@ -153,14 +153,6 @@
 #define FLAG_INTERSTELLAR_HIDE_CHIMNEY_LEADERS    0x14A // Interstellar: MAXIE and ARCHIE, only while the rim gate is open
 #define FLAG_INTERSTELLAR_HIDE_CHIMNEY_PORTAL     0x14B // Interstellar: the rim gate on the scar's tile, open only during the crater scene
 #define FLAG_INTERSTELLAR_HIDE_CHIMNEY_SCAR       0x14C // Interstellar: the rim scar, hidden while the gate stands open
-#define FLAG_0x14D               0x14D
-#define FLAG_0x14E               0x14E
-#define FLAG_0x14F               0x14F
-#define FLAG_0x150               0x150
-#define FLAG_0x151               0x151
-#define FLAG_0x152               0x152
-#define FLAG_0x153               0x153
-
 // Item ball hide/show
 #define FLAG_HIDE_ROUTE2_ETHER                                  0x154
 #define FLAG_HIDE_ROUTE2_PARALYZE_HEAL                          0x155
@@ -335,11 +327,6 @@
 #define FLAG_HIDE_SILPH_CO_4F_TM41                              0x1FE
 
 // Unused?
-#define FLAG_0x1FF               0x1FF
-#define FLAG_0x200               0x200
-#define FLAG_0x201               0x201
-#define FLAG_0x202               0x202
-#define FLAG_0x203               0x203
 #define FLAG_0x204               0x204
 #define FLAG_0x205               0x205
 #define FLAG_0x206               0x206
@@ -1364,7 +1351,7 @@
 #define FLAG_MET_RIVAL_MOM                   0
 #define FLAG_BIRCH_AIDE_MET                  0
 #define FLAG_DECLINED_BIKE                   0
-#define FLAG_RECEIVED_BIKE                   0
+#define FLAG_RECEIVED_BIKE                           0x152 // Interstellar: was 0 (no-op); Mauville bike shop, one bike
 #define FLAG_WATTSON_REMATCH_AVAILABLE       0
 #define FLAG_COLLECTED_ALL_SILVER_SYMBOLS    0
 #define FLAG_GOOD_LUCK_SAFARI_ZONE           0 // Set after talking to NPC blocking Safari Zone entrance/exit once.
@@ -1373,7 +1360,7 @@
 #define FLAG_RECEIVED_SECRET_POWER           0
 #define FLAG_MET_TEAM_AQUA_HARBOR            0
 #define FLAG_TV_EXPLAINED                    0
-#define FLAG_MAUVILLE_GYM_BARRIERS_STATE     0
+#define FLAG_MAUVILLE_GYM_BARRIERS_STATE             0x150 // Interstellar: was 0 (no-op); Mauville gym barrier layout survives a reload
 #define FLAG_MOSSDEEP_GYM_SWITCH_1           0 // Leftover from the RS version of Mossdeep Gym, functionally unused
 #define FLAG_MOSSDEEP_GYM_SWITCH_2           0 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_3           0 //
@@ -1442,8 +1429,8 @@
 #define FLAG_TOUGH_PAINTING_MADE             0
 #define FLAG_RECEIVED_TM_ROCK_TOMB           0
 #define FLAG_RECEIVED_TM_BULK_UP             0
-#define FLAG_RECEIVED_TM_SHOCK_WAVE          0
-#define FLAG_RECEIVED_TM_OVERHEAT            0
+#define FLAG_RECEIVED_TM_SHOCK_WAVE                  0x14D // Interstellar: was 0 (no-op); WATTSON's TM, once
+#define FLAG_RECEIVED_TM_OVERHEAT                    0x14E // Interstellar: was 0 (no-op); FLANNERY's TM, once
 #define FLAG_RECEIVED_TM_FACADE              0
 #define FLAG_RECEIVED_TM_AERIAL_ACE          0
 #define FLAG_RECEIVED_TM_CALM_MIND           0
@@ -1531,19 +1518,19 @@
 #define FLAG_RECEIVED_DURIN_BERRY            0
 #define FLAG_RECEIVED_BELUE_BERRY            0
 #define FLAG_ENABLE_RIVAL_MATCH_CALL         0
-#define FLAG_RECEIVED_CHARCOAL               0
+#define FLAG_RECEIVED_CHARCOAL                       0x1FF // Interstellar: was 0 (no-op); Lavaridge herb shop
 #define FLAG_LATIOS_OR_LATIAS_ROAMING        0
 #define FLAG_RECEIVED_REPEAT_BALL            0
 #define FLAG_RECEIVED_OLD_ROD                0
-#define FLAG_RECEIVED_COIN_CASE              0
+#define FLAG_RECEIVED_COIN_CASE                      0x202 // Interstellar: was 0 (no-op); Mauville house
 #define FLAG_RETURNED_RED_OR_BLUE_ORB        0
 #define FLAG_RECEIVED_TM_SNATCH              0
 #define FLAG_RECEIVED_TM_DIG                 0
 #define FLAG_RECEIVED_TM_BULLET_SEED         0
 #define FLAG_ENTERED_ELITE_FOUR              0
 #define FLAG_RECEIVED_TM_HIDDEN_POWER        0
-#define FLAG_RECEIVED_TM_TORMENT             0
-#define FLAG_RECEIVED_LAVARIDGE_EGG          0
+#define FLAG_RECEIVED_TM_TORMENT                     0x201 // Interstellar: was 0 (no-op); Slateport Battle Tent
+#define FLAG_RECEIVED_LAVARIDGE_EGG                  0x153 // Interstellar: was 0 (no-op); Lavaridge egg, once
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0
 #define FLAG_SECRET_BASE_REGISTRY_ENABLED    0
 #define FLAG_RECEIVED_TM_THIEF               0
@@ -1595,7 +1582,7 @@
 #define FLAG_MIRAGE_TOWER_VISIBLE            0
 #define FLAG_CHOSE_ROOT_FOSSIL               0
 #define FLAG_CHOSE_CLAW_FOSSIL               0
-#define FLAG_RECEIVED_POWDER_JAR             0
+#define FLAG_RECEIVED_POWDER_JAR                     0x200 // Interstellar: was 0 (no-op); Slateport
 
 #define FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER 0
 
@@ -2257,8 +2244,8 @@
 
 #define FLAG_DEFEATED_RUSTBORO_GYM                                  0
 #define FLAG_DEFEATED_DEWFORD_GYM                                   0
-#define FLAG_DEFEATED_MAUVILLE_GYM                                  0
-#define FLAG_DEFEATED_LAVARIDGE_GYM                                 0
+#define FLAG_DEFEATED_MAUVILLE_GYM                   0x14F // Interstellar: was 0 (no-op); Mauville gym puzzle + guide after the badge
+#define FLAG_DEFEATED_LAVARIDGE_GYM                  0x151 // Interstellar: was 0 (no-op); Lavaridge gym guide after the badge
 #define FLAG_DEFEATED_PETALBURG_GYM                                 0
 #define FLAG_DEFEATED_FORTREE_GYM                                   0
 #define FLAG_DEFEATED_MOSSDEEP_GYM                                  0
@@ -2447,7 +2434,7 @@
 #define FLAG_UNUSED_0x929                           0
 #define FLAG_DAILY_PICKED_LOTO_TICKET               0
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         0
-#define FLAG_DAILY_ROUTE_111_RECEIVED_BERRY         0
+#define FLAG_DAILY_ROUTE_111_RECEIVED_BERRY          0x203 // Interstellar: was 0 (no-op); Route 111 berry (one-time here, not daily)
 #define FLAG_DAILY_BERRY_MASTER_RECEIVED_BERRY      0
 #define FLAG_DAILY_ROUTE_120_RECEIVED_BERRY         0
 #define FLAG_DAILY_LILYCOVE_RECEIVED_BERRY          0
